@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nucleus Grid Test</title>
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+</head>
+<body>
+
+<h1 style="text-align:center; margin: 1rem 0;">Nucleus CSS Grid Test</h1>
+
+<!-- Fixed Container -->
+<div class="n-container">
+    <h2>Fixed Container</h2>
+    <div class="n-row">
+        <div class="n-col-12">.n-col-12</div>
+        <div class="n-col-6">.n-col-6</div>
+        <div class="n-col-6">.n-col-6</div>
+        <div class="n-col-4">.n-col-4</div>
+        <div class="n-col-4">.n-col-4</div>
+        <div class="n-col-4">.n-col-4</div>
+        <div class="n-col-3">.n-col-3</div>
+        <div class="n-col-3">.n-col-3</div>
+        <div class="n-col-3">.n-col-3</div>
+        <div class="n-col-3">.n-col-3</div>
+    </div>
+</div>
+
+<!-- Fluid Container -->
+<div class="n-container-fluid">
+    <h2>Fluid Container</h2>
+    <div class="n-row">
+        <div class="n-col-8">.n-col-8</div>
+        <div class="n-col-4">.n-col-4</div>
+    </div>
+</div>
+
+<!-- Responsive Test -->
+<div class="n-container">
+    <h2>Responsive Test</h2>
+    <div class="n-row">
+        <div class="n-col-6 n-col-md-3 n-col-sm-1">A</div>
+        <div class="n-col-6 n-col-md-3 n-col-sm-1">B</div>
+        <div class="n-col-6 n-col-md-3 n-col-sm-2">C</div>
+        <div class="n-col-6 n-col-md-3 n-col-sm-2">D</div>
+    </div>
+</div>
+
+<!-- Nested Rows -->
+<div class="n-container">
+    <h2>Nested Grid</h2>
+    <div class="n-row">
+        <div class="n-col-6">
+            Parent .n-col-6
+            <div class="n-row">
+                <div class="n-col-6">Nested .n-col-6</div>
+                <div class="n-col-6">Nested .n-col-6</div>
+            </div>
+        </div>
+        <div class="n-col-6">
+            Parent .n-col-6
+            <div class="n-row">
+                <div class="n-col-4">Nested .n-col-4</div>
+                <div class="n-col-8">Nested .n-col-8</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

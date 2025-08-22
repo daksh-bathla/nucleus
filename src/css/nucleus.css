@@ -1,0 +1,122 @@
+/* ----------------------------- */
+/* Reset Layer                   */
+/* ----------------------------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+/* ----------------------------- */
+/* Container System               */
+/* ----------------------------- */
+:root {
+    --n-gutter: 16px;
+    --n-container-sm: 540px;
+    --n-container-md: 720px;
+    --n-container-lg: 960px;
+    --n-container-xl: 1200px;
+    --n-container-xxl: 1600px; /* ultrawide */
+}
+
+/* Fixed-width container (responsive max-widths) */
+.n-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--n-gutter);
+}
+
+@media (min-width: 576px) {
+    .n-container { max-width: var(--n-container-sm); }
+}
+@media (min-width: 768px) {
+    .n-container { max-width: var(--n-container-md); }
+}
+@media (min-width: 992px) {
+    .n-container { max-width: var(--n-container-lg); }
+}
+@media (min-width: 1200px) {
+    .n-container { max-width: var(--n-container-xl); }
+}
+@media (min-width: 1600px) {
+    .n-container { max-width: var(--n-container-xxl); }
+}
+
+/* Fluid container: always 100% */
+.n-container-fluid {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--n-gutter);
+    max-width: none;
+}
+
+/* ----------------------------- */
+/* Grid System                   */
+/* ----------------------------- */
+.n-row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--n-gutter);
+}
+
+/* Column spans: using grid-column span instead of %
+   Reason: avoids rounding errors & is cleaner with CSS Grid */
+[class*="n-col-"] {
+    min-height: 50px;
+    background: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    padding: 8px;
+    text-align: center;
+}
+
+.n-col-1 { grid-column: span 1; }
+.n-col-2 { grid-column: span 2; }
+.n-col-3 { grid-column: span 3; }
+.n-col-4 { grid-column: span 4; }
+.n-col-5 { grid-column: span 5; }
+.n-col-6 { grid-column: span 6; }
+.n-col-7 { grid-column: span 7; }
+.n-col-8 { grid-column: span 8; }
+.n-col-9 { grid-column: span 9; }
+.n-col-10 { grid-column: span 10; }
+.n-col-11 { grid-column: span 11; }
+.n-col-12 { grid-column: span 12; }
+
+/* ----------------------------- */
+/* Responsive Columns            */
+/* ----------------------------- */
+@media (max-width: 768px) {
+    .n-row { grid-template-columns: repeat(6, 1fr); }
+    .n-col-md-6 { grid-column: span 6; }
+    .n-col-md-3 { grid-column: span 3; }
+}
+
+@media (max-width: 480px) {
+    .n-row { grid-template-columns: repeat(2, 1fr); }
+    .n-col-sm-2 { grid-column: span 2; }
+    .n-col-sm-1 { grid-column: span 1; }
+}
