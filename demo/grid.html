@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid System — Nucleus CSS</title>
+    <meta name="description" content="12-column CSS Grid system with responsive breakpoints and fluid containers.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link active" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Grid System</h1>
+            <p class="demo-subtitle">12-column CSS Grid with responsive breakpoints (sm, md, lg, xl) and two container types.</p>
+        </div>
+
+        <!-- Containers -->
+        <div class="demo-section" id="containers">
+            <h2 class="demo-title">Containers</h2>
+            <p class="demo-subtitle">Wrap your content in a container to control max-width.</p>
+
+            <div class="n-row n-mb-4">
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2"><code>.n-container</code></h5>
+                    <p class="n-text-sm n-text-muted n-mb-2">
+                        Fixed-width container that snaps to breakpoints.
+                    </p>
+                    <div class="demo-code">&lt;div class="n-container"&gt;
+  ...content...
+&lt;/div&gt;</div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2"><code>.n-container-fluid</code></h5>
+                    <p class="n-text-sm n-text-muted n-mb-2">
+                        Full-width container that stretches to fill the screen.
+                    </p>
+                    <div class="demo-code">&lt;div class="n-container-fluid"&gt;
+  ...full width content...
+&lt;/div&gt;</div>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Breakpoint Table</h5>
+            <div class="n-overflow-x-auto">
+                <table class="n-table n-table-striped" id="table-breakpoints">
+                    <thead>
+                        <tr>
+                            <th>Breakpoint</th>
+                            <th>Min Width</th>
+                            <th>Container Max</th>
+                            <th>Class Prefix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Default</td><td>0</td><td>100%</td><td><code>.n-col-*</code></td></tr>
+                        <tr><td>Small</td><td>576px</td><td>540px</td><td><code>.n-col-sm-*</code></td></tr>
+                        <tr><td>Medium</td><td>768px</td><td>720px</td><td><code>.n-col-md-*</code></td></tr>
+                        <tr><td>Large</td><td>992px</td><td>960px</td><td><code>.n-col-lg-*</code></td></tr>
+                        <tr><td>XL</td><td>1200px</td><td>1200px</td><td><code>.n-col-xl-*</code></td></tr>
+                        <tr><td>XXL</td><td>1600px</td><td>1600px</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Equal Columns -->
+        <div class="demo-section" id="equal-columns">
+            <h2 class="demo-title">Equal Columns</h2>
+            <p class="demo-subtitle">Divide the row into equal parts using consistent column spans.</p>
+
+            <h5 class="n-mb-2">4 × 3 (Quarter)</h5>
+            <div class="n-row n-mb-3">
+                <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
+                <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
+                <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
+                <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
+            </div>
+
+            <h5 class="n-mb-2">3 × 4 (Thirds)</h5>
+            <div class="n-row n-mb-3">
+                <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
+                <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
+                <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
+            </div>
+
+            <h5 class="n-mb-2">2 × 6 (Halves)</h5>
+            <div class="n-row n-mb-3">
+                <div class="n-col-6"><div class="demo-grid-cell">.n-col-6</div></div>
+                <div class="n-col-6"><div class="demo-grid-cell">.n-col-6</div></div>
+            </div>
+
+            <h5 class="n-mb-2">1 × 12 (Full Width)</h5>
+            <div class="n-row">
+                <div class="n-col-12"><div class="demo-grid-cell">.n-col-12</div></div>
+            </div>
+        </div>
+
+        <!-- Mixed Widths -->
+        <div class="demo-section" id="mixed-widths">
+            <h2 class="demo-title">Mixed Widths</h2>
+            <p class="demo-subtitle">Columns don't need to be equal — mix and match as long as they add to 12.</p>
+
+            <div class="n-row n-mb-3">
+                <div class="n-col-8"><div class="demo-grid-cell">.n-col-8</div></div>
+                <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
+            </div>
+            <div class="n-row n-mb-3">
+                <div class="n-col-2"><div class="demo-grid-cell">.n-col-2</div></div>
+                <div class="n-col-7"><div class="demo-grid-cell">.n-col-7</div></div>
+                <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
+            </div>
+            <div class="n-row n-mb-3">
+                <div class="n-col-1"><div class="demo-grid-cell">1</div></div>
+                <div class="n-col-2"><div class="demo-grid-cell">2</div></div>
+                <div class="n-col-3"><div class="demo-grid-cell">3</div></div>
+                <div class="n-col-6"><div class="demo-grid-cell">6</div></div>
+            </div>
+        </div>
+
+        <!-- Responsive -->
+        <div class="demo-section" id="responsive">
+            <h2 class="demo-title">Responsive Columns</h2>
+            <p class="demo-subtitle">Stack columns on mobile, show side-by-side on larger screens. Resize your browser to see it!</p>
+
+            <h5 class="n-mb-2">12 → sm:6 → md:4 → lg:3</h5>
+            <div class="n-row n-mb-4">
+                <div class="n-col-12 n-col-sm-6 n-col-md-4 n-col-lg-3"><div class="demo-grid-cell">Item 1</div></div>
+                <div class="n-col-12 n-col-sm-6 n-col-md-4 n-col-lg-3"><div class="demo-grid-cell">Item 2</div></div>
+                <div class="n-col-12 n-col-sm-6 n-col-md-4 n-col-lg-3"><div class="demo-grid-cell">Item 3</div></div>
+                <div class="n-col-12 n-col-sm-6 n-col-md-12 n-col-lg-3"><div class="demo-grid-cell">Item 4</div></div>
+            </div>
+
+            <h5 class="n-mb-2">Sidebar Layout (collapses on mobile)</h5>
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-3"><div class="demo-grid-cell">Sidebar (md:3)</div></div>
+                <div class="n-col-12 n-col-md-9"><div class="demo-grid-cell">Main Content (md:9)</div></div>
+            </div>
+
+            <div class="n-mt-3">
+                <div class="demo-code">&lt;div class="n-row"&gt;
+  &lt;div class="n-col-12 n-col-sm-6 n-col-md-4 n-col-lg-3"&gt;
+    Stacks mobile → 2-up sm → 3-up md → 4-up lg
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+            </div>
+        </div>
+
+        <!-- Nested Grids -->
+        <div class="demo-section" id="nested">
+            <h2 class="demo-title">Nested Grids</h2>
+            <p class="demo-subtitle">Place a new <code>.n-row</code> inside any column to create sub-grids.</p>
+
+            <div class="n-row">
+                <div class="n-col-6">
+                    <div class="demo-grid-cell n-mb-2">Parent .n-col-6</div>
+                    <div class="n-row">
+                        <div class="n-col-6"><div class="demo-grid-cell" style="background:#ddd6fe;border-color:#a78bfa;color:#6d28d9">Nested 6</div></div>
+                        <div class="n-col-6"><div class="demo-grid-cell" style="background:#ddd6fe;border-color:#a78bfa;color:#6d28d9">Nested 6</div></div>
+                    </div>
+                </div>
+                <div class="n-col-6">
+                    <div class="demo-grid-cell n-mb-2">Parent .n-col-6</div>
+                    <div class="n-row">
+                        <div class="n-col-4"><div class="demo-grid-cell" style="background:#ddd6fe;border-color:#a78bfa;color:#6d28d9">Nested 4</div></div>
+                        <div class="n-col-8"><div class="demo-grid-cell" style="background:#ddd6fe;border-color:#a78bfa;color:#6d28d9">Nested 8</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- All 12 Columns -->
+        <div class="demo-section" id="all-columns">
+            <h2 class="demo-title">All 12 Column Spans</h2>
+            <p class="demo-subtitle">Every possible column width at a glance.</p>
+
+            <div class="n-row n-mb-1"><div class="n-col-1"><div class="demo-grid-cell">1</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-2"><div class="demo-grid-cell">2</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-3"><div class="demo-grid-cell">3</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-4"><div class="demo-grid-cell">4</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-5"><div class="demo-grid-cell">5</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-6"><div class="demo-grid-cell">6</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-7"><div class="demo-grid-cell">7</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-8"><div class="demo-grid-cell">8</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-9"><div class="demo-grid-cell">9</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-10"><div class="demo-grid-cell">10</div></div></div>
+            <div class="n-row n-mb-1"><div class="n-col-11"><div class="demo-grid-cell">11</div></div></div>
+            <div class="n-row"><div class="n-col-12"><div class="demo-grid-cell">12</div></div></div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <p>⚛ Nucleus CSS — <a href="index.html">Home</a></p>
+    </div>
+</div>
+
+</body>
+</html>

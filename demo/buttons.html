@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons — Nucleus CSS</title>
+    <meta name="description" content="Button components: solid, outline, ghost variants across 8 colors and 3 sizes.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link active" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Buttons</h1>
+            <p class="demo-subtitle">Solid, outline, and ghost button variants with hover states, sizes, and disabled styles.</p>
+        </div>
+
+        <!-- Solid Buttons -->
+        <div class="demo-section" id="solid">
+            <h2 class="demo-title">Solid Buttons</h2>
+            <p class="demo-subtitle">Default filled buttons for primary actions.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
+                <button class="n-btn n-btn-primary" id="btn-solid-primary">Primary</button>
+                <button class="n-btn n-btn-secondary" id="btn-solid-secondary">Secondary</button>
+                <button class="n-btn n-btn-success" id="btn-solid-success">Success</button>
+                <button class="n-btn n-btn-danger" id="btn-solid-danger">Danger</button>
+                <button class="n-btn n-btn-warning" id="btn-solid-warning">Warning</button>
+                <button class="n-btn n-btn-info" id="btn-solid-info">Info</button>
+                <button class="n-btn n-btn-dark" id="btn-solid-dark">Dark</button>
+                <button class="n-btn n-btn-light" id="btn-solid-light">Light</button>
+            </div>
+
+            <div class="demo-code">&lt;button class="n-btn n-btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="n-btn n-btn-success"&gt;Success&lt;/button&gt;
+&lt;button class="n-btn n-btn-danger"&gt;Danger&lt;/button&gt;</div>
+        </div>
+
+        <!-- Outline Buttons -->
+        <div class="demo-section" id="outline">
+            <h2 class="demo-title">Outline Buttons</h2>
+            <p class="demo-subtitle">Bordered buttons that fill on hover — great for secondary actions.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
+                <button class="n-btn n-btn-outline-primary" id="btn-outline-primary">Primary</button>
+                <button class="n-btn n-btn-outline-secondary" id="btn-outline-secondary">Secondary</button>
+                <button class="n-btn n-btn-outline-success" id="btn-outline-success">Success</button>
+                <button class="n-btn n-btn-outline-danger" id="btn-outline-danger">Danger</button>
+            </div>
+
+            <div class="demo-code">&lt;button class="n-btn n-btn-outline-primary"&gt;Primary&lt;/button&gt;
+&lt;button class="n-btn n-btn-outline-danger"&gt;Danger&lt;/button&gt;</div>
+        </div>
+
+        <!-- Ghost -->
+        <div class="demo-section" id="ghost">
+            <h2 class="demo-title">Ghost Button</h2>
+            <p class="demo-subtitle">Minimal button with no background — reveals a subtle tint on hover.</p>
+
+            <div class="n-flex n-gap-2 n-mb-4">
+                <button class="n-btn n-btn-ghost" id="btn-ghost">Ghost Button</button>
+            </div>
+
+            <div class="demo-code">&lt;button class="n-btn n-btn-ghost"&gt;Ghost Button&lt;/button&gt;</div>
+        </div>
+
+        <!-- Sizes -->
+        <div class="demo-section" id="sizes">
+            <h2 class="demo-title">Button Sizes</h2>
+            <p class="demo-subtitle">Three sizes for different contexts.</p>
+
+            <div class="n-flex n-flex-wrap n-items-center n-gap-3 n-mb-4">
+                <button class="n-btn n-btn-primary n-btn-sm" id="btn-size-sm">Small <code>.n-btn-sm</code></button>
+                <button class="n-btn n-btn-primary" id="btn-size-default">Default</button>
+                <button class="n-btn n-btn-primary n-btn-lg" id="btn-size-lg">Large <code>.n-btn-lg</code></button>
+            </div>
+
+            <div class="demo-code">&lt;button class="n-btn n-btn-primary n-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button class="n-btn n-btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="n-btn n-btn-primary n-btn-lg"&gt;Large&lt;/button&gt;</div>
+        </div>
+
+        <!-- Disabled -->
+        <div class="demo-section" id="disabled">
+            <h2 class="demo-title">Disabled State</h2>
+            <p class="demo-subtitle">Use the <code>disabled</code> attribute or <code>.n-disabled</code> class to prevent interaction.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
+                <button class="n-btn n-btn-primary" disabled id="btn-disabled-attr">Disabled (attr)</button>
+                <button class="n-btn n-btn-secondary n-disabled" id="btn-disabled-class">Disabled (class)</button>
+                <button class="n-btn n-btn-outline-danger" disabled id="btn-disabled-outline">Disabled Outline</button>
+            </div>
+
+            <div class="demo-code">&lt;button class="n-btn n-btn-primary" disabled&gt;Disabled&lt;/button&gt;
+&lt;button class="n-btn n-btn-secondary n-disabled"&gt;Disabled&lt;/button&gt;</div>
+        </div>
+
+        <!-- As Links -->
+        <div class="demo-section" id="link-buttons">
+            <h2 class="demo-title">Buttons as Links</h2>
+            <p class="demo-subtitle">Apply button classes to <code>&lt;a&gt;</code> tags for link-styled buttons.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
+                <a href="#" class="n-btn n-btn-primary" id="link-btn-primary">Link Button</a>
+                <a href="#" class="n-btn n-btn-outline-secondary" id="link-btn-secondary">Outline Link</a>
+                <a href="#" class="n-btn n-btn-ghost" id="link-btn-ghost">Ghost Link</a>
+            </div>
+
+            <div class="demo-code">&lt;a href="/page" class="n-btn n-btn-primary"&gt;Link Button&lt;/a&gt;</div>
+        </div>
+
+        <!-- Button Groups -->
+        <div class="demo-section" id="groups">
+            <h2 class="demo-title">Button Groups</h2>
+            <p class="demo-subtitle">Combine buttons with flex utilities for grouped controls.</p>
+
+            <div class="n-flex n-mb-4">
+                <button class="n-btn n-btn-primary n-rounded-none" style="border-radius:var(--n-radius) 0 0 var(--n-radius)" id="btn-group-left">Left</button>
+                <button class="n-btn n-btn-primary n-rounded-none" style="border-left:1px solid rgba(255,255,255,.2);border-right:1px solid rgba(255,255,255,.2)" id="btn-group-center">Center</button>
+                <button class="n-btn n-btn-primary n-rounded-none" style="border-radius:0 var(--n-radius) var(--n-radius) 0" id="btn-group-right">Right</button>
+            </div>
+
+            <div class="n-flex n-gap-1 n-mb-4">
+                <button class="n-btn n-btn-outline-primary n-btn-sm" id="btn-filter-all">All</button>
+                <button class="n-btn n-btn-outline-primary n-btn-sm" id="btn-filter-active">Active</button>
+                <button class="n-btn n-btn-outline-primary n-btn-sm" id="btn-filter-archived">Archived</button>
+            </div>
+        </div>
+
+        <!-- Full Width -->
+        <div class="demo-section" id="full-width">
+            <h2 class="demo-title">Full Width</h2>
+            <p class="demo-subtitle">Add <code>.n-w-full</code> to make a button span the entire width.</p>
+
+            <div class="n-max-w-md">
+                <button class="n-btn n-btn-primary n-w-full n-mb-2" id="btn-full-primary">Full Width Primary</button>
+                <button class="n-btn n-btn-outline-secondary n-w-full" id="btn-full-outline">Full Width Outline</button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="typography.html" class="n-btn n-btn-ghost">← Typography</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="cards.html" class="n-btn n-btn-ghost">Cards →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

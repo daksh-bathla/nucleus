@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilities — Nucleus CSS</title>
+    <meta name="description" content="Utility classes: spacing, flexbox, display, colors, borders, shadows, opacity, position, overflow, and transitions.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link active" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Utilities</h1>
+            <p class="demo-subtitle">Low-level utility classes for spacing, layout, color, borders, shadows, and more.</p>
+        </div>
+
+        <!-- Spacing -->
+        <div class="demo-section" id="spacing">
+            <h2 class="demo-title">Spacing</h2>
+            <p class="demo-subtitle">Margin (<code>n-m-*</code>) and padding (<code>n-p-*</code>) with a 6-step scale (0–5).</p>
+
+            <h5 class="n-mb-2">Padding Scale</h5>
+            <div class="n-flex n-flex-wrap n-items-end n-gap-3 n-mb-4">
+                <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-0">p-0</div></div>
+                <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-1">p-1</div></div>
+                <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-2">p-2</div></div>
+                <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-3">p-3</div></div>
+                <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-4">p-4</div></div>
+                <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-5">p-5</div></div>
+            </div>
+
+            <h5 class="n-mb-2">Scale Reference</h5>
+            <div class="n-overflow-x-auto n-mb-4">
+                <table class="n-table n-table-striped" id="table-spacing">
+                    <thead><tr><th>Step</th><th>Value</th><th>Margin</th><th>Padding</th></tr></thead>
+                    <tbody>
+                        <tr><td>0</td><td>0</td><td><code>.n-m-0</code></td><td><code>.n-p-0</code></td></tr>
+                        <tr><td>1</td><td>0.25rem (4px)</td><td><code>.n-m-1</code></td><td><code>.n-p-1</code></td></tr>
+                        <tr><td>2</td><td>0.5rem (8px)</td><td><code>.n-m-2</code></td><td><code>.n-p-2</code></td></tr>
+                        <tr><td>3</td><td>1rem (16px)</td><td><code>.n-m-3</code></td><td><code>.n-p-3</code></td></tr>
+                        <tr><td>4</td><td>1.5rem (24px)</td><td><code>.n-m-4</code></td><td><code>.n-p-4</code></td></tr>
+                        <tr><td>5</td><td>3rem (48px)</td><td><code>.n-m-5</code></td><td><code>.n-p-5</code></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="n-mb-2">Directional Variants</h5>
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <table class="n-table" id="table-spacing-dirs">
+                        <thead><tr><th>Suffix</th><th>Direction</th><th>Property</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>t</code></td><td>Top</td><td><code>margin-top / padding-top</code></td></tr>
+                            <tr><td><code>b</code></td><td>Bottom</td><td><code>margin-bottom / padding-bottom</code></td></tr>
+                            <tr><td><code>l</code></td><td>Left</td><td><code>margin-left / padding-left</code></td></tr>
+                            <tr><td><code>r</code></td><td>Right</td><td><code>margin-right / padding-right</code></td></tr>
+                            <tr><td><code>x</code></td><td>Horizontal</td><td><code>margin-inline / padding-inline</code></td></tr>
+                            <tr><td><code>y</code></td><td>Vertical</td><td><code>margin-block / padding-block</code></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <div class="demo-code">&lt;!-- Margin bottom 3 --&gt;
+&lt;div class="n-mb-3"&gt;...&lt;/div&gt;
+
+&lt;!-- Padding horizontal 4 --&gt;
+&lt;div class="n-px-4"&gt;...&lt;/div&gt;
+
+&lt;!-- Center with auto margin --&gt;
+&lt;div class="n-mx-auto"&gt;...&lt;/div&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Flexbox -->
+        <div class="demo-section" id="flexbox">
+            <h2 class="demo-title">Flexbox</h2>
+            <p class="demo-subtitle">Flex direction, justify, align, wrap, and gap utilities.</p>
+
+            <h5 class="n-mb-2">Justify Content</h5>
+            <div class="n-mb-4">
+                <p class="n-text-xs n-text-muted n-mb-1"><code>.n-justify-start</code></p>
+                <div class="n-flex n-justify-start n-gap-2 n-bg-muted n-p-2 n-rounded n-mb-2">
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">A</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">B</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">C</div>
+                </div>
+                <p class="n-text-xs n-text-muted n-mb-1"><code>.n-justify-center</code></p>
+                <div class="n-flex n-justify-center n-gap-2 n-bg-muted n-p-2 n-rounded n-mb-2">
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">A</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">B</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">C</div>
+                </div>
+                <p class="n-text-xs n-text-muted n-mb-1"><code>.n-justify-between</code></p>
+                <div class="n-flex n-justify-between n-bg-muted n-p-2 n-rounded n-mb-2">
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">A</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">B</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">C</div>
+                </div>
+                <p class="n-text-xs n-text-muted n-mb-1"><code>.n-justify-evenly</code></p>
+                <div class="n-flex n-justify-evenly n-bg-muted n-p-2 n-rounded">
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">A</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">B</div>
+                    <div class="n-bg-primary n-text-white n-px-3 n-py-1 n-rounded n-text-xs">C</div>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Align Items</h5>
+            <div class="n-row n-mb-4">
+                <div class="n-col-12 n-col-md-4 n-mb-2">
+                    <p class="n-text-xs n-text-muted n-mb-1"><code>.n-items-start</code></p>
+                    <div class="n-flex n-items-start n-gap-2 n-bg-muted n-p-2 n-rounded" style="height:80px">
+                        <div class="n-bg-secondary n-text-white n-px-2 n-py-1 n-rounded n-text-xs">A</div>
+                        <div class="n-bg-secondary n-text-white n-px-2 n-py-2 n-rounded n-text-xs">B</div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-2">
+                    <p class="n-text-xs n-text-muted n-mb-1"><code>.n-items-center</code></p>
+                    <div class="n-flex n-items-center n-gap-2 n-bg-muted n-p-2 n-rounded" style="height:80px">
+                        <div class="n-bg-secondary n-text-white n-px-2 n-py-1 n-rounded n-text-xs">A</div>
+                        <div class="n-bg-secondary n-text-white n-px-2 n-py-2 n-rounded n-text-xs">B</div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-2">
+                    <p class="n-text-xs n-text-muted n-mb-1"><code>.n-items-end</code></p>
+                    <div class="n-flex n-items-end n-gap-2 n-bg-muted n-p-2 n-rounded" style="height:80px">
+                        <div class="n-bg-secondary n-text-white n-px-2 n-py-1 n-rounded n-text-xs">A</div>
+                        <div class="n-bg-secondary n-text-white n-px-2 n-py-2 n-rounded n-text-xs">B</div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Direction &amp; Wrap</h5>
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6 n-mb-2">
+                    <p class="n-text-xs n-text-muted n-mb-1"><code>.n-flex-col</code></p>
+                    <div class="n-flex n-flex-col n-gap-2 n-bg-muted n-p-2 n-rounded">
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Row 1</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Row 2</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Row 3</div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6 n-mb-2">
+                    <p class="n-text-xs n-text-muted n-mb-1"><code>.n-flex-wrap .n-gap-2</code></p>
+                    <div class="n-flex n-flex-wrap n-gap-2 n-bg-muted n-p-2 n-rounded">
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Tag 1</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Tag 2</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Tag 3</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Tag 4</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Tag 5</div>
+                        <div class="n-bg-info n-text-white n-px-3 n-py-1 n-rounded n-text-xs">Tag 6</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display -->
+        <div class="demo-section" id="display">
+            <h2 class="demo-title">Display</h2>
+            <p class="demo-subtitle">Control element visibility and display type. Includes responsive variants.</p>
+
+            <div class="n-overflow-x-auto n-mb-4">
+                <table class="n-table" id="table-display">
+                    <thead><tr><th>Class</th><th>Value</th><th>Responsive</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.n-d-none</code></td><td>display: none</td><td><code>.n-d-sm-none</code>, <code>.n-d-md-none</code>, <code>.n-d-lg-none</code></td></tr>
+                        <tr><td><code>.n-d-block</code></td><td>display: block</td><td><code>.n-d-sm-block</code>, <code>.n-d-md-block</code>, <code>.n-d-lg-block</code></td></tr>
+                        <tr><td><code>.n-d-flex</code></td><td>display: flex</td><td><code>.n-d-sm-flex</code>, <code>.n-d-md-flex</code>, <code>.n-d-lg-flex</code></td></tr>
+                        <tr><td><code>.n-d-inline</code></td><td>display: inline</td><td>—</td></tr>
+                        <tr><td><code>.n-d-inline-block</code></td><td>display: inline-block</td><td>—</td></tr>
+                        <tr><td><code>.n-d-grid</code></td><td>display: grid</td><td>—</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="n-mb-2">Live Example (resize browser)</h5>
+            <div class="n-flex n-gap-2 n-flex-wrap">
+                <div class="n-bg-dark n-text-white n-p-2 n-rounded n-text-sm n-d-md-none">Hidden on ≥768px</div>
+                <div class="n-bg-primary n-text-white n-p-2 n-rounded n-text-sm n-d-none n-d-md-block">Visible only ≥768px</div>
+                <div class="n-bg-success n-text-white n-p-2 n-rounded n-text-sm">Always visible</div>
+            </div>
+        </div>
+
+        <!-- Colors -->
+        <div class="demo-section" id="colors">
+            <h2 class="demo-title">Background Colors</h2>
+            <p class="demo-subtitle">Apply semantic background colors to any element.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-2">
+                <span class="n-bg-primary n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Primary</span>
+                <span class="n-bg-secondary n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Secondary</span>
+                <span class="n-bg-success n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Success</span>
+                <span class="n-bg-danger n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Danger</span>
+                <span class="n-bg-warning n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Warning</span>
+                <span class="n-bg-info n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Info</span>
+                <span class="n-bg-dark n-p-3 n-rounded n-text-sm" style="min-width:100px;text-align:center">Dark</span>
+                <span class="n-bg-light n-p-3 n-rounded n-text-sm n-border" style="min-width:100px;text-align:center">Light</span>
+            </div>
+        </div>
+
+        <!-- Borders & Radius -->
+        <div class="demo-section" id="borders">
+            <h2 class="demo-title">Borders &amp; Radius</h2>
+            <p class="demo-subtitle">Border utilities and six border-radius levels.</p>
+
+            <h5 class="n-mb-2">Border Radius</h5>
+            <div class="n-flex n-flex-wrap n-items-center n-gap-3 n-mb-4">
+                <div class="n-bg-muted n-p-3 n-border n-rounded-none n-text-xs n-text-center" style="width:80px">none</div>
+                <div class="n-bg-muted n-p-3 n-border n-rounded-sm n-text-xs n-text-center" style="width:80px">sm</div>
+                <div class="n-bg-muted n-p-3 n-border n-rounded n-text-xs n-text-center" style="width:80px">default</div>
+                <div class="n-bg-muted n-p-3 n-border n-rounded-lg n-text-xs n-text-center" style="width:80px">lg</div>
+                <div class="n-bg-muted n-p-3 n-border n-rounded-xl n-text-xs n-text-center" style="width:80px">xl</div>
+                <div class="n-bg-muted n-p-3 n-border n-rounded-full n-text-xs n-text-center" style="width:80px">full</div>
+            </div>
+
+            <h5 class="n-mb-2">Border Colors</h5>
+            <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
+                <div class="n-border n-border-primary n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Primary</div>
+                <div class="n-border n-border-success n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Success</div>
+                <div class="n-border n-border-danger n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Danger</div>
+                <div class="n-border n-border-warning n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Warning</div>
+            </div>
+
+            <h5 class="n-mb-2">Directional Borders</h5>
+            <div class="n-flex n-flex-wrap n-gap-2">
+                <div class="n-border-t n-p-3 n-bg-muted n-text-xs" style="width:100px;text-align:center">border-t</div>
+                <div class="n-border-b n-p-3 n-bg-muted n-text-xs" style="width:100px;text-align:center">border-b</div>
+                <div class="n-border-l n-p-3 n-bg-muted n-text-xs" style="width:100px;text-align:center">border-l</div>
+                <div class="n-border-r n-p-3 n-bg-muted n-text-xs" style="width:100px;text-align:center">border-r</div>
+            </div>
+        </div>
+
+        <!-- Shadows -->
+        <div class="demo-section" id="shadows">
+            <h2 class="demo-title">Shadows</h2>
+            <p class="demo-subtitle">Five elevation levels for visual depth and hierarchy.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-4">
+                <div class="n-bg-white n-p-4 n-rounded-lg n-shadow-sm n-text-center n-text-xs" style="width:120px">shadow-sm</div>
+                <div class="n-bg-white n-p-4 n-rounded-lg n-shadow n-text-center n-text-xs" style="width:120px">shadow</div>
+                <div class="n-bg-white n-p-4 n-rounded-lg n-shadow-md n-text-center n-text-xs" style="width:120px">shadow-md</div>
+                <div class="n-bg-white n-p-4 n-rounded-lg n-shadow-lg n-text-center n-text-xs" style="width:120px">shadow-lg</div>
+                <div class="n-bg-white n-p-4 n-rounded-lg n-shadow-xl n-text-center n-text-xs" style="width:120px">shadow-xl</div>
+            </div>
+        </div>
+
+        <!-- Opacity -->
+        <div class="demo-section" id="opacity">
+            <h2 class="demo-title">Opacity</h2>
+            <p class="demo-subtitle">Control element transparency.</p>
+
+            <div class="n-flex n-gap-3">
+                <div class="n-bg-primary n-text-white n-p-3 n-rounded n-text-sm n-text-center n-opacity-0" style="width:80px">0%</div>
+                <div class="n-bg-primary n-text-white n-p-3 n-rounded n-text-sm n-text-center n-opacity-25" style="width:80px">25%</div>
+                <div class="n-bg-primary n-text-white n-p-3 n-rounded n-text-sm n-text-center n-opacity-50" style="width:80px">50%</div>
+                <div class="n-bg-primary n-text-white n-p-3 n-rounded n-text-sm n-text-center n-opacity-75" style="width:80px">75%</div>
+                <div class="n-bg-primary n-text-white n-p-3 n-rounded n-text-sm n-text-center n-opacity-100" style="width:80px">100%</div>
+            </div>
+        </div>
+
+        <!-- Position -->
+        <div class="demo-section" id="position">
+            <h2 class="demo-title">Position</h2>
+            <p class="demo-subtitle">Positioning and z-index utilities.</p>
+
+            <div class="n-overflow-x-auto">
+                <table class="n-table" id="table-position">
+                    <thead><tr><th>Class</th><th>Property</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.n-relative</code></td><td>position: relative</td></tr>
+                        <tr><td><code>.n-absolute</code></td><td>position: absolute</td></tr>
+                        <tr><td><code>.n-fixed</code></td><td>position: fixed</td></tr>
+                        <tr><td><code>.n-sticky</code></td><td>position: sticky</td></tr>
+                        <tr><td><code>.n-top-0</code> / <code>.n-right-0</code> / <code>.n-bottom-0</code> / <code>.n-left-0</code></td><td>Set edge to 0</td></tr>
+                        <tr><td><code>.n-inset-0</code></td><td>inset: 0 (all edges)</td></tr>
+                        <tr><td><code>.n-z-10</code>, <code>.n-z-50</code>, <code>.n-z-100</code></td><td>z-index levels</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Width & Height -->
+        <div class="demo-section" id="sizing">
+            <h2 class="demo-title">Width &amp; Height</h2>
+            <p class="demo-subtitle">Common sizing utilities for responsive layouts.</p>
+
+            <div class="n-overflow-x-auto">
+                <table class="n-table n-table-striped" id="table-sizing">
+                    <thead><tr><th>Class</th><th>Value</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.n-w-full</code></td><td>width: 100%</td></tr>
+                        <tr><td><code>.n-w-half</code></td><td>width: 50%</td></tr>
+                        <tr><td><code>.n-w-auto</code></td><td>width: auto</td></tr>
+                        <tr><td><code>.n-max-w-sm</code> / <code>md</code> / <code>lg</code> / <code>xl</code></td><td>max-width: 24rem → 36rem</td></tr>
+                        <tr><td><code>.n-h-full</code></td><td>height: 100%</td></tr>
+                        <tr><td><code>.n-h-screen</code></td><td>height: 100vh</td></tr>
+                        <tr><td><code>.n-min-h-screen</code></td><td>min-height: 100vh</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Overflow -->
+        <div class="demo-section" id="overflow">
+            <h2 class="demo-title">Overflow</h2>
+            <p class="demo-subtitle">Control how content overflows its container.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-2">
+                <code class="n-bg-muted n-p-2 n-rounded">.n-overflow-hidden</code>
+                <code class="n-bg-muted n-p-2 n-rounded">.n-overflow-auto</code>
+                <code class="n-bg-muted n-p-2 n-rounded">.n-overflow-scroll</code>
+                <code class="n-bg-muted n-p-2 n-rounded">.n-overflow-visible</code>
+                <code class="n-bg-muted n-p-2 n-rounded">.n-overflow-x-auto</code>
+                <code class="n-bg-muted n-p-2 n-rounded">.n-overflow-y-auto</code>
+            </div>
+        </div>
+
+        <!-- Transitions -->
+        <div class="demo-section" id="transitions">
+            <h2 class="demo-title">Transitions &amp; Transforms</h2>
+            <p class="demo-subtitle">Smooth animations and transform helpers. Hover the boxes to see effects.</p>
+
+            <div class="n-flex n-flex-wrap n-gap-3 n-mb-4">
+                <div class="n-bg-primary n-text-white n-p-3 n-rounded-lg n-text-sm n-text-center n-transition n-pointer" style="width:140px" onmouseenter="this.style.transform='scale(1.05)'" onmouseleave="this.style.transform='scale(1)'">
+                    Scale
+                </div>
+                <div class="n-bg-secondary n-text-white n-p-3 n-rounded-lg n-text-sm n-text-center n-transition n-pointer" style="width:140px" onmouseenter="this.style.transform='translateY(-4px)';this.style.boxShadow='var(--n-shadow-lg)'" onmouseleave="this.style.transform='';this.style.boxShadow=''">
+                    Lift
+                </div>
+                <div class="n-bg-success n-text-white n-p-3 n-rounded-lg n-text-sm n-text-center n-transition-colors n-duration-300 n-pointer" style="width:140px" onmouseenter="this.style.background='var(--n-danger)'" onmouseleave="this.style.background='var(--n-success)'">
+                    Color
+                </div>
+                <div class="n-bg-dark n-text-white n-p-3 n-rounded-lg n-text-sm n-text-center n-transition n-pointer" style="width:140px" onmouseenter="this.style.opacity='0.5'" onmouseleave="this.style.opacity='1'">
+                    Fade
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Available Classes</h5>
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <table class="n-table" id="table-transitions">
+                        <thead><tr><th>Class</th><th>Applies</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>.n-transition</code></td><td>all properties</td></tr>
+                            <tr><td><code>.n-transition-colors</code></td><td>color, bg, border</td></tr>
+                            <tr><td><code>.n-transition-shadow</code></td><td>box-shadow</td></tr>
+                            <tr><td><code>.n-transition-transform</code></td><td>transform</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <table class="n-table" id="table-durations">
+                        <thead><tr><th>Class</th><th>Duration</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>.n-duration-75</code></td><td>75ms</td></tr>
+                            <tr><td><code>.n-duration-150</code></td><td>150ms (default)</td></tr>
+                            <tr><td><code>.n-duration-300</code></td><td>300ms</td></tr>
+                            <tr><td><code>.n-duration-500</code></td><td>500ms</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Helpers -->
+        <div class="demo-section" id="helpers">
+            <h2 class="demo-title">Helpers</h2>
+            <p class="demo-subtitle">Miscellaneous utility classes for common needs.</p>
+
+            <div class="n-overflow-x-auto">
+                <table class="n-table n-table-striped" id="table-helpers">
+                    <thead><tr><th>Class</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>.n-sr-only</code></td><td>Visually hidden, accessible to screen readers</td></tr>
+                        <tr><td><code>.n-pointer</code></td><td>cursor: pointer</td></tr>
+                        <tr><td><code>.n-select-none</code></td><td>Prevent text selection</td></tr>
+                        <tr><td><code>.n-select-all</code></td><td>Select all text on click</td></tr>
+                        <tr><td><code>.n-img-fluid</code></td><td>Responsive image (max-width: 100%)</td></tr>
+                        <tr><td><code>.n-img-cover</code></td><td>Cover its container (object-fit: cover)</td></tr>
+                        <tr><td><code>.n-clearfix</code></td><td>Clear floated children</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="components.html" class="n-btn n-btn-ghost">← Components</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="index.html" class="n-btn n-btn-ghost">Home →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

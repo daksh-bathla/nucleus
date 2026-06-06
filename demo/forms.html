@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms — Nucleus CSS</title>
+    <meta name="description" content="Form components: inputs, selects, textareas, checkboxes, radios, and validation states.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link active" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Forms</h1>
+            <p class="demo-subtitle">Styled inputs, selects, textareas, checkboxes, radios, sizes, and validation states.</p>
+        </div>
+
+        <!-- Text Inputs -->
+        <div class="demo-section" id="inputs">
+            <h2 class="demo-title">Text Inputs</h2>
+            <p class="demo-subtitle">Standard text inputs with labels and helper text.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <div class="n-form-group">
+                        <label class="n-label" for="input-name">Full Name</label>
+                        <input class="n-input" type="text" id="input-name" placeholder="John Doe">
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-label" for="input-email">Email Address</label>
+                        <input class="n-input" type="email" id="input-email" placeholder="john@example.com">
+                        <p class="n-helper-text">We'll never share your email with anyone else.</p>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-label" for="input-password">Password</label>
+                        <input class="n-input" type="password" id="input-password" placeholder="••••••••">
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <div class="demo-code">&lt;div class="n-form-group"&gt;
+  &lt;label class="n-label" for="email"&gt;Email&lt;/label&gt;
+  &lt;input class="n-input" type="email"
+         id="email"
+         placeholder="you@example.com"&gt;
+  &lt;p class="n-helper-text"&gt;Helper text&lt;/p&gt;
+&lt;/div&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Sizes -->
+        <div class="demo-section" id="sizes">
+            <h2 class="demo-title">Input Sizes</h2>
+            <p class="demo-subtitle">Three sizes for different form contexts.</p>
+
+            <div class="n-max-w-lg">
+                <div class="n-form-group">
+                    <label class="n-label" for="input-sm">Small <code>.n-input-sm</code></label>
+                    <input class="n-input n-input-sm" type="text" id="input-sm" placeholder="Small input">
+                </div>
+                <div class="n-form-group">
+                    <label class="n-label" for="input-default">Default</label>
+                    <input class="n-input" type="text" id="input-default" placeholder="Default input">
+                </div>
+                <div class="n-form-group">
+                    <label class="n-label" for="input-lg">Large <code>.n-input-lg</code></label>
+                    <input class="n-input n-input-lg" type="text" id="input-lg" placeholder="Large input">
+                </div>
+            </div>
+        </div>
+
+        <!-- Select -->
+        <div class="demo-section" id="select">
+            <h2 class="demo-title">Select</h2>
+            <p class="demo-subtitle">Custom-styled dropdown select with a chevron indicator.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <div class="n-form-group">
+                        <label class="n-label" for="select-role">Role</label>
+                        <select class="n-select" id="select-role">
+                            <option value="">Choose a role...</option>
+                            <option>Designer</option>
+                            <option>Developer</option>
+                            <option>Manager</option>
+                            <option>Product Manager</option>
+                        </select>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-label" for="select-country">Country</label>
+                        <select class="n-select" id="select-country">
+                            <option>United States</option>
+                            <option>United Kingdom</option>
+                            <option>Canada</option>
+                            <option>India</option>
+                            <option>Germany</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <div class="demo-code">&lt;label class="n-label" for="role"&gt;Role&lt;/label&gt;
+&lt;select class="n-select" id="role"&gt;
+  &lt;option&gt;Designer&lt;/option&gt;
+  &lt;option&gt;Developer&lt;/option&gt;
+&lt;/select&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="demo-section" id="textarea">
+            <h2 class="demo-title">Textarea</h2>
+            <p class="demo-subtitle">Multi-line text input with vertical resizing.</p>
+
+            <div class="n-max-w-lg">
+                <div class="n-form-group">
+                    <label class="n-label" for="textarea-bio">Bio</label>
+                    <textarea class="n-textarea" id="textarea-bio" placeholder="Tell us about yourself..." rows="4"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkboxes & Radios -->
+        <div class="demo-section" id="checkboxes">
+            <h2 class="demo-title">Checkboxes &amp; Radios</h2>
+            <p class="demo-subtitle">Native checkboxes and radios with accent color styling.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2">Checkboxes</h5>
+                    <div class="n-form-group">
+                        <label class="n-checkbox"><input type="checkbox" id="cb-1" checked> Enable notifications</label>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-checkbox"><input type="checkbox" id="cb-2"> Subscribe to newsletter</label>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-checkbox"><input type="checkbox" id="cb-3"> I agree to the terms</label>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2">Radios</h5>
+                    <div class="n-form-group">
+                        <label class="n-radio"><input type="radio" name="plan" id="radio-free" checked> Free plan</label>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-radio"><input type="radio" name="plan" id="radio-pro"> Pro plan</label>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-radio"><input type="radio" name="plan" id="radio-enterprise"> Enterprise plan</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Validation States -->
+        <div class="demo-section" id="validation">
+            <h2 class="demo-title">Validation States</h2>
+            <p class="demo-subtitle">Success and error states with colored borders and helper messages.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <div class="n-form-group">
+                        <label class="n-label" for="valid-username">Username <span class="n-text-success">✓</span></label>
+                        <input class="n-input n-input-success" type="text" id="valid-username" value="daksh_bathla">
+                        <p class="n-helper-text n-text-success">Username is available!</p>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <div class="n-form-group">
+                        <label class="n-label" for="invalid-email">Email <span class="n-text-danger">✗</span></label>
+                        <input class="n-input n-input-error" type="text" id="invalid-email" value="not-an-email">
+                        <p class="n-error-text">Please enter a valid email address.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-code">&lt;!-- Success --&gt;
+&lt;input class="n-input n-input-success" value="Valid"&gt;
+
+&lt;!-- Error --&gt;
+&lt;input class="n-input n-input-error" value="Invalid"&gt;
+&lt;p class="n-error-text"&gt;Error message&lt;/p&gt;</div>
+        </div>
+
+        <!-- Full Form Example -->
+        <div class="demo-section" id="full-form">
+            <h2 class="demo-title">Full Form Example</h2>
+            <p class="demo-subtitle">A complete form combining all elements.</p>
+
+            <div class="n-card">
+                <div class="n-card-header">Create Account</div>
+                <div class="n-card-body">
+                    <div class="n-row">
+                        <div class="n-col-12 n-col-md-6">
+                            <div class="n-form-group">
+                                <label class="n-label" for="form-first">First Name</label>
+                                <input class="n-input" type="text" id="form-first" placeholder="John">
+                            </div>
+                        </div>
+                        <div class="n-col-12 n-col-md-6">
+                            <div class="n-form-group">
+                                <label class="n-label" for="form-last">Last Name</label>
+                                <input class="n-input" type="text" id="form-last" placeholder="Doe">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-label" for="form-email">Email</label>
+                        <input class="n-input" type="email" id="form-email" placeholder="john@example.com">
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-label" for="form-pass">Password</label>
+                        <input class="n-input" type="password" id="form-pass" placeholder="••••••••">
+                        <p class="n-helper-text">Must be at least 8 characters.</p>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-label" for="form-role">Role</label>
+                        <select class="n-select" id="form-role">
+                            <option>Developer</option>
+                            <option>Designer</option>
+                            <option>Manager</option>
+                        </select>
+                    </div>
+                    <div class="n-form-group">
+                        <label class="n-checkbox"><input type="checkbox" id="form-terms"> I agree to the Terms of Service</label>
+                    </div>
+                </div>
+                <div class="n-card-footer n-flex n-justify-end n-gap-2">
+                    <button class="n-btn n-btn-ghost" id="form-cancel">Cancel</button>
+                    <button class="n-btn n-btn-primary" id="form-submit">Create Account</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="cards.html" class="n-btn n-btn-ghost">← Cards</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="components.html" class="n-btn n-btn-ghost">Components →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,72 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus Grid Test</title>
+    <title>Nucleus CSS — Lightweight CSS Framework</title>
+    <meta name="description"
+        content="A lightweight, mobile-first CSS framework focused on simplicity and speed. Grid, typography, buttons, forms, and more.">
     <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
 </head>
-<body>
 
-<h1 style="text-align:center; margin: 1rem 0;">Nucleus CSS Grid Test</h1>
+<body class="demo-page">
 
-<!-- Fixed Container -->
-<div class="n-container">
-    <h2>Fixed Container</h2>
-    <div class="n-row">
-        <div class="n-col-12">.n-col-12</div>
-        <div class="n-col-6">.n-col-6</div>
-        <div class="n-col-6">.n-col-6</div>
-        <div class="n-col-4">.n-col-4</div>
-        <div class="n-col-4">.n-col-4</div>
-        <div class="n-col-4">.n-col-4</div>
-        <div class="n-col-3">.n-col-3</div>
-        <div class="n-col-3">.n-col-3</div>
-        <div class="n-col-3">.n-col-3</div>
-        <div class="n-col-3">.n-col-3</div>
-    </div>
-</div>
+    <!-- Navbar -->
+    <nav class="n-navbar" id="nav-main">
+        <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+        <ul class="n-nav">
+            <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+        </ul>
+    </nav>
 
-<!-- Fluid Container -->
-<div class="n-container-fluid">
-    <h2>Fluid Container</h2>
-    <div class="n-row">
-        <div class="n-col-8">.n-col-8</div>
-        <div class="n-col-4">.n-col-4</div>
-    </div>
-</div>
-
-<!-- Responsive Test -->
-<div class="n-container">
-    <h2>Responsive Test</h2>
-    <div class="n-row">
-        <div class="n-col-6 n-col-md-3 n-col-sm-1">A</div>
-        <div class="n-col-6 n-col-md-3 n-col-sm-1">B</div>
-        <div class="n-col-6 n-col-md-3 n-col-sm-2">C</div>
-        <div class="n-col-6 n-col-md-3 n-col-sm-2">D</div>
-    </div>
-</div>
-
-<!-- Nested Rows -->
-<div class="n-container">
-    <h2>Nested Grid</h2>
-    <div class="n-row">
-        <div class="n-col-6">
-            Parent .n-col-6
-            <div class="n-row">
-                <div class="n-col-6">Nested .n-col-6</div>
-                <div class="n-col-6">Nested .n-col-6</div>
-            </div>
+    <!-- Hero -->
+    <div class="demo-hero">
+        <h1>⚛ Nucleus CSS</h1>
+        <p class="n-text-lg n-text-muted n-mb-3">
+            A lightweight, mobile-first CSS framework.<br>
+            Think of it as <strong>LEGO blocks for the web</strong> 🧱
+        </p>
+        <div class="n-flex n-justify-center n-gap-2 n-flex-wrap n-mb-4">
+            <span class="n-badge n-badge-primary">~1KB gzipped per module</span>
+            <span class="n-badge n-badge-success">Zero dependencies</span>
+            <span class="n-badge n-badge-secondary">Dark mode ready</span>
         </div>
-        <div class="n-col-6">
-            Parent .n-col-6
-            <div class="n-row">
-                <div class="n-col-4">Nested .n-col-4</div>
-                <div class="n-col-8">Nested .n-col-8</div>
-            </div>
+        <div class="n-flex n-justify-center n-gap-2">
+            <a href="grid.html" class="n-btn n-btn-primary n-btn-lg" id="btn-get-started">Get Started</a>
+            <a href="https://github.com" class="n-btn n-btn-outline-primary n-btn-lg" id="btn-github">GitHub</a>
         </div>
     </div>
-</div>
+
+    <!-- Feature Cards -->
+    <main class="demo-main">
+        <div class="n-container">
+            <div class="demo-section">
+                <h2 class="n-text-center n-mb-1">Everything You Need</h2>
+                <p class="n-text-center n-text-muted n-mb-4">
+                    Seven modules. Zero bloat. Just drop in the CSS and start building.
+                </p>
+
+                <div class="n-row">
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="grid.html" class="demo-feature-card" id="feature-grid">
+                            <span class="demo-icon">🧱</span>
+                            <h4>Grid System</h4>
+                            <p>12-column CSS Grid with 5 responsive breakpoints and fluid containers.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="typography.html" class="demo-feature-card" id="feature-type">
+                            <span class="demo-icon">✍️</span>
+                            <h4>Typography</h4>
+                            <p>Font sizes, weights, alignment, transforms, and line-height utilities.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="buttons.html" class="demo-feature-card" id="feature-buttons">
+                            <span class="demo-icon">🔘</span>
+                            <h4>Buttons</h4>
+                            <p>Solid, outline, ghost variants across 8 colors and 3 sizes.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="cards.html" class="demo-feature-card" id="feature-cards">
+                            <span class="demo-icon">🃏</span>
+                            <h4>Cards</h4>
+                            <p>Flexible card components with header, body, and footer slots.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="forms.html" class="demo-feature-card" id="feature-forms">
+                            <span class="demo-icon">📝</span>
+                            <h4>Forms</h4>
+                            <p>Styled inputs, selects, textareas, checkboxes, and validation states.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="components.html" class="demo-feature-card" id="feature-components">
+                            <span class="demo-icon">🧩</span>
+                            <h4>Components</h4>
+                            <p>Alerts, badges, tables, lists, avatars — everything pre-styled.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <a href="utilities.html" class="demo-feature-card" id="feature-utils">
+                            <span class="demo-icon">⚡</span>
+                            <h4>Utilities</h4>
+                            <p>Spacing, flexbox, display, borders, shadows, opacity, and more.</p>
+                        </a>
+                    </div>
+                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                        <div class="demo-feature-card" style="border-style:dashed;opacity:.7;">
+                            <span class="demo-icon">🌙</span>
+                            <h4>Dark Mode</h4>
+                            <p>Automatic dark mode via <code>prefers-color-scheme</code> — no extra work needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Start -->
+            <div class="demo-section">
+                <h2 class="n-text-center n-mb-1">Quick Start</h2>
+                <p class="n-text-center n-text-muted n-mb-4">One line. That's it.</p>
+
+                <div class="n-max-w-lg n-mx-auto">
+                    <div class="demo-code">&lt;link rel="stylesheet" href="nucleus.css"&gt;</div>
+
+                    <div class="n-mt-4">
+                        <h5 class="n-mb-2">Then build your layout:</h5>
+                        <div class="demo-code">&lt;div class="n-container"&gt;
+                            &lt;div class="n-row"&gt;
+                            &lt;div class="n-col-4"&gt;Sidebar&lt;/div&gt;
+                            &lt;div class="n-col-8"&gt;Main Content&lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;/div&gt;</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="demo-footer">
+        <div class="n-container">
+            <p>⚛ Nucleus CSS — lightweight, mobile-first, zero-dependency.</p>
+            <p class="n-text-xs n-mt-1">Built using pure CSS.</p>
+        </div>
+    </div>
 
 </body>
+
 </html>

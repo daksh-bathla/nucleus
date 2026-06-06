@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards — Nucleus CSS</title>
+    <meta name="description" content="Flexible card components with header, body, footer, and color variations.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link active" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Cards</h1>
+            <p class="demo-subtitle">Flexible content containers with optional header, body, footer, and image slots.</p>
+        </div>
+
+        <!-- Basic Cards -->
+        <div class="demo-section" id="basic">
+            <h2 class="demo-title">Basic Cards</h2>
+            <p class="demo-subtitle">Cards with different section combinations.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <div class="n-card" id="card-body-only">
+                        <div class="n-card-body">
+                            <h4 class="n-mb-1">Simple Card</h4>
+                            <p class="n-text-muted n-text-sm">Just a card body — the most minimal configuration.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <div class="n-card" id="card-header-body">
+                        <div class="n-card-header">With Header</div>
+                        <div class="n-card-body">
+                            <p class="n-text-sm n-text-muted">A card with a header section that provides context or a title.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <div class="n-card" id="card-full">
+                        <div class="n-card-header">Featured</div>
+                        <div class="n-card-body">
+                            <h4 class="n-mb-1">Full Card</h4>
+                            <p class="n-text-sm n-text-muted n-mb-3">Header, body, and footer — all three sections in one card.</p>
+                            <button class="n-btn n-btn-primary n-btn-sm">Action</button>
+                        </div>
+                        <div class="n-card-footer n-text-muted n-text-xs">Updated 5 min ago</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-code">&lt;div class="n-card"&gt;
+  &lt;div class="n-card-header"&gt;Title&lt;/div&gt;
+  &lt;div class="n-card-body"&gt;Content here&lt;/div&gt;
+  &lt;div class="n-card-footer"&gt;Footer text&lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Colored Cards -->
+        <div class="demo-section" id="colored">
+            <h2 class="demo-title">Colored Cards</h2>
+            <p class="demo-subtitle">Combine cards with background color utilities for emphasis.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card n-bg-primary n-border-0" id="card-primary">
+                        <div class="n-card-body">
+                            <h5 class="n-mb-1">Primary</h5>
+                            <p class="n-text-sm" style="color:rgba(255,255,255,.8)">Primary colored card with inverted text.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card n-bg-success n-border-0" id="card-success">
+                        <div class="n-card-body">
+                            <h5 class="n-mb-1">Success</h5>
+                            <p class="n-text-sm" style="color:rgba(255,255,255,.8)">Great for positive feedback messages.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card n-bg-warning n-border-0" id="card-warning">
+                        <div class="n-card-body">
+                            <h5 class="n-mb-1" style="color:#000">Warning</h5>
+                            <p class="n-text-sm" style="color:rgba(0,0,0,.7)">Draw attention to important notices.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card n-bg-dark n-border-0" id="card-dark">
+                        <div class="n-card-body">
+                            <h5 class="n-mb-1">Dark</h5>
+                            <p class="n-text-sm" style="color:rgba(255,255,255,.7)">Sleek dark cards for contrast.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card with Actions -->
+        <div class="demo-section" id="actions">
+            <h2 class="demo-title">Cards with Actions</h2>
+            <p class="demo-subtitle">Use the footer for action buttons or metadata.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6 n-mb-3">
+                    <div class="n-card" id="card-actions-1">
+                        <div class="n-card-body">
+                            <h4 class="n-mb-1">Project Alpha</h4>
+                            <p class="n-text-sm n-text-muted n-mb-2">A collaborative design project with the frontend team. Currently in the review phase.</p>
+                            <div class="n-flex n-gap-1">
+                                <span class="n-badge n-badge-primary">Design</span>
+                                <span class="n-badge n-badge-warning">In Review</span>
+                            </div>
+                        </div>
+                        <div class="n-card-footer n-flex n-justify-between n-items-center">
+                            <span class="n-text-muted n-text-xs">3 members</span>
+                            <div class="n-flex n-gap-1">
+                                <button class="n-btn n-btn-ghost n-btn-sm">Edit</button>
+                                <button class="n-btn n-btn-primary n-btn-sm">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6 n-mb-3">
+                    <div class="n-card" id="card-actions-2">
+                        <div class="n-card-body">
+                            <h4 class="n-mb-1">Project Beta</h4>
+                            <p class="n-text-sm n-text-muted n-mb-2">Backend API development with comprehensive test coverage and documentation.</p>
+                            <div class="n-flex n-gap-1">
+                                <span class="n-badge n-badge-info">Backend</span>
+                                <span class="n-badge n-badge-success">Active</span>
+                            </div>
+                        </div>
+                        <div class="n-card-footer n-flex n-justify-between n-items-center">
+                            <span class="n-text-muted n-text-xs">5 members</span>
+                            <div class="n-flex n-gap-1">
+                                <button class="n-btn n-btn-ghost n-btn-sm">Edit</button>
+                                <button class="n-btn n-btn-primary n-btn-sm">View</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card Layouts -->
+        <div class="demo-section" id="layouts">
+            <h2 class="demo-title">Card Grid Layouts</h2>
+            <p class="demo-subtitle">Combine cards with the grid system for responsive layouts.</p>
+
+            <h5 class="n-mb-2">Stats Dashboard</h5>
+            <div class="n-row n-mb-4">
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card" id="stat-users">
+                        <div class="n-card-body n-text-center">
+                            <p class="n-text-muted n-text-xs n-uppercase n-tracking-wide n-mb-1">Total Users</p>
+                            <p class="n-text-3xl n-font-bold n-text-primary">12,847</p>
+                            <p class="n-text-xs n-text-success n-mt-1">↑ 12.5% this month</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card" id="stat-revenue">
+                        <div class="n-card-body n-text-center">
+                            <p class="n-text-muted n-text-xs n-uppercase n-tracking-wide n-mb-1">Revenue</p>
+                            <p class="n-text-3xl n-font-bold n-text-success">$48.2K</p>
+                            <p class="n-text-xs n-text-success n-mt-1">↑ 8.3% this month</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card" id="stat-orders">
+                        <div class="n-card-body n-text-center">
+                            <p class="n-text-muted n-text-xs n-uppercase n-tracking-wide n-mb-1">Orders</p>
+                            <p class="n-text-3xl n-font-bold n-text-warning">1,429</p>
+                            <p class="n-text-xs n-text-danger n-mt-1">↓ 2.1% this month</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
+                    <div class="n-card" id="stat-conversion">
+                        <div class="n-card-body n-text-center">
+                            <p class="n-text-muted n-text-xs n-uppercase n-tracking-wide n-mb-1">Conversion</p>
+                            <p class="n-text-3xl n-font-bold n-text-info">3.24%</p>
+                            <p class="n-text-xs n-text-success n-mt-1">↑ 0.5% this month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Pricing Cards</h5>
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <div class="n-card" id="price-free">
+                        <div class="n-card-body n-text-center n-py-4">
+                            <h4>Free</h4>
+                            <p class="n-text-4xl n-font-bold n-my-2">$0</p>
+                            <p class="n-text-muted n-text-sm n-mb-3">For personal projects</p>
+                            <ul class="n-list-unstyled n-text-sm n-text-left n-mb-4" style="max-width:200px;margin:0 auto">
+                                <li class="n-mb-1">✓ 1 project</li>
+                                <li class="n-mb-1">✓ Basic grid system</li>
+                                <li class="n-mb-1 n-text-muted">✗ Premium components</li>
+                            </ul>
+                            <button class="n-btn n-btn-outline-primary n-w-full">Get Started</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <div class="n-card n-border-primary" style="border-width:2px" id="price-pro">
+                        <div class="n-card-body n-text-center n-py-4">
+                            <span class="n-badge n-badge-primary n-mb-2">Popular</span>
+                            <h4>Pro</h4>
+                            <p class="n-text-4xl n-font-bold n-my-2">$29</p>
+                            <p class="n-text-muted n-text-sm n-mb-3">For growing teams</p>
+                            <ul class="n-list-unstyled n-text-sm n-text-left n-mb-4" style="max-width:200px;margin:0 auto">
+                                <li class="n-mb-1">✓ Unlimited projects</li>
+                                <li class="n-mb-1">✓ All components</li>
+                                <li class="n-mb-1">✓ Priority support</li>
+                            </ul>
+                            <button class="n-btn n-btn-primary n-w-full">Upgrade to Pro</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <div class="n-card" id="price-enterprise">
+                        <div class="n-card-body n-text-center n-py-4">
+                            <h4>Enterprise</h4>
+                            <p class="n-text-4xl n-font-bold n-my-2">$99</p>
+                            <p class="n-text-muted n-text-sm n-mb-3">For large organizations</p>
+                            <ul class="n-list-unstyled n-text-sm n-text-left n-mb-4" style="max-width:200px;margin:0 auto">
+                                <li class="n-mb-1">✓ Everything in Pro</li>
+                                <li class="n-mb-1">✓ Custom branding</li>
+                                <li class="n-mb-1">✓ SLA guarantee</li>
+                            </ul>
+                            <button class="n-btn n-btn-outline-primary n-w-full">Contact Sales</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="buttons.html" class="n-btn n-btn-ghost">← Buttons</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="forms.html" class="n-btn n-btn-ghost">Forms →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

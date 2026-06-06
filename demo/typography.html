@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography — Nucleus CSS</title>
+    <meta name="description" content="Typography utilities: font sizes, weights, alignment, transforms, line-height, and text decorations.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link active" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Typography</h1>
+            <p class="demo-subtitle">Font sizes, weights, alignment, transforms, line-height, letter-spacing, and text utilities.</p>
+        </div>
+
+        <!-- Headings -->
+        <div class="demo-section" id="headings">
+            <h2 class="demo-title">Headings</h2>
+            <p class="demo-subtitle">All six HTML heading levels with default styling.</p>
+
+            <div class="n-card">
+                <div class="n-card-body">
+                    <h1 class="n-mb-2">Heading 1 <span class="n-text-muted n-text-sm n-font-normal">— 2.25rem / Bold</span></h1>
+                    <h2 class="n-mb-2">Heading 2 <span class="n-text-muted n-text-sm n-font-normal">— 1.875rem / Bold</span></h2>
+                    <h3 class="n-mb-2">Heading 3 <span class="n-text-muted n-text-sm n-font-normal">— 1.5rem / Semi-bold</span></h3>
+                    <h4 class="n-mb-2">Heading 4 <span class="n-text-muted n-text-sm n-font-normal">— 1.25rem / Semi-bold</span></h4>
+                    <h5 class="n-mb-2">Heading 5 <span class="n-text-muted n-text-sm n-font-normal">— 1.125rem / Medium</span></h5>
+                    <h6>Heading 6 <span class="n-text-muted n-text-sm n-font-normal">— 1rem / Medium</span></h6>
+                </div>
+            </div>
+        </div>
+
+        <!-- Font Sizes -->
+        <div class="demo-section" id="font-sizes">
+            <h2 class="demo-title">Font Sizes</h2>
+            <p class="demo-subtitle">Utility classes for controlling font size independently of heading tags.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <table class="n-table" id="table-font-sizes">
+                        <thead><tr><th>Class</th><th>Size</th><th>Preview</th></tr></thead>
+                        <tbody>
+                            <tr><td><code>.n-text-xs</code></td><td>0.75rem</td><td class="n-text-xs">The quick brown fox</td></tr>
+                            <tr><td><code>.n-text-sm</code></td><td>0.875rem</td><td class="n-text-sm">The quick brown fox</td></tr>
+                            <tr><td><code>.n-text-base</code></td><td>1rem</td><td class="n-text-base">The quick brown fox</td></tr>
+                            <tr><td><code>.n-text-lg</code></td><td>1.125rem</td><td class="n-text-lg">The quick brown fox</td></tr>
+                            <tr><td><code>.n-text-xl</code></td><td>1.25rem</td><td class="n-text-xl">The quick brown fox</td></tr>
+                            <tr><td><code>.n-text-2xl</code></td><td>1.5rem</td><td class="n-text-2xl">The quick brown fox</td></tr>
+                            <tr><td><code>.n-text-3xl</code></td><td>1.875rem</td><td class="n-text-3xl">Quick brown</td></tr>
+                            <tr><td><code>.n-text-4xl</code></td><td>2.25rem</td><td class="n-text-4xl">Quick</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <div class="demo-code">&lt;p class="n-text-xs"&gt;Extra small&lt;/p&gt;
+&lt;p class="n-text-sm"&gt;Small&lt;/p&gt;
+&lt;p class="n-text-base"&gt;Base (default)&lt;/p&gt;
+&lt;p class="n-text-lg"&gt;Large&lt;/p&gt;
+&lt;p class="n-text-xl"&gt;Extra large&lt;/p&gt;
+&lt;p class="n-text-2xl"&gt;2XL&lt;/p&gt;
+&lt;p class="n-text-3xl"&gt;3XL&lt;/p&gt;
+&lt;p class="n-text-4xl"&gt;4XL&lt;/p&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Font Weight -->
+        <div class="demo-section" id="font-weight">
+            <h2 class="demo-title">Font Weights</h2>
+            <p class="demo-subtitle">Control the thickness of text.</p>
+
+            <div class="n-card">
+                <div class="n-card-body">
+                    <p class="n-font-light n-text-xl n-mb-2">Light (300) — <code>.n-font-light</code></p>
+                    <p class="n-font-normal n-text-xl n-mb-2">Normal (400) — <code>.n-font-normal</code></p>
+                    <p class="n-font-medium n-text-xl n-mb-2">Medium (500) — <code>.n-font-medium</code></p>
+                    <p class="n-font-semibold n-text-xl n-mb-2">Semibold (600) — <code>.n-font-semibold</code></p>
+                    <p class="n-font-bold n-text-xl">Bold (700) — <code>.n-font-bold</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Alignment -->
+        <div class="demo-section" id="text-alignment">
+            <h2 class="demo-title">Text Alignment</h2>
+            <p class="demo-subtitle">Align text horizontally within its container.</p>
+
+            <div class="n-card n-mb-2"><div class="n-card-body n-text-left"><code>.n-text-left</code> — Left-aligned text (default)</div></div>
+            <div class="n-card n-mb-2"><div class="n-card-body n-text-center"><code>.n-text-center</code> — Center-aligned text</div></div>
+            <div class="n-card n-mb-2"><div class="n-card-body n-text-right"><code>.n-text-right</code> — Right-aligned text</div></div>
+            <div class="n-card"><div class="n-card-body n-text-justify"><code>.n-text-justify</code> — Justified text stretches each line so that each line has equal width, and the left and right margins are straight. This is typically used in newspapers and books for a clean, formal look.</div></div>
+        </div>
+
+        <!-- Text Transforms -->
+        <div class="demo-section" id="text-transforms">
+            <h2 class="demo-title">Text Transforms &amp; Decoration</h2>
+            <p class="demo-subtitle">Transform case and add decorations.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2">Transforms</h5>
+                    <p class="n-uppercase n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-uppercase</code> — all caps text</p>
+                    <p class="n-lowercase n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-lowercase</code> — ALL LOWERCASE NOW</p>
+                    <p class="n-capitalize n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-capitalize</code> — capitalize each word</p>
+                    <p class="n-normal-case n-bg-muted n-p-2 n-rounded"><code>.n-normal-case</code> — reset transform</p>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2">Decoration &amp; Style</h5>
+                    <p class="n-italic n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-italic</code> — Italic text style</p>
+                    <p class="n-underline n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-underline</code> — Underlined text</p>
+                    <p class="n-line-through n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-line-through</code> — Strikethrough text</p>
+                    <p class="n-no-underline n-bg-muted n-p-2 n-rounded"><code>.n-no-underline</code> — No decoration</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line Height & Tracking -->
+        <div class="demo-section" id="line-height">
+            <h2 class="demo-title">Line Height &amp; Letter Spacing</h2>
+            <p class="demo-subtitle">Fine-tune text rhythm and spacing.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2">Line Height</h5>
+                    <div class="n-bg-muted n-p-3 n-rounded n-mb-2">
+                        <p class="n-leading-none n-text-sm"><strong>.n-leading-none (1.0)</strong> — The quick brown fox jumps over the lazy dog. This text has no extra line spacing at all.</p>
+                    </div>
+                    <div class="n-bg-muted n-p-3 n-rounded n-mb-2">
+                        <p class="n-leading-tight n-text-sm"><strong>.n-leading-tight (1.25)</strong> — The quick brown fox jumps over the lazy dog. This text has tight line spacing.</p>
+                    </div>
+                    <div class="n-bg-muted n-p-3 n-rounded n-mb-2">
+                        <p class="n-leading-normal n-text-sm"><strong>.n-leading-normal (1.5)</strong> — The quick brown fox jumps over the lazy dog. This is the default line spacing.</p>
+                    </div>
+                    <div class="n-bg-muted n-p-3 n-rounded">
+                        <p class="n-leading-relaxed n-text-sm"><strong>.n-leading-relaxed (1.75)</strong> — The quick brown fox jumps over the lazy dog. This text is more relaxed and comfortable.</p>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <h5 class="n-mb-2">Letter Spacing</h5>
+                    <p class="n-tracking-tight n-text-2xl n-mb-3"><code>.n-tracking-tight</code> Tightly tracked</p>
+                    <p class="n-tracking-normal n-text-2xl n-mb-3"><code>.n-tracking-normal</code> Default spacing</p>
+                    <p class="n-tracking-wide n-text-2xl"><code>.n-tracking-wide</code> Wide tracking</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Truncate & Monospace -->
+        <div class="demo-section" id="special">
+            <h2 class="demo-title">Special Utilities</h2>
+            <p class="demo-subtitle">Truncation and monospace font.</p>
+
+            <h5 class="n-mb-2">Truncate</h5>
+            <div class="n-max-w-md n-mb-4">
+                <div class="n-bg-muted n-p-3 n-rounded">
+                    <p class="n-truncate">This is an extremely long line of text that should be truncated with an ellipsis when it overflows its container boundary.</p>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Monospace Font</h5>
+            <p class="n-font-mono n-bg-muted n-p-3 n-rounded">
+                <code>.n-font-mono</code> — const greeting = "Hello, Nucleus!";
+            </p>
+        </div>
+
+        <!-- Colors -->
+        <div class="demo-section" id="text-colors">
+            <h2 class="demo-title">Text Colors</h2>
+            <p class="demo-subtitle">Apply semantic colors to text.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-6">
+                    <p class="n-text-primary n-font-semibold n-text-lg n-mb-2">.n-text-primary — Indigo</p>
+                    <p class="n-text-secondary n-font-semibold n-text-lg n-mb-2">.n-text-secondary — Purple</p>
+                    <p class="n-text-success n-font-semibold n-text-lg n-mb-2">.n-text-success — Green</p>
+                    <p class="n-text-danger n-font-semibold n-text-lg n-mb-2">.n-text-danger — Red</p>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <p class="n-text-warning n-font-semibold n-text-lg n-mb-2">.n-text-warning — Amber</p>
+                    <p class="n-text-info n-font-semibold n-text-lg n-mb-2">.n-text-info — Cyan</p>
+                    <p class="n-text-muted n-font-semibold n-text-lg n-mb-2">.n-text-muted — Slate</p>
+                    <p class="n-text-dark n-font-semibold n-text-lg">.n-text-dark — Dark</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="grid.html" class="n-btn n-btn-ghost">← Grid</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="buttons.html" class="n-btn n-btn-ghost">Buttons →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

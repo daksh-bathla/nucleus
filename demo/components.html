@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components — Nucleus CSS</title>
+    <meta name="description" content="UI components: alerts, badges, tables, lists, avatars, and navbar.">
+    <link rel="stylesheet" href="../src/css/nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+
+<!-- Navbar -->
+<nav class="n-navbar" id="nav-main">
+    <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+    <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link active" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+    </ul>
+</nav>
+
+<main class="demo-main">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Components</h1>
+            <p class="demo-subtitle">Pre-built UI components: alerts, badges, tables, lists, avatars, and the navbar.</p>
+        </div>
+
+        <!-- Alerts -->
+        <div class="demo-section" id="alerts">
+            <h2 class="demo-title">Alerts</h2>
+            <p class="demo-subtitle">Contextual feedback messages with left accent borders.</p>
+
+            <div class="n-alert n-alert-primary n-mb-2" id="alert-primary">
+                <strong>Info:</strong> This is a primary alert — useful for general information and tips.
+            </div>
+            <div class="n-alert n-alert-success n-mb-2" id="alert-success">
+                <strong>Success!</strong> Your changes have been saved successfully. Everything is working as expected.
+            </div>
+            <div class="n-alert n-alert-warning n-mb-2" id="alert-warning">
+                <strong>Warning:</strong> Please review your input before continuing. Some fields may need attention.
+            </div>
+            <div class="n-alert n-alert-danger n-mb-2" id="alert-danger">
+                <strong>Error!</strong> Something went wrong while processing your request. Please try again.
+            </div>
+            <div class="n-alert n-alert-info n-mb-4" id="alert-info">
+                <strong>Tip:</strong> You can customize alert colors using CSS variables in your project.
+            </div>
+
+            <div class="demo-code">&lt;div class="n-alert n-alert-success"&gt;
+  &lt;strong&gt;Success!&lt;/strong&gt; Your changes have been saved.
+&lt;/div&gt;
+
+&lt;div class="n-alert n-alert-danger"&gt;
+  &lt;strong&gt;Error!&lt;/strong&gt; Something went wrong.
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Badges -->
+        <div class="demo-section" id="badges">
+            <h2 class="demo-title">Badges</h2>
+            <p class="demo-subtitle">Small pill-shaped labels for status indicators, counts, and tags.</p>
+
+            <h5 class="n-mb-2">All Variants</h5>
+            <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
+                <span class="n-badge n-badge-primary">Primary</span>
+                <span class="n-badge n-badge-secondary">Secondary</span>
+                <span class="n-badge n-badge-success">Success</span>
+                <span class="n-badge n-badge-danger">Danger</span>
+                <span class="n-badge n-badge-warning">Warning</span>
+                <span class="n-badge n-badge-info">Info</span>
+                <span class="n-badge n-badge-dark">Dark</span>
+            </div>
+
+            <h5 class="n-mb-2">In Context</h5>
+            <div class="n-row n-mb-4">
+                <div class="n-col-12 n-col-md-6">
+                    <div class="n-card">
+                        <div class="n-card-body n-flex n-justify-between n-items-center">
+                            <span>Notifications</span>
+                            <span class="n-badge n-badge-danger">3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="n-col-12 n-col-md-6">
+                    <div class="n-card">
+                        <div class="n-card-body n-flex n-justify-between n-items-center">
+                            <span>Server Status</span>
+                            <span class="n-badge n-badge-success">Online</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Tags</h5>
+            <div class="n-flex n-flex-wrap n-gap-1">
+                <span class="n-badge n-badge-primary">JavaScript</span>
+                <span class="n-badge n-badge-primary">CSS</span>
+                <span class="n-badge n-badge-primary">HTML</span>
+                <span class="n-badge n-badge-secondary">React</span>
+                <span class="n-badge n-badge-secondary">Vue</span>
+                <span class="n-badge n-badge-info">TypeScript</span>
+            </div>
+        </div>
+
+        <!-- Tables -->
+        <div class="demo-section" id="tables">
+            <h2 class="demo-title">Tables</h2>
+            <p class="demo-subtitle">Responsive tables with striped rows, hover effects, and borders.</p>
+
+            <h5 class="n-mb-2">Striped + Hover</h5>
+            <div class="n-overflow-x-auto n-mb-4">
+                <table class="n-table n-table-striped n-table-hover" id="table-users">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm">AJ</div> Alice Johnson</div></td>
+                            <td>alice@example.com</td>
+                            <td>Engineer</td>
+                            <td><span class="n-badge n-badge-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-secondary)">BS</div> Bob Smith</div></td>
+                            <td>bob@example.com</td>
+                            <td>Designer</td>
+                            <td><span class="n-badge n-badge-success">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-info)">CD</div> Carol Davis</div></td>
+                            <td>carol@example.com</td>
+                            <td>Manager</td>
+                            <td><span class="n-badge n-badge-warning">Away</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-danger)">DW</div> Dan Wilson</div></td>
+                            <td>dan@example.com</td>
+                            <td>Intern</td>
+                            <td><span class="n-badge n-badge-danger">Offline</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-success)">EL</div> Eve Li</div></td>
+                            <td>eve@example.com</td>
+                            <td>Lead</td>
+                            <td><span class="n-badge n-badge-success">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="n-mb-2">Bordered</h5>
+            <div class="n-overflow-x-auto n-mb-4">
+                <table class="n-table n-table-bordered" id="table-bordered">
+                    <thead>
+                        <tr><th>Feature</th><th>Free</th><th>Pro</th><th>Enterprise</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Projects</td><td>1</td><td>Unlimited</td><td>Unlimited</td></tr>
+                        <tr><td>Storage</td><td>500 MB</td><td>50 GB</td><td>1 TB</td></tr>
+                        <tr><td>Support</td><td>Community</td><td>Email</td><td>24/7 Phone</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="demo-code">&lt;table class="n-table n-table-striped n-table-hover"&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Role&lt;/th&gt;&lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;td&gt;Alice&lt;/td&gt;&lt;td&gt;Engineer&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+        </div>
+
+        <!-- Lists -->
+        <div class="demo-section" id="lists">
+            <h2 class="demo-title">Lists</h2>
+            <p class="demo-subtitle">Three list styles: separated, unstyled, and inline.</p>
+
+            <div class="n-row">
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <h5 class="n-mb-2">Separated List <code>.n-list</code></h5>
+                    <ul class="n-list">
+                        <li class="n-flex n-justify-between n-items-center">
+                            <span>Dashboard</span>
+                            <span class="n-badge n-badge-primary">New</span>
+                        </li>
+                        <li>Settings</li>
+                        <li>Profile</li>
+                        <li>Team Members</li>
+                        <li>Billing</li>
+                    </ul>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <h5 class="n-mb-2">Unstyled <code>.n-list-unstyled</code></h5>
+                    <ul class="n-list-unstyled">
+                        <li class="n-mb-1">• Apple</li>
+                        <li class="n-mb-1">• Banana</li>
+                        <li class="n-mb-1">• Cherry</li>
+                        <li class="n-mb-1">• Date</li>
+                        <li>• Elderberry</li>
+                    </ul>
+                </div>
+                <div class="n-col-12 n-col-md-4 n-mb-3">
+                    <h5 class="n-mb-2">Inline <code>.n-list-inline</code></h5>
+                    <ul class="n-list-inline">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Avatars -->
+        <div class="demo-section" id="avatars">
+            <h2 class="demo-title">Avatars</h2>
+            <p class="demo-subtitle">Circular placeholders for user profiles in three sizes.</p>
+
+            <h5 class="n-mb-2">Sizes</h5>
+            <div class="n-flex n-items-center n-gap-3 n-mb-4">
+                <div>
+                    <div class="n-avatar n-avatar-sm">S</div>
+                    <p class="n-text-xs n-text-muted n-text-center n-mt-1">sm</p>
+                </div>
+                <div>
+                    <div class="n-avatar">M</div>
+                    <p class="n-text-xs n-text-muted n-text-center n-mt-1">default</p>
+                </div>
+                <div>
+                    <div class="n-avatar n-avatar-lg">L</div>
+                    <p class="n-text-xs n-text-muted n-text-center n-mt-1">lg</p>
+                </div>
+            </div>
+
+            <h5 class="n-mb-2">Color Variations</h5>
+            <div class="n-flex n-items-center n-gap-2 n-mb-4">
+                <div class="n-avatar">AB</div>
+                <div class="n-avatar" style="background:var(--n-secondary)">CD</div>
+                <div class="n-avatar" style="background:var(--n-success)">EF</div>
+                <div class="n-avatar" style="background:var(--n-danger)">GH</div>
+                <div class="n-avatar" style="background:var(--n-warning);color:#000">IJ</div>
+                <div class="n-avatar" style="background:var(--n-info)">KL</div>
+                <div class="n-avatar" style="background:var(--n-dark)">MN</div>
+            </div>
+
+            <h5 class="n-mb-2">Avatar Stack</h5>
+            <div class="n-flex" style="margin-left:0.5rem">
+                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg)">A</div>
+                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-secondary)">B</div>
+                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-success)">C</div>
+                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-dark)">+5</div>
+            </div>
+        </div>
+
+        <!-- Navbar -->
+        <div class="demo-section" id="navbar">
+            <h2 class="demo-title">Navbar</h2>
+            <p class="demo-subtitle">Sticky navigation bar with brand and link components.</p>
+
+            <div class="n-card n-overflow-hidden n-mb-4">
+                <nav class="n-navbar" style="position:relative;border-bottom:none">
+                    <a class="n-navbar-brand" href="#">⚛ MyApp</a>
+                    <ul class="n-nav">
+                        <li class="n-nav-item"><a class="n-nav-link active" href="#">Home</a></li>
+                        <li class="n-nav-item"><a class="n-nav-link" href="#">Features</a></li>
+                        <li class="n-nav-item"><a class="n-nav-link" href="#">Pricing</a></li>
+                        <li class="n-nav-item"><a class="n-nav-link" href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="demo-code">&lt;nav class="n-navbar"&gt;
+  &lt;a class="n-navbar-brand" href="#"&gt;⚛ MyApp&lt;/a&gt;
+  &lt;ul class="n-nav"&gt;
+    &lt;li class="n-nav-item"&gt;
+      &lt;a class="n-nav-link active" href="#"&gt;Home&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="n-nav-item"&gt;
+      &lt;a class="n-nav-link" href="#"&gt;Features&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</div>
+        </div>
+
+        <!-- Dividers -->
+        <div class="demo-section" id="dividers">
+            <h2 class="demo-title">Dividers</h2>
+            <p class="demo-subtitle">Horizontal rules for separating content sections.</p>
+
+            <p class="n-text-sm">Content above the divider</p>
+            <hr class="n-divider">
+            <p class="n-text-sm">Content below the divider</p>
+
+            <div class="n-mt-3">
+                <div class="demo-code">&lt;hr class="n-divider"&gt;</div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- Footer -->
+<div class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="forms.html" class="n-btn n-btn-ghost">← Forms</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="utilities.html" class="n-btn n-btn-ghost">Utilities →</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
