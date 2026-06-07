@@ -26,11 +26,13 @@
     font-size: clamp(2rem, 6vw, 3.5rem);
     margin-bottom: 1rem;
     font-weight: 700;
+    color: #1e1b4b;
 }
 
 .demo-hero p {
     max-width: 600px;
     margin: 0 auto;
+    color: #2d1b69;
 }
 
 /* Sections */
@@ -109,6 +111,14 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     .demo-hero {
-        background: linear-gradient(135deg, #1e1b4b 0%, #2d1b69 50%, #1e293b 100%);
+        background: linear-gradient(135deg, #312e81 0%, #422d7f 50%, #2d1b69 100%);
+    }
+
+    .demo-hero h1 {
+        color: #e0e7ff;
+    }
+
+    .demo-hero p {
+        color: #c7d2fe;
     }
 }
