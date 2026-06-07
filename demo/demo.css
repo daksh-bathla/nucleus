@@ -1,57 +1,86 @@
-/* ═══════════════════════════════════════
-   Demo-only styles — NOT part of Nucleus
-   ═══════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════════
+   Demo Page — Nucleus CSS Framework Showcase
+   Uses only Nucleus framework classes + minimal demo-specific styles
+   ════════════════════════════════════════════════════════════════ */
 
-/* ── Layout ── */
+/* Page layout */
 .demo-page {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
+
 .demo-main {
     flex: 1;
 }
+
+/* Hero section */
+.demo-hero {
+    padding: 4rem 1rem 3rem;
+    background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 50%, #f5f3ff 100%);
+    border-bottom: 1px solid var(--n-border-color);
+    text-align: center;
+}
+
+.demo-hero h1 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.demo-hero p {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sections */
 .demo-section {
-    padding: 2.5rem 0;
+    padding: 3rem 0;
     border-bottom: 1px solid var(--n-border-color);
 }
+
 .demo-section:last-child {
     border-bottom: none;
 }
-.demo-title {
-    margin-bottom: 0.25rem;
+
+/* Feature cards */
+.demo-feature-card {
+    display: block;
+    padding: 1.5rem;
+    background: var(--n-bg);
+    border: 1px solid var(--n-border-color);
+    border-radius: var(--n-radius-lg);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--n-duration) var(--n-ease);
+    cursor: pointer;
 }
-.demo-subtitle {
-    color: var(--n-text-muted);
+
+.demo-feature-card:hover {
+    text-decoration: none;
+    border-color: var(--n-primary);
+    box-shadow: var(--n-shadow-md);
+    transform: translateY(-2px);
+}
+
+.demo-feature-card .demo-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.demo-feature-card h4 {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.demo-feature-card p {
+    margin: 0;
     font-size: var(--n-text-sm);
-    margin-bottom: 1.5rem;
+    color: var(--n-text-muted);
 }
 
-/* ── Grid visualization ── */
-.demo-grid-cell {
-    background: #eef2ff;
-    border: 1px solid #c7d2fe;
-    border-radius: 0.375rem;
-    padding: 0.75rem 0.5rem;
-    text-align: center;
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: #4338ca;
-}
-
-/* ── Spacing visualization ── */
-.demo-spacing-box {
-    background: #c7d2fe;
-    display: inline-block;
-}
-.demo-spacing-inner {
-    background: #eef2ff;
-    font-size: 0.75rem;
-    text-align: center;
-    white-space: nowrap;
-}
-
-/* ── Code blocks ── */
+/* Code blocks */
 .demo-code {
     background: var(--n-bg-muted);
     border: 1px solid var(--n-border-color);
@@ -60,100 +89,26 @@
     font-family: var(--n-font-mono);
     font-size: var(--n-text-xs);
     overflow-x: auto;
-    white-space: pre;
     line-height: 1.6;
+    white-space: pre;
 }
 
-/* ── Hero ── */
-.demo-hero {
-    text-align: center;
-    padding: 5rem 1rem;
-    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #f5f3ff 100%);
-    border-bottom: 1px solid var(--n-border-color);
-}
-.demo-hero h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    letter-spacing: -0.02em;
-    margin-bottom: 0.75rem;
-}
-.demo-hero p {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* ── Feature cards on home ── */
-.demo-feature-card {
-    display: block;
-    padding: 1.5rem;
-    background: var(--n-bg);
-    border: 1px solid var(--n-border-color);
-    border-radius: var(--n-radius-lg);
-    text-decoration: none;
-    color: var(--n-text);
-    transition: all 200ms var(--n-ease);
-}
-.demo-feature-card:hover {
-    text-decoration: none;
-    border-color: var(--n-primary);
-    box-shadow: var(--n-shadow-md);
-    transform: translateY(-2px);
-}
-.demo-feature-card .demo-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
-    display: block;
-}
-.demo-feature-card h4 {
-    margin-bottom: 0.375rem;
-}
-.demo-feature-card p {
-    color: var(--n-text-muted);
-    font-size: var(--n-text-sm);
-    margin: 0;
-}
-
-/* ── Sidebar nav active state ── */
-.demo-nav-link {
-    display: block;
-    padding: 0.375rem 0.75rem;
-    color: var(--n-text-muted);
-    text-decoration: none;
-    border-radius: var(--n-radius);
-    font-size: var(--n-text-sm);
-    font-weight: 500;
-    transition: all var(--n-duration) var(--n-ease);
-    margin-bottom: 0.125rem;
-}
-.demo-nav-link:hover {
-    color: var(--n-primary);
-    background: rgba(99,102,241,.06);
-    text-decoration: none;
-}
-.demo-nav-link.active {
-    color: var(--n-primary);
-    background: rgba(99,102,241,.1);
-}
-
-/* ── Footer ── */
+/* Footer */
 .demo-footer {
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
     border-top: 1px solid var(--n-border-color);
-    margin-top: 2rem;
     color: var(--n-text-muted);
     font-size: var(--n-text-sm);
 }
 
-/* ── Dark mode ── */
+.demo-footer p {
+    margin: 0.25rem 0;
+}
+
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
     .demo-hero {
-        background: linear-gradient(135deg, #1e1b4b 0%, #1e293b 50%, #0f172a 100%);
+        background: linear-gradient(135deg, #1e1b4b 0%, #2d1b69 50%, #1e293b 100%);
     }
-    .demo-grid-cell {
-        background: #312e81;
-        border-color: #4338ca;
-        color: #c7d2fe;
-    }
-    .demo-spacing-box { background: #4338ca; }
-    .demo-spacing-inner { background: #1e1b4b; color: #c7d2fe; }
 }
