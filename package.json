@@ -1,0 +1,25 @@
+{
+  "name": "nucleus-css",
+  "version": "1.0.0",
+  "description": "A lightweight, mobile-first CSS framework",
+  "main": "index.js",
+  "scripts": {
+    "dev": "python -m http.server 3000 --directory demo",
+    "build": "echo 'Static site - no build needed'",
+    "start": "python -m http.server 3000 --directory demo"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "lightweight",
+    "mobile-first",
+    "grid",
+    "responsive"
+  ],
+  "author": "Daksh Bathla",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dakshbathla/nucleus"
+  }
+}
