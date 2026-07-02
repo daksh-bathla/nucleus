@@ -8,6 +8,10 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(99,102,241,.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(14,165,233,.08), transparent 24%),
+        var(--n-bg);
 }
 
 .demo-main {
@@ -16,8 +20,10 @@
 
 /* Hero section */
 .demo-hero {
-    padding: 4rem 1rem 3rem;
-    background: linear-gradient(135deg, #eef2ff 0%, #f3e8ff 50%, #f5f3ff 100%);
+    padding: 4.5rem 1rem 3.5rem;
+    background:
+        radial-gradient(circle at top center, rgba(255,255,255,.55), transparent 42%),
+        linear-gradient(135deg, rgba(99,102,241,.10) 0%, rgba(168,85,247,.10) 48%, rgba(14,165,233,.08) 100%);
     border-bottom: 1px solid var(--n-border-color);
     text-align: center;
 }
@@ -26,13 +32,14 @@
     font-size: clamp(2rem, 6vw, 3.5rem);
     margin-bottom: 1rem;
     font-weight: 700;
-    color: #1e1b4b;
+    color: var(--n-text);
+    letter-spacing: -0.04em;
 }
 
 .demo-hero p {
     max-width: 600px;
     margin: 0 auto;
-    color: #2d1b69;
+    color: var(--n-text-muted);
 }
 
 /* Sections */
@@ -49,20 +56,22 @@
 .demo-feature-card {
     display: block;
     padding: 1.5rem;
-    background: var(--n-bg);
-    border: 1px solid var(--n-border-color);
-    border-radius: var(--n-radius-lg);
+    background: rgba(255,255,255,.72);
+    border: 1px solid rgba(148,163,184,.18);
+    border-radius: var(--n-radius-xl);
     text-decoration: none;
     color: inherit;
     transition: all var(--n-duration) var(--n-ease);
     cursor: pointer;
+    box-shadow: var(--n-shadow-sm);
+    backdrop-filter: blur(14px);
 }
 
 .demo-feature-card:hover {
     text-decoration: none;
-    border-color: var(--n-primary);
-    box-shadow: var(--n-shadow-md);
-    transform: translateY(-2px);
+    border-color: rgba(99,102,241,.28);
+    box-shadow: var(--n-shadow-soft);
+    transform: translateY(-3px);
 }
 
 .demo-feature-card .demo-icon {
@@ -84,7 +93,8 @@
 
 /* Code blocks */
 .demo-code {
-    background: var(--n-bg-muted);
+    background: rgba(15,23,42,.96);
+    color: #e2e8f0;
     border: 1px solid var(--n-border-color);
     border-radius: var(--n-radius);
     padding: 1rem;
@@ -111,14 +121,21 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     .demo-hero {
-        background: linear-gradient(135deg, #312e81 0%, #422d7f 50%, #2d1b69 100%);
+        background:
+            radial-gradient(circle at top center, rgba(255,255,255,.06), transparent 42%),
+            linear-gradient(135deg, rgba(49,46,129,.92) 0%, rgba(55,48,163,.84) 48%, rgba(30,41,59,.96) 100%);
     }
 
     .demo-hero h1 {
-        color: #e0e7ff;
+        color: #f8fafc;
     }
 
     .demo-hero p {
-        color: #c7d2fe;
+        color: #cbd5e1;
+    }
+
+    .demo-feature-card {
+        background: rgba(15,23,42,.72);
+        border-color: rgba(148,163,184,.14);
     }
 }
