@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nucleus CSS — Form example</title>
+    <link rel="stylesheet" href="../dist/nucleus.min.css" />
+  </head>
+  <body>
+    <main class="n-container n-section">
+      <form class="n-surface n-p-4" style="max-width: 32rem; margin-inline: auto">
+        <h2 class="n-mb-4">Create your account</h2>
+
+        <div class="n-form-group">
+          <label class="n-label n-required" for="name">Full name</label>
+          <input class="n-input" id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+
+        <div class="n-form-group">
+          <label class="n-label n-required" for="email">Email</label>
+          <input
+            class="n-input"
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            aria-describedby="email-help"
+            required
+          />
+          <p class="n-helper-text" id="email-help">We'll only email you about your account.</p>
+        </div>
+
+        <div class="n-form-group">
+          <label class="n-label" for="plan">Plan</label>
+          <select class="n-select" id="plan" name="plan">
+            <option>Starter</option>
+            <option>Pro</option>
+            <option>Enterprise</option>
+          </select>
+        </div>
+
+        <div class="n-form-group">
+          <label class="n-label" for="site">Website</label>
+          <div class="n-input-group">
+            <span class="n-input-prefix">https://</span>
+            <input class="n-input" id="site" name="site" type="text" placeholder="your-site.com" />
+          </div>
+        </div>
+
+        <div class="n-form-group">
+          <label class="n-switch">
+            <input type="checkbox" name="updates" checked />
+            <span class="n-switch-track"></span>
+            Send me product updates
+          </label>
+        </div>
+
+        <div class="n-cluster">
+          <button class="n-btn n-btn-primary" type="submit">Create account</button>
+          <button class="n-btn n-btn-ghost" type="reset">Reset</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

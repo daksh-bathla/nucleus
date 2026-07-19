@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nucleus CSS — Card layout example</title>
+    <link rel="stylesheet" href="../dist/nucleus.min.css" />
+  </head>
+  <body>
+    <main class="n-container n-section n-flow">
+      <div class="n-split">
+        <h2>Team</h2>
+        <button class="n-btn n-btn-primary n-btn-sm">Invite</button>
+      </div>
+
+      <div class="n-auto-grid" style="--n-grid-min: 15rem">
+        <article class="n-card n-card-interactive">
+          <div class="n-card-body n-flow">
+            <div class="n-cluster">
+              <span class="n-avatar">AL</span>
+              <div>
+                <strong>Ada Lovelace</strong>
+                <p class="n-caption">Engineering</p>
+              </div>
+            </div>
+            <p class="n-text-muted n-clamp-2">Works on the layout engine and grid primitives.</p>
+            <div class="n-cluster">
+              <span class="n-badge n-badge-soft">Grid</span>
+              <span class="n-badge n-badge-soft">Layout</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="n-card n-card-interactive">
+          <div class="n-card-body n-flow">
+            <div class="n-cluster">
+              <span class="n-avatar">GH</span>
+              <div>
+                <strong>Grace Hopper</strong>
+                <p class="n-caption">Compilers</p>
+              </div>
+            </div>
+            <p class="n-text-muted n-clamp-2">Keeps the build fast and dependency-free.</p>
+            <div class="n-cluster">
+              <span class="n-badge n-badge-soft">Build</span>
+              <span class="n-badge n-badge-soft">Tooling</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="n-card n-card-interactive">
+          <div class="n-card-body n-flow">
+            <div class="n-cluster">
+              <span class="n-avatar">AT</span>
+              <div>
+                <strong>Alan Turing</strong>
+                <p class="n-caption">Accessibility</p>
+              </div>
+            </div>
+            <p class="n-text-muted n-clamp-2">Owns focus states, reduced motion, and contrast.</p>
+            <div class="n-cluster">
+              <span class="n-badge n-badge-soft">A11y</span>
+              <span class="n-badge n-badge-soft">Focus</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </main>
+  </body>
+</html>

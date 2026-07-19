@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nucleus CSS — Navbar example</title>
+    <link rel="stylesheet" href="../dist/nucleus.min.css" />
+  </head>
+  <body>
+    <nav class="n-navbar">
+      <a class="n-navbar-brand" href="#">◎ Nucleus</a>
+      <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link active" href="#" aria-current="page">Product</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="#">Docs</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="#">Pricing</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="#">Blog</a></li>
+      </ul>
+      <div class="n-cluster">
+        <a class="n-btn n-btn-ghost n-btn-sm" href="#">Sign in</a>
+        <a class="n-btn n-btn-primary n-btn-sm" href="#">Get started</a>
+      </div>
+    </nav>
+
+    <main class="n-container n-section">
+      <nav aria-label="Breadcrumb">
+        <ol class="n-breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Docs</a></li>
+          <li aria-current="page">Navbar</li>
+        </ol>
+      </nav>
+      <p class="n-mt-4 n-text-muted">
+        The navbar is sticky, wraps on small screens, and marks the active link with
+        <code class="n-code">.active</code> plus <code class="n-code">aria-current="page"</code>.
+      </p>
+    </main>
+  </body>
+</html>

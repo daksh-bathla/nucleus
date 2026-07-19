@@ -1,0 +1,4745 @@
+{
+  "name": "Nucleus CSS",
+  "package": "@navital/nucleus-css",
+  "version": "2.0.0",
+  "prefix": "n-",
+  "description": "A polished, accessible, zero-build CSS framework.",
+  "repository": "https://github.com/dakshbathla/nucleus",
+  "license": "MIT",
+  "imports": {
+    "full": "@navital/nucleus-css",
+    "minified": "@navital/nucleus-css/min",
+    "reset": "@navital/nucleus-css/reset",
+    "utilities": "@navital/nucleus-css/utilities",
+    "components": "@navital/nucleus-css/components",
+    "themes": "@navital/nucleus-css/themes"
+  },
+  "cdn": "https://cdn.jsdelivr.net/npm/@navital/nucleus-css@2.0.0/dist/nucleus.min.css",
+  "breakpoints": [
+    {
+      "name": "sm",
+      "min": "576px"
+    },
+    {
+      "name": "md",
+      "min": "768px"
+    },
+    {
+      "name": "lg",
+      "min": "992px"
+    },
+    {
+      "name": "xl",
+      "min": "1200px"
+    },
+    {
+      "name": "xxl",
+      "min": "1600px"
+    }
+  ],
+  "themes": [
+    "ocean",
+    "forest",
+    "rose",
+    "amber",
+    "mono"
+  ],
+  "densities": [
+    "compact",
+    "spacious"
+  ],
+  "darkMode": {
+    "automatic": "@media (prefers-color-scheme: dark)",
+    "manual": "n-dark-mode"
+  },
+  "counts": {
+    "classes": 580,
+    "tokens": 71,
+    "components": 43
+  },
+  "tokens": [
+    {
+      "name": "--n-primary",
+      "value": "#4f46e5"
+    },
+    {
+      "name": "--n-primary-h",
+      "value": "#4338ca"
+    },
+    {
+      "name": "--n-secondary",
+      "value": "#7c3aed"
+    },
+    {
+      "name": "--n-secondary-h",
+      "value": "#6d28d9"
+    },
+    {
+      "name": "--n-success",
+      "value": "#15803d"
+    },
+    {
+      "name": "--n-success-h",
+      "value": "#166534"
+    },
+    {
+      "name": "--n-danger",
+      "value": "#dc2626"
+    },
+    {
+      "name": "--n-danger-h",
+      "value": "#b91c1c"
+    },
+    {
+      "name": "--n-warning",
+      "value": "#f59e0b"
+    },
+    {
+      "name": "--n-warning-h",
+      "value": "#d97706"
+    },
+    {
+      "name": "--n-info",
+      "value": "#0e7490"
+    },
+    {
+      "name": "--n-info-h",
+      "value": "#155e75"
+    },
+    {
+      "name": "--n-light",
+      "value": "#f1f5f9"
+    },
+    {
+      "name": "--n-dark",
+      "value": "#1e293b"
+    },
+    {
+      "name": "--n-text",
+      "value": "#1e293b"
+    },
+    {
+      "name": "--n-text-muted",
+      "value": "#64748b"
+    },
+    {
+      "name": "--n-bg",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-bg-muted",
+      "value": "#f8fafc"
+    },
+    {
+      "name": "--n-border-color",
+      "value": "#e2e8f0"
+    },
+    {
+      "name": "--n-surface",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-surface-raised",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-surface-sunken",
+      "value": "#f1f5f9"
+    },
+    {
+      "name": "--n-overlay",
+      "value": "rgba(15, 23, 42, 0.58)"
+    },
+    {
+      "name": "--n-focus",
+      "value": "rgba(79, 70, 229, 0.22)"
+    },
+    {
+      "name": "--n-on-primary",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-on-secondary",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-on-success",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-on-danger",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-on-warning",
+      "value": "#111827"
+    },
+    {
+      "name": "--n-on-info",
+      "value": "#ffffff"
+    },
+    {
+      "name": "--n-space-0",
+      "value": "0"
+    },
+    {
+      "name": "--n-space-1",
+      "value": "0.25rem"
+    },
+    {
+      "name": "--n-space-2",
+      "value": "0.5rem"
+    },
+    {
+      "name": "--n-space-3",
+      "value": "1rem"
+    },
+    {
+      "name": "--n-space-4",
+      "value": "1.5rem"
+    },
+    {
+      "name": "--n-space-5",
+      "value": "3rem"
+    },
+    {
+      "name": "--n-gutter",
+      "value": "16px"
+    },
+    {
+      "name": "--n-container-sm",
+      "value": "540px"
+    },
+    {
+      "name": "--n-container-md",
+      "value": "720px"
+    },
+    {
+      "name": "--n-container-lg",
+      "value": "960px"
+    },
+    {
+      "name": "--n-container-xl",
+      "value": "1200px"
+    },
+    {
+      "name": "--n-container-xxl",
+      "value": "1600px"
+    },
+    {
+      "name": "--n-font-sans",
+      "value": "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+    },
+    {
+      "name": "--n-font-mono",
+      "value": "'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace"
+    },
+    {
+      "name": "--n-text-xs",
+      "value": "0.75rem"
+    },
+    {
+      "name": "--n-text-sm",
+      "value": "0.875rem"
+    },
+    {
+      "name": "--n-text-base",
+      "value": "1rem"
+    },
+    {
+      "name": "--n-text-lg",
+      "value": "1.125rem"
+    },
+    {
+      "name": "--n-text-xl",
+      "value": "1.25rem"
+    },
+    {
+      "name": "--n-text-2xl",
+      "value": "1.5rem"
+    },
+    {
+      "name": "--n-text-3xl",
+      "value": "1.875rem"
+    },
+    {
+      "name": "--n-text-4xl",
+      "value": "2.25rem"
+    },
+    {
+      "name": "--n-radius-sm",
+      "value": "0.25rem"
+    },
+    {
+      "name": "--n-radius",
+      "value": "0.5rem"
+    },
+    {
+      "name": "--n-radius-lg",
+      "value": "0.75rem"
+    },
+    {
+      "name": "--n-radius-xl",
+      "value": "1rem"
+    },
+    {
+      "name": "--n-radius-full",
+      "value": "9999px"
+    },
+    {
+      "name": "--n-shadow-sm",
+      "value": "0 1px 2px rgba(0,0,0,.06)"
+    },
+    {
+      "name": "--n-shadow",
+      "value": "0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06)"
+    },
+    {
+      "name": "--n-shadow-md",
+      "value": "0 4px 6px rgba(0,0,0,.1), 0 2px 4px rgba(0,0,0,.06)"
+    },
+    {
+      "name": "--n-shadow-lg",
+      "value": "0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05)"
+    },
+    {
+      "name": "--n-shadow-xl",
+      "value": "0 20px 25px rgba(0,0,0,.1), 0 8px 10px rgba(0,0,0,.04)"
+    },
+    {
+      "name": "--n-shadow-soft",
+      "value": "0 10px 30px rgba(15, 23, 42, 0.08)"
+    },
+    {
+      "name": "--n-shadow-glow",
+      "value": "0 0 0 1px rgba(99, 102, 241, 0.16), 0 16px 48px rgba(99, 102, 241, 0.16)"
+    },
+    {
+      "name": "--n-ease",
+      "value": "cubic-bezier(.4,0,.2,1)"
+    },
+    {
+      "name": "--n-duration",
+      "value": "150ms"
+    },
+    {
+      "name": "--n-duration-slow",
+      "value": "240ms"
+    },
+    {
+      "name": "--n-control-height",
+      "value": "2.5rem"
+    },
+    {
+      "name": "--n-control-padding-x",
+      "value": "0.875rem"
+    },
+    {
+      "name": "--n-component-gap",
+      "value": "var(--n-space-3)"
+    },
+    {
+      "name": "--n-section-space",
+      "value": "clamp(3rem, 7vw, 6rem)"
+    }
+  ],
+  "components": [
+    {
+      "name": "n-container",
+      "title": "Container",
+      "category": "component",
+      "description": "Centered, max-width page container with responsive breakpoints.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-container-fluid"
+      ],
+      "states": [],
+      "responsive": true,
+      "accessibility": null,
+      "notes": "Use n-container-fluid for a full-width container with gutters but no max-width.",
+      "example": "<div class=\"n-container\">\n  <!-- page content -->\n</div>"
+    },
+    {
+      "name": "n-row",
+      "title": "Grid row",
+      "category": "component",
+      "description": "12-column CSS grid row. Pair with n-col-* children.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-col-1",
+        "n-col-6",
+        "n-col-12",
+        "n-col-md-6",
+        "n-col-lg-4"
+      ],
+      "states": [],
+      "responsive": true,
+      "accessibility": null,
+      "notes": "Column classes exist for spans 1–12 at base, sm, md, lg, and xl breakpoints (e.g. n-col-md-6).",
+      "example": "<div class=\"n-row\">\n  <div class=\"n-col-12 n-col-md-6\">Left</div>\n  <div class=\"n-col-12 n-col-md-6\">Right</div>\n</div>"
+    },
+    {
+      "name": "n-auto-grid",
+      "title": "Auto grid",
+      "category": "component",
+      "description": "Responsive grid that fits as many columns as space allows.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-grid-auto-fit",
+        "n-grid-auto-fill"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": "Set the minimum column width with the --n-grid-min custom property.",
+      "example": "<div class=\"n-auto-grid\" style=\"--n-grid-min: 16rem\">\n  <article class=\"n-card\"><div class=\"n-card-body\">One</div></article>\n  <article class=\"n-card\"><div class=\"n-card-body\">Two</div></article>\n  <article class=\"n-card\"><div class=\"n-card-body\">Three</div></article>\n</div>"
+    },
+    {
+      "name": "n-sidebar-layout",
+      "title": "Sidebar layout",
+      "category": "component",
+      "description": "Two-column layout that collapses to a single column on narrow screens.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-sidebar-right"
+      ],
+      "states": [],
+      "responsive": true,
+      "accessibility": null,
+      "notes": "Add n-sidebar-right to place the sidebar after the main content.",
+      "example": "<div class=\"n-sidebar-layout\">\n  <aside>Navigation</aside>\n  <main>Content</main>\n</div>"
+    },
+    {
+      "name": "n-cluster",
+      "title": "Cluster",
+      "category": "component",
+      "description": "Flex row of items that wrap, with consistent gaps.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-cluster\">\n  <span class=\"n-badge n-badge-primary\">New</span>\n  <span class=\"n-badge n-badge-success\">Stable</span>\n</div>"
+    },
+    {
+      "name": "n-split",
+      "title": "Split",
+      "category": "component",
+      "description": "Pushes two groups to opposite ends of a row.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-split\">\n  <strong>Title</strong>\n  <button class=\"n-btn n-btn-primary\">Action</button>\n</div>"
+    },
+    {
+      "name": "n-stack",
+      "title": "Stack",
+      "category": "component",
+      "description": "Vertical grid stack with a consistent gap between children.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-stack\">\n  <p>First</p>\n  <p>Second</p>\n</div>"
+    },
+    {
+      "name": "n-btn",
+      "title": "Button",
+      "category": "component",
+      "description": "Base button. Combine with a color variant and optional size.",
+      "element": "button",
+      "requires": [],
+      "variants": [
+        "n-btn-primary",
+        "n-btn-secondary",
+        "n-btn-success",
+        "n-btn-danger",
+        "n-btn-warning",
+        "n-btn-info",
+        "n-btn-dark",
+        "n-btn-light",
+        "n-btn-outline-primary",
+        "n-btn-outline-secondary",
+        "n-btn-outline-success",
+        "n-btn-outline-danger",
+        "n-btn-ghost"
+      ],
+      "sizes": [
+        "n-btn-sm",
+        "n-btn-lg"
+      ],
+      "parts": [
+        "n-button-group"
+      ],
+      "states": [
+        "hover",
+        "active",
+        "focus-visible",
+        "disabled"
+      ],
+      "responsive": false,
+      "accessibility": "Use a native <button> for actions and an <a class=\"n-btn\"> only for navigation. Disable with the [disabled] attribute (or n-disabled for anchors, which cannot be natively disabled).",
+      "notes": null,
+      "example": "<button class=\"n-btn n-btn-primary\">Continue</button>\n<button class=\"n-btn n-btn-outline-primary\">Learn more</button>\n<button class=\"n-btn n-btn-primary\" disabled>Disabled</button>"
+    },
+    {
+      "name": "n-button-group",
+      "title": "Button group",
+      "category": "component",
+      "description": "Joins adjacent buttons into a single segmented control.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-button-group\">\n  <button class=\"n-btn n-btn-light\">Day</button>\n  <button class=\"n-btn n-btn-light\">Week</button>\n  <button class=\"n-btn n-btn-light\">Month</button>\n</div>"
+    },
+    {
+      "name": "n-card",
+      "title": "Card",
+      "category": "component",
+      "description": "Surface container with optional header, body, and footer regions.",
+      "element": null,
+      "requires": [],
+      "variants": [
+        "n-card-interactive",
+        "n-card-elevated"
+      ],
+      "sizes": [],
+      "parts": [
+        "n-card-header",
+        "n-card-body",
+        "n-card-footer",
+        "n-card-img"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": "Add n-card-interactive for a hover lift, or n-card-elevated for a stronger shadow.",
+      "example": "<article class=\"n-card\">\n  <div class=\"n-card-header\">Plan</div>\n  <div class=\"n-card-body\">\n    <p class=\"n-text-muted\">Everything you need to start.</p>\n  </div>\n  <div class=\"n-card-footer\">\n    <button class=\"n-btn n-btn-primary\">Choose</button>\n  </div>\n</article>"
+    },
+    {
+      "name": "n-input",
+      "title": "Text input",
+      "category": "component",
+      "description": "Full-width text field. Pair with n-label inside an n-form-group.",
+      "element": "input",
+      "requires": [],
+      "variants": [
+        "n-input-success",
+        "n-input-error"
+      ],
+      "sizes": [
+        "n-input-sm",
+        "n-input-lg"
+      ],
+      "parts": [
+        "n-form-group",
+        "n-label",
+        "n-helper-text",
+        "n-error-text"
+      ],
+      "states": [
+        "focus",
+        "disabled",
+        "aria-invalid"
+      ],
+      "responsive": false,
+      "accessibility": "Every control needs an associated <label>. Signal invalid state with aria-invalid=\"true\" (styled automatically) and describe the error with n-error-text via aria-describedby.",
+      "notes": null,
+      "example": "<div class=\"n-form-group\">\n  <label class=\"n-label\" for=\"email\">Email</label>\n  <input class=\"n-input\" id=\"email\" type=\"email\" placeholder=\"you@example.com\">\n  <p class=\"n-helper-text\">We never share your email.</p>\n</div>"
+    },
+    {
+      "name": "n-select",
+      "title": "Select",
+      "category": "component",
+      "description": "Styled native select with a custom chevron.",
+      "element": "select",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-form-group",
+        "n-label"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-form-group\">\n  <label class=\"n-label\" for=\"plan\">Plan</label>\n  <select class=\"n-select\" id=\"plan\">\n    <option>Starter</option>\n    <option>Pro</option>\n  </select>\n</div>"
+    },
+    {
+      "name": "n-textarea",
+      "title": "Textarea",
+      "category": "component",
+      "description": "Vertically resizable multi-line text field.",
+      "element": "textarea",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-form-group\">\n  <label class=\"n-label\" for=\"bio\">Bio</label>\n  <textarea class=\"n-textarea\" id=\"bio\" rows=\"4\"></textarea>\n</div>"
+    },
+    {
+      "name": "n-checkbox",
+      "title": "Checkbox / radio",
+      "category": "component",
+      "description": "Inline label wrapper for a native checkbox or radio.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-radio"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<label class=\"n-checkbox\">\n  <input type=\"checkbox\"> Subscribe to updates\n</label>\n<label class=\"n-radio\">\n  <input type=\"radio\" name=\"tier\"> Free\n</label>"
+    },
+    {
+      "name": "n-switch",
+      "title": "Switch",
+      "category": "component",
+      "description": "Accessible toggle built from a visually-hidden checkbox and a track.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-switch-track"
+      ],
+      "states": [
+        "checked",
+        "focus-visible",
+        "disabled"
+      ],
+      "responsive": false,
+      "accessibility": "The <input type=\"checkbox\"> carries the accessible state; keep it inside the label.",
+      "notes": null,
+      "example": "<label class=\"n-switch\">\n  <input type=\"checkbox\">\n  <span class=\"n-switch-track\"></span>\n  Enable notifications\n</label>"
+    },
+    {
+      "name": "n-input-group",
+      "title": "Input group",
+      "category": "component",
+      "description": "Joins an input with prefix/suffix add-ons or a button.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-input-prefix",
+        "n-input-suffix"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-input-group\">\n  <span class=\"n-input-prefix\">https://</span>\n  <input class=\"n-input\" type=\"text\" placeholder=\"your-site\">\n  <button class=\"n-btn n-btn-primary\">Go</button>\n</div>"
+    },
+    {
+      "name": "n-fieldset",
+      "title": "Fieldset",
+      "category": "component",
+      "description": "Grouped form controls with a legend.",
+      "element": "fieldset",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-form-grid",
+        "n-field-row"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<fieldset class=\"n-fieldset\">\n  <legend>Address</legend>\n  <div class=\"n-form-grid\">\n    <input class=\"n-input\" placeholder=\"City\">\n    <input class=\"n-input\" placeholder=\"Postal code\">\n  </div>\n</fieldset>"
+    },
+    {
+      "name": "n-navbar",
+      "title": "Navbar",
+      "category": "component",
+      "description": "Sticky top navigation bar with brand and nav links.",
+      "element": "nav",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-navbar-brand",
+        "n-nav",
+        "n-nav-item",
+        "n-nav-link"
+      ],
+      "states": [],
+      "responsive": true,
+      "accessibility": "Mark the active link with the `active` class and aria-current=\"page\".",
+      "notes": null,
+      "example": "<nav class=\"n-navbar\">\n  <a class=\"n-navbar-brand\" href=\"/\">Nucleus</a>\n  <ul class=\"n-nav\">\n    <li class=\"n-nav-item\"><a class=\"n-nav-link active\" href=\"/\">Home</a></li>\n    <li class=\"n-nav-item\"><a class=\"n-nav-link\" href=\"/docs\">Docs</a></li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "n-breadcrumb",
+      "title": "Breadcrumb",
+      "category": "component",
+      "description": "Ordered trail of ancestor links.",
+      "element": "ol",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<nav aria-label=\"Breadcrumb\">\n  <ol class=\"n-breadcrumb\">\n    <li><a href=\"/\">Home</a></li>\n    <li><a href=\"/docs\">Docs</a></li>\n    <li aria-current=\"page\">Buttons</li>\n  </ol>\n</nav>"
+    },
+    {
+      "name": "n-pagination",
+      "title": "Pagination",
+      "category": "component",
+      "description": "List of page links; mark the current page with aria-current.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-pagination-link"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<nav aria-label=\"Pagination\">\n  <ul class=\"n-pagination\">\n    <li><a class=\"n-pagination-link\" href=\"#\">1</a></li>\n    <li><a class=\"n-pagination-link\" href=\"#\" aria-current=\"page\">2</a></li>\n    <li><a class=\"n-pagination-link\" href=\"#\">3</a></li>\n  </ul>\n</nav>"
+    },
+    {
+      "name": "n-tabs",
+      "title": "Tabs",
+      "category": "component",
+      "description": "Horizontal tablist. Toggle aria-selected in JavaScript.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-tab",
+        "n-tab-panel"
+      ],
+      "states": [
+        "aria-selected",
+        "hover"
+      ],
+      "responsive": false,
+      "accessibility": "Requires JS to move aria-selected and manage focus per the WAI-ARIA tabs pattern.",
+      "notes": null,
+      "example": "<div class=\"n-tabs\" role=\"tablist\">\n  <button class=\"n-tab\" role=\"tab\" aria-selected=\"true\">Overview</button>\n  <button class=\"n-tab\" role=\"tab\" aria-selected=\"false\">Details</button>\n</div>\n<div class=\"n-tab-panel\" role=\"tabpanel\">…</div>"
+    },
+    {
+      "name": "n-alert",
+      "title": "Alert",
+      "category": "component",
+      "description": "Colored message banner for contextual feedback.",
+      "element": null,
+      "requires": [],
+      "variants": [
+        "n-alert-primary",
+        "n-alert-success",
+        "n-alert-danger",
+        "n-alert-warning",
+        "n-alert-info"
+      ],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": "Add role=\"alert\" for errors and role=\"status\" for non-urgent messages.",
+      "notes": null,
+      "example": "<div class=\"n-alert n-alert-success\" role=\"status\">\n  Your changes have been saved.\n</div>"
+    },
+    {
+      "name": "n-badge",
+      "title": "Badge",
+      "category": "component",
+      "description": "Small pill for counts, labels, or status.",
+      "element": null,
+      "requires": [],
+      "variants": [
+        "n-badge-primary",
+        "n-badge-secondary",
+        "n-badge-success",
+        "n-badge-danger",
+        "n-badge-warning",
+        "n-badge-info",
+        "n-badge-dark",
+        "n-badge-soft"
+      ],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<span class=\"n-badge n-badge-primary\">Beta</span>"
+    },
+    {
+      "name": "n-callout",
+      "title": "Callout",
+      "category": "component",
+      "description": "Boxed aside for tips and warnings.",
+      "element": null,
+      "requires": [],
+      "variants": [
+        "n-callout-primary",
+        "n-callout-success",
+        "n-callout-danger"
+      ],
+      "sizes": [],
+      "parts": [
+        "n-callout-title"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-callout n-callout-primary\">\n  <p class=\"n-callout-title\">Heads up</p>\n  <p>Container queries need a modern browser.</p>\n</div>"
+    },
+    {
+      "name": "n-toast",
+      "title": "Toast",
+      "category": "component",
+      "description": "Transient notification; stack with n-toast-stack.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-toast-stack"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-toast-stack\">\n  <div class=\"n-toast\" role=\"status\">Saved to your library.</div>\n</div>"
+    },
+    {
+      "name": "n-progress",
+      "title": "Progress bar",
+      "category": "component",
+      "description": "Native <progress> element styling.",
+      "element": "progress",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<progress class=\"n-progress\" value=\"70\" max=\"100\">70%</progress>"
+    },
+    {
+      "name": "n-spinner",
+      "title": "Spinner",
+      "category": "component",
+      "description": "Indeterminate loading indicator.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [
+        "n-spinner-sm",
+        "n-spinner-lg"
+      ],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": "Respects prefers-reduced-motion. Provide an aria-label since it has no text.",
+      "notes": null,
+      "example": "<span class=\"n-spinner\" role=\"status\" aria-label=\"Loading\"></span>"
+    },
+    {
+      "name": "n-skeleton",
+      "title": "Skeleton",
+      "category": "component",
+      "description": "Shimmering placeholder for loading content.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-skeleton-text",
+        "n-skeleton-circle"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-skeleton n-skeleton-text\" style=\"width: 60%\"></div>"
+    },
+    {
+      "name": "n-dialog",
+      "title": "Dialog",
+      "category": "component",
+      "description": "Native <dialog> modal. Open with dialog.showModal() in JavaScript.",
+      "element": "dialog",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-dialog-header",
+        "n-dialog-body",
+        "n-dialog-footer"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": "Open with element.showModal() (not the open attribute) so focus trapping, Esc-to-close, and the backdrop work. A method=\"dialog\" form closes it.",
+      "notes": null,
+      "example": "<dialog class=\"n-dialog\">\n  <div class=\"n-dialog-header\"><strong>Confirm</strong></div>\n  <div class=\"n-dialog-body\">Delete this item?</div>\n  <form method=\"dialog\" class=\"n-dialog-footer\">\n    <button class=\"n-btn n-btn-light\">Cancel</button>\n    <button class=\"n-btn n-btn-danger\">Delete</button>\n  </form>\n</dialog>"
+    },
+    {
+      "name": "n-drawer",
+      "title": "Drawer",
+      "category": "component",
+      "description": "Edge-anchored <dialog> panel.",
+      "element": "dialog",
+      "requires": [],
+      "variants": [
+        "n-drawer-left"
+      ],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": "Combine with n-dialog; add n-drawer-left to anchor on the left edge.",
+      "example": "<dialog class=\"n-dialog n-drawer\">\n  <div class=\"n-dialog-body\">Side panel</div>\n</dialog>"
+    },
+    {
+      "name": "n-accordion",
+      "title": "Accordion",
+      "category": "component",
+      "description": "Disclosure group built on native <details>/<summary>.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-accordion-panel"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": "Native <details> handles keyboard and expanded state with no JavaScript.",
+      "notes": null,
+      "example": "<div class=\"n-accordion\">\n  <details>\n    <summary>What is Nucleus?</summary>\n    <div class=\"n-accordion-panel\">A zero-build CSS framework.</div>\n  </details>\n</div>"
+    },
+    {
+      "name": "n-dropdown",
+      "title": "Dropdown menu",
+      "category": "component",
+      "description": "Menu surface of n-dropdown-item rows. Best inside a popover.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-dropdown-item",
+        "n-popover"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-dropdown\">\n  <button class=\"n-dropdown-item\">Profile</button>\n  <button class=\"n-dropdown-item\">Settings</button>\n</div>"
+    },
+    {
+      "name": "n-tooltip",
+      "title": "Tooltip",
+      "category": "component",
+      "description": "CSS-only tooltip driven by the data-tooltip attribute.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [
+        "hover",
+        "focus-visible"
+      ],
+      "responsive": false,
+      "accessibility": "For essential text also expose it to assistive tech (e.g. aria-label).",
+      "notes": null,
+      "example": "<button class=\"n-btn n-btn-light n-tooltip\" data-tooltip=\"Save changes\">Save</button>"
+    },
+    {
+      "name": "n-table",
+      "title": "Table",
+      "category": "component",
+      "description": "Base table styling with striped/hover/bordered variants.",
+      "element": "table",
+      "requires": [],
+      "variants": [
+        "n-table-striped",
+        "n-table-hover",
+        "n-table-bordered"
+      ],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<table class=\"n-table n-table-striped\">\n  <thead><tr><th>Name</th><th>Role</th></tr></thead>\n  <tbody><tr><td>Ada</td><td>Engineer</td></tr></tbody>\n</table>"
+    },
+    {
+      "name": "n-list-group",
+      "title": "List group",
+      "category": "component",
+      "description": "Bordered vertical list of rows.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-list-group-item"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<ul class=\"n-list-group\">\n  <li class=\"n-list-group-item\"><span>Inbox</span><span class=\"n-badge n-badge-soft\">12</span></li>\n  <li class=\"n-list-group-item\"><span>Drafts</span><span class=\"n-badge n-badge-soft\">3</span></li>\n</ul>"
+    },
+    {
+      "name": "n-stat",
+      "title": "Stat",
+      "category": "component",
+      "description": "Labeled metric with a large value and optional change indicator.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-stat-label",
+        "n-stat-value",
+        "n-stat-change"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-stat\">\n  <span class=\"n-stat-label\">Revenue</span>\n  <span class=\"n-stat-value\">$48.2k</span>\n  <span class=\"n-stat-change n-text-success\">+12%</span>\n</div>"
+    },
+    {
+      "name": "n-avatar",
+      "title": "Avatar",
+      "category": "component",
+      "description": "Circular image or initials.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [
+        "n-avatar-sm",
+        "n-avatar-lg"
+      ],
+      "parts": [
+        "n-avatar-group"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<span class=\"n-avatar\">AB</span>\n<span class=\"n-avatar\"><img src=\"/user.jpg\" alt=\"Ada\"></span>"
+    },
+    {
+      "name": "n-chip",
+      "title": "Chip",
+      "category": "component",
+      "description": "Compact token, optionally removable.",
+      "element": null,
+      "requires": [],
+      "variants": [
+        "n-chip-removable"
+      ],
+      "sizes": [],
+      "parts": [
+        "n-chip-remove"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<span class=\"n-chip n-chip-removable\">\n  Design\n  <button class=\"n-chip-remove\" aria-label=\"Remove\">×</button>\n</span>"
+    },
+    {
+      "name": "n-empty-state",
+      "title": "Empty state",
+      "category": "component",
+      "description": "Centered placeholder for empty views.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-empty-state-icon"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-empty-state\">\n  <div class=\"n-empty-state-icon\">📭</div>\n  <h3>No messages</h3>\n  <p class=\"n-text-muted\">You're all caught up.</p>\n</div>"
+    },
+    {
+      "name": "n-prose",
+      "title": "Prose",
+      "category": "component",
+      "description": "Readable typographic defaults for long-form article HTML.",
+      "element": null,
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<article class=\"n-prose\">\n  <h2>Getting started</h2>\n  <p>Nucleus styles your semantic HTML automatically inside a prose block.</p>\n  <ul><li>One</li><li>Two</li></ul>\n</article>"
+    },
+    {
+      "name": "n-code-block",
+      "title": "Code block",
+      "category": "component",
+      "description": "Dark, scrollable preformatted code panel.",
+      "element": "pre",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [
+        "n-code",
+        "n-kbd"
+      ],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<pre class=\"n-code-block\"><code>npm install @navital/nucleus-css</code></pre>\n<p>Press <kbd class=\"n-kbd\">⌘</kbd> <kbd class=\"n-kbd\">K</kbd> to search.</p>"
+    },
+    {
+      "name": "n-blockquote",
+      "title": "Blockquote",
+      "category": "component",
+      "description": "Quotation with an accent border.",
+      "element": "blockquote",
+      "requires": [],
+      "variants": [],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<blockquote class=\"n-blockquote\">Design is how it works.</blockquote>"
+    },
+    {
+      "name": "n-surface",
+      "title": "Surface",
+      "category": "component",
+      "description": "Elevated panel with border, radius, and soft shadow.",
+      "element": null,
+      "requires": [],
+      "variants": [
+        "n-surface-glass",
+        "n-surface-raised",
+        "n-surface-sunken",
+        "n-surface-overlay"
+      ],
+      "sizes": [],
+      "parts": [],
+      "states": [],
+      "responsive": false,
+      "accessibility": null,
+      "notes": null,
+      "example": "<div class=\"n-surface n-p-4\">Panel content</div>"
+    }
+  ],
+  "classes": [
+    {
+      "name": "n-absolute",
+      "category": "utility",
+      "description": "Sets position: absolute.",
+      "css": "position: absolute;"
+    },
+    {
+      "name": "n-accordion",
+      "category": "component",
+      "description": "Disclosure group built on native <details>/<summary>.",
+      "css": "border: 1px solid var(--n-border-color); border-radius: var(--n-radius-lg); background: var(--n-surface); overflow: clip;"
+    },
+    {
+      "name": "n-accordion-panel",
+      "category": "component",
+      "variantOf": "n-accordion",
+      "description": "Accordion modifier/part (see .n-accordion).",
+      "css": "padding: 1rem; border-top: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-active",
+      "category": "state",
+      "description": "Sets color: var(--n-primary).",
+      "css": "color: var(--n-primary);"
+    },
+    {
+      "name": "n-alert",
+      "category": "component",
+      "description": "Colored message banner for contextual feedback.",
+      "css": "padding: 0.875rem 1rem; border-radius: var(--n-radius); border-left: 4px solid transparent; font-size: var(--n-text-sm); line-height: 1.5; box-shadow: var(--n-shadow-sm);"
+    },
+    {
+      "name": "n-alert-danger",
+      "category": "component",
+      "variantOf": "n-alert",
+      "description": "Alert modifier/part (see .n-alert).",
+      "css": "background: #fef2f2; border-left-color: var(--n-danger); color: #991b1b;"
+    },
+    {
+      "name": "n-alert-info",
+      "category": "component",
+      "variantOf": "n-alert",
+      "description": "Alert modifier/part (see .n-alert).",
+      "css": "background: #ecfeff; border-left-color: var(--n-info); color: #155e75;"
+    },
+    {
+      "name": "n-alert-primary",
+      "category": "component",
+      "variantOf": "n-alert",
+      "description": "Alert modifier/part (see .n-alert).",
+      "css": "background: #eef2ff; border-left-color: var(--n-primary); color: #3730a3;"
+    },
+    {
+      "name": "n-alert-success",
+      "category": "component",
+      "variantOf": "n-alert",
+      "description": "Alert modifier/part (see .n-alert).",
+      "css": "background: #f0fdf4; border-left-color: var(--n-success); color: #166534;"
+    },
+    {
+      "name": "n-alert-warning",
+      "category": "component",
+      "variantOf": "n-alert",
+      "description": "Alert modifier/part (see .n-alert).",
+      "css": "background: #fffbeb; border-left-color: var(--n-warning); color: #92400e;"
+    },
+    {
+      "name": "n-aspect-square",
+      "category": "layout",
+      "description": "Sets aspect-ratio: 1.",
+      "css": "aspect-ratio: 1;"
+    },
+    {
+      "name": "n-aspect-video",
+      "category": "layout",
+      "description": "Sets aspect-ratio: 16 / 9.",
+      "css": "aspect-ratio: 16 / 9;"
+    },
+    {
+      "name": "n-auto-grid",
+      "category": "layout",
+      "description": "Applies display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 16rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)).",
+      "css": "display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 16rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter));"
+    },
+    {
+      "name": "n-avatar",
+      "category": "helper",
+      "description": "Applies display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--n-radius-full); background: var(--n-primary); color: #fff; font-weight: 600; font-size: var(--n-text-sm); overflow: hidden."
+    },
+    {
+      "name": "n-avatar-group",
+      "category": "component",
+      "variantOf": "n-avatar",
+      "description": "Avatar modifier/part (see .n-avatar).",
+      "css": "display: flex; align-items: center; padding-inline-start: 0.5rem;"
+    },
+    {
+      "name": "n-avatar-lg",
+      "category": "helper",
+      "variantOf": "n-avatar",
+      "description": "Applies width: 3.5rem; height: 3.5rem; font-size: var(--n-text-lg).",
+      "css": "width: 3.5rem; height: 3.5rem; font-size: var(--n-text-lg);"
+    },
+    {
+      "name": "n-avatar-sm",
+      "category": "helper",
+      "variantOf": "n-avatar",
+      "description": "Applies width: 2rem; height: 2rem; font-size: var(--n-text-xs).",
+      "css": "width: 2rem; height: 2rem; font-size: var(--n-text-xs);"
+    },
+    {
+      "name": "n-backdrop-blur",
+      "category": "component",
+      "description": "Applies backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px).",
+      "css": "backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);"
+    },
+    {
+      "name": "n-badge",
+      "category": "component",
+      "description": "Small pill for counts, labels, or status.",
+      "css": "display: inline-flex; align-items: center; padding: 0.125rem 0.5rem; font-size: var(--n-text-xs); font-weight: 600; border-radius: var(--n-radius-full); line-height: 1.5;"
+    },
+    {
+      "name": "n-badge-danger",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: #fef2f2; color: #991b1b;"
+    },
+    {
+      "name": "n-badge-dark",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: var(--n-dark); color: #fff;"
+    },
+    {
+      "name": "n-badge-info",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: #ecfeff; color: #155e75;"
+    },
+    {
+      "name": "n-badge-primary",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: #eef2ff; color: var(--n-primary);"
+    },
+    {
+      "name": "n-badge-secondary",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: #f5f3ff; color: var(--n-secondary);"
+    },
+    {
+      "name": "n-badge-soft",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: rgba(99, 102, 241, 0.12); color: var(--n-primary);"
+    },
+    {
+      "name": "n-badge-success",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: #f0fdf4; color: #166534;"
+    },
+    {
+      "name": "n-badge-warning",
+      "category": "component",
+      "variantOf": "n-badge",
+      "description": "Badge modifier/part (see .n-badge).",
+      "css": "background: #fffbeb; color: #92400e;"
+    },
+    {
+      "name": "n-bg-danger",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-danger); color: var(--n-on-danger).",
+      "css": "background-color: var(--n-danger); color: var(--n-on-danger);"
+    },
+    {
+      "name": "n-bg-dark",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-dark); color: #fff.",
+      "css": "background-color: var(--n-dark); color: #fff;"
+    },
+    {
+      "name": "n-bg-info",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-info); color: var(--n-on-info).",
+      "css": "background-color: var(--n-info); color: var(--n-on-info);"
+    },
+    {
+      "name": "n-bg-light",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-light); color: var(--n-dark).",
+      "css": "background-color: var(--n-light); color: var(--n-dark);"
+    },
+    {
+      "name": "n-bg-muted",
+      "category": "utility",
+      "description": "Sets background-color: var(--n-bg-muted).",
+      "css": "background-color: var(--n-bg-muted);"
+    },
+    {
+      "name": "n-bg-primary",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-primary); color: var(--n-on-primary).",
+      "css": "background-color: var(--n-primary); color: var(--n-on-primary);"
+    },
+    {
+      "name": "n-bg-secondary",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-secondary); color: var(--n-on-secondary).",
+      "css": "background-color: var(--n-secondary); color: var(--n-on-secondary);"
+    },
+    {
+      "name": "n-bg-success",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-success); color: var(--n-on-success).",
+      "css": "background-color: var(--n-success); color: var(--n-on-success);"
+    },
+    {
+      "name": "n-bg-warning",
+      "category": "utility",
+      "description": "Applies background-color: var(--n-warning); color: var(--n-on-warning).",
+      "css": "background-color: var(--n-warning); color: var(--n-on-warning);"
+    },
+    {
+      "name": "n-bg-white",
+      "category": "utility",
+      "description": "Sets background-color: #fff.",
+      "css": "background-color: #fff;"
+    },
+    {
+      "name": "n-blockquote",
+      "category": "content",
+      "description": "Applies padding-inline-start: 1.25rem; border-inline-start: 4px solid var(--n-primary); color: var(--n-text-muted); font-size: var(--n-text-lg); font-style: italic.",
+      "css": "padding-inline-start: 1.25rem; border-inline-start: 4px solid var(--n-primary); color: var(--n-text-muted); font-size: var(--n-text-lg); font-style: italic;"
+    },
+    {
+      "name": "n-blur-sm",
+      "category": "component",
+      "description": "Sets filter: blur(4px).",
+      "css": "filter: blur(4px);"
+    },
+    {
+      "name": "n-border",
+      "category": "utility",
+      "description": "Sets border: 1px solid var(--n-border-color).",
+      "css": "border: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-border-0",
+      "category": "utility",
+      "description": "Sets border: none.",
+      "css": "border: none;"
+    },
+    {
+      "name": "n-border-b",
+      "category": "utility",
+      "description": "Sets border-bottom: 1px solid var(--n-border-color).",
+      "css": "border-bottom: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-border-danger",
+      "category": "utility",
+      "description": "Sets border-color: var(--n-danger).",
+      "css": "border-color: var(--n-danger);"
+    },
+    {
+      "name": "n-border-l",
+      "category": "utility",
+      "description": "Sets border-left: 1px solid var(--n-border-color).",
+      "css": "border-left: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-border-primary",
+      "category": "utility",
+      "description": "Sets border-color: var(--n-primary).",
+      "css": "border-color: var(--n-primary);"
+    },
+    {
+      "name": "n-border-r",
+      "category": "utility",
+      "description": "Sets border-right: 1px solid var(--n-border-color).",
+      "css": "border-right: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-border-success",
+      "category": "utility",
+      "description": "Sets border-color: var(--n-success).",
+      "css": "border-color: var(--n-success);"
+    },
+    {
+      "name": "n-border-t",
+      "category": "utility",
+      "description": "Sets border-top: 1px solid var(--n-border-color).",
+      "css": "border-top: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-border-warning",
+      "category": "utility",
+      "description": "Sets border-color: var(--n-warning).",
+      "css": "border-color: var(--n-warning);"
+    },
+    {
+      "name": "n-bottom-0",
+      "category": "utility",
+      "description": "Sets bottom: 0.",
+      "css": "bottom: 0;"
+    },
+    {
+      "name": "n-breadcrumb",
+      "category": "component",
+      "description": "Ordered trail of ancestor links.",
+      "css": "display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; color: var(--n-text-muted); font-size: var(--n-text-sm); list-style: none;"
+    },
+    {
+      "name": "n-break-inside-avoid",
+      "category": "utility",
+      "description": "Sets break-inside: avoid.",
+      "css": "break-inside: avoid;"
+    },
+    {
+      "name": "n-btn",
+      "category": "component",
+      "description": "Base button. Combine with a color variant and optional size."
+    },
+    {
+      "name": "n-btn-danger",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-danger); color: var(--n-on-danger);"
+    },
+    {
+      "name": "n-btn-dark",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-dark); color: #fff;"
+    },
+    {
+      "name": "n-btn-ghost",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: transparent; color: var(--n-primary);"
+    },
+    {
+      "name": "n-btn-info",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-info); color: var(--n-on-info);"
+    },
+    {
+      "name": "n-btn-lg",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "padding: 0.75rem 1.75rem; font-size: var(--n-text-lg);"
+    },
+    {
+      "name": "n-btn-light",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-light); color: var(--n-dark);"
+    },
+    {
+      "name": "n-btn-outline-danger",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: transparent; color: var(--n-danger); border-color: var(--n-danger);"
+    },
+    {
+      "name": "n-btn-outline-primary",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: transparent; color: var(--n-primary); border-color: var(--n-primary);"
+    },
+    {
+      "name": "n-btn-outline-secondary",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: transparent; color: var(--n-secondary); border-color: var(--n-secondary);"
+    },
+    {
+      "name": "n-btn-outline-success",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: transparent; color: var(--n-success); border-color: var(--n-success);"
+    },
+    {
+      "name": "n-btn-primary",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-primary); color: var(--n-on-primary);"
+    },
+    {
+      "name": "n-btn-secondary",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-secondary); color: var(--n-on-secondary);"
+    },
+    {
+      "name": "n-btn-sm",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "padding: 0.25rem 0.75rem; font-size: var(--n-text-xs);"
+    },
+    {
+      "name": "n-btn-success",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-success); color: var(--n-on-success);"
+    },
+    {
+      "name": "n-btn-warning",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "background: var(--n-warning); color: var(--n-on-warning);"
+    },
+    {
+      "name": "n-button-group",
+      "category": "component",
+      "variantOf": "n-btn",
+      "description": "Button modifier/part (see .n-btn).",
+      "css": "display: inline-flex;"
+    },
+    {
+      "name": "n-callout",
+      "category": "component",
+      "description": "Boxed aside for tips and warnings.",
+      "css": "padding: 1rem; border: 1px solid var(--n-border-color); border-radius: var(--n-radius-lg); background: var(--n-bg-muted);"
+    },
+    {
+      "name": "n-callout-danger",
+      "category": "component",
+      "variantOf": "n-callout",
+      "description": "Callout modifier/part (see .n-callout).",
+      "css": "border-color: rgba(220, 38, 38, 0.3); background: #fef2f2; color: #7f1d1d;"
+    },
+    {
+      "name": "n-callout-primary",
+      "category": "component",
+      "variantOf": "n-callout",
+      "description": "Callout modifier/part (see .n-callout).",
+      "css": "border-color: rgba(79, 70, 229, 0.3); background: #eef2ff; color: #312e81;"
+    },
+    {
+      "name": "n-callout-success",
+      "category": "component",
+      "variantOf": "n-callout",
+      "description": "Callout modifier/part (see .n-callout).",
+      "css": "border-color: rgba(21, 128, 61, 0.3); background: #f0fdf4; color: #14532d;"
+    },
+    {
+      "name": "n-callout-title",
+      "category": "component",
+      "variantOf": "n-callout",
+      "description": "Callout modifier/part (see .n-callout).",
+      "css": "margin-block-end: 0.25rem; font-weight: 700;"
+    },
+    {
+      "name": "n-capitalize",
+      "category": "utility",
+      "description": "Sets text-transform: capitalize.",
+      "css": "text-transform: capitalize;"
+    },
+    {
+      "name": "n-caption",
+      "category": "content",
+      "description": "Applies font-size: var(--n-text-xs); line-height: 1.5; color: var(--n-text-muted).",
+      "css": "font-size: var(--n-text-xs); line-height: 1.5; color: var(--n-text-muted);"
+    },
+    {
+      "name": "n-card",
+      "category": "component",
+      "description": "Surface container with optional header, body, and footer regions."
+    },
+    {
+      "name": "n-card-body",
+      "category": "component",
+      "variantOf": "n-card",
+      "description": "Card modifier/part (see .n-card).",
+      "css": "padding: 1.25rem;"
+    },
+    {
+      "name": "n-card-elevated",
+      "category": "component",
+      "variantOf": "n-card",
+      "description": "Card modifier/part (see .n-card)."
+    },
+    {
+      "name": "n-card-footer",
+      "category": "component",
+      "variantOf": "n-card",
+      "description": "Card modifier/part (see .n-card).",
+      "css": "padding: 1rem 1.25rem; border-top: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-card-header",
+      "category": "component",
+      "variantOf": "n-card",
+      "description": "Card modifier/part (see .n-card).",
+      "css": "padding: 1rem 1.25rem; border-bottom: 1px solid var(--n-border-color); font-weight: 600;"
+    },
+    {
+      "name": "n-card-img",
+      "category": "component",
+      "variantOf": "n-card",
+      "description": "Card modifier/part (see .n-card).",
+      "css": "width: 100%; display: block;"
+    },
+    {
+      "name": "n-card-interactive",
+      "category": "component",
+      "variantOf": "n-card",
+      "description": "Card modifier/part (see .n-card)."
+    },
+    {
+      "name": "n-center",
+      "category": "component",
+      "description": "Applies display: grid; place-items: center.",
+      "css": "display: grid; place-items: center;"
+    },
+    {
+      "name": "n-character-count",
+      "category": "component",
+      "description": "Applies margin-block-start: 0.25rem; color: var(--n-text-muted); font-size: var(--n-text-xs); text-align: end.",
+      "css": "margin-block-start: 0.25rem; color: var(--n-text-muted); font-size: var(--n-text-xs); text-align: end;"
+    },
+    {
+      "name": "n-checkbox",
+      "category": "component",
+      "description": "Inline label wrapper for a native checkbox or radio.",
+      "css": "display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: var(--n-text-sm);"
+    },
+    {
+      "name": "n-chip",
+      "category": "component",
+      "description": "Compact token, optionally removable."
+    },
+    {
+      "name": "n-chip-removable",
+      "category": "component",
+      "variantOf": "n-chip",
+      "description": "Chip modifier/part (see .n-chip).",
+      "css": "padding-inline-end: 0.375rem;"
+    },
+    {
+      "name": "n-chip-remove",
+      "category": "component",
+      "variantOf": "n-chip",
+      "description": "Chip modifier/part (see .n-chip).",
+      "css": "display: inline-grid; width: 1.375rem; height: 1.375rem; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--n-text-muted); cursor: pointer;"
+    },
+    {
+      "name": "n-clamp-1",
+      "category": "content",
+      "description": "Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.",
+      "css": "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;"
+    },
+    {
+      "name": "n-clamp-2",
+      "category": "component",
+      "description": "Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.",
+      "css": "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;"
+    },
+    {
+      "name": "n-clamp-3",
+      "category": "component",
+      "description": "Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.",
+      "css": "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;"
+    },
+    {
+      "name": "n-clamp-4",
+      "category": "content",
+      "description": "Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.",
+      "css": "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;"
+    },
+    {
+      "name": "n-clamp-5",
+      "category": "content",
+      "description": "Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.",
+      "css": "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;"
+    },
+    {
+      "name": "n-clamp-6",
+      "category": "content",
+      "description": "Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.",
+      "css": "display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden;"
+    },
+    {
+      "name": "n-clearfix",
+      "category": "helper",
+      "description": "Nucleus utility class (`.n-clearfix`)."
+    },
+    {
+      "name": "n-cluster",
+      "category": "layout",
+      "description": "Applies display: flex; flex-wrap: wrap; align-items: center; gap: var(--n-cluster-gap, var(--n-space-2)).",
+      "css": "display: flex; flex-wrap: wrap; align-items: center; gap: var(--n-cluster-gap, var(--n-space-2));"
+    },
+    {
+      "name": "n-code",
+      "category": "content",
+      "variantOf": "n-code-block",
+      "description": "Sets font-family: var(--n-font-mono).",
+      "css": "font-family: var(--n-font-mono);"
+    },
+    {
+      "name": "n-code-block",
+      "category": "content",
+      "description": "Sets font-family: var(--n-font-mono).",
+      "css": "font-family: var(--n-font-mono);"
+    },
+    {
+      "name": "n-col-1",
+      "category": "layout",
+      "variantOf": "n-row",
+      "description": "Sets grid-column: span 1.",
+      "css": "grid-column: span 1;"
+    },
+    {
+      "name": "n-col-10",
+      "category": "layout",
+      "description": "Sets grid-column: span 10.",
+      "css": "grid-column: span 10;"
+    },
+    {
+      "name": "n-col-11",
+      "category": "layout",
+      "description": "Sets grid-column: span 11.",
+      "css": "grid-column: span 11;"
+    },
+    {
+      "name": "n-col-12",
+      "category": "layout",
+      "variantOf": "n-row",
+      "description": "Sets grid-column: span 12.",
+      "css": "grid-column: span 12;"
+    },
+    {
+      "name": "n-col-2",
+      "category": "layout",
+      "description": "Sets grid-column: span 2.",
+      "css": "grid-column: span 2;"
+    },
+    {
+      "name": "n-col-3",
+      "category": "layout",
+      "description": "Sets grid-column: span 3.",
+      "css": "grid-column: span 3;"
+    },
+    {
+      "name": "n-col-4",
+      "category": "layout",
+      "description": "Sets grid-column: span 4.",
+      "css": "grid-column: span 4;"
+    },
+    {
+      "name": "n-col-5",
+      "category": "layout",
+      "description": "Sets grid-column: span 5.",
+      "css": "grid-column: span 5;"
+    },
+    {
+      "name": "n-col-6",
+      "category": "layout",
+      "variantOf": "n-row",
+      "description": "Sets grid-column: span 6.",
+      "css": "grid-column: span 6;"
+    },
+    {
+      "name": "n-col-7",
+      "category": "layout",
+      "description": "Sets grid-column: span 7.",
+      "css": "grid-column: span 7;"
+    },
+    {
+      "name": "n-col-8",
+      "category": "layout",
+      "description": "Sets grid-column: span 8.",
+      "css": "grid-column: span 8;"
+    },
+    {
+      "name": "n-col-9",
+      "category": "layout",
+      "description": "Sets grid-column: span 9.",
+      "css": "grid-column: span 9;"
+    },
+    {
+      "name": "n-col-lg-1",
+      "category": "layout",
+      "description": "Sets grid-column: span 1.",
+      "css": "grid-column: span 1;"
+    },
+    {
+      "name": "n-col-lg-10",
+      "category": "layout",
+      "description": "Sets grid-column: span 10.",
+      "css": "grid-column: span 10;"
+    },
+    {
+      "name": "n-col-lg-11",
+      "category": "layout",
+      "description": "Sets grid-column: span 11.",
+      "css": "grid-column: span 11;"
+    },
+    {
+      "name": "n-col-lg-12",
+      "category": "layout",
+      "description": "Sets grid-column: span 12.",
+      "css": "grid-column: span 12;"
+    },
+    {
+      "name": "n-col-lg-2",
+      "category": "layout",
+      "description": "Sets grid-column: span 2.",
+      "css": "grid-column: span 2;"
+    },
+    {
+      "name": "n-col-lg-3",
+      "category": "layout",
+      "description": "Sets grid-column: span 3.",
+      "css": "grid-column: span 3;"
+    },
+    {
+      "name": "n-col-lg-4",
+      "category": "layout",
+      "variantOf": "n-row",
+      "description": "Sets grid-column: span 4.",
+      "css": "grid-column: span 4;"
+    },
+    {
+      "name": "n-col-lg-5",
+      "category": "layout",
+      "description": "Sets grid-column: span 5.",
+      "css": "grid-column: span 5;"
+    },
+    {
+      "name": "n-col-lg-6",
+      "category": "layout",
+      "description": "Sets grid-column: span 6.",
+      "css": "grid-column: span 6;"
+    },
+    {
+      "name": "n-col-lg-7",
+      "category": "layout",
+      "description": "Sets grid-column: span 7.",
+      "css": "grid-column: span 7;"
+    },
+    {
+      "name": "n-col-lg-8",
+      "category": "layout",
+      "description": "Sets grid-column: span 8.",
+      "css": "grid-column: span 8;"
+    },
+    {
+      "name": "n-col-lg-9",
+      "category": "layout",
+      "description": "Sets grid-column: span 9.",
+      "css": "grid-column: span 9;"
+    },
+    {
+      "name": "n-col-md-1",
+      "category": "layout",
+      "description": "Sets grid-column: span 1.",
+      "css": "grid-column: span 1;"
+    },
+    {
+      "name": "n-col-md-10",
+      "category": "layout",
+      "description": "Sets grid-column: span 10.",
+      "css": "grid-column: span 10;"
+    },
+    {
+      "name": "n-col-md-11",
+      "category": "layout",
+      "description": "Sets grid-column: span 11.",
+      "css": "grid-column: span 11;"
+    },
+    {
+      "name": "n-col-md-12",
+      "category": "layout",
+      "description": "Sets grid-column: span 12.",
+      "css": "grid-column: span 12;"
+    },
+    {
+      "name": "n-col-md-2",
+      "category": "layout",
+      "description": "Sets grid-column: span 2.",
+      "css": "grid-column: span 2;"
+    },
+    {
+      "name": "n-col-md-3",
+      "category": "layout",
+      "description": "Sets grid-column: span 3.",
+      "css": "grid-column: span 3;"
+    },
+    {
+      "name": "n-col-md-4",
+      "category": "layout",
+      "description": "Sets grid-column: span 4.",
+      "css": "grid-column: span 4;"
+    },
+    {
+      "name": "n-col-md-5",
+      "category": "layout",
+      "description": "Sets grid-column: span 5.",
+      "css": "grid-column: span 5;"
+    },
+    {
+      "name": "n-col-md-6",
+      "category": "layout",
+      "variantOf": "n-row",
+      "description": "Sets grid-column: span 6.",
+      "css": "grid-column: span 6;"
+    },
+    {
+      "name": "n-col-md-7",
+      "category": "layout",
+      "description": "Sets grid-column: span 7.",
+      "css": "grid-column: span 7;"
+    },
+    {
+      "name": "n-col-md-8",
+      "category": "layout",
+      "description": "Sets grid-column: span 8.",
+      "css": "grid-column: span 8;"
+    },
+    {
+      "name": "n-col-md-9",
+      "category": "layout",
+      "description": "Sets grid-column: span 9.",
+      "css": "grid-column: span 9;"
+    },
+    {
+      "name": "n-col-sm-1",
+      "category": "layout",
+      "description": "Sets grid-column: span 1.",
+      "css": "grid-column: span 1;"
+    },
+    {
+      "name": "n-col-sm-10",
+      "category": "layout",
+      "description": "Sets grid-column: span 10.",
+      "css": "grid-column: span 10;"
+    },
+    {
+      "name": "n-col-sm-11",
+      "category": "layout",
+      "description": "Sets grid-column: span 11.",
+      "css": "grid-column: span 11;"
+    },
+    {
+      "name": "n-col-sm-12",
+      "category": "layout",
+      "description": "Sets grid-column: span 12.",
+      "css": "grid-column: span 12;"
+    },
+    {
+      "name": "n-col-sm-2",
+      "category": "layout",
+      "description": "Sets grid-column: span 2.",
+      "css": "grid-column: span 2;"
+    },
+    {
+      "name": "n-col-sm-3",
+      "category": "layout",
+      "description": "Sets grid-column: span 3.",
+      "css": "grid-column: span 3;"
+    },
+    {
+      "name": "n-col-sm-4",
+      "category": "layout",
+      "description": "Sets grid-column: span 4.",
+      "css": "grid-column: span 4;"
+    },
+    {
+      "name": "n-col-sm-5",
+      "category": "layout",
+      "description": "Sets grid-column: span 5.",
+      "css": "grid-column: span 5;"
+    },
+    {
+      "name": "n-col-sm-6",
+      "category": "layout",
+      "description": "Sets grid-column: span 6.",
+      "css": "grid-column: span 6;"
+    },
+    {
+      "name": "n-col-sm-7",
+      "category": "layout",
+      "description": "Sets grid-column: span 7.",
+      "css": "grid-column: span 7;"
+    },
+    {
+      "name": "n-col-sm-8",
+      "category": "layout",
+      "description": "Sets grid-column: span 8.",
+      "css": "grid-column: span 8;"
+    },
+    {
+      "name": "n-col-sm-9",
+      "category": "layout",
+      "description": "Sets grid-column: span 9.",
+      "css": "grid-column: span 9;"
+    },
+    {
+      "name": "n-col-xl-1",
+      "category": "layout",
+      "description": "Sets grid-column: span 1.",
+      "css": "grid-column: span 1;"
+    },
+    {
+      "name": "n-col-xl-10",
+      "category": "layout",
+      "description": "Sets grid-column: span 10.",
+      "css": "grid-column: span 10;"
+    },
+    {
+      "name": "n-col-xl-11",
+      "category": "layout",
+      "description": "Sets grid-column: span 11.",
+      "css": "grid-column: span 11;"
+    },
+    {
+      "name": "n-col-xl-12",
+      "category": "layout",
+      "description": "Sets grid-column: span 12.",
+      "css": "grid-column: span 12;"
+    },
+    {
+      "name": "n-col-xl-2",
+      "category": "layout",
+      "description": "Sets grid-column: span 2.",
+      "css": "grid-column: span 2;"
+    },
+    {
+      "name": "n-col-xl-3",
+      "category": "layout",
+      "description": "Sets grid-column: span 3.",
+      "css": "grid-column: span 3;"
+    },
+    {
+      "name": "n-col-xl-4",
+      "category": "layout",
+      "description": "Sets grid-column: span 4.",
+      "css": "grid-column: span 4;"
+    },
+    {
+      "name": "n-col-xl-5",
+      "category": "layout",
+      "description": "Sets grid-column: span 5.",
+      "css": "grid-column: span 5;"
+    },
+    {
+      "name": "n-col-xl-6",
+      "category": "layout",
+      "description": "Sets grid-column: span 6.",
+      "css": "grid-column: span 6;"
+    },
+    {
+      "name": "n-col-xl-7",
+      "category": "layout",
+      "description": "Sets grid-column: span 7.",
+      "css": "grid-column: span 7;"
+    },
+    {
+      "name": "n-col-xl-8",
+      "category": "layout",
+      "description": "Sets grid-column: span 8.",
+      "css": "grid-column: span 8;"
+    },
+    {
+      "name": "n-col-xl-9",
+      "category": "layout",
+      "description": "Sets grid-column: span 9.",
+      "css": "grid-column: span 9;"
+    },
+    {
+      "name": "n-columns-2",
+      "category": "utility",
+      "description": "Applies columns: 2; column-gap: var(--n-gutter).",
+      "css": "columns: 2; column-gap: var(--n-gutter);"
+    },
+    {
+      "name": "n-columns-3",
+      "category": "utility",
+      "description": "Applies columns: 3; column-gap: var(--n-gutter).",
+      "css": "columns: 3; column-gap: var(--n-gutter);"
+    },
+    {
+      "name": "n-container",
+      "category": "layout",
+      "description": "Applies width: 100%; margin-inline: auto; padding-inline: var(--n-gutter).",
+      "css": "width: 100%; margin-inline: auto; padding-inline: var(--n-gutter);"
+    },
+    {
+      "name": "n-container-fluid",
+      "category": "layout",
+      "variantOf": "n-container",
+      "description": "Applies width: 100%; margin-inline: auto; padding-inline: var(--n-gutter); max-width: none.",
+      "css": "width: 100%; margin-inline: auto; padding-inline: var(--n-gutter); max-width: none;"
+    },
+    {
+      "name": "n-container-query",
+      "category": "layout",
+      "description": "Sets container-type: inline-size.",
+      "css": "container-type: inline-size;"
+    },
+    {
+      "name": "n-content",
+      "category": "layout",
+      "description": "Applies width: min(100% - 2rem, 70ch); margin-inline: auto.",
+      "css": "width: min(100% - 2rem, 70ch); margin-inline: auto;"
+    },
+    {
+      "name": "n-cover",
+      "category": "layout",
+      "description": "Applies display: flex; min-height: var(--n-cover-height, 100dvh); flex-direction: column; padding: var(--n-space-3).",
+      "css": "display: flex; min-height: var(--n-cover-height, 100dvh); flex-direction: column; padding: var(--n-space-3);"
+    },
+    {
+      "name": "n-cover-center",
+      "category": "layout",
+      "description": "Nucleus utility class (`.n-cover-center`)."
+    },
+    {
+      "name": "n-cq-row",
+      "category": "layout",
+      "description": "Applies display: flex; align-items: center; gap: var(--n-space-3).",
+      "css": "display: flex; align-items: center; gap: var(--n-space-3);"
+    },
+    {
+      "name": "n-d-block",
+      "category": "utility",
+      "description": "Sets display: block.",
+      "css": "display: block;"
+    },
+    {
+      "name": "n-d-flex",
+      "category": "utility",
+      "description": "Sets display: flex.",
+      "css": "display: flex;"
+    },
+    {
+      "name": "n-d-grid",
+      "category": "utility",
+      "description": "Sets display: grid.",
+      "css": "display: grid;"
+    },
+    {
+      "name": "n-d-inline",
+      "category": "utility",
+      "description": "Sets display: inline.",
+      "css": "display: inline;"
+    },
+    {
+      "name": "n-d-inline-block",
+      "category": "utility",
+      "description": "Sets display: inline-block.",
+      "css": "display: inline-block;"
+    },
+    {
+      "name": "n-d-inline-flex",
+      "category": "utility",
+      "description": "Sets display: inline-flex.",
+      "css": "display: inline-flex;"
+    },
+    {
+      "name": "n-d-lg-block",
+      "category": "utility",
+      "description": "Sets display: block.",
+      "css": "display: block;"
+    },
+    {
+      "name": "n-d-lg-flex",
+      "category": "utility",
+      "description": "Sets display: flex.",
+      "css": "display: flex;"
+    },
+    {
+      "name": "n-d-lg-inline",
+      "category": "utility",
+      "description": "Sets display: inline.",
+      "css": "display: inline;"
+    },
+    {
+      "name": "n-d-lg-inline-block",
+      "category": "utility",
+      "description": "Sets display: inline-block.",
+      "css": "display: inline-block;"
+    },
+    {
+      "name": "n-d-lg-none",
+      "category": "utility",
+      "description": "Sets display: none.",
+      "css": "display: none;"
+    },
+    {
+      "name": "n-d-md-block",
+      "category": "utility",
+      "description": "Sets display: block.",
+      "css": "display: block;"
+    },
+    {
+      "name": "n-d-md-flex",
+      "category": "utility",
+      "description": "Sets display: flex.",
+      "css": "display: flex;"
+    },
+    {
+      "name": "n-d-md-inline",
+      "category": "utility",
+      "description": "Sets display: inline.",
+      "css": "display: inline;"
+    },
+    {
+      "name": "n-d-md-inline-block",
+      "category": "utility",
+      "description": "Sets display: inline-block.",
+      "css": "display: inline-block;"
+    },
+    {
+      "name": "n-d-md-none",
+      "category": "utility",
+      "description": "Sets display: none.",
+      "css": "display: none;"
+    },
+    {
+      "name": "n-d-none",
+      "category": "utility",
+      "description": "Sets display: none.",
+      "css": "display: none;"
+    },
+    {
+      "name": "n-d-sm-block",
+      "category": "utility",
+      "description": "Sets display: block.",
+      "css": "display: block;"
+    },
+    {
+      "name": "n-d-sm-flex",
+      "category": "utility",
+      "description": "Sets display: flex.",
+      "css": "display: flex;"
+    },
+    {
+      "name": "n-d-sm-inline",
+      "category": "utility",
+      "description": "Sets display: inline.",
+      "css": "display: inline;"
+    },
+    {
+      "name": "n-d-sm-inline-block",
+      "category": "utility",
+      "description": "Sets display: inline-block.",
+      "css": "display: inline-block;"
+    },
+    {
+      "name": "n-d-sm-none",
+      "category": "utility",
+      "description": "Sets display: none.",
+      "css": "display: none;"
+    },
+    {
+      "name": "n-dark-mode",
+      "category": "theme",
+      "description": "Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-light: #1e293b; --n-dark: #f1f5f9; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); color-scheme: dark."
+    },
+    {
+      "name": "n-dialog",
+      "category": "component",
+      "description": "Native <dialog> modal. Open with dialog.showModal() in JavaScript."
+    },
+    {
+      "name": "n-dialog-body",
+      "category": "component",
+      "variantOf": "n-dialog",
+      "description": "Dialog modifier/part (see .n-dialog).",
+      "css": "padding: 1rem 1.25rem;"
+    },
+    {
+      "name": "n-dialog-footer",
+      "category": "component",
+      "variantOf": "n-dialog",
+      "description": "Dialog modifier/part (see .n-dialog).",
+      "css": "padding: 1rem 1.25rem;"
+    },
+    {
+      "name": "n-dialog-header",
+      "category": "component",
+      "variantOf": "n-dialog",
+      "description": "Dialog modifier/part (see .n-dialog).",
+      "css": "padding: 1rem 1.25rem;"
+    },
+    {
+      "name": "n-disabled",
+      "category": "component",
+      "description": "Applies opacity: 0.5; pointer-events: none.",
+      "css": "opacity: 0.5; pointer-events: none;"
+    },
+    {
+      "name": "n-divider",
+      "category": "helper",
+      "description": "Applies border: none; border-top: 1px solid var(--n-border-color); margin: 1.5rem 0.",
+      "css": "border: none; border-top: 1px solid var(--n-border-color); margin: 1.5rem 0;"
+    },
+    {
+      "name": "n-divider-gradient",
+      "category": "component",
+      "description": "Applies height: 1px; border: 0; background: linear-gradient(90deg, transparent, var(--n-border-color), transparent).",
+      "css": "height: 1px; border: 0; background: linear-gradient(90deg, transparent, var(--n-border-color), transparent);"
+    },
+    {
+      "name": "n-dragging",
+      "category": "state",
+      "description": "Applies opacity: 0.72; box-shadow: var(--n-shadow-lg); transform: rotate(1deg); cursor: grabbing.",
+      "css": "opacity: 0.72; box-shadow: var(--n-shadow-lg); transform: rotate(1deg); cursor: grabbing;"
+    },
+    {
+      "name": "n-drawer",
+      "category": "component",
+      "description": "Edge-anchored <dialog> panel.",
+      "css": "width: min(90vw, var(--n-drawer-width, 26rem)); height: 100dvh; max-height: none; margin: 0 0 0 auto; border: 0; border-inline-start: 1px solid var(--n-border-color); border-radius: 0;"
+    },
+    {
+      "name": "n-drawer-left",
+      "category": "component",
+      "variantOf": "n-drawer",
+      "description": "Drawer modifier/part (see .n-drawer)."
+    },
+    {
+      "name": "n-dropdown",
+      "category": "component",
+      "description": "Menu surface of n-dropdown-item rows. Best inside a popover."
+    },
+    {
+      "name": "n-dropdown-item",
+      "category": "component",
+      "variantOf": "n-dropdown",
+      "description": "Dropdown menu modifier/part (see .n-dropdown)."
+    },
+    {
+      "name": "n-duration-150",
+      "category": "utility",
+      "description": "Sets transition-duration: 150ms.",
+      "css": "transition-duration: 150ms;"
+    },
+    {
+      "name": "n-duration-300",
+      "category": "utility",
+      "description": "Sets transition-duration: 300ms.",
+      "css": "transition-duration: 300ms;"
+    },
+    {
+      "name": "n-duration-500",
+      "category": "utility",
+      "description": "Sets transition-duration: 500ms.",
+      "css": "transition-duration: 500ms;"
+    },
+    {
+      "name": "n-duration-75",
+      "category": "utility",
+      "description": "Sets transition-duration: 75ms.",
+      "css": "transition-duration: 75ms;"
+    },
+    {
+      "name": "n-ease-in",
+      "category": "utility",
+      "description": "Sets transition-timing-function: cubic-bezier(.4,0,1,1).",
+      "css": "transition-timing-function: cubic-bezier(.4,0,1,1);"
+    },
+    {
+      "name": "n-ease-in-out",
+      "category": "utility",
+      "description": "Sets transition-timing-function: cubic-bezier(.4,0,.2,1).",
+      "css": "transition-timing-function: cubic-bezier(.4,0,.2,1);"
+    },
+    {
+      "name": "n-ease-linear",
+      "category": "utility",
+      "description": "Sets transition-timing-function: linear.",
+      "css": "transition-timing-function: linear;"
+    },
+    {
+      "name": "n-ease-out",
+      "category": "utility",
+      "description": "Sets transition-timing-function: cubic-bezier(0,0,.2,1).",
+      "css": "transition-timing-function: cubic-bezier(0,0,.2,1);"
+    },
+    {
+      "name": "n-empty-state",
+      "category": "component",
+      "description": "Centered placeholder for empty views.",
+      "css": "display: grid; max-width: 32rem; place-items: center; gap: 0.75rem; margin-inline: auto; padding: 3rem 1.5rem; text-align: center;"
+    },
+    {
+      "name": "n-empty-state-icon",
+      "category": "component",
+      "variantOf": "n-empty-state",
+      "description": "Empty state modifier/part (see .n-empty-state).",
+      "css": "display: grid; width: 3.5rem; height: 3.5rem; place-items: center; border-radius: var(--n-radius-full); background: var(--n-bg-muted); font-size: 1.5rem;"
+    },
+    {
+      "name": "n-error-text",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "font-size: var(--n-text-xs); margin-top: 0.25rem; color: var(--n-danger);"
+    },
+    {
+      "name": "n-expandable",
+      "category": "state",
+      "description": "Nucleus utility class (`.n-expandable`)."
+    },
+    {
+      "name": "n-expanded",
+      "category": "state",
+      "description": "Sets background: var(--n-bg-muted).",
+      "css": "background: var(--n-bg-muted);"
+    },
+    {
+      "name": "n-field-row",
+      "category": "component",
+      "variantOf": "n-fieldset",
+      "description": "Fieldset modifier/part (see .n-fieldset).",
+      "css": "display: grid; gap: 0.375rem;"
+    },
+    {
+      "name": "n-fieldset",
+      "category": "component",
+      "description": "Grouped form controls with a legend.",
+      "css": "min-width: 0; padding: var(--n-space-3); border: 1px solid var(--n-border-color); border-radius: var(--n-radius-lg);"
+    },
+    {
+      "name": "n-file-input",
+      "category": "component",
+      "description": "Applies width: 100%; border: 1px solid var(--n-border-color); border-radius: var(--n-radius); background: var(--n-bg); color: var(--n-text-muted).",
+      "css": "width: 100%; border: 1px solid var(--n-border-color); border-radius: var(--n-radius); background: var(--n-bg); color: var(--n-text-muted);"
+    },
+    {
+      "name": "n-fixed",
+      "category": "utility",
+      "description": "Sets position: fixed.",
+      "css": "position: fixed;"
+    },
+    {
+      "name": "n-flex",
+      "category": "utility",
+      "description": "Sets display: flex.",
+      "css": "display: flex;"
+    },
+    {
+      "name": "n-flex-1",
+      "category": "utility",
+      "description": "Sets flex: 1 1 0%.",
+      "css": "flex: 1 1 0%;"
+    },
+    {
+      "name": "n-flex-auto",
+      "category": "utility",
+      "description": "Sets flex: 1 1 auto.",
+      "css": "flex: 1 1 auto;"
+    },
+    {
+      "name": "n-flex-col",
+      "category": "utility",
+      "description": "Sets flex-direction: column.",
+      "css": "flex-direction: column;"
+    },
+    {
+      "name": "n-flex-col-reverse",
+      "category": "utility",
+      "description": "Sets flex-direction: column-reverse.",
+      "css": "flex-direction: column-reverse;"
+    },
+    {
+      "name": "n-flex-none",
+      "category": "utility",
+      "description": "Sets flex: none.",
+      "css": "flex: none;"
+    },
+    {
+      "name": "n-flex-nowrap",
+      "category": "utility",
+      "description": "Sets flex-wrap: nowrap.",
+      "css": "flex-wrap: nowrap;"
+    },
+    {
+      "name": "n-flex-row",
+      "category": "utility",
+      "description": "Sets flex-direction: row.",
+      "css": "flex-direction: row;"
+    },
+    {
+      "name": "n-flex-row-reverse",
+      "category": "utility",
+      "description": "Sets flex-direction: row-reverse.",
+      "css": "flex-direction: row-reverse;"
+    },
+    {
+      "name": "n-flex-wrap",
+      "category": "utility",
+      "description": "Sets flex-wrap: wrap.",
+      "css": "flex-wrap: wrap;"
+    },
+    {
+      "name": "n-flow",
+      "category": "layout",
+      "description": "Nucleus utility class (`.n-flow`)."
+    },
+    {
+      "name": "n-focus-ring",
+      "category": "state",
+      "description": "Nucleus utility class (`.n-focus-ring`)."
+    },
+    {
+      "name": "n-font-bold",
+      "category": "utility",
+      "description": "Sets font-weight: 700.",
+      "css": "font-weight: 700;"
+    },
+    {
+      "name": "n-font-light",
+      "category": "utility",
+      "description": "Sets font-weight: 300.",
+      "css": "font-weight: 300;"
+    },
+    {
+      "name": "n-font-medium",
+      "category": "utility",
+      "description": "Sets font-weight: 500.",
+      "css": "font-weight: 500;"
+    },
+    {
+      "name": "n-font-mono",
+      "category": "utility",
+      "description": "Sets font-family: var(--n-font-mono).",
+      "css": "font-family: var(--n-font-mono);"
+    },
+    {
+      "name": "n-font-normal",
+      "category": "utility",
+      "description": "Sets font-weight: 400.",
+      "css": "font-weight: 400;"
+    },
+    {
+      "name": "n-font-semibold",
+      "category": "utility",
+      "description": "Sets font-weight: 600.",
+      "css": "font-weight: 600;"
+    },
+    {
+      "name": "n-form-grid",
+      "category": "component",
+      "variantOf": "n-fieldset",
+      "description": "Fieldset modifier/part (see .n-fieldset).",
+      "css": "display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--n-component-gap);"
+    },
+    {
+      "name": "n-form-group",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "margin-bottom: 1rem;"
+    },
+    {
+      "name": "n-frame",
+      "category": "layout",
+      "description": "Applies overflow: hidden; aspect-ratio: var(--n-frame-ratio, 16 / 9).",
+      "css": "overflow: hidden; aspect-ratio: var(--n-frame-ratio, 16 / 9);"
+    },
+    {
+      "name": "n-gap-0",
+      "category": "utility",
+      "description": "Sets gap: var(--n-space-0).",
+      "css": "gap: var(--n-space-0);"
+    },
+    {
+      "name": "n-gap-1",
+      "category": "utility",
+      "description": "Sets gap: var(--n-space-1).",
+      "css": "gap: var(--n-space-1);"
+    },
+    {
+      "name": "n-gap-2",
+      "category": "utility",
+      "description": "Sets gap: var(--n-space-2).",
+      "css": "gap: var(--n-space-2);"
+    },
+    {
+      "name": "n-gap-3",
+      "category": "utility",
+      "description": "Sets gap: var(--n-space-3).",
+      "css": "gap: var(--n-space-3);"
+    },
+    {
+      "name": "n-gap-4",
+      "category": "utility",
+      "description": "Sets gap: var(--n-space-4).",
+      "css": "gap: var(--n-space-4);"
+    },
+    {
+      "name": "n-gap-5",
+      "category": "utility",
+      "description": "Sets gap: var(--n-space-5).",
+      "css": "gap: var(--n-space-5);"
+    },
+    {
+      "name": "n-gradient-border",
+      "category": "component",
+      "description": "Applies position: relative; border: 1px solid transparent; background: linear-gradient(var(--n-bg), var(--n-bg)) padding-box, linear-gradient(135deg, rgba(99,102,241,.8), rgba(14,165,233,.55)) border-box.",
+      "css": "position: relative; border: 1px solid transparent; background: linear-gradient(var(--n-bg), var(--n-bg)) padding-box, linear-gradient(135deg, rgba(99,102,241,.8), rgba(14,165,233,.55)) border-box;"
+    },
+    {
+      "name": "n-gradient-mesh",
+      "category": "component",
+      "description": "Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(79, 70, 229, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(124, 58, 237, 0.12), transparent 32%)."
+    },
+    {
+      "name": "n-gradient-primary",
+      "category": "component",
+      "description": "Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); color: #fff.",
+      "css": "background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); color: #fff;"
+    },
+    {
+      "name": "n-gradient-text",
+      "category": "component",
+      "description": "Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); -webkit-background-clip: text; background-clip: text; color: transparent.",
+      "css": "background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); -webkit-background-clip: text; background-clip: text; color: transparent;"
+    },
+    {
+      "name": "n-grayscale",
+      "category": "component",
+      "description": "Sets filter: grayscale(1).",
+      "css": "filter: grayscale(1);"
+    },
+    {
+      "name": "n-grid-auto-fill",
+      "category": "layout",
+      "variantOf": "n-auto-grid",
+      "description": "Applies display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)).",
+      "css": "display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter));"
+    },
+    {
+      "name": "n-grid-auto-fit",
+      "category": "layout",
+      "variantOf": "n-auto-grid",
+      "description": "Applies display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)).",
+      "css": "display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter));"
+    },
+    {
+      "name": "n-grow",
+      "category": "utility",
+      "description": "Sets flex-grow: 1.",
+      "css": "flex-grow: 1;"
+    },
+    {
+      "name": "n-h-auto",
+      "category": "utility",
+      "description": "Sets height: auto.",
+      "css": "height: auto;"
+    },
+    {
+      "name": "n-h-full",
+      "category": "utility",
+      "description": "Sets height: 100%.",
+      "css": "height: 100%;"
+    },
+    {
+      "name": "n-h-screen",
+      "category": "utility",
+      "description": "Sets height: 100vh.",
+      "css": "height: 100vh;"
+    },
+    {
+      "name": "n-helper-text",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "font-size: var(--n-text-xs); margin-top: 0.25rem; color: var(--n-text-muted);"
+    },
+    {
+      "name": "n-hidden",
+      "category": "state",
+      "description": "Sets display: none !important.",
+      "css": "display: none !important;"
+    },
+    {
+      "name": "n-hover-lift",
+      "category": "component",
+      "description": "Sets transition: transform var(--n-duration) var(--n-ease), box-shadow var(--n-duration) var(--n-ease).",
+      "css": "transition: transform var(--n-duration) var(--n-ease), box-shadow var(--n-duration) var(--n-ease);"
+    },
+    {
+      "name": "n-hover-scale",
+      "category": "component",
+      "description": "Sets transition: transform var(--n-duration) var(--n-ease).",
+      "css": "transition: transform var(--n-duration) var(--n-ease);"
+    },
+    {
+      "name": "n-img-cover",
+      "category": "helper",
+      "description": "Applies object-fit: cover; width: 100%; height: 100%.",
+      "css": "object-fit: cover; width: 100%; height: 100%;"
+    },
+    {
+      "name": "n-img-fluid",
+      "category": "helper",
+      "description": "Applies max-width: 100%; height: auto.",
+      "css": "max-width: 100%; height: auto;"
+    },
+    {
+      "name": "n-input",
+      "category": "component",
+      "description": "Full-width text field. Pair with n-label inside an n-form-group."
+    },
+    {
+      "name": "n-input-error",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "border-color: var(--n-danger);"
+    },
+    {
+      "name": "n-input-group",
+      "category": "component",
+      "description": "Joins an input with prefix/suffix add-ons or a button.",
+      "css": "display: flex; width: 100%; align-items: stretch;"
+    },
+    {
+      "name": "n-input-lg",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "padding: 0.75rem 1rem; font-size: var(--n-text-lg);"
+    },
+    {
+      "name": "n-input-loading",
+      "category": "component",
+      "description": "Sets position: relative.",
+      "css": "position: relative;"
+    },
+    {
+      "name": "n-input-prefix",
+      "category": "component",
+      "variantOf": "n-input-group",
+      "description": "Input group modifier/part (see .n-input-group).",
+      "css": "border-radius: 0;"
+    },
+    {
+      "name": "n-input-sm",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "padding: 0.25rem 0.5rem; font-size: var(--n-text-xs);"
+    },
+    {
+      "name": "n-input-success",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "border-color: var(--n-success);"
+    },
+    {
+      "name": "n-input-suffix",
+      "category": "component",
+      "variantOf": "n-input-group",
+      "description": "Input group modifier/part (see .n-input-group).",
+      "css": "display: inline-flex; align-items: center; padding-inline: 0.75rem; border: 1px solid var(--n-border-color); background: var(--n-bg-muted); color: var(--n-text-muted); white-space: nowrap;"
+    },
+    {
+      "name": "n-inset-0",
+      "category": "utility",
+      "description": "Sets inset: 0.",
+      "css": "inset: 0;"
+    },
+    {
+      "name": "n-invalid",
+      "category": "component",
+      "description": "Sets border-color: var(--n-danger).",
+      "css": "border-color: var(--n-danger);"
+    },
+    {
+      "name": "n-invisible",
+      "category": "state",
+      "description": "Sets visibility: hidden.",
+      "css": "visibility: hidden;"
+    },
+    {
+      "name": "n-isolate",
+      "category": "utility",
+      "description": "Sets isolation: isolate.",
+      "css": "isolation: isolate;"
+    },
+    {
+      "name": "n-italic",
+      "category": "utility",
+      "description": "Sets font-style: italic.",
+      "css": "font-style: italic;"
+    },
+    {
+      "name": "n-items-baseline",
+      "category": "utility",
+      "description": "Sets align-items: baseline.",
+      "css": "align-items: baseline;"
+    },
+    {
+      "name": "n-items-center",
+      "category": "utility",
+      "description": "Sets align-items: center.",
+      "css": "align-items: center;"
+    },
+    {
+      "name": "n-items-end",
+      "category": "utility",
+      "description": "Sets align-items: flex-end.",
+      "css": "align-items: flex-end;"
+    },
+    {
+      "name": "n-items-start",
+      "category": "utility",
+      "description": "Sets align-items: flex-start.",
+      "css": "align-items: flex-start;"
+    },
+    {
+      "name": "n-items-stretch",
+      "category": "utility",
+      "description": "Sets align-items: stretch.",
+      "css": "align-items: stretch;"
+    },
+    {
+      "name": "n-justify-around",
+      "category": "utility",
+      "description": "Sets justify-content: space-around.",
+      "css": "justify-content: space-around;"
+    },
+    {
+      "name": "n-justify-between",
+      "category": "utility",
+      "description": "Sets justify-content: space-between.",
+      "css": "justify-content: space-between;"
+    },
+    {
+      "name": "n-justify-center",
+      "category": "utility",
+      "description": "Sets justify-content: center.",
+      "css": "justify-content: center;"
+    },
+    {
+      "name": "n-justify-end",
+      "category": "utility",
+      "description": "Sets justify-content: flex-end.",
+      "css": "justify-content: flex-end;"
+    },
+    {
+      "name": "n-justify-evenly",
+      "category": "utility",
+      "description": "Sets justify-content: space-evenly.",
+      "css": "justify-content: space-evenly;"
+    },
+    {
+      "name": "n-justify-start",
+      "category": "utility",
+      "description": "Sets justify-content: flex-start.",
+      "css": "justify-content: flex-start;"
+    },
+    {
+      "name": "n-kbd",
+      "category": "content",
+      "variantOf": "n-code-block",
+      "description": "Sets font-family: var(--n-font-mono).",
+      "css": "font-family: var(--n-font-mono);"
+    },
+    {
+      "name": "n-label",
+      "category": "component",
+      "variantOf": "n-input",
+      "description": "Text input modifier/part (see .n-input).",
+      "css": "display: block; margin-bottom: 0.375rem; font-size: var(--n-text-sm); font-weight: 500; color: var(--n-text);"
+    },
+    {
+      "name": "n-lead",
+      "category": "content",
+      "description": "Applies font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); line-height: 1.65; color: var(--n-text-muted).",
+      "css": "font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); line-height: 1.65; color: var(--n-text-muted);"
+    },
+    {
+      "name": "n-leading-none",
+      "category": "utility",
+      "description": "Sets line-height: 1.",
+      "css": "line-height: 1;"
+    },
+    {
+      "name": "n-leading-normal",
+      "category": "utility",
+      "description": "Sets line-height: 1.5.",
+      "css": "line-height: 1.5;"
+    },
+    {
+      "name": "n-leading-relaxed",
+      "category": "utility",
+      "description": "Sets line-height: 1.75.",
+      "css": "line-height: 1.75;"
+    },
+    {
+      "name": "n-leading-tight",
+      "category": "utility",
+      "description": "Sets line-height: 1.25.",
+      "css": "line-height: 1.25;"
+    },
+    {
+      "name": "n-left-0",
+      "category": "utility",
+      "description": "Sets left: 0.",
+      "css": "left: 0;"
+    },
+    {
+      "name": "n-line-through",
+      "category": "utility",
+      "description": "Sets text-decoration: line-through.",
+      "css": "text-decoration: line-through;"
+    },
+    {
+      "name": "n-list",
+      "category": "component",
+      "description": "Applies list-style: none; padding: 0.",
+      "css": "list-style: none; padding: 0;"
+    },
+    {
+      "name": "n-list-group",
+      "category": "component",
+      "description": "Bordered vertical list of rows.",
+      "css": "border: 1px solid var(--n-border-color); border-radius: var(--n-radius-lg); background: var(--n-surface); list-style: none; overflow: hidden;"
+    },
+    {
+      "name": "n-list-group-item",
+      "category": "component",
+      "variantOf": "n-list-group",
+      "description": "List group modifier/part (see .n-list-group).",
+      "css": "display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 1rem;"
+    },
+    {
+      "name": "n-list-inline",
+      "category": "component",
+      "description": "Applies list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem.",
+      "css": "list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem;"
+    },
+    {
+      "name": "n-list-unstyled",
+      "category": "component",
+      "description": "Applies list-style: none; padding-left: 0.",
+      "css": "list-style: none; padding-left: 0;"
+    },
+    {
+      "name": "n-loading",
+      "category": "state",
+      "description": "Sets cursor: progress.",
+      "css": "cursor: progress;"
+    },
+    {
+      "name": "n-lowercase",
+      "category": "utility",
+      "description": "Sets text-transform: lowercase.",
+      "css": "text-transform: lowercase;"
+    },
+    {
+      "name": "n-m-0",
+      "category": "utility",
+      "description": "Sets margin: var(--n-space-0).",
+      "css": "margin: var(--n-space-0);"
+    },
+    {
+      "name": "n-m-1",
+      "category": "utility",
+      "description": "Sets margin: var(--n-space-1).",
+      "css": "margin: var(--n-space-1);"
+    },
+    {
+      "name": "n-m-2",
+      "category": "utility",
+      "description": "Sets margin: var(--n-space-2).",
+      "css": "margin: var(--n-space-2);"
+    },
+    {
+      "name": "n-m-3",
+      "category": "utility",
+      "description": "Sets margin: var(--n-space-3).",
+      "css": "margin: var(--n-space-3);"
+    },
+    {
+      "name": "n-m-4",
+      "category": "utility",
+      "description": "Sets margin: var(--n-space-4).",
+      "css": "margin: var(--n-space-4);"
+    },
+    {
+      "name": "n-m-5",
+      "category": "utility",
+      "description": "Sets margin: var(--n-space-5).",
+      "css": "margin: var(--n-space-5);"
+    },
+    {
+      "name": "n-m-auto",
+      "category": "utility",
+      "description": "Sets margin: auto.",
+      "css": "margin: auto;"
+    },
+    {
+      "name": "n-mark",
+      "category": "content",
+      "description": "Applies padding-inline: 0.15em; border-radius: 0.15em; background: #fef08a; color: #422006.",
+      "css": "padding-inline: 0.15em; border-radius: 0.15em; background: #fef08a; color: #422006;"
+    },
+    {
+      "name": "n-max-w-2xl",
+      "category": "utility",
+      "description": "Sets max-width: 42rem.",
+      "css": "max-width: 42rem;"
+    },
+    {
+      "name": "n-max-w-full",
+      "category": "utility",
+      "description": "Sets max-width: 100%.",
+      "css": "max-width: 100%;"
+    },
+    {
+      "name": "n-max-w-lg",
+      "category": "utility",
+      "description": "Sets max-width: 32rem.",
+      "css": "max-width: 32rem;"
+    },
+    {
+      "name": "n-max-w-md",
+      "category": "utility",
+      "description": "Sets max-width: 28rem.",
+      "css": "max-width: 28rem;"
+    },
+    {
+      "name": "n-max-w-sm",
+      "category": "utility",
+      "description": "Sets max-width: 24rem.",
+      "css": "max-width: 24rem;"
+    },
+    {
+      "name": "n-max-w-xl",
+      "category": "utility",
+      "description": "Sets max-width: 36rem.",
+      "css": "max-width: 36rem;"
+    },
+    {
+      "name": "n-mb-0",
+      "category": "utility",
+      "description": "Sets margin-bottom: var(--n-space-0).",
+      "css": "margin-bottom: var(--n-space-0);"
+    },
+    {
+      "name": "n-mb-1",
+      "category": "utility",
+      "description": "Sets margin-bottom: var(--n-space-1).",
+      "css": "margin-bottom: var(--n-space-1);"
+    },
+    {
+      "name": "n-mb-2",
+      "category": "utility",
+      "description": "Sets margin-bottom: var(--n-space-2).",
+      "css": "margin-bottom: var(--n-space-2);"
+    },
+    {
+      "name": "n-mb-3",
+      "category": "utility",
+      "description": "Sets margin-bottom: var(--n-space-3).",
+      "css": "margin-bottom: var(--n-space-3);"
+    },
+    {
+      "name": "n-mb-4",
+      "category": "utility",
+      "description": "Sets margin-bottom: var(--n-space-4).",
+      "css": "margin-bottom: var(--n-space-4);"
+    },
+    {
+      "name": "n-mb-5",
+      "category": "utility",
+      "description": "Sets margin-bottom: var(--n-space-5).",
+      "css": "margin-bottom: var(--n-space-5);"
+    },
+    {
+      "name": "n-min-h-screen",
+      "category": "utility",
+      "description": "Sets min-height: 100vh.",
+      "css": "min-height: 100vh;"
+    },
+    {
+      "name": "n-min-w-0",
+      "category": "utility",
+      "description": "Sets min-width: 0.",
+      "css": "min-width: 0;"
+    },
+    {
+      "name": "n-mix-blend-multiply",
+      "category": "utility",
+      "description": "Sets mix-blend-mode: multiply.",
+      "css": "mix-blend-mode: multiply;"
+    },
+    {
+      "name": "n-ml-0",
+      "category": "utility",
+      "description": "Sets margin-left: var(--n-space-0).",
+      "css": "margin-left: var(--n-space-0);"
+    },
+    {
+      "name": "n-ml-1",
+      "category": "utility",
+      "description": "Sets margin-left: var(--n-space-1).",
+      "css": "margin-left: var(--n-space-1);"
+    },
+    {
+      "name": "n-ml-2",
+      "category": "utility",
+      "description": "Sets margin-left: var(--n-space-2).",
+      "css": "margin-left: var(--n-space-2);"
+    },
+    {
+      "name": "n-ml-3",
+      "category": "utility",
+      "description": "Sets margin-left: var(--n-space-3).",
+      "css": "margin-left: var(--n-space-3);"
+    },
+    {
+      "name": "n-ml-4",
+      "category": "utility",
+      "description": "Sets margin-left: var(--n-space-4).",
+      "css": "margin-left: var(--n-space-4);"
+    },
+    {
+      "name": "n-ml-5",
+      "category": "utility",
+      "description": "Sets margin-left: var(--n-space-5).",
+      "css": "margin-left: var(--n-space-5);"
+    },
+    {
+      "name": "n-mr-0",
+      "category": "utility",
+      "description": "Sets margin-right: var(--n-space-0).",
+      "css": "margin-right: var(--n-space-0);"
+    },
+    {
+      "name": "n-mr-1",
+      "category": "utility",
+      "description": "Sets margin-right: var(--n-space-1).",
+      "css": "margin-right: var(--n-space-1);"
+    },
+    {
+      "name": "n-mr-2",
+      "category": "utility",
+      "description": "Sets margin-right: var(--n-space-2).",
+      "css": "margin-right: var(--n-space-2);"
+    },
+    {
+      "name": "n-mr-3",
+      "category": "utility",
+      "description": "Sets margin-right: var(--n-space-3).",
+      "css": "margin-right: var(--n-space-3);"
+    },
+    {
+      "name": "n-mr-4",
+      "category": "utility",
+      "description": "Sets margin-right: var(--n-space-4).",
+      "css": "margin-right: var(--n-space-4);"
+    },
+    {
+      "name": "n-mr-5",
+      "category": "utility",
+      "description": "Sets margin-right: var(--n-space-5).",
+      "css": "margin-right: var(--n-space-5);"
+    },
+    {
+      "name": "n-mt-0",
+      "category": "utility",
+      "description": "Sets margin-top: var(--n-space-0).",
+      "css": "margin-top: var(--n-space-0);"
+    },
+    {
+      "name": "n-mt-1",
+      "category": "utility",
+      "description": "Sets margin-top: var(--n-space-1).",
+      "css": "margin-top: var(--n-space-1);"
+    },
+    {
+      "name": "n-mt-2",
+      "category": "utility",
+      "description": "Sets margin-top: var(--n-space-2).",
+      "css": "margin-top: var(--n-space-2);"
+    },
+    {
+      "name": "n-mt-3",
+      "category": "utility",
+      "description": "Sets margin-top: var(--n-space-3).",
+      "css": "margin-top: var(--n-space-3);"
+    },
+    {
+      "name": "n-mt-4",
+      "category": "utility",
+      "description": "Sets margin-top: var(--n-space-4).",
+      "css": "margin-top: var(--n-space-4);"
+    },
+    {
+      "name": "n-mt-5",
+      "category": "utility",
+      "description": "Sets margin-top: var(--n-space-5).",
+      "css": "margin-top: var(--n-space-5);"
+    },
+    {
+      "name": "n-mx-0",
+      "category": "utility",
+      "description": "Sets margin-inline: var(--n-space-0).",
+      "css": "margin-inline: var(--n-space-0);"
+    },
+    {
+      "name": "n-mx-1",
+      "category": "utility",
+      "description": "Sets margin-inline: var(--n-space-1).",
+      "css": "margin-inline: var(--n-space-1);"
+    },
+    {
+      "name": "n-mx-2",
+      "category": "utility",
+      "description": "Sets margin-inline: var(--n-space-2).",
+      "css": "margin-inline: var(--n-space-2);"
+    },
+    {
+      "name": "n-mx-3",
+      "category": "utility",
+      "description": "Sets margin-inline: var(--n-space-3).",
+      "css": "margin-inline: var(--n-space-3);"
+    },
+    {
+      "name": "n-mx-4",
+      "category": "utility",
+      "description": "Sets margin-inline: var(--n-space-4).",
+      "css": "margin-inline: var(--n-space-4);"
+    },
+    {
+      "name": "n-mx-5",
+      "category": "utility",
+      "description": "Sets margin-inline: var(--n-space-5).",
+      "css": "margin-inline: var(--n-space-5);"
+    },
+    {
+      "name": "n-mx-auto",
+      "category": "utility",
+      "description": "Sets margin-inline: auto.",
+      "css": "margin-inline: auto;"
+    },
+    {
+      "name": "n-my-0",
+      "category": "utility",
+      "description": "Sets margin-block: var(--n-space-0).",
+      "css": "margin-block: var(--n-space-0);"
+    },
+    {
+      "name": "n-my-1",
+      "category": "utility",
+      "description": "Sets margin-block: var(--n-space-1).",
+      "css": "margin-block: var(--n-space-1);"
+    },
+    {
+      "name": "n-my-2",
+      "category": "utility",
+      "description": "Sets margin-block: var(--n-space-2).",
+      "css": "margin-block: var(--n-space-2);"
+    },
+    {
+      "name": "n-my-3",
+      "category": "utility",
+      "description": "Sets margin-block: var(--n-space-3).",
+      "css": "margin-block: var(--n-space-3);"
+    },
+    {
+      "name": "n-my-4",
+      "category": "utility",
+      "description": "Sets margin-block: var(--n-space-4).",
+      "css": "margin-block: var(--n-space-4);"
+    },
+    {
+      "name": "n-my-5",
+      "category": "utility",
+      "description": "Sets margin-block: var(--n-space-5).",
+      "css": "margin-block: var(--n-space-5);"
+    },
+    {
+      "name": "n-nav",
+      "category": "component",
+      "variantOf": "n-navbar",
+      "description": "Navbar modifier/part (see .n-navbar).",
+      "css": "display: flex; align-items: center; gap: 0.25rem; list-style: none; min-width: 0;"
+    },
+    {
+      "name": "n-nav-item",
+      "category": "component",
+      "variantOf": "n-navbar",
+      "description": "Navbar modifier/part (see .n-navbar).",
+      "css": "list-style: none;"
+    },
+    {
+      "name": "n-nav-link",
+      "category": "component",
+      "variantOf": "n-navbar",
+      "description": "Navbar modifier/part (see .n-navbar)."
+    },
+    {
+      "name": "n-navbar",
+      "category": "component",
+      "description": "Sticky top navigation bar with brand and nav links."
+    },
+    {
+      "name": "n-navbar-brand",
+      "category": "component",
+      "variantOf": "n-navbar",
+      "description": "Navbar modifier/part (see .n-navbar).",
+      "css": "font-size: var(--n-text-xl); font-weight: 700; color: var(--n-text); text-decoration: none;"
+    },
+    {
+      "name": "n-no-print",
+      "category": "accessibility",
+      "description": "Sets display: none !important.",
+      "css": "display: none !important;"
+    },
+    {
+      "name": "n-no-underline",
+      "category": "utility",
+      "description": "Sets text-decoration: none.",
+      "css": "text-decoration: none;"
+    },
+    {
+      "name": "n-noise",
+      "category": "component",
+      "description": "Sets background-image: repeating-radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 4px).",
+      "css": "background-image: repeating-radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 4px);"
+    },
+    {
+      "name": "n-normal-case",
+      "category": "utility",
+      "description": "Sets text-transform: none.",
+      "css": "text-transform: none;"
+    },
+    {
+      "name": "n-not-italic",
+      "category": "utility",
+      "description": "Sets font-style: normal.",
+      "css": "font-style: normal;"
+    },
+    {
+      "name": "n-object-contain",
+      "category": "layout",
+      "description": "Sets object-fit: contain.",
+      "css": "object-fit: contain;"
+    },
+    {
+      "name": "n-object-cover",
+      "category": "layout",
+      "description": "Sets object-fit: cover.",
+      "css": "object-fit: cover;"
+    },
+    {
+      "name": "n-opacity-0",
+      "category": "utility",
+      "description": "Sets opacity: 0.",
+      "css": "opacity: 0;"
+    },
+    {
+      "name": "n-opacity-100",
+      "category": "utility",
+      "description": "Sets opacity: 1.",
+      "css": "opacity: 1;"
+    },
+    {
+      "name": "n-opacity-25",
+      "category": "utility",
+      "description": "Sets opacity: 0.25.",
+      "css": "opacity: 0.25;"
+    },
+    {
+      "name": "n-opacity-50",
+      "category": "utility",
+      "description": "Sets opacity: 0.5.",
+      "css": "opacity: 0.5;"
+    },
+    {
+      "name": "n-opacity-75",
+      "category": "utility",
+      "description": "Sets opacity: 0.75.",
+      "css": "opacity: 0.75;"
+    },
+    {
+      "name": "n-order-1",
+      "category": "layout",
+      "description": "Sets order: 1.",
+      "css": "order: 1;"
+    },
+    {
+      "name": "n-order-2",
+      "category": "layout",
+      "description": "Sets order: 2.",
+      "css": "order: 2;"
+    },
+    {
+      "name": "n-order-3",
+      "category": "layout",
+      "description": "Sets order: 3.",
+      "css": "order: 3;"
+    },
+    {
+      "name": "n-order-4",
+      "category": "layout",
+      "description": "Sets order: 4.",
+      "css": "order: 4;"
+    },
+    {
+      "name": "n-order-5",
+      "category": "layout",
+      "description": "Sets order: 5.",
+      "css": "order: 5;"
+    },
+    {
+      "name": "n-order-first",
+      "category": "layout",
+      "description": "Sets order: -9999.",
+      "css": "order: -9999;"
+    },
+    {
+      "name": "n-order-last",
+      "category": "layout",
+      "description": "Sets order: 9999.",
+      "css": "order: 9999;"
+    },
+    {
+      "name": "n-overflow-auto",
+      "category": "utility",
+      "description": "Sets overflow: auto.",
+      "css": "overflow: auto;"
+    },
+    {
+      "name": "n-overflow-hidden",
+      "category": "utility",
+      "description": "Sets overflow: hidden.",
+      "css": "overflow: hidden;"
+    },
+    {
+      "name": "n-overflow-scroll",
+      "category": "utility",
+      "description": "Sets overflow: scroll.",
+      "css": "overflow: scroll;"
+    },
+    {
+      "name": "n-overflow-visible",
+      "category": "utility",
+      "description": "Sets overflow: visible.",
+      "css": "overflow: visible;"
+    },
+    {
+      "name": "n-overflow-x-auto",
+      "category": "utility",
+      "description": "Sets overflow-x: auto.",
+      "css": "overflow-x: auto;"
+    },
+    {
+      "name": "n-overflow-y-auto",
+      "category": "utility",
+      "description": "Sets overflow-y: auto.",
+      "css": "overflow-y: auto;"
+    },
+    {
+      "name": "n-overline",
+      "category": "content",
+      "description": "Applies font-size: var(--n-text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--n-primary).",
+      "css": "font-size: var(--n-text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--n-primary);"
+    },
+    {
+      "name": "n-overscroll-contain",
+      "category": "utility",
+      "description": "Sets overscroll-behavior: contain.",
+      "css": "overscroll-behavior: contain;"
+    },
+    {
+      "name": "n-p-0",
+      "category": "utility",
+      "description": "Sets padding: var(--n-space-0).",
+      "css": "padding: var(--n-space-0);"
+    },
+    {
+      "name": "n-p-1",
+      "category": "utility",
+      "description": "Sets padding: var(--n-space-1).",
+      "css": "padding: var(--n-space-1);"
+    },
+    {
+      "name": "n-p-2",
+      "category": "utility",
+      "description": "Sets padding: var(--n-space-2).",
+      "css": "padding: var(--n-space-2);"
+    },
+    {
+      "name": "n-p-3",
+      "category": "utility",
+      "description": "Sets padding: var(--n-space-3).",
+      "css": "padding: var(--n-space-3);"
+    },
+    {
+      "name": "n-p-4",
+      "category": "utility",
+      "description": "Sets padding: var(--n-space-4).",
+      "css": "padding: var(--n-space-4);"
+    },
+    {
+      "name": "n-p-5",
+      "category": "utility",
+      "description": "Sets padding: var(--n-space-5).",
+      "css": "padding: var(--n-space-5);"
+    },
+    {
+      "name": "n-page-atmosphere",
+      "category": "component",
+      "description": "Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed."
+    },
+    {
+      "name": "n-pagination",
+      "category": "component",
+      "description": "List of page links; mark the current page with aria-current.",
+      "css": "display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem; list-style: none;"
+    },
+    {
+      "name": "n-pagination-link",
+      "category": "component",
+      "variantOf": "n-pagination",
+      "description": "Pagination modifier/part (see .n-pagination)."
+    },
+    {
+      "name": "n-pb-0",
+      "category": "utility",
+      "description": "Sets padding-bottom: var(--n-space-0).",
+      "css": "padding-bottom: var(--n-space-0);"
+    },
+    {
+      "name": "n-pb-1",
+      "category": "utility",
+      "description": "Sets padding-bottom: var(--n-space-1).",
+      "css": "padding-bottom: var(--n-space-1);"
+    },
+    {
+      "name": "n-pb-2",
+      "category": "utility",
+      "description": "Sets padding-bottom: var(--n-space-2).",
+      "css": "padding-bottom: var(--n-space-2);"
+    },
+    {
+      "name": "n-pb-3",
+      "category": "utility",
+      "description": "Sets padding-bottom: var(--n-space-3).",
+      "css": "padding-bottom: var(--n-space-3);"
+    },
+    {
+      "name": "n-pb-4",
+      "category": "utility",
+      "description": "Sets padding-bottom: var(--n-space-4).",
+      "css": "padding-bottom: var(--n-space-4);"
+    },
+    {
+      "name": "n-pb-5",
+      "category": "utility",
+      "description": "Sets padding-bottom: var(--n-space-5).",
+      "css": "padding-bottom: var(--n-space-5);"
+    },
+    {
+      "name": "n-pl-0",
+      "category": "utility",
+      "description": "Sets padding-left: var(--n-space-0).",
+      "css": "padding-left: var(--n-space-0);"
+    },
+    {
+      "name": "n-pl-1",
+      "category": "utility",
+      "description": "Sets padding-left: var(--n-space-1).",
+      "css": "padding-left: var(--n-space-1);"
+    },
+    {
+      "name": "n-pl-2",
+      "category": "utility",
+      "description": "Sets padding-left: var(--n-space-2).",
+      "css": "padding-left: var(--n-space-2);"
+    },
+    {
+      "name": "n-pl-3",
+      "category": "utility",
+      "description": "Sets padding-left: var(--n-space-3).",
+      "css": "padding-left: var(--n-space-3);"
+    },
+    {
+      "name": "n-pl-4",
+      "category": "utility",
+      "description": "Sets padding-left: var(--n-space-4).",
+      "css": "padding-left: var(--n-space-4);"
+    },
+    {
+      "name": "n-pl-5",
+      "category": "utility",
+      "description": "Sets padding-left: var(--n-space-5).",
+      "css": "padding-left: var(--n-space-5);"
+    },
+    {
+      "name": "n-place-center",
+      "category": "layout",
+      "description": "Sets place-items: center.",
+      "css": "place-items: center;"
+    },
+    {
+      "name": "n-pointer",
+      "category": "helper",
+      "description": "Sets cursor: pointer.",
+      "css": "cursor: pointer;"
+    },
+    {
+      "name": "n-pointer-events-auto",
+      "category": "accessibility",
+      "description": "Sets pointer-events: auto.",
+      "css": "pointer-events: auto;"
+    },
+    {
+      "name": "n-pointer-events-none",
+      "category": "accessibility",
+      "description": "Sets pointer-events: none.",
+      "css": "pointer-events: none;"
+    },
+    {
+      "name": "n-popover",
+      "category": "component",
+      "variantOf": "n-dropdown",
+      "description": "Dropdown menu modifier/part (see .n-dropdown)."
+    },
+    {
+      "name": "n-pr-0",
+      "category": "utility",
+      "description": "Sets padding-right: var(--n-space-0).",
+      "css": "padding-right: var(--n-space-0);"
+    },
+    {
+      "name": "n-pr-1",
+      "category": "utility",
+      "description": "Sets padding-right: var(--n-space-1).",
+      "css": "padding-right: var(--n-space-1);"
+    },
+    {
+      "name": "n-pr-2",
+      "category": "utility",
+      "description": "Sets padding-right: var(--n-space-2).",
+      "css": "padding-right: var(--n-space-2);"
+    },
+    {
+      "name": "n-pr-3",
+      "category": "utility",
+      "description": "Sets padding-right: var(--n-space-3).",
+      "css": "padding-right: var(--n-space-3);"
+    },
+    {
+      "name": "n-pr-4",
+      "category": "utility",
+      "description": "Sets padding-right: var(--n-space-4).",
+      "css": "padding-right: var(--n-space-4);"
+    },
+    {
+      "name": "n-pr-5",
+      "category": "utility",
+      "description": "Sets padding-right: var(--n-space-5).",
+      "css": "padding-right: var(--n-space-5);"
+    },
+    {
+      "name": "n-press",
+      "category": "component",
+      "description": "Nucleus utility class (`.n-press`)."
+    },
+    {
+      "name": "n-progress",
+      "category": "component",
+      "description": "Native <progress> element styling.",
+      "css": "width: 100%; height: 0.625rem; border: 0; border-radius: var(--n-radius-full); background: var(--n-bg-muted); overflow: hidden;"
+    },
+    {
+      "name": "n-prose",
+      "category": "content",
+      "description": "Applies max-width: 70ch; color: var(--n-text); line-height: 1.75.",
+      "css": "max-width: 70ch; color: var(--n-text); line-height: 1.75;"
+    },
+    {
+      "name": "n-pt-0",
+      "category": "utility",
+      "description": "Sets padding-top: var(--n-space-0).",
+      "css": "padding-top: var(--n-space-0);"
+    },
+    {
+      "name": "n-pt-1",
+      "category": "utility",
+      "description": "Sets padding-top: var(--n-space-1).",
+      "css": "padding-top: var(--n-space-1);"
+    },
+    {
+      "name": "n-pt-2",
+      "category": "utility",
+      "description": "Sets padding-top: var(--n-space-2).",
+      "css": "padding-top: var(--n-space-2);"
+    },
+    {
+      "name": "n-pt-3",
+      "category": "utility",
+      "description": "Sets padding-top: var(--n-space-3).",
+      "css": "padding-top: var(--n-space-3);"
+    },
+    {
+      "name": "n-pt-4",
+      "category": "utility",
+      "description": "Sets padding-top: var(--n-space-4).",
+      "css": "padding-top: var(--n-space-4);"
+    },
+    {
+      "name": "n-pt-5",
+      "category": "utility",
+      "description": "Sets padding-top: var(--n-space-5).",
+      "css": "padding-top: var(--n-space-5);"
+    },
+    {
+      "name": "n-px-0",
+      "category": "utility",
+      "description": "Sets padding-inline: var(--n-space-0).",
+      "css": "padding-inline: var(--n-space-0);"
+    },
+    {
+      "name": "n-px-1",
+      "category": "utility",
+      "description": "Sets padding-inline: var(--n-space-1).",
+      "css": "padding-inline: var(--n-space-1);"
+    },
+    {
+      "name": "n-px-2",
+      "category": "utility",
+      "description": "Sets padding-inline: var(--n-space-2).",
+      "css": "padding-inline: var(--n-space-2);"
+    },
+    {
+      "name": "n-px-3",
+      "category": "utility",
+      "description": "Sets padding-inline: var(--n-space-3).",
+      "css": "padding-inline: var(--n-space-3);"
+    },
+    {
+      "name": "n-px-4",
+      "category": "utility",
+      "description": "Sets padding-inline: var(--n-space-4).",
+      "css": "padding-inline: var(--n-space-4);"
+    },
+    {
+      "name": "n-px-5",
+      "category": "utility",
+      "description": "Sets padding-inline: var(--n-space-5).",
+      "css": "padding-inline: var(--n-space-5);"
+    },
+    {
+      "name": "n-py-0",
+      "category": "utility",
+      "description": "Sets padding-block: var(--n-space-0).",
+      "css": "padding-block: var(--n-space-0);"
+    },
+    {
+      "name": "n-py-1",
+      "category": "utility",
+      "description": "Sets padding-block: var(--n-space-1).",
+      "css": "padding-block: var(--n-space-1);"
+    },
+    {
+      "name": "n-py-2",
+      "category": "utility",
+      "description": "Sets padding-block: var(--n-space-2).",
+      "css": "padding-block: var(--n-space-2);"
+    },
+    {
+      "name": "n-py-3",
+      "category": "utility",
+      "description": "Sets padding-block: var(--n-space-3).",
+      "css": "padding-block: var(--n-space-3);"
+    },
+    {
+      "name": "n-py-4",
+      "category": "utility",
+      "description": "Sets padding-block: var(--n-space-4).",
+      "css": "padding-block: var(--n-space-4);"
+    },
+    {
+      "name": "n-py-5",
+      "category": "utility",
+      "description": "Sets padding-block: var(--n-space-5).",
+      "css": "padding-block: var(--n-space-5);"
+    },
+    {
+      "name": "n-radio",
+      "category": "component",
+      "variantOf": "n-checkbox",
+      "description": "Checkbox / radio modifier/part (see .n-checkbox).",
+      "css": "display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: var(--n-text-sm);"
+    },
+    {
+      "name": "n-range",
+      "category": "component",
+      "description": "Applies width: 100%; accent-color: var(--n-primary).",
+      "css": "width: 100%; accent-color: var(--n-primary);"
+    },
+    {
+      "name": "n-readonly",
+      "category": "component",
+      "description": "Applies background: var(--n-bg-muted); cursor: default.",
+      "css": "background: var(--n-bg-muted); cursor: default;"
+    },
+    {
+      "name": "n-reel",
+      "category": "layout",
+      "description": "Applies display: flex; gap: var(--n-reel-gap, var(--n-gutter)); overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; padding-block-end: var(--n-space-2).",
+      "css": "display: flex; gap: var(--n-reel-gap, var(--n-gutter)); overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; padding-block-end: var(--n-space-2);"
+    },
+    {
+      "name": "n-relative",
+      "category": "utility",
+      "description": "Sets position: relative.",
+      "css": "position: relative;"
+    },
+    {
+      "name": "n-required",
+      "category": "component",
+      "description": "Nucleus utility class (`.n-required`)."
+    },
+    {
+      "name": "n-resize",
+      "category": "utility",
+      "description": "Sets resize: both.",
+      "css": "resize: both;"
+    },
+    {
+      "name": "n-resize-none",
+      "category": "utility",
+      "description": "Sets resize: none.",
+      "css": "resize: none;"
+    },
+    {
+      "name": "n-right-0",
+      "category": "utility",
+      "description": "Sets right: 0.",
+      "css": "right: 0;"
+    },
+    {
+      "name": "n-ring",
+      "category": "component",
+      "description": "Sets box-shadow: 0 0 0 1px rgba(99,102,241,.15), 0 0 0 4px rgba(99,102,241,.08).",
+      "css": "box-shadow: 0 0 0 1px rgba(99,102,241,.15), 0 0 0 4px rgba(99,102,241,.08);"
+    },
+    {
+      "name": "n-ring-danger",
+      "category": "component",
+      "description": "Sets box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.18).",
+      "css": "box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.18);"
+    },
+    {
+      "name": "n-ring-success",
+      "category": "component",
+      "description": "Sets box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.18).",
+      "css": "box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.18);"
+    },
+    {
+      "name": "n-rotate-180",
+      "category": "utility",
+      "description": "Sets transform: rotate(180deg).",
+      "css": "transform: rotate(180deg);"
+    },
+    {
+      "name": "n-rotate-90",
+      "category": "utility",
+      "description": "Sets transform: rotate(90deg).",
+      "css": "transform: rotate(90deg);"
+    },
+    {
+      "name": "n-rounded",
+      "category": "utility",
+      "description": "Sets border-radius: var(--n-radius).",
+      "css": "border-radius: var(--n-radius);"
+    },
+    {
+      "name": "n-rounded-full",
+      "category": "utility",
+      "description": "Sets border-radius: var(--n-radius-full).",
+      "css": "border-radius: var(--n-radius-full);"
+    },
+    {
+      "name": "n-rounded-lg",
+      "category": "utility",
+      "description": "Sets border-radius: var(--n-radius-lg).",
+      "css": "border-radius: var(--n-radius-lg);"
+    },
+    {
+      "name": "n-rounded-none",
+      "category": "utility",
+      "description": "Sets border-radius: 0.",
+      "css": "border-radius: 0;"
+    },
+    {
+      "name": "n-rounded-sm",
+      "category": "utility",
+      "description": "Sets border-radius: var(--n-radius-sm).",
+      "css": "border-radius: var(--n-radius-sm);"
+    },
+    {
+      "name": "n-rounded-xl",
+      "category": "utility",
+      "description": "Sets border-radius: var(--n-radius-xl).",
+      "css": "border-radius: var(--n-radius-xl);"
+    },
+    {
+      "name": "n-row",
+      "category": "layout",
+      "description": "Applies display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--n-gutter).",
+      "css": "display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--n-gutter);"
+    },
+    {
+      "name": "n-saturate",
+      "category": "component",
+      "description": "Sets filter: saturate(1.5).",
+      "css": "filter: saturate(1.5);"
+    },
+    {
+      "name": "n-scale-100",
+      "category": "utility",
+      "description": "Sets transform: scale(1).",
+      "css": "transform: scale(1);"
+    },
+    {
+      "name": "n-scale-105",
+      "category": "utility",
+      "description": "Sets transform: scale(1.05).",
+      "css": "transform: scale(1.05);"
+    },
+    {
+      "name": "n-scale-95",
+      "category": "utility",
+      "description": "Sets transform: scale(0.95).",
+      "css": "transform: scale(0.95);"
+    },
+    {
+      "name": "n-scroll-smooth",
+      "category": "utility",
+      "description": "Sets scroll-behavior: smooth.",
+      "css": "scroll-behavior: smooth;"
+    },
+    {
+      "name": "n-search-field",
+      "category": "component",
+      "description": "Sets position: relative.",
+      "css": "position: relative;"
+    },
+    {
+      "name": "n-search-input",
+      "category": "component",
+      "description": "Sets padding-inline-start: 2.5rem.",
+      "css": "padding-inline-start: 2.5rem;"
+    },
+    {
+      "name": "n-section",
+      "category": "layout",
+      "description": "Sets padding-block: var(--n-section-space).",
+      "css": "padding-block: var(--n-section-space);"
+    },
+    {
+      "name": "n-select",
+      "category": "component",
+      "description": "Styled native select with a custom chevron."
+    },
+    {
+      "name": "n-select-all",
+      "category": "helper",
+      "description": "Sets user-select: all.",
+      "css": "user-select: all;"
+    },
+    {
+      "name": "n-select-none",
+      "category": "helper",
+      "description": "Sets user-select: none.",
+      "css": "user-select: none;"
+    },
+    {
+      "name": "n-selected",
+      "category": "state",
+      "description": "Applies border-color: var(--n-primary); background: rgba(79, 70, 229, 0.08).",
+      "css": "border-color: var(--n-primary); background: rgba(79, 70, 229, 0.08);"
+    },
+    {
+      "name": "n-self-center",
+      "category": "utility",
+      "description": "Sets align-self: center.",
+      "css": "align-self: center;"
+    },
+    {
+      "name": "n-self-end",
+      "category": "utility",
+      "description": "Sets align-self: flex-end.",
+      "css": "align-self: flex-end;"
+    },
+    {
+      "name": "n-self-start",
+      "category": "utility",
+      "description": "Sets align-self: flex-start.",
+      "css": "align-self: flex-start;"
+    },
+    {
+      "name": "n-self-stretch",
+      "category": "utility",
+      "description": "Sets align-self: stretch.",
+      "css": "align-self: stretch;"
+    },
+    {
+      "name": "n-shadow",
+      "category": "utility",
+      "description": "Sets box-shadow: var(--n-shadow).",
+      "css": "box-shadow: var(--n-shadow);"
+    },
+    {
+      "name": "n-shadow-glow",
+      "category": "component",
+      "description": "Sets box-shadow: var(--n-shadow-glow).",
+      "css": "box-shadow: var(--n-shadow-glow);"
+    },
+    {
+      "name": "n-shadow-inner",
+      "category": "component",
+      "description": "Sets box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.08).",
+      "css": "box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.08);"
+    },
+    {
+      "name": "n-shadow-lg",
+      "category": "utility",
+      "description": "Sets box-shadow: var(--n-shadow-lg).",
+      "css": "box-shadow: var(--n-shadow-lg);"
+    },
+    {
+      "name": "n-shadow-md",
+      "category": "utility",
+      "description": "Sets box-shadow: var(--n-shadow-md).",
+      "css": "box-shadow: var(--n-shadow-md);"
+    },
+    {
+      "name": "n-shadow-none",
+      "category": "utility",
+      "description": "Sets box-shadow: none.",
+      "css": "box-shadow: none;"
+    },
+    {
+      "name": "n-shadow-sm",
+      "category": "utility",
+      "description": "Sets box-shadow: var(--n-shadow-sm).",
+      "css": "box-shadow: var(--n-shadow-sm);"
+    },
+    {
+      "name": "n-shadow-xl",
+      "category": "utility",
+      "description": "Sets box-shadow: var(--n-shadow-xl).",
+      "css": "box-shadow: var(--n-shadow-xl);"
+    },
+    {
+      "name": "n-shrink-0",
+      "category": "utility",
+      "description": "Sets flex-shrink: 0.",
+      "css": "flex-shrink: 0;"
+    },
+    {
+      "name": "n-sidebar-layout",
+      "category": "layout",
+      "description": "Applies display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--n-sidebar-gap, var(--n-space-4)).",
+      "css": "display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--n-sidebar-gap, var(--n-space-4));"
+    },
+    {
+      "name": "n-sidebar-right",
+      "category": "layout",
+      "variantOf": "n-sidebar-layout",
+      "description": "Nucleus utility class (`.n-sidebar-right`)."
+    },
+    {
+      "name": "n-skeleton",
+      "category": "component",
+      "description": "Shimmering placeholder for loading content."
+    },
+    {
+      "name": "n-skeleton-circle",
+      "category": "component",
+      "variantOf": "n-skeleton",
+      "description": "Skeleton modifier/part (see .n-skeleton).",
+      "css": "border-radius: 50%; aspect-ratio: 1;"
+    },
+    {
+      "name": "n-skeleton-text",
+      "category": "component",
+      "variantOf": "n-skeleton",
+      "description": "Skeleton modifier/part (see .n-skeleton).",
+      "css": "height: 0.875em;"
+    },
+    {
+      "name": "n-skip-link",
+      "category": "accessibility",
+      "description": "Applies position: fixed; z-index: 9999; inset-block-start: 0.75rem; inset-inline-start: 0.75rem; padding: 0.625rem 0.875rem; border-radius: var(--n-radius); background: var(--n-primary); color: var(--n-on-primary); box-shadow: var(--n-shadow-lg); transform: translateY(-200%)."
+    },
+    {
+      "name": "n-snap-start",
+      "category": "utility",
+      "description": "Sets scroll-snap-align: start.",
+      "css": "scroll-snap-align: start;"
+    },
+    {
+      "name": "n-snap-x",
+      "category": "utility",
+      "description": "Sets scroll-snap-type: x mandatory.",
+      "css": "scroll-snap-type: x mandatory;"
+    },
+    {
+      "name": "n-spinner",
+      "category": "component",
+      "description": "Indeterminate loading indicator.",
+      "css": "display: inline-block; width: 1.25rem; height: 1.25rem; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: n-spin 0.7s linear infinite;"
+    },
+    {
+      "name": "n-spinner-lg",
+      "category": "component",
+      "variantOf": "n-spinner",
+      "description": "Spinner modifier/part (see .n-spinner).",
+      "css": "width: 2rem; height: 2rem; border-width: 3px;"
+    },
+    {
+      "name": "n-spinner-sm",
+      "category": "component",
+      "variantOf": "n-spinner",
+      "description": "Spinner modifier/part (see .n-spinner).",
+      "css": "width: 1rem; height: 1rem;"
+    },
+    {
+      "name": "n-split",
+      "category": "layout",
+      "description": "Applies display: flex; align-items: center; justify-content: space-between; gap: var(--n-space-3).",
+      "css": "display: flex; align-items: center; justify-content: space-between; gap: var(--n-space-3);"
+    },
+    {
+      "name": "n-sr-only",
+      "category": "helper",
+      "description": "Applies position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0.",
+      "css": "position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;"
+    },
+    {
+      "name": "n-sr-only-focusable",
+      "category": "accessibility",
+      "description": "Nucleus utility class (`.n-sr-only-focusable`)."
+    },
+    {
+      "name": "n-stack",
+      "category": "component",
+      "description": "Vertical grid stack with a consistent gap between children.",
+      "css": "display: grid; gap: var(--n-space-3);"
+    },
+    {
+      "name": "n-stat",
+      "category": "component",
+      "description": "Labeled metric with a large value and optional change indicator.",
+      "css": "display: grid; gap: 0.25rem;"
+    },
+    {
+      "name": "n-stat-change",
+      "category": "component",
+      "variantOf": "n-stat",
+      "description": "Stat modifier/part (see .n-stat).",
+      "css": "font-size: var(--n-text-sm); font-weight: 600;"
+    },
+    {
+      "name": "n-stat-label",
+      "category": "component",
+      "variantOf": "n-stat",
+      "description": "Stat modifier/part (see .n-stat).",
+      "css": "color: var(--n-text-muted); font-size: var(--n-text-sm); font-weight: 600;"
+    },
+    {
+      "name": "n-stat-value",
+      "category": "component",
+      "variantOf": "n-stat",
+      "description": "Stat modifier/part (see .n-stat).",
+      "css": "font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em;"
+    },
+    {
+      "name": "n-static",
+      "category": "utility",
+      "description": "Sets position: static.",
+      "css": "position: static;"
+    },
+    {
+      "name": "n-sticky",
+      "category": "utility",
+      "description": "Sets position: sticky.",
+      "css": "position: sticky;"
+    },
+    {
+      "name": "n-surface",
+      "category": "component",
+      "description": "Elevated panel with border, radius, and soft shadow.",
+      "css": "background: var(--n-bg); border: 1px solid var(--n-border-color); border-radius: var(--n-radius-xl); box-shadow: var(--n-shadow-soft);"
+    },
+    {
+      "name": "n-surface-glass",
+      "category": "component",
+      "variantOf": "n-surface",
+      "description": "Surface modifier/part (see .n-surface).",
+      "css": "background: rgba(255, 255, 255, 0.72); border: 1px solid rgba(255, 255, 255, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: var(--n-shadow-glow);"
+    },
+    {
+      "name": "n-surface-overlay",
+      "category": "component",
+      "variantOf": "n-surface",
+      "description": "Surface modifier/part (see .n-surface).",
+      "css": "background: var(--n-surface-raised); border: 1px solid var(--n-border-color); box-shadow: var(--n-shadow-xl);"
+    },
+    {
+      "name": "n-surface-raised",
+      "category": "component",
+      "variantOf": "n-surface",
+      "description": "Surface modifier/part (see .n-surface).",
+      "css": "background: var(--n-surface-raised); border: 1px solid var(--n-border-color); box-shadow: var(--n-shadow-md);"
+    },
+    {
+      "name": "n-surface-sunken",
+      "category": "component",
+      "variantOf": "n-surface",
+      "description": "Surface modifier/part (see .n-surface).",
+      "css": "background: var(--n-surface-sunken); border: 1px solid var(--n-border-color); box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.06);"
+    },
+    {
+      "name": "n-switch",
+      "category": "component",
+      "description": "Accessible toggle built from a visually-hidden checkbox and a track.",
+      "css": "display: inline-flex; align-items: center; gap: 0.625rem; cursor: pointer; user-select: none;"
+    },
+    {
+      "name": "n-switch-track",
+      "category": "component",
+      "variantOf": "n-switch",
+      "description": "Switch modifier/part (see .n-switch)."
+    },
+    {
+      "name": "n-switcher",
+      "category": "layout",
+      "description": "Applies display: flex; flex-wrap: wrap; gap: var(--n-switcher-gap, var(--n-gutter)).",
+      "css": "display: flex; flex-wrap: wrap; gap: var(--n-switcher-gap, var(--n-gutter));"
+    },
+    {
+      "name": "n-tab",
+      "category": "component",
+      "variantOf": "n-tabs",
+      "description": "Tabs modifier/part (see .n-tabs).",
+      "css": "position: relative; padding: 0.625rem 0.875rem; border: 0; background: transparent; color: var(--n-text-muted); font-weight: 600; white-space: nowrap; cursor: pointer;"
+    },
+    {
+      "name": "n-tab-panel",
+      "category": "component",
+      "variantOf": "n-tabs",
+      "description": "Tabs modifier/part (see .n-tabs).",
+      "css": "padding-block: 1rem;"
+    },
+    {
+      "name": "n-table",
+      "category": "component",
+      "description": "Base table styling with striped/hover/bordered variants.",
+      "css": "width: 100%; border-collapse: collapse; font-size: var(--n-text-sm);"
+    },
+    {
+      "name": "n-table-bordered",
+      "category": "component",
+      "variantOf": "n-table",
+      "description": "Table modifier/part (see .n-table).",
+      "css": "border: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-table-hover",
+      "category": "component",
+      "variantOf": "n-table",
+      "description": "Table modifier/part (see .n-table)."
+    },
+    {
+      "name": "n-table-striped",
+      "category": "component",
+      "variantOf": "n-table",
+      "description": "Table modifier/part (see .n-table)."
+    },
+    {
+      "name": "n-tabs",
+      "category": "component",
+      "description": "Horizontal tablist. Toggle aria-selected in JavaScript.",
+      "css": "display: flex; gap: 0.25rem; overflow-x: auto; border-bottom: 1px solid var(--n-border-color);"
+    },
+    {
+      "name": "n-text-2xl",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-2xl).",
+      "css": "font-size: var(--n-text-2xl);"
+    },
+    {
+      "name": "n-text-3xl",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-3xl).",
+      "css": "font-size: var(--n-text-3xl);"
+    },
+    {
+      "name": "n-text-4xl",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-4xl).",
+      "css": "font-size: var(--n-text-4xl);"
+    },
+    {
+      "name": "n-text-balance",
+      "category": "content",
+      "description": "Sets text-wrap: balance.",
+      "css": "text-wrap: balance;"
+    },
+    {
+      "name": "n-text-base",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-base).",
+      "css": "font-size: var(--n-text-base);"
+    },
+    {
+      "name": "n-text-center",
+      "category": "utility",
+      "description": "Sets text-align: center.",
+      "css": "text-align: center;"
+    },
+    {
+      "name": "n-text-danger",
+      "category": "utility",
+      "description": "Sets color: var(--n-danger).",
+      "css": "color: var(--n-danger);"
+    },
+    {
+      "name": "n-text-dark",
+      "category": "utility",
+      "description": "Sets color: var(--n-dark).",
+      "css": "color: var(--n-dark);"
+    },
+    {
+      "name": "n-text-fluid-xl",
+      "category": "content",
+      "description": "Applies font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.05.",
+      "css": "font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.05;"
+    },
+    {
+      "name": "n-text-info",
+      "category": "utility",
+      "description": "Sets color: var(--n-info).",
+      "css": "color: var(--n-info);"
+    },
+    {
+      "name": "n-text-justify",
+      "category": "utility",
+      "description": "Sets text-align: justify.",
+      "css": "text-align: justify;"
+    },
+    {
+      "name": "n-text-left",
+      "category": "utility",
+      "description": "Sets text-align: left.",
+      "css": "text-align: left;"
+    },
+    {
+      "name": "n-text-lg",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-lg).",
+      "css": "font-size: var(--n-text-lg);"
+    },
+    {
+      "name": "n-text-muted",
+      "category": "utility",
+      "description": "Sets color: var(--n-text-muted).",
+      "css": "color: var(--n-text-muted);"
+    },
+    {
+      "name": "n-text-pretty",
+      "category": "content",
+      "description": "Sets text-wrap: pretty.",
+      "css": "text-wrap: pretty;"
+    },
+    {
+      "name": "n-text-primary",
+      "category": "utility",
+      "description": "Sets color: var(--n-primary).",
+      "css": "color: var(--n-primary);"
+    },
+    {
+      "name": "n-text-right",
+      "category": "utility",
+      "description": "Sets text-align: right.",
+      "css": "text-align: right;"
+    },
+    {
+      "name": "n-text-secondary",
+      "category": "utility",
+      "description": "Sets color: var(--n-secondary).",
+      "css": "color: var(--n-secondary);"
+    },
+    {
+      "name": "n-text-sm",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-sm).",
+      "css": "font-size: var(--n-text-sm);"
+    },
+    {
+      "name": "n-text-success",
+      "category": "utility",
+      "description": "Sets color: var(--n-success).",
+      "css": "color: var(--n-success);"
+    },
+    {
+      "name": "n-text-warning",
+      "category": "utility",
+      "description": "Sets color: var(--n-warning).",
+      "css": "color: var(--n-warning);"
+    },
+    {
+      "name": "n-text-white",
+      "category": "utility",
+      "description": "Sets color: #ffffff.",
+      "css": "color: #ffffff;"
+    },
+    {
+      "name": "n-text-xl",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-xl).",
+      "css": "font-size: var(--n-text-xl);"
+    },
+    {
+      "name": "n-text-xs",
+      "category": "utility",
+      "description": "Sets font-size: var(--n-text-xs).",
+      "css": "font-size: var(--n-text-xs);"
+    },
+    {
+      "name": "n-textarea",
+      "category": "component",
+      "description": "Vertically resizable multi-line text field."
+    },
+    {
+      "name": "n-toast",
+      "category": "component",
+      "description": "Transient notification; stack with n-toast-stack."
+    },
+    {
+      "name": "n-toast-stack",
+      "category": "component",
+      "variantOf": "n-toast",
+      "description": "Toast modifier/part (see .n-toast).",
+      "css": "position: fixed; z-index: 1000; inset-inline-end: 1rem; inset-block-end: 1rem; display: grid; gap: 0.75rem;"
+    },
+    {
+      "name": "n-tooltip",
+      "category": "component",
+      "description": "CSS-only tooltip driven by the data-tooltip attribute.",
+      "css": "position: relative;"
+    },
+    {
+      "name": "n-top-0",
+      "category": "utility",
+      "description": "Sets top: 0.",
+      "css": "top: 0;"
+    },
+    {
+      "name": "n-touch-target",
+      "category": "accessibility",
+      "description": "Applies min-width: 2.75rem; min-height: 2.75rem.",
+      "css": "min-width: 2.75rem; min-height: 2.75rem;"
+    },
+    {
+      "name": "n-tracking-normal",
+      "category": "utility",
+      "description": "Sets letter-spacing: 0.",
+      "css": "letter-spacing: 0;"
+    },
+    {
+      "name": "n-tracking-tight",
+      "category": "utility",
+      "description": "Sets letter-spacing: -0.025em.",
+      "css": "letter-spacing: -0.025em;"
+    },
+    {
+      "name": "n-tracking-wide",
+      "category": "utility",
+      "description": "Sets letter-spacing: 0.05em.",
+      "css": "letter-spacing: 0.05em;"
+    },
+    {
+      "name": "n-transition",
+      "category": "utility",
+      "description": "Sets transition: all var(--n-duration) var(--n-ease).",
+      "css": "transition: all var(--n-duration) var(--n-ease);"
+    },
+    {
+      "name": "n-transition-colors",
+      "category": "utility",
+      "description": "Sets transition: color var(--n-duration) var(--n-ease), background-color var(--n-duration) var(--n-ease), border-color var(--n-duration) var(--n-ease).",
+      "css": "transition: color var(--n-duration) var(--n-ease), background-color var(--n-duration) var(--n-ease), border-color var(--n-duration) var(--n-ease);"
+    },
+    {
+      "name": "n-transition-none",
+      "category": "utility",
+      "description": "Sets transition: none.",
+      "css": "transition: none;"
+    },
+    {
+      "name": "n-transition-shadow",
+      "category": "utility",
+      "description": "Sets transition: box-shadow var(--n-duration) var(--n-ease).",
+      "css": "transition: box-shadow var(--n-duration) var(--n-ease);"
+    },
+    {
+      "name": "n-transition-transform",
+      "category": "utility",
+      "description": "Sets transition: transform var(--n-duration) var(--n-ease).",
+      "css": "transition: transform var(--n-duration) var(--n-ease);"
+    },
+    {
+      "name": "n-translate-y-1",
+      "category": "utility",
+      "description": "Sets transform: translateY(-0.25rem).",
+      "css": "transform: translateY(-0.25rem);"
+    },
+    {
+      "name": "n-truncate",
+      "category": "utility",
+      "description": "Applies overflow: hidden; text-overflow: ellipsis; white-space: nowrap.",
+      "css": "overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
+    },
+    {
+      "name": "n-underline",
+      "category": "utility",
+      "description": "Sets text-decoration: underline.",
+      "css": "text-decoration: underline;"
+    },
+    {
+      "name": "n-uppercase",
+      "category": "utility",
+      "description": "Sets text-transform: uppercase.",
+      "css": "text-transform: uppercase;"
+    },
+    {
+      "name": "n-valid",
+      "category": "component",
+      "description": "Sets border-color: var(--n-success).",
+      "css": "border-color: var(--n-success);"
+    },
+    {
+      "name": "n-visible",
+      "category": "state",
+      "description": "Sets visibility: visible.",
+      "css": "visibility: visible;"
+    },
+    {
+      "name": "n-w-auto",
+      "category": "utility",
+      "description": "Sets width: auto.",
+      "css": "width: auto;"
+    },
+    {
+      "name": "n-w-full",
+      "category": "utility",
+      "description": "Sets width: 100%.",
+      "css": "width: 100%;"
+    },
+    {
+      "name": "n-w-half",
+      "category": "utility",
+      "description": "Sets width: 50%.",
+      "css": "width: 50%;"
+    },
+    {
+      "name": "n-w-screen",
+      "category": "utility",
+      "description": "Sets width: 100vw.",
+      "css": "width: 100vw;"
+    },
+    {
+      "name": "n-will-change-transform",
+      "category": "utility",
+      "description": "Sets will-change: transform.",
+      "css": "will-change: transform;"
+    },
+    {
+      "name": "n-z-0",
+      "category": "utility",
+      "description": "Sets z-index: 0.",
+      "css": "z-index: 0;"
+    },
+    {
+      "name": "n-z-10",
+      "category": "utility",
+      "description": "Sets z-index: 10.",
+      "css": "z-index: 10;"
+    },
+    {
+      "name": "n-z-100",
+      "category": "utility",
+      "description": "Sets z-index: 100.",
+      "css": "z-index: 100;"
+    },
+    {
+      "name": "n-z-20",
+      "category": "utility",
+      "description": "Sets z-index: 20.",
+      "css": "z-index: 20;"
+    },
+    {
+      "name": "n-z-50",
+      "category": "utility",
+      "description": "Sets z-index: 50.",
+      "css": "z-index: 50;"
+    }
+  ]
+}

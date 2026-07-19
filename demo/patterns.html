@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layouts & Patterns — Nucleus CSS</title>
+    <meta name="description" content="Intrinsic layouts, native components, accessible forms, themes, and polished patterns in Nucleus CSS.">
+    <link rel="stylesheet" href="nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+</head>
+<body class="demo-page">
+    <a class="n-skip-link" href="#main-content">Skip to content</a>
+
+    <nav class="n-navbar" id="nav-main" aria-label="Primary navigation">
+        <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
+        <ul class="n-nav">
+            <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+            <li class="n-nav-item"><a class="n-nav-link active" aria-current="page" href="patterns.html">Patterns</a></li>
+        </ul>
+    </nav>
+
+    <main class="demo-main" id="main-content">
+        <div class="demo-hero">
+            <p class="n-overline n-mb-2">The complete layer</p>
+            <h1 class="n-text-balance">Layouts & Patterns</h1>
+            <p class="n-lead">Responsive layouts, accessible native components, themes, density modes, and polished states without a build tool.</p>
+        </div>
+
+        <div class="n-container">
+            <section class="demo-section" id="themes">
+                <h2 class="n-mb-1">Themes and density</h2>
+                <p class="n-text-muted n-mb-4">Set one data attribute on any wrapper. Components inherit the theme through CSS variables.</p>
+                <div class="n-auto-grid" style="--n-grid-min: 12rem;">
+                    <div class="n-card" data-theme="ocean"><div class="n-card-body n-flow"><strong>Ocean</strong><button class="n-btn n-btn-primary">Primary action</button></div></div>
+                    <div class="n-card" data-theme="forest"><div class="n-card-body n-flow"><strong>Forest</strong><button class="n-btn n-btn-primary">Primary action</button></div></div>
+                    <div class="n-card" data-theme="rose"><div class="n-card-body n-flow"><strong>Rose</strong><button class="n-btn n-btn-primary">Primary action</button></div></div>
+                    <div class="n-card" data-theme="amber"><div class="n-card-body n-flow"><strong>Amber</strong><button class="n-btn n-btn-primary">Primary action</button></div></div>
+                    <div class="n-card" data-theme="mono"><div class="n-card-body n-flow"><strong>Mono</strong><button class="n-btn n-btn-primary">Primary action</button></div></div>
+                </div>
+                <div class="n-cluster n-mt-4">
+                    <div data-density="compact"><button class="n-btn n-btn-outline-primary">Compact</button></div>
+                    <button class="n-btn n-btn-outline-primary">Comfortable</button>
+                    <div data-density="spacious"><button class="n-btn n-btn-outline-primary">Spacious</button></div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="layouts">
+                <h2 class="n-mb-1">Intrinsic layouts</h2>
+                <p class="n-text-muted n-mb-4">These adapt to available space instead of requiring breakpoint classes.</p>
+
+                <h3 class="n-text-xl n-mb-2">Auto grid</h3>
+                <div class="n-auto-grid n-mb-4" style="--n-grid-min: 13rem;">
+                    <div class="n-surface n-p-3">Automatically fitting column</div>
+                    <div class="n-surface n-p-3">No media query required</div>
+                    <div class="n-surface n-p-3">Change <code class="n-code">--n-grid-min</code></div>
+                </div>
+
+                <h3 class="n-text-xl n-mb-2">Sidebar layout</h3>
+                <div class="n-sidebar-layout n-mb-4">
+                    <aside class="n-surface-sunken n-rounded-lg n-p-3">
+                        <strong>Sidebar</strong>
+                        <p class="n-text-sm n-text-muted n-mt-1">Stacks automatically on small screens.</p>
+                    </aside>
+                    <div class="n-surface n-p-3">
+                        <strong>Main content</strong>
+                        <p class="n-text-sm n-text-muted n-mt-1">The content column uses <code class="n-code">minmax(0, 1fr)</code>, so long content cannot break the layout.</p>
+                    </div>
+                </div>
+
+                <h3 class="n-text-xl n-mb-2">Cluster, split, switcher, and reel</h3>
+                <div class="n-split n-surface n-p-3 n-mb-3">
+                    <div><strong>Project members</strong><p class="n-caption">Eight people have access</p></div>
+                    <div class="n-avatar-group" aria-label="Project members">
+                        <span class="n-avatar">DB</span><span class="n-avatar n-bg-success">AK</span><span class="n-avatar n-bg-secondary">+6</span>
+                    </div>
+                </div>
+                <div class="n-reel">
+                    <div class="n-card"><div class="n-card-body"><strong>Reel item one</strong><p class="n-caption n-mt-1">Horizontal scroll with snap.</p></div></div>
+                    <div class="n-card"><div class="n-card-body"><strong>Reel item two</strong><p class="n-caption n-mt-1">Touch and trackpad friendly.</p></div></div>
+                    <div class="n-card"><div class="n-card-body"><strong>Reel item three</strong><p class="n-caption n-mt-1">Width controlled by one variable.</p></div></div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="advanced-forms">
+                <h2 class="n-mb-1">Advanced forms</h2>
+                <p class="n-text-muted n-mb-4">Complete controls with readable HTML and accessible focus states.</p>
+                <div class="n-form-grid">
+                    <div class="n-field-row">
+                        <label class="n-label n-required" for="site-domain">Domain</label>
+                        <div class="n-input-group">
+                            <span class="n-input-prefix">https://</span>
+                            <input class="n-input" id="site-domain" value="nucleus.css" aria-invalid="false">
+                            <button class="n-btn n-btn-primary">Check</button>
+                        </div>
+                        <span class="n-helper-text">This domain is available.</span>
+                    </div>
+                    <div class="n-field-row">
+                        <label class="n-label" for="search-patterns">Search patterns</label>
+                        <div class="n-search-field">
+                            <input class="n-input n-search-input" id="search-patterns" type="search" placeholder="Dialog, prose, layout…">
+                        </div>
+                    </div>
+                    <div class="n-field-row">
+                        <span class="n-label">Preferences</span>
+                        <label class="n-switch">
+                            <input type="checkbox" checked>
+                            <span class="n-switch-track" aria-hidden="true"></span>
+                            <span>Automatic dark mode</span>
+                        </label>
+                    </div>
+                    <div class="n-field-row">
+                        <label class="n-label" for="density-range">Interface density</label>
+                        <input class="n-range" id="density-range" type="range" min="1" max="3" value="2">
+                    </div>
+                    <div class="n-field-row">
+                        <label class="n-label" for="asset-upload">Upload asset</label>
+                        <input class="n-file-input" id="asset-upload" type="file">
+                    </div>
+                    <div class="n-field-row">
+                        <label class="n-label" for="loading-input">Loading state</label>
+                        <div class="n-input-loading"><input class="n-input" id="loading-input" value="Validating design tokens" readonly></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="native-components">
+                <h2 class="n-mb-1">Native components</h2>
+                <p class="n-text-muted n-mb-4">Built on browser primitives so the framework stays lightweight.</p>
+
+                <div class="n-auto-grid n-mb-4" style="--n-grid-min: 20rem;">
+                    <div>
+                        <h3 class="n-text-xl n-mb-2">Accordion</h3>
+                        <div class="n-accordion">
+                            <details open>
+                                <summary>Does this require JavaScript?</summary>
+                                <div class="n-accordion-panel n-text-muted">No. It uses semantic <code class="n-code">details</code> and <code class="n-code">summary</code> elements.</div>
+                            </details>
+                            <details>
+                                <summary>Can I change the theme?</summary>
+                                <div class="n-accordion-panel n-text-muted">Yes. Apply a theme to the page or to this component alone.</div>
+                            </details>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="n-text-xl n-mb-2">Tabs</h3>
+                        <div class="n-tabs" role="tablist" aria-label="Account sections">
+                            <button class="n-tab" role="tab" aria-selected="true">Profile</button>
+                            <button class="n-tab" role="tab" aria-selected="false">Security</button>
+                            <button class="n-tab" role="tab" aria-selected="false">Billing</button>
+                        </div>
+                        <div class="n-tab-panel"><p class="n-text-muted">Nucleus styles the tab states. Application code controls panel switching.</p></div>
+                    </div>
+                </div>
+
+                <div class="n-cluster n-mb-4">
+                    <button class="n-btn n-btn-primary" popovertarget="demo-popover">Open native popover</button>
+                    <button class="n-btn n-btn-outline-primary" onclick="document.getElementById('demo-dialog').showModal()">Open native dialog</button>
+                    <button class="n-btn n-btn-ghost n-tooltip" data-tooltip="Helpful context without extra markup">Hover for tooltip</button>
+                </div>
+                <div class="n-popover" id="demo-popover" popover>
+                    <div class="n-flow"><strong>Native popover</strong><p class="n-text-sm n-text-muted">Click outside or press Escape to close.</p></div>
+                </div>
+                <dialog class="n-dialog" id="demo-dialog">
+                    <div class="n-dialog-header"><h3>Publish new release?</h3></div>
+                    <div class="n-dialog-body"><p class="n-text-muted">This uses the browser's native dialog focus management and backdrop.</p></div>
+                    <div class="n-dialog-footer"><button class="n-btn n-btn-ghost" onclick="this.closest('dialog').close()">Cancel</button><button class="n-btn n-btn-primary" onclick="this.closest('dialog').close()">Publish</button></div>
+                </dialog>
+
+                <nav aria-label="Breadcrumb" class="n-mb-3">
+                    <ol class="n-breadcrumb"><li><a href="index.html">Home</a></li><li><a href="components.html">Components</a></li><li aria-current="page">Patterns</li></ol>
+                </nav>
+                <nav aria-label="Pagination">
+                    <ul class="n-pagination"><li><a class="n-pagination-link" href="#">Previous</a></li><li><a class="n-pagination-link" href="#">1</a></li><li><a class="n-pagination-link" href="#" aria-current="page">2</a></li><li><a class="n-pagination-link" href="#">3</a></li><li><a class="n-pagination-link" href="#">Next</a></li></ul>
+                </nav>
+            </section>
+
+            <section class="demo-section" id="feedback">
+                <h2 class="n-mb-1">Feedback and data display</h2>
+                <p class="n-text-muted n-mb-4">Loading, progress, empty, success, and compact data states.</p>
+                <div class="n-auto-grid n-mb-4" style="--n-grid-min: 13rem;">
+                    <div class="n-card"><div class="n-card-body"><div class="n-stat"><span class="n-stat-label">Bundle size</span><strong class="n-stat-value">7.6 KB</strong><span class="n-stat-change n-text-success">Gzipped</span></div></div></div>
+                    <div class="n-card"><div class="n-card-body"><div class="n-stat"><span class="n-stat-label">CSS classes</span><strong class="n-stat-value">580+</strong><span class="n-stat-change n-text-primary">Documented API</span></div></div></div>
+                    <div class="n-card"><div class="n-card-body n-flow"><span class="n-stat-label">Documentation</span><progress class="n-progress" value="84" max="100">84%</progress><span class="n-caption">84% complete</span></div></div>
+                </div>
+                <div class="n-callout n-callout-success n-mb-4"><div class="n-callout-title">Accessible by default</div><p>Reduced motion, forced colors, keyboard focus, high contrast, and print behavior are included.</p></div>
+                <div class="n-list-group n-mb-4">
+                    <div class="n-list-group-item"><span>Theme tokens generated</span><span class="n-badge n-badge-success">Done</span></div>
+                    <div class="n-list-group-item"><span>Responsive screenshots</span><span class="n-chip"><span class="n-spinner n-spinner-sm" aria-hidden="true"></span> Running</span></div>
+                    <div class="n-list-group-item"><span>Release notes</span><span class="n-badge n-badge-warning">Pending</span></div>
+                </div>
+                <div class="n-auto-grid" style="--n-grid-min: 18rem;">
+                    <div class="n-surface n-p-3 n-flow"><div class="n-skeleton n-skeleton-text" style="width: 45%">Loading heading</div><div class="n-skeleton n-skeleton-text">Loading copy</div><div class="n-skeleton n-skeleton-text" style="width: 75%">Loading copy</div></div>
+                    <div class="n-empty-state n-surface"><span class="n-empty-state-icon">✓</span><h3>Nothing left to review</h3><p class="n-text-muted">All accessibility checks passed.</p></div>
+                </div>
+            </section>
+
+            <section class="demo-section" id="prose">
+                <h2 class="n-mb-1">Content typography</h2>
+                <p class="n-text-muted n-mb-4">Use one class for finished article and documentation typography.</p>
+                <article class="n-prose n-surface n-p-4">
+                    <p class="n-overline">Design note</p>
+                    <h2>Readable content should not need twenty utilities</h2>
+                    <p class="n-lead">The <code class="n-code">n-prose</code> class supplies rhythm, readable line length, lists, links, media, quotations, and captions.</p>
+                    <p>Nucleus keeps the underlying HTML semantic. You can still override every token without replacing the component.</p>
+                    <blockquote class="n-blockquote">Good defaults create speed. Escape hatches preserve control.</blockquote>
+                    <pre class="n-code-block"><code>&lt;article class="n-prose"&gt;
+  &lt;h1&gt;A readable article&lt;/h1&gt;
+  &lt;p&gt;Finished typography with one class.&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                    <p>Press <kbd class="n-kbd">⌘</kbd> <kbd class="n-kbd">K</kbd> to search, or <mark class="n-mark">highlight the important part</mark>.</p>
+                </article>
+            </section>
+
+            <section class="demo-section" id="effects">
+                <h2 class="n-mb-1">Surfaces and effects</h2>
+                <p class="n-text-muted n-mb-4">Decoration is opt-in. The reset no longer puts a gradient on every application's body.</p>
+                <div class="n-auto-grid" style="--n-grid-min: 13rem;">
+                    <div class="n-surface-raised n-rounded-xl n-p-3 n-hover-lift"><strong>Raised</strong><p class="n-caption n-mt-1">Border and medium shadow</p></div>
+                    <div class="n-surface-sunken n-rounded-xl n-p-3"><strong>Sunken</strong><p class="n-caption n-mt-1">Inset working area</p></div>
+                    <div class="n-gradient-primary n-rounded-xl n-p-3 n-shadow-glow"><strong>Gradient</strong><p class="n-text-sm n-mt-1">Theme-aware premium emphasis</p></div>
+                    <div class="n-gradient-mesh n-border n-rounded-xl n-p-3"><strong class="n-gradient-text">Mesh surface</strong><p class="n-caption n-mt-1">Optional atmospheric depth</p></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="demo-footer"><div class="n-container"><p>⚛ Nucleus CSS — polished, accessible, zero-build.</p></div></footer>
+</body>
+</html>

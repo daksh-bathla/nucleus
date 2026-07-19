@@ -1,0 +1,89 @@
+# Nucleus CSS
+
+> A polished, accessible, zero-build CSS framework. Prefix: `n-`. 580 classes, 71 tokens. No runtime JS, no build step required.
+
+Every class begins with the `n-` prefix. Only classes listed in the
+manifest exist — do NOT invent classes, and do NOT mix in Tailwind or Bootstrap
+class names (no `flex`, `mt-4`, `btn-primary`, `col-md-6`; use `n-flex`,
+`n-mt-4`, `n-btn n-btn-primary`, `n-col-md-6`).
+
+## Install
+
+```bash
+npm install @navital/nucleus-css
+```
+
+```js
+import "@navital/nucleus-css";               // full framework
+```
+
+```css
+@import "@navital/nucleus-css";              /* or a module below */
+```
+
+CDN: `https://cdn.jsdelivr.net/npm/@navital/nucleus-css@2.0.0/dist/nucleus.min.css`
+
+## Modular imports
+
+- `@navital/nucleus-css/reset` — tokens, reset, global a11y
+- `@navital/nucleus-css/utilities` — layout + utility classes
+- `@navital/nucleus-css/components` — buttons, cards, forms, etc.
+- `@navital/nucleus-css/themes` — themes + dark mode
+(Import `reset` first, or just import the full bundle.)
+
+## Naming conventions
+
+- Component: `n-<name>` (e.g. `n-btn`, `n-card`, `n-alert`).
+- Variant: `n-<name>-<variant>` (e.g. `n-btn-primary`, `n-alert-success`).
+- Size: `n-<name>-sm` / `n-<name>-lg`.
+- Responsive utility: `n-<util>-<bp>-*` where bp ∈ {sm, md, lg, xl, xxl} (e.g. `n-col-md-6`, `n-d-lg-flex`).
+
+## Breakpoints (min-width, mobile-first)
+
+- sm: 576px
+- md: 768px
+- lg: 992px
+- xl: 1200px
+- xxl: 1600px
+
+## Core layout
+
+- `n-container` / `n-container-fluid`
+- `n-row` + `n-col-1..12` (and `n-col-{sm,md,lg,xl}-1..12`)
+- `n-auto-grid`, `n-grid-auto-fit`, `n-sidebar-layout`, `n-cluster`, `n-split`, `n-stack`, `n-switcher`, `n-cover`, `n-reel`, `n-frame`, `n-section`, `n-content`
+
+## Core utilities
+
+- spacing: n-m-{0..5}, n-mt/mb/ml/mr/mx/my-{0..5}, n-p-{0..5}, n-pt/pb/pl/pr/px/py-{0..5}
+- flex: n-flex, n-flex-col, n-items-center, n-justify-between, n-gap-{0..5}
+- text: n-text-{xs..4xl}, n-text-center, n-font-{light..bold}, n-text-{primary,muted,...}
+- color bg: n-bg-{primary,secondary,success,danger,warning,info,light,dark,white,muted}
+- sizing: n-w-full, n-max-w-{sm..2xl}, n-h-screen, n-min-h-screen
+- border/radius: n-border, n-rounded, n-rounded-{sm,lg,xl,full}, n-shadow-{sm..xl}
+- display: n-d-{none,block,flex,grid,...} and responsive n-d-{sm,md,lg}-*
+
+## Components
+
+n-container, n-row, n-auto-grid, n-sidebar-layout, n-cluster, n-split, n-stack, n-btn, n-button-group, n-card, n-input, n-select, n-textarea, n-checkbox, n-switch, n-input-group, n-fieldset, n-navbar, n-breadcrumb, n-pagination, n-tabs, n-alert, n-badge, n-callout, n-toast, n-progress, n-spinner, n-skeleton, n-dialog, n-drawer, n-accordion, n-dropdown, n-tooltip, n-table, n-list-group, n-stat, n-avatar, n-chip, n-empty-state, n-prose, n-code-block, n-blockquote, n-surface
+
+## Themes & modes
+
+- Themes (on any element via `data-theme`): ocean, forest, rose, amber, mono
+- Density (`data-density`): compact, spacious
+- Dark mode: automatic (`@media (prefers-color-scheme: dark)`) or manual class `n-dark-mode`
+- Customize via CSS custom properties (`--n-*`), e.g. `--n-primary`, `--n-radius`, `--n-font-sans`.
+
+## Common mistakes to avoid
+
+- Inventing classes not in the manifest (validate with `npx @navital/nucleus-css validate ./src`).
+- Using Tailwind/Bootstrap names instead of the `n-` equivalents.
+- Using the `open` attribute on `n-dialog` — open it with `dialog.showModal()`.
+- Forgetting a `<label>` for `n-input`/`n-select`/`n-textarea`.
+
+## More detail (local files)
+
+- CLASS_REFERENCE.md — every class with a description
+- COMPONENT_REFERENCE.md — components with HTML examples
+- llms-full.txt — complete plain-text reference
+- dist/nucleus.manifest.json — machine-readable manifest
+- AI_USAGE.md — how to prompt AI tools to use Nucleus

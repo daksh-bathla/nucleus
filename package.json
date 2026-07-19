@@ -1,25 +1,93 @@
 {
-  "name": "nucleus-css",
-  "version": "1.0.0",
-  "description": "A lightweight, mobile-first CSS framework",
-  "main": "index.js",
+  "name": "@navital/nucleus-css",
+  "version": "2.0.0",
+  "description": "A polished, accessible, zero-build CSS framework — installable like Bootstrap and built to be understood accurately by AI coding assistants.",
+  "type": "module",
+  "style": "dist/nucleus.css",
+  "sass": "dist/nucleus.css",
+  "exports": {
+    ".": {
+      "style": "./dist/nucleus.css",
+      "sass": "./dist/nucleus.css",
+      "default": "./dist/nucleus.css"
+    },
+    "./nucleus.css": "./dist/nucleus.css",
+    "./min": "./dist/nucleus.min.css",
+    "./nucleus.min.css": "./dist/nucleus.min.css",
+    "./reset": "./dist/reset.css",
+    "./utilities": "./dist/utilities.css",
+    "./components": "./dist/components.css",
+    "./themes": "./dist/themes.css",
+    "./manifest": "./dist/nucleus.manifest.json",
+    "./llms.txt": "./llms.txt",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "bin": {
+    "nucleus-css": "bin/nucleus.mjs"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "scripts/lib/validate-markup.mjs",
+    "src/css/nucleus.css",
+    "llms.txt",
+    "llms-full.txt",
+    "AI_USAGE.md",
+    "CLASS_REFERENCE.md",
+    "COMPONENT_REFERENCE.md",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "dev": "python -m http.server 3000 --directory demo",
-    "build": "echo 'Static site - no build needed'",
-    "start": "python -m http.server 3000 --directory demo"
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check",
+    "pretest": "node scripts/build.mjs",
+    "test": "node --test",
+    "validate": "node bin/nucleus.mjs validate",
+    "ai-context": "node bin/nucleus.mjs ai-context",
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "prepare": "node scripts/build.mjs",
+    "prepublishOnly": "npm test"
   },
   "keywords": [
     "css",
     "framework",
-    "lightweight",
+    "css-framework",
+    "design-system",
+    "ui",
+    "components",
+    "utilities",
+    "responsive",
     "mobile-first",
-    "grid",
-    "responsive"
+    "accessible",
+    "a11y",
+    "dark-mode",
+    "zero-build",
+    "no-build",
+    "bootstrap-alternative",
+    "ai-friendly",
+    "llms",
+    "llms-txt"
   ],
   "author": "Daksh Bathla",
   "license": "MIT",
+  "homepage": "https://github.com/dakshbathla/nucleus#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dakshbathla/nucleus"
+    "url": "git+https://github.com/dakshbathla/nucleus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dakshbathla/nucleus/issues"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

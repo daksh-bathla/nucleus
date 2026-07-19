@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" data-theme="ocean">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nucleus CSS — Plain HTML example</title>
+
+    <!-- Local build (run `npm run build` at the repo root first): -->
+    <link rel="stylesheet" href="../../dist/nucleus.min.css" />
+    <!-- Or from a CDN (replace VERSION with a published version):
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@navital/nucleus-css@VERSION/dist/nucleus.min.css" /> -->
+  </head>
+  <body class="n-page-atmosphere">
+    <a class="n-skip-link" href="#main">Skip to content</a>
+
+    <nav class="n-navbar">
+      <a class="n-navbar-brand" href="#">Nucleus</a>
+      <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link active" href="#">Home</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="#features">Features</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="#pricing">Pricing</a></li>
+      </ul>
+    </nav>
+
+    <main id="main" class="n-container n-section">
+      <header class="n-content n-text-center n-flow">
+        <span class="n-overline">Zero-build CSS</span>
+        <h1 class="n-text-fluid-xl n-text-balance">Finished UI from real HTML</h1>
+        <p class="n-lead">A polished, accessible framework you link once — no bundler, no config.</p>
+        <div class="n-cluster n-justify-center">
+          <a class="n-btn n-btn-primary n-btn-lg" href="#pricing">Get started</a>
+          <a class="n-btn n-btn-outline-primary n-btn-lg" href="#features">Learn more</a>
+        </div>
+      </header>
+
+      <section id="features" class="n-auto-grid n-mt-5" style="--n-grid-min: 16rem">
+        <article class="n-card n-card-interactive">
+          <div class="n-card-body n-flow">
+            <span class="n-badge n-badge-primary">Layout</span>
+            <h3>Intrinsic grids</h3>
+            <p class="n-text-muted">Responsive layouts without breakpoint-heavy markup.</p>
+          </div>
+        </article>
+        <article class="n-card n-card-interactive">
+          <div class="n-card-body n-flow">
+            <span class="n-badge n-badge-success">A11y</span>
+            <h3>Accessible defaults</h3>
+            <p class="n-text-muted">Focus rings, reduced motion, and forced colors built in.</p>
+          </div>
+        </article>
+        <article class="n-card n-card-interactive">
+          <div class="n-card-body n-flow">
+            <span class="n-badge n-badge-info">Themeable</span>
+            <h3>Tokens &amp; themes</h3>
+            <p class="n-text-muted">Five themes, dark mode, and CSS custom properties.</p>
+          </div>
+        </article>
+      </section>
+
+      <section id="pricing" class="n-mt-5">
+        <div class="n-alert n-alert-info" role="status">
+          This whole page uses only classes that exist in Nucleus. Validate any page with
+          <code class="n-code">npx @navital/nucleus-css validate</code>.
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

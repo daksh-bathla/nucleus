@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nucleus CSS — Dialog example</title>
+    <link rel="stylesheet" href="../dist/nucleus.min.css" />
+  </head>
+  <body>
+    <main class="n-container n-section">
+      <h2 class="n-mb-4">Native dialog</h2>
+      <button class="n-btn n-btn-danger" id="open">Delete item</button>
+
+      <!-- Nucleus styles the native <dialog>. Open it with showModal() so focus
+           trapping, Esc-to-close, and the backdrop work for free. -->
+      <dialog class="n-dialog" id="confirm">
+        <div class="n-dialog-header"><strong>Delete item?</strong></div>
+        <div class="n-dialog-body">
+          <p class="n-text-muted">This action can't be undone.</p>
+        </div>
+        <form method="dialog" class="n-dialog-footer">
+          <button class="n-btn n-btn-light" value="cancel">Cancel</button>
+          <button class="n-btn n-btn-danger" value="delete">Delete</button>
+        </form>
+      </dialog>
+    </main>
+
+    <script>
+      const dialog = document.getElementById("confirm");
+      document.getElementById("open").addEventListener("click", () => dialog.showModal());
+    </script>
+  </body>
+</html>
