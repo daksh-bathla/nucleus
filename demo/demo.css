@@ -34,7 +34,12 @@ html { scroll-padding-top: 7rem; }
 }
 
 .demo-brand { display: inline-flex; align-items: center; }
-.demo-logo { display: block; width: auto; height: 2.5rem; border-radius: 0.3rem; }
+.demo-logo {
+    display: block;
+    width: auto;
+    height: 2.5rem;
+    filter: brightness(0) saturate(100%) invert(36%) sepia(37%) saturate(1181%) hue-rotate(125deg) brightness(91%) contrast(91%);
+}
 
 .demo-navbar .n-nav-link,
 .demo-navbar .n-nav-link:visited { color: var(--demo-accent); }
@@ -285,6 +290,7 @@ html { scroll-padding-top: 7rem; }
 }
 
 .demo-page.n-dark-mode .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
+.demo-page.n-dark-mode .demo-logo { filter: brightness(0) saturate(100%) invert(73%) sepia(40%) saturate(779%) hue-rotate(357deg) brightness(90%) contrast(87%); }
 .demo-page.n-dark-mode .demo-hero {
     background:
         linear-gradient(rgba(236, 232, 223, 0.025) 1px, transparent 1px),
@@ -342,6 +348,7 @@ html { scroll-padding-top: 7rem; }
         --n-focus: rgba(213, 164, 79, 0.52);
     }
     .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
+    .demo-logo { filter: brightness(0) saturate(100%) invert(73%) sepia(40%) saturate(779%) hue-rotate(357deg) brightness(90%) contrast(87%); }
     .demo-hero {
         background:
             linear-gradient(rgba(236, 232, 223, 0.025) 1px, transparent 1px),

@@ -60,19 +60,19 @@
   "tokens": [
     {
       "name": "--n-primary",
-      "value": "#4f46e5"
+      "value": "#0f766e"
     },
     {
       "name": "--n-primary-h",
-      "value": "#4338ca"
+      "value": "#0b5f59"
     },
     {
       "name": "--n-secondary",
-      "value": "#7c3aed"
+      "value": "#147d74"
     },
     {
       "name": "--n-secondary-h",
-      "value": "#6d28d9"
+      "value": "#0f665f"
     },
     {
       "name": "--n-success",
@@ -152,27 +152,27 @@
     },
     {
       "name": "--n-focus",
-      "value": "rgba(79, 70, 229, 0.22)"
+      "value": "rgba(15, 118, 110, 0.24)"
     },
     {
       "name": "--n-primary-soft",
-      "value": "rgba(79, 70, 229, 0.12)"
+      "value": "rgba(15, 118, 110, 0.12)"
     },
     {
       "name": "--n-primary-border",
-      "value": "rgba(79, 70, 229, 0.3)"
+      "value": "rgba(15, 118, 110, 0.32)"
     },
     {
       "name": "--n-primary-ink",
-      "value": "#3730a3"
+      "value": "#0b5f59"
     },
     {
       "name": "--n-secondary-soft",
-      "value": "rgba(124, 58, 237, 0.12)"
+      "value": "rgba(20, 125, 116, 0.12)"
     },
     {
       "name": "--n-visited",
-      "value": "#6d28d9"
+      "value": "#0f766e"
     },
     {
       "name": "--n-on-primary",
@@ -332,7 +332,7 @@
     },
     {
       "name": "--n-shadow-glow",
-      "value": "0 0 0 1px rgba(99, 102, 241, 0.16), 0 16px 48px rgba(99, 102, 241, 0.16)"
+      "value": "0 0 0 1px rgba(15, 118, 110, 0.16), 0 16px 48px rgba(15, 118, 110, 0.16)"
     },
     {
       "name": "--n-ease",
@@ -2403,7 +2403,7 @@
     {
       "name": "n-dark-mode",
       "category": "theme",
-      "description": "Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); color-scheme: dark."
+      "description": "Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); --n-primary: #d5a44f; --n-primary-h: #e2bc75; --n-secondary: #c28b31; --n-secondary-h: #d5a44f; --n-focus: rgba(213, 164, 79, 0.42); --n-primary-soft: rgba(213, 164, 79, 0.13); --n-primary-border: rgba(213, 164, 79, 0.42); --n-primary-ink: #f0d395; --n-secondary-soft: rgba(194, 139, 49, 0.14); --n-visited: #d5a44f; --n-on-primary: #1a160f; --n-on-secondary: #1a160f; color-scheme: dark."
     },
     {
       "name": "n-dialog",
@@ -2753,7 +2753,7 @@
     {
       "name": "n-gradient-mesh",
       "category": "component",
-      "description": "Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(79, 70, 229, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(124, 58, 237, 0.12), transparent 32%)."
+      "description": "Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(15, 118, 110, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(20, 125, 116, 0.12), transparent 32%)."
     },
     {
       "name": "n-gradient-primary",
@@ -3659,7 +3659,7 @@
     {
       "name": "n-page-atmosphere",
       "category": "component",
-      "description": "Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed."
+      "description": "Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed."
     },
     {
       "name": "n-pagination",

@@ -194,7 +194,7 @@ Generated from `src/css/nucleus.css`. 580 classes, prefix `n-`. Do not edit by h
 | `.n-form-grid` | Fieldset modifier/part (see .n-fieldset). |
 | `.n-form-group` | Text input modifier/part (see .n-input). |
 | `.n-gradient-border` | Applies position: relative; border: 1px solid transparent; background: linear-gradient(var(--n-bg), var(--n-bg)) padding-box, linear-gradient(135deg, rgba(99,102,241,.8), rgba(14,165,233,.55)) border-box. |
-| `.n-gradient-mesh` | Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(79, 70, 229, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(124, 58, 237, 0.12), transparent 32%). |
+| `.n-gradient-mesh` | Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(15, 118, 110, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(20, 125, 116, 0.12), transparent 32%). |
 | `.n-gradient-primary` | Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); color: #fff. |
 | `.n-gradient-text` | Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); -webkit-background-clip: text; background-clip: text; color: transparent. |
 | `.n-grayscale` | Sets filter: grayscale(1). |
@@ -223,7 +223,7 @@ Generated from `src/css/nucleus.css`. 580 classes, prefix `n-`. Do not edit by h
 | `.n-navbar` | Sticky top navigation bar with brand and nav links. |
 | `.n-navbar-brand` | Navbar modifier/part (see .n-navbar). |
 | `.n-noise` | Sets background-image: repeating-radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 4px). |
-| `.n-page-atmosphere` | Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed. |
+| `.n-page-atmosphere` | Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed. |
 | `.n-pagination` | List of page links; mark the current page with aria-current. |
 | `.n-pagination-link` | Pagination modifier/part (see .n-pagination). |
 | `.n-popover` | Dropdown menu modifier/part (see .n-dropdown). |
@@ -646,4 +646,4 @@ Generated from `src/css/nucleus.css`. 580 classes, prefix `n-`. Do not edit by h
 
 | Class | Description |
 | --- | --- |
-| `.n-dark-mode` | Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); color-scheme: dark. |
+| `.n-dark-mode` | Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); --n-primary: #d5a44f; --n-primary-h: #e2bc75; --n-secondary: #c28b31; --n-secondary-h: #d5a44f; --n-focus: rgba(213, 164, 79, 0.42); --n-primary-soft: rgba(213, 164, 79, 0.13); --n-primary-border: rgba(213, 164, 79, 0.42); --n-primary-ink: #f0d395; --n-secondary-soft: rgba(194, 139, 49, 0.14); --n-visited: #d5a44f; --n-on-primary: #1a160f; --n-on-secondary: #1a160f; color-scheme: dark. |

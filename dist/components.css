@@ -6,10 +6,10 @@
 /* ----------------------------- */
 :root {
     /* ── Colors ── */
-    --n-primary:     #4f46e5;
-    --n-primary-h:   #4338ca;
-    --n-secondary:   #7c3aed;
-    --n-secondary-h: #6d28d9;
+    --n-primary:     #0f766e;
+    --n-primary-h:   #0b5f59;
+    --n-secondary:   #147d74;
+    --n-secondary-h: #0f665f;
     --n-success:     #15803d;
     --n-success-h:   #166534;
     --n-danger:      #dc2626;
@@ -31,12 +31,12 @@
     --n-surface-raised: #ffffff;
     --n-surface-sunken: #f1f5f9;
     --n-overlay:     rgba(15, 23, 42, 0.58);
-    --n-focus:       rgba(79, 70, 229, 0.22);
-    --n-primary-soft: rgba(79, 70, 229, 0.12);
-    --n-primary-border: rgba(79, 70, 229, 0.3);
-    --n-primary-ink: #3730a3;
-    --n-secondary-soft: rgba(124, 58, 237, 0.12);
-    --n-visited: #6d28d9;
+    --n-focus:       rgba(15, 118, 110, 0.24);
+    --n-primary-soft: rgba(15, 118, 110, 0.12);
+    --n-primary-border: rgba(15, 118, 110, 0.32);
+    --n-primary-ink: #0b5f59;
+    --n-secondary-soft: rgba(20, 125, 116, 0.12);
+    --n-visited: #0f766e;
     --n-on-primary:  #ffffff;
     --n-on-secondary:#ffffff;
     --n-on-success:  #ffffff;
@@ -86,7 +86,7 @@
     --n-shadow-lg:  0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05);
     --n-shadow-xl:  0 20px 25px rgba(0,0,0,.1), 0 8px 10px rgba(0,0,0,.04);
     --n-shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
-    --n-shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.16), 0 16px 48px rgba(99, 102, 241, 0.16);
+    --n-shadow-glow: 0 0 0 1px rgba(15, 118, 110, 0.16), 0 16px 48px rgba(15, 118, 110, 0.16);
 
     /* ── Transitions ── */
     --n-ease:       cubic-bezier(.4,0,.2,1);
@@ -976,14 +976,14 @@
 .n-gradient-mesh {
     background-color: var(--n-bg);
     background-image:
-        radial-gradient(circle at 10% 15%, rgba(79, 70, 229, 0.18), transparent 30%),
+        radial-gradient(circle at 10% 15%, rgba(15, 118, 110, 0.18), transparent 30%),
         radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%),
-        radial-gradient(circle at 70% 90%, rgba(124, 58, 237, 0.12), transparent 32%);
+        radial-gradient(circle at 70% 90%, rgba(20, 125, 116, 0.12), transparent 32%);
 }
 .n-page-atmosphere {
     background-color: var(--n-bg);
     background-image:
-        radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 32%),
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%),
         radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%);
     background-attachment: fixed;
 }

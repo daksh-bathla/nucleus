@@ -8,10 +8,10 @@
 /* ----------------------------- */
 :root {
     /* ── Colors ── */
-    --n-primary:     #4f46e5;
-    --n-primary-h:   #4338ca;
-    --n-secondary:   #7c3aed;
-    --n-secondary-h: #6d28d9;
+    --n-primary:     #0f766e;
+    --n-primary-h:   #0b5f59;
+    --n-secondary:   #147d74;
+    --n-secondary-h: #0f665f;
     --n-success:     #15803d;
     --n-success-h:   #166534;
     --n-danger:      #dc2626;
@@ -33,12 +33,12 @@
     --n-surface-raised: #ffffff;
     --n-surface-sunken: #f1f5f9;
     --n-overlay:     rgba(15, 23, 42, 0.58);
-    --n-focus:       rgba(79, 70, 229, 0.22);
-    --n-primary-soft: rgba(79, 70, 229, 0.12);
-    --n-primary-border: rgba(79, 70, 229, 0.3);
-    --n-primary-ink: #3730a3;
-    --n-secondary-soft: rgba(124, 58, 237, 0.12);
-    --n-visited: #6d28d9;
+    --n-focus:       rgba(15, 118, 110, 0.24);
+    --n-primary-soft: rgba(15, 118, 110, 0.12);
+    --n-primary-border: rgba(15, 118, 110, 0.32);
+    --n-primary-ink: #0b5f59;
+    --n-secondary-soft: rgba(20, 125, 116, 0.12);
+    --n-visited: #0f766e;
     --n-on-primary:  #ffffff;
     --n-on-secondary:#ffffff;
     --n-on-success:  #ffffff;
@@ -88,7 +88,7 @@
     --n-shadow-lg:  0 10px 15px rgba(0,0,0,.1), 0 4px 6px rgba(0,0,0,.05);
     --n-shadow-xl:  0 20px 25px rgba(0,0,0,.1), 0 8px 10px rgba(0,0,0,.04);
     --n-shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
-    --n-shadow-glow: 0 0 0 1px rgba(99, 102, 241, 0.16), 0 16px 48px rgba(99, 102, 241, 0.16);
+    --n-shadow-glow: 0 0 0 1px rgba(15, 118, 110, 0.16), 0 16px 48px rgba(15, 118, 110, 0.16);
 
     /* ── Transitions ── */
     --n-ease:       cubic-bezier(.4,0,.2,1);
@@ -1831,14 +1831,14 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-gradient-mesh {
     background-color: var(--n-bg);
     background-image:
-        radial-gradient(circle at 10% 15%, rgba(79, 70, 229, 0.18), transparent 30%),
+        radial-gradient(circle at 10% 15%, rgba(15, 118, 110, 0.18), transparent 30%),
         radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%),
-        radial-gradient(circle at 70% 90%, rgba(124, 58, 237, 0.12), transparent 32%);
+        radial-gradient(circle at 70% 90%, rgba(20, 125, 116, 0.12), transparent 32%);
 }
 .n-page-atmosphere {
     background-color: var(--n-bg);
     background-image:
-        radial-gradient(circle at top left, rgba(79, 70, 229, 0.08), transparent 32%),
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%),
         radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%);
     background-attachment: fixed;
 }
@@ -1892,7 +1892,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     --n-primary-border: rgba(3, 105, 161, 0.3);
     --n-primary-ink: #075985;
     --n-secondary-soft: rgba(14, 116, 144, 0.12);
-    --n-visited: #6d28d9;
+    --n-visited: #0f766e;
 }
 
 [data-theme="forest"] {
@@ -1905,7 +1905,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     --n-primary-border: rgba(22, 101, 52, 0.3);
     --n-primary-ink: #14532d;
     --n-secondary-soft: rgba(63, 98, 18, 0.12);
-    --n-visited: #7e22ce;
+    --n-visited: #0f766e;
 }
 
 [data-theme="rose"] {
@@ -1918,7 +1918,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     --n-primary-border: rgba(190, 18, 60, 0.3);
     --n-primary-ink: #9f1239;
     --n-secondary-soft: rgba(157, 23, 77, 0.12);
-    --n-visited: #6d28d9;
+    --n-visited: #0f766e;
 }
 
 [data-theme="amber"] {
@@ -1931,7 +1931,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     --n-primary-border: rgba(180, 83, 9, 0.3);
     --n-primary-ink: #78350f;
     --n-secondary-soft: rgba(161, 98, 7, 0.12);
-    --n-visited: #7e22ce;
+    --n-visited: #0f766e;
 }
 
 [data-theme="mono"] {
@@ -1944,7 +1944,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     --n-primary-border: rgba(51, 65, 85, 0.3);
     --n-primary-ink: #1e293b;
     --n-secondary-soft: rgba(71, 85, 105, 0.12);
-    --n-visited: #475569;
+    --n-visited: #0f766e;
 }
 
 [data-density="compact"] {
@@ -2077,13 +2077,25 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
         --n-surface-raised: #172033;
         --n-surface-sunken: #0b1220;
         --n-overlay:     rgba(2, 6, 23, 0.76);
+        --n-primary:     #d5a44f;
+        --n-primary-h:   #e2bc75;
+        --n-secondary:   #c28b31;
+        --n-secondary-h: #d5a44f;
+        --n-focus:       rgba(213, 164, 79, 0.42);
+        --n-primary-soft: rgba(213, 164, 79, 0.13);
+        --n-primary-border: rgba(213, 164, 79, 0.42);
+        --n-primary-ink: #f0d395;
+        --n-secondary-soft: rgba(194, 139, 49, 0.14);
+        --n-visited: #d5a44f;
+        --n-on-primary: #1a160f;
+        --n-on-secondary: #1a160f;
         color-scheme: dark;
     }
 
     .n-page-atmosphere {
         background-image:
-            radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 30%),
-            radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 26%);
+            radial-gradient(circle at top left, rgba(213, 164, 79, 0.12), transparent 30%),
+            radial-gradient(circle at top right, rgba(226, 188, 117, 0.07), transparent 26%);
     }
 
     .n-alert-primary   { background: var(--n-primary-soft); color: var(--n-text); }
@@ -2124,14 +2136,26 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     --n-surface-raised: #172033;
     --n-surface-sunken: #0b1220;
     --n-overlay:     rgba(2, 6, 23, 0.76);
+    --n-primary:     #d5a44f;
+    --n-primary-h:   #e2bc75;
+    --n-secondary:   #c28b31;
+    --n-secondary-h: #d5a44f;
+    --n-focus:       rgba(213, 164, 79, 0.42);
+    --n-primary-soft: rgba(213, 164, 79, 0.13);
+    --n-primary-border: rgba(213, 164, 79, 0.42);
+    --n-primary-ink: #f0d395;
+    --n-secondary-soft: rgba(194, 139, 49, 0.14);
+    --n-visited: #d5a44f;
+    --n-on-primary: #1a160f;
+    --n-on-secondary: #1a160f;
     color-scheme: dark;
 }
 
 .n-dark-mode .n-page-atmosphere,
 .n-dark-mode.n-page-atmosphere {
     background-image:
-        radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 30%),
-        radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 26%);
+        radial-gradient(circle at top left, rgba(213, 164, 79, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(226, 188, 117, 0.07), transparent 26%);
 }
 
 .n-dark-mode .n-alert-primary   { background: var(--n-primary-soft); color: var(--n-text); }
