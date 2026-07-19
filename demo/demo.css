@@ -259,25 +259,115 @@ html { scroll-padding-top: 7rem; }
     .demo-playground { padding: 1.25rem; }
 }
 
+.demo-page.n-dark-mode {
+    --demo-ink: #ece8df;
+    --demo-muted: #aaa59a;
+    --demo-accent: #d5a44f;
+    --demo-accent-strong: #e2bc75;
+    --demo-accent-soft: #282217;
+    --demo-line: #34322d;
+    --demo-canvas: #11110f;
+    --demo-surface: #181815;
+    --demo-code: #0c0c0b;
+    --n-text: #e8e4dc;
+    --n-text-muted: #a6a096;
+    --n-bg: #171713;
+    --n-bg-muted: #20201c;
+    --n-border-color: #444139;
+    --n-surface: #191916;
+    --n-surface-raised: #211f1b;
+    --n-surface-sunken: #10100e;
+    --n-primary-soft: rgba(213, 164, 79, 0.13);
+    --n-primary-border: rgba(213, 164, 79, 0.42);
+    --n-primary-ink: #e2bc75;
+    --n-on-primary: #1a160f;
+    color-scheme: dark;
+}
+
+.demo-page.n-dark-mode .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
+.demo-page.n-dark-mode .demo-mark { color: #11110f; background: #ece8df; box-shadow: none; }
+.demo-page.n-dark-mode .demo-hero {
+    background:
+        linear-gradient(rgba(236, 232, 223, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(236, 232, 223, 0.025) 1px, transparent 1px),
+        #11110f;
+    background-size: 2.5rem 2.5rem;
+}
+.demo-page.n-dark-mode .demo-code-window { border-color: #444139; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.38); }
+.demo-page.n-dark-mode .demo-code-window pre span { color: #c9b47e; }
+.demo-page.n-dark-mode .demo-code-result { background: #23221e; }
+.demo-page.n-dark-mode main > .demo-section { background: var(--demo-canvas); }
+.demo-page.n-dark-mode main > .demo-principles,
+.demo-page.n-dark-mode main > .demo-docs { background: var(--demo-surface); }
+.demo-page.n-dark-mode .demo-playground-controls { background: #20201c; }
+.demo-page.n-dark-mode .demo-install { color: #d8d3c9; background: #0c0c0b; border-bottom: 1px solid #34322d; }
+.demo-page.n-dark-mode .demo-install .demo-kicker { color: #d5a44f; }
+.demo-page.n-dark-mode .demo-install-heading h2 { color: #f3efe6; }
+.demo-page.n-dark-mode .demo-install-heading > p:last-child,
+.demo-page.n-dark-mode .demo-install-grid p { color: #9d988e; }
+.demo-page.n-dark-mode .demo-code-label { color: #aaa59a; border-color: #3a3832; background: #191916; }
+.demo-page.n-dark-mode .demo-code-label button { color: #d8d3c9; border-color: #555148; }
+.demo-page.n-dark-mode .demo-code-label button:hover { color: #e2bc75; border-color: #d5a44f; }
+.demo-page.n-dark-mode .demo-install-code { color: #e4dfd5; border-color: #3a3832; background: #10100e; }
+.demo-page.n-dark-mode .demo-reference { background: #1b1a17; }
+.demo-page.n-dark-mode .demo-reference-links,
+.demo-page.n-dark-mode .demo-reference-links a { border-color: #403d36; }
+
 @media (prefers-color-scheme: dark) {
     :root {
-        --demo-ink: #e4efee;
-        --demo-muted: #9cb1b2;
-        --demo-accent: #5ee0cf;
-        --demo-accent-strong: #8ceade;
-        --demo-accent-soft: #123a38;
-        --demo-line: #294347;
-        --demo-canvas: #09171b;
-        --demo-surface: #0e2025;
-        --demo-code: #071318;
+        --demo-ink: #ece8df;
+        --demo-muted: #aaa59a;
+        --demo-accent: #d5a44f;
+        --demo-accent-strong: #e2bc75;
+        --demo-accent-soft: #282217;
+        --demo-line: #34322d;
+        --demo-canvas: #11110f;
+        --demo-surface: #181815;
+        --demo-code: #0c0c0b;
+        color-scheme: dark;
     }
-    .demo-navbar { background: rgba(9, 23, 27, 0.92); }
-    .demo-mark { color: #062421; background: #5ee0cf; }
-    .demo-hero { background: radial-gradient(circle at 85% 18%, rgba(94, 224, 207, 0.1), transparent 24rem), linear-gradient(180deg, #0e2025 0%, #09171b 100%); }
-    .demo-playground-controls { background: #13272b; }
-    .demo-reference { background: #10282a; }
-    .demo-reference-links { border-color: #315052; }
-    .demo-reference-links a { border-color: #315052; }
+    .demo-page {
+        --n-text: #e8e4dc;
+        --n-text-muted: #a6a096;
+        --n-bg: #171713;
+        --n-bg-muted: #20201c;
+        --n-border-color: #444139;
+        --n-surface: #191916;
+        --n-surface-raised: #211f1b;
+        --n-surface-sunken: #10100e;
+        --n-primary-soft: rgba(213, 164, 79, 0.13);
+        --n-primary-border: rgba(213, 164, 79, 0.42);
+        --n-primary-ink: #e2bc75;
+        --n-on-primary: #1a160f;
+    }
+    .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
+    .demo-mark { color: #11110f; background: #ece8df; box-shadow: none; }
+    .demo-hero {
+        background:
+            linear-gradient(rgba(236, 232, 223, 0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(236, 232, 223, 0.025) 1px, transparent 1px),
+            #11110f;
+        background-size: 2.5rem 2.5rem;
+    }
+    .demo-code-window { border-color: #444139; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.38); }
+    .demo-code-window pre span { color: #c9b47e; }
+    .demo-code-result { background: #23221e; }
+    main > .demo-section { background: var(--demo-canvas); }
+    main > .demo-principles,
+    main > .demo-docs { background: var(--demo-surface); }
+    .demo-playground-controls { background: #20201c; }
+    .demo-install { color: #d8d3c9; background: #0c0c0b; border-bottom: 1px solid #34322d; }
+    .demo-install .demo-kicker { color: #d5a44f; }
+    .demo-install-heading h2 { color: #f3efe6; }
+    .demo-install-heading > p:last-child,
+    .demo-install-grid p { color: #9d988e; }
+    .demo-code-label { color: #aaa59a; border-color: #3a3832; background: #191916; }
+    .demo-code-label button { color: #d8d3c9; border-color: #555148; }
+    .demo-code-label button:hover { color: #e2bc75; border-color: #d5a44f; }
+    .demo-install-code { color: #e4dfd5; border-color: #3a3832; background: #10100e; }
+    .demo-reference { background: #1b1a17; }
+    .demo-reference-links,
+    .demo-reference-links a { border-color: #403d36; }
 }
 
 @media (prefers-reduced-motion: reduce) {
