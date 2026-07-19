@@ -7,11 +7,15 @@
     <meta name="description" content="UI components: alerts, badges, tables, lists, avatars, and navbar.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/components.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -69,7 +73,7 @@
             <h2 class="demo-title">Badges</h2>
             <p class="demo-subtitle">Small pill-shaped labels for status indicators, counts, and tags.</p>
 
-            <h5 class="n-mb-2">All Variants</h5>
+            <h3 class="n-mb-2">All Variants</h3>
             <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
                 <span class="n-badge n-badge-primary">Primary</span>
                 <span class="n-badge n-badge-secondary">Secondary</span>
@@ -80,7 +84,7 @@
                 <span class="n-badge n-badge-dark">Dark</span>
             </div>
 
-            <h5 class="n-mb-2">In Context</h5>
+            <h3 class="n-mb-2">In Context</h3>
             <div class="n-row n-mb-4">
                 <div class="n-col-12 n-col-md-6">
                     <div class="n-card">
@@ -100,7 +104,7 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Tags</h5>
+            <h3 class="n-mb-2">Tags</h3>
             <div class="n-flex n-flex-wrap n-gap-1">
                 <span class="n-badge n-badge-primary">JavaScript</span>
                 <span class="n-badge n-badge-primary">CSS</span>
@@ -116,7 +120,7 @@
             <h2 class="demo-title">Tables</h2>
             <p class="demo-subtitle">Responsive tables with striped rows, hover effects, and borders.</p>
 
-            <h5 class="n-mb-2">Striped + Hover</h5>
+            <h3 class="n-mb-2">Striped + Hover</h3>
             <div class="n-overflow-x-auto n-mb-4">
                 <table class="n-table n-table-striped n-table-hover" id="table-users">
                     <thead>
@@ -168,7 +172,7 @@
                 </table>
             </div>
 
-            <h5 class="n-mb-2">Bordered</h5>
+            <h3 class="n-mb-2">Bordered</h3>
             <div class="n-overflow-x-auto n-mb-4">
                 <table class="n-table n-table-bordered" id="table-bordered">
                     <thead>
@@ -199,7 +203,7 @@
 
             <div class="n-row">
                 <div class="n-col-12 n-col-md-4 n-mb-3">
-                    <h5 class="n-mb-2">Separated List <code>.n-list</code></h5>
+                    <h3 class="n-mb-2">Separated List <code>.n-list</code></h3>
                     <ul class="n-list">
                         <li class="n-flex n-justify-between n-items-center">
                             <span>Dashboard</span>
@@ -212,7 +216,7 @@
                     </ul>
                 </div>
                 <div class="n-col-12 n-col-md-4 n-mb-3">
-                    <h5 class="n-mb-2">Unstyled <code>.n-list-unstyled</code></h5>
+                    <h3 class="n-mb-2">Unstyled <code>.n-list-unstyled</code></h3>
                     <ul class="n-list-unstyled">
                         <li class="n-mb-1">• Apple</li>
                         <li class="n-mb-1">• Banana</li>
@@ -222,7 +226,7 @@
                     </ul>
                 </div>
                 <div class="n-col-12 n-col-md-4 n-mb-3">
-                    <h5 class="n-mb-2">Inline <code>.n-list-inline</code></h5>
+                    <h3 class="n-mb-2">Inline <code>.n-list-inline</code></h3>
                     <ul class="n-list-inline">
                         <li><a href="#">Home</a></li>
                         <li><a href="#">About</a></li>
@@ -238,7 +242,7 @@
             <h2 class="demo-title">Avatars</h2>
             <p class="demo-subtitle">Circular placeholders for user profiles in three sizes.</p>
 
-            <h5 class="n-mb-2">Sizes</h5>
+            <h3 class="n-mb-2">Sizes</h3>
             <div class="n-flex n-items-center n-gap-3 n-mb-4">
                 <div>
                     <div class="n-avatar n-avatar-sm">S</div>
@@ -254,7 +258,7 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Color Variations</h5>
+            <h3 class="n-mb-2">Color Variations</h3>
             <div class="n-flex n-items-center n-gap-2 n-mb-4">
                 <div class="n-avatar">AB</div>
                 <div class="n-avatar" style="background:var(--n-secondary)">CD</div>
@@ -265,7 +269,7 @@
                 <div class="n-avatar" style="background:var(--n-dark)">MN</div>
             </div>
 
-            <h5 class="n-mb-2">Avatar Stack</h5>
+            <h3 class="n-mb-2">Avatar Stack</h3>
             <div class="n-flex" style="margin-left:0.5rem">
                 <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg)">A</div>
                 <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-secondary)">B</div>
@@ -322,7 +326,7 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <div class="n-flex n-justify-between n-items-center">
             <a href="forms.html" class="n-btn n-btn-ghost">← Forms</a>
@@ -330,7 +334,7 @@
             <a href="utilities.html" class="n-btn n-btn-ghost">Utilities →</a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

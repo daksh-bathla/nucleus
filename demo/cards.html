@@ -7,11 +7,15 @@
     <meta name="description" content="Flexible card components with header, body, footer, and color variations.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/cards.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -43,7 +47,7 @@
                 <div class="n-col-12 n-col-md-4 n-mb-3">
                     <div class="n-card" id="card-body-only">
                         <div class="n-card-body">
-                            <h4 class="n-mb-1">Simple Card</h4>
+                            <h3 class="n-mb-1">Simple Card</h3>
                             <p class="n-text-muted n-text-sm">Just a card body — the most minimal configuration.</p>
                         </div>
                     </div>
@@ -60,7 +64,7 @@
                     <div class="n-card" id="card-full">
                         <div class="n-card-header">Featured</div>
                         <div class="n-card-body">
-                            <h4 class="n-mb-1">Full Card</h4>
+                            <h3 class="n-mb-1">Full Card</h3>
                             <p class="n-text-sm n-text-muted n-mb-3">Header, body, and footer — all three sections in one card.</p>
                             <button class="n-btn n-btn-primary n-btn-sm">Action</button>
                         </div>
@@ -85,7 +89,7 @@
                 <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
                     <div class="n-card n-bg-primary n-border-0" id="card-primary">
                         <div class="n-card-body">
-                            <h5 class="n-mb-1">Primary</h5>
+                            <h3 class="n-mb-1">Primary</h3>
                             <p class="n-text-sm" style="color:rgba(255,255,255,.8)">Primary colored card with inverted text.</p>
                         </div>
                     </div>
@@ -93,7 +97,7 @@
                 <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
                     <div class="n-card n-bg-success n-border-0" id="card-success">
                         <div class="n-card-body">
-                            <h5 class="n-mb-1">Success</h5>
+                            <h3 class="n-mb-1">Success</h3>
                             <p class="n-text-sm" style="color:rgba(255,255,255,.8)">Great for positive feedback messages.</p>
                         </div>
                     </div>
@@ -101,7 +105,7 @@
                 <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
                     <div class="n-card n-bg-warning n-border-0" id="card-warning">
                         <div class="n-card-body">
-                            <h5 class="n-mb-1" style="color:#000">Warning</h5>
+                            <h3 class="n-mb-1" style="color:#000">Warning</h3>
                             <p class="n-text-sm" style="color:rgba(0,0,0,.7)">Draw attention to important notices.</p>
                         </div>
                     </div>
@@ -109,7 +113,7 @@
                 <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
                     <div class="n-card n-bg-dark n-border-0" id="card-dark">
                         <div class="n-card-body">
-                            <h5 class="n-mb-1">Dark</h5>
+                            <h3 class="n-mb-1">Dark</h3>
                             <p class="n-text-sm" style="color:rgba(255,255,255,.7)">Sleek dark cards for contrast.</p>
                         </div>
                     </div>
@@ -126,7 +130,7 @@
                 <div class="n-col-12 n-col-md-6 n-mb-3">
                     <div class="n-card" id="card-actions-1">
                         <div class="n-card-body">
-                            <h4 class="n-mb-1">Project Alpha</h4>
+                            <h3 class="n-mb-1">Project Alpha</h3>
                             <p class="n-text-sm n-text-muted n-mb-2">A collaborative design project with the frontend team. Currently in the review phase.</p>
                             <div class="n-flex n-gap-1">
                                 <span class="n-badge n-badge-primary">Design</span>
@@ -145,7 +149,7 @@
                 <div class="n-col-12 n-col-md-6 n-mb-3">
                     <div class="n-card" id="card-actions-2">
                         <div class="n-card-body">
-                            <h4 class="n-mb-1">Project Beta</h4>
+                            <h3 class="n-mb-1">Project Beta</h3>
                             <p class="n-text-sm n-text-muted n-mb-2">Backend API development with comprehensive test coverage and documentation.</p>
                             <div class="n-flex n-gap-1">
                                 <span class="n-badge n-badge-info">Backend</span>
@@ -169,7 +173,7 @@
             <h2 class="demo-title">Card Grid Layouts</h2>
             <p class="demo-subtitle">Combine cards with the grid system for responsive layouts.</p>
 
-            <h5 class="n-mb-2">Stats Dashboard</h5>
+            <h3 class="n-mb-2">Stats Dashboard</h3>
             <div class="n-row n-mb-4">
                 <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
                     <div class="n-card" id="stat-users">
@@ -209,12 +213,12 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Pricing Cards</h5>
+            <h3 class="n-mb-2">Pricing Cards</h3>
             <div class="n-row">
                 <div class="n-col-12 n-col-md-4 n-mb-3">
                     <div class="n-card" id="price-free">
                         <div class="n-card-body n-text-center n-py-4">
-                            <h4>Free</h4>
+                            <h3>Free</h3>
                             <p class="n-text-4xl n-font-bold n-my-2">$0</p>
                             <p class="n-text-muted n-text-sm n-mb-3">For personal projects</p>
                             <ul class="n-list-unstyled n-text-sm n-text-left n-mb-4" style="max-width:200px;margin:0 auto">
@@ -230,7 +234,7 @@
                     <div class="n-card n-border-primary" style="border-width:2px" id="price-pro">
                         <div class="n-card-body n-text-center n-py-4">
                             <span class="n-badge n-badge-primary n-mb-2">Popular</span>
-                            <h4>Pro</h4>
+                            <h3>Pro</h3>
                             <p class="n-text-4xl n-font-bold n-my-2">$29</p>
                             <p class="n-text-muted n-text-sm n-mb-3">For growing teams</p>
                             <ul class="n-list-unstyled n-text-sm n-text-left n-mb-4" style="max-width:200px;margin:0 auto">
@@ -245,7 +249,7 @@
                 <div class="n-col-12 n-col-md-4 n-mb-3">
                     <div class="n-card" id="price-enterprise">
                         <div class="n-card-body n-text-center n-py-4">
-                            <h4>Enterprise</h4>
+                            <h3>Enterprise</h3>
                             <p class="n-text-4xl n-font-bold n-my-2">$99</p>
                             <p class="n-text-muted n-text-sm n-mb-3">For large organizations</p>
                             <ul class="n-list-unstyled n-text-sm n-text-left n-mb-4" style="max-width:200px;margin:0 auto">
@@ -264,7 +268,7 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <div class="n-flex n-justify-between n-items-center">
             <a href="buttons.html" class="n-btn n-btn-ghost">← Buttons</a>
@@ -272,7 +276,7 @@
             <a href="forms.html" class="n-btn n-btn-ghost">Forms →</a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

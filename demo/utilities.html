@@ -7,11 +7,15 @@
     <meta name="description" content="Utility classes: spacing, flexbox, display, colors, borders, shadows, opacity, position, overflow, and transitions.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/utilities.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -39,7 +43,7 @@
             <h2 class="demo-title">Spacing</h2>
             <p class="demo-subtitle">Margin (<code>n-m-*</code>) and padding (<code>n-p-*</code>) with a 6-step scale (0–5).</p>
 
-            <h5 class="n-mb-2">Padding Scale</h5>
+            <h3 class="n-mb-2">Padding Scale</h3>
             <div class="n-flex n-flex-wrap n-items-end n-gap-3 n-mb-4">
                 <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-0">p-0</div></div>
                 <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-1">p-1</div></div>
@@ -49,7 +53,7 @@
                 <div class="demo-spacing-box"><div class="demo-spacing-inner n-p-5">p-5</div></div>
             </div>
 
-            <h5 class="n-mb-2">Scale Reference</h5>
+            <h3 class="n-mb-2">Scale Reference</h3>
             <div class="n-overflow-x-auto n-mb-4">
                 <table class="n-table n-table-striped" id="table-spacing">
                     <thead><tr><th>Step</th><th>Value</th><th>Margin</th><th>Padding</th></tr></thead>
@@ -64,7 +68,7 @@
                 </table>
             </div>
 
-            <h5 class="n-mb-2">Directional Variants</h5>
+            <h3 class="n-mb-2">Directional Variants</h3>
             <div class="n-row">
                 <div class="n-col-12 n-col-md-6">
                     <table class="n-table" id="table-spacing-dirs">
@@ -97,7 +101,7 @@
             <h2 class="demo-title">Flexbox</h2>
             <p class="demo-subtitle">Flex direction, justify, align, wrap, and gap utilities.</p>
 
-            <h5 class="n-mb-2">Justify Content</h5>
+            <h3 class="n-mb-2">Justify Content</h3>
             <div class="n-mb-4">
                 <p class="n-text-xs n-text-muted n-mb-1"><code>.n-justify-start</code></p>
                 <div class="n-flex n-justify-start n-gap-2 n-bg-muted n-p-2 n-rounded n-mb-2">
@@ -125,7 +129,7 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Align Items</h5>
+            <h3 class="n-mb-2">Align Items</h3>
             <div class="n-row n-mb-4">
                 <div class="n-col-12 n-col-md-4 n-mb-2">
                     <p class="n-text-xs n-text-muted n-mb-1"><code>.n-items-start</code></p>
@@ -150,7 +154,7 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Direction &amp; Wrap</h5>
+            <h3 class="n-mb-2">Direction &amp; Wrap</h3>
             <div class="n-row">
                 <div class="n-col-12 n-col-md-6 n-mb-2">
                     <p class="n-text-xs n-text-muted n-mb-1"><code>.n-flex-col</code></p>
@@ -193,7 +197,7 @@
                 </table>
             </div>
 
-            <h5 class="n-mb-2">Live Example (resize browser)</h5>
+            <h3 class="n-mb-2">Live Example (resize browser)</h3>
             <div class="n-flex n-gap-2 n-flex-wrap">
                 <div class="n-bg-dark n-text-white n-p-2 n-rounded n-text-sm n-d-md-none">Hidden on ≥768px</div>
                 <div class="n-bg-primary n-text-white n-p-2 n-rounded n-text-sm n-d-none n-d-md-block">Visible only ≥768px</div>
@@ -223,7 +227,7 @@
             <h2 class="demo-title">Borders &amp; Radius</h2>
             <p class="demo-subtitle">Border utilities and six border-radius levels.</p>
 
-            <h5 class="n-mb-2">Border Radius</h5>
+            <h3 class="n-mb-2">Border Radius</h3>
             <div class="n-flex n-flex-wrap n-items-center n-gap-3 n-mb-4">
                 <div class="n-bg-muted n-p-3 n-border n-rounded-none n-text-xs n-text-center" style="width:80px">none</div>
                 <div class="n-bg-muted n-p-3 n-border n-rounded-sm n-text-xs n-text-center" style="width:80px">sm</div>
@@ -233,7 +237,7 @@
                 <div class="n-bg-muted n-p-3 n-border n-rounded-full n-text-xs n-text-center" style="width:80px">full</div>
             </div>
 
-            <h5 class="n-mb-2">Border Colors</h5>
+            <h3 class="n-mb-2">Border Colors</h3>
             <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
                 <div class="n-border n-border-primary n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Primary</div>
                 <div class="n-border n-border-success n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Success</div>
@@ -241,7 +245,7 @@
                 <div class="n-border n-border-warning n-p-3 n-rounded n-text-xs" style="border-width:2px;width:100px;text-align:center">Warning</div>
             </div>
 
-            <h5 class="n-mb-2">Directional Borders</h5>
+            <h3 class="n-mb-2">Directional Borders</h3>
             <div class="n-flex n-flex-wrap n-gap-2">
                 <div class="n-border-t n-p-3 n-bg-muted n-text-xs" style="width:100px;text-align:center">border-t</div>
                 <div class="n-border-b n-p-3 n-bg-muted n-text-xs" style="width:100px;text-align:center">border-b</div>
@@ -355,7 +359,7 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Available Classes</h5>
+            <h3 class="n-mb-2">Available Classes</h3>
             <div class="n-row">
                 <div class="n-col-12 n-col-md-6">
                     <table class="n-table" id="table-transitions">
@@ -407,7 +411,7 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <div class="n-flex n-justify-between n-items-center">
             <a href="components.html" class="n-btn n-btn-ghost">← Components</a>
@@ -415,7 +419,7 @@
             <a href="index.html" class="n-btn n-btn-ghost">Home →</a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

@@ -16,7 +16,7 @@ test("no curated component references an unknown class", () => {
 
 test("source has the expected public surface", () => {
   assert.ok(model.classes.length >= 580, `only ${model.classes.length} classes`);
-  assert.equal(model.tokens.length, 71);
+  assert.equal(model.tokens.length, 76);
 });
 
 test("manifest lists every source class and nothing invented", () => {

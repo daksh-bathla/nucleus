@@ -56,7 +56,7 @@ async function main() {
     if (!model.source.includes(section)) fail(`Missing CSS section: ${section}`);
   }
   if (model.classes.length < 580) fail(`Expected ≥580 classes, found ${model.classes.length}`);
-  if (model.tokens.length < 71) fail(`Expected ≥71 tokens, found ${model.tokens.length}`);
+  if (model.tokens.length < 76) fail(`Expected ≥76 tokens, found ${model.tokens.length}`);
 
   // --- Manifest (also validates curated classes exist) ---
   const { manifest, errors } = buildManifest(model, version);
@@ -77,12 +77,23 @@ async function main() {
   for (const [name, content] of Object.entries(bundles)) {
     outputs.set(`dist/${name}`, content);
   }
-  outputs.set("dist/nucleus.manifest.json", JSON.stringify(manifest, null, 2) + "\n");
+  const manifestJson = JSON.stringify(manifest, null, 2) + "\n";
+  const llmsTxt = buildLlmsTxt(manifest);
+  const llmsFull = buildLlmsFull(manifest);
+  const classReference = buildClassReference(manifest);
+  const componentReference = buildComponentReference(manifest);
+
+  outputs.set("dist/nucleus.manifest.json", manifestJson);
   outputs.set("demo/nucleus.css", bundles["nucleus.css"]);
-  outputs.set("llms.txt", buildLlmsTxt(manifest));
-  outputs.set("llms-full.txt", buildLlmsFull(manifest));
-  outputs.set("CLASS_REFERENCE.md", buildClassReference(manifest));
-  outputs.set("COMPONENT_REFERENCE.md", buildComponentReference(manifest));
+  outputs.set("llms.txt", llmsTxt);
+  outputs.set("llms-full.txt", llmsFull);
+  outputs.set("CLASS_REFERENCE.md", classReference);
+  outputs.set("COMPONENT_REFERENCE.md", componentReference);
+  outputs.set("demo/nucleus.manifest.json", manifestJson);
+  outputs.set("demo/llms.txt", llmsTxt);
+  outputs.set("demo/llms-full.txt", llmsFull);
+  outputs.set("demo/CLASS_REFERENCE.md", classReference);
+  outputs.set("demo/COMPONENT_REFERENCE.md", componentReference);
 
   // --- Modules must partition the source (no class lost or duplicated) ---
   const moduleClassUnion = new Set();
@@ -105,6 +116,7 @@ async function main() {
       fail(`${relative(ROOT, file)}:${f.line} uses undefined .${f.className}`);
     }
     for (const m of html.matchAll(/href="([^"#?]+\.html)"/g)) {
+      if (/^[a-z][a-z0-9+.-]*:\/\//i.test(m[1])) continue;
       const linked = join(dirname(file), m[1]);
       if (!existsSync(linked)) fail(`${relative(ROOT, file)} links to missing ${m[1]}`);
     }

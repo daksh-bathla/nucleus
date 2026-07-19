@@ -7,11 +7,15 @@
     <meta name="description" content="Button components: solid, outline, ghost variants across 8 colors and 3 sizes.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/buttons.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -102,16 +106,16 @@
         <!-- Disabled -->
         <div class="demo-section" id="disabled">
             <h2 class="demo-title">Disabled State</h2>
-            <p class="demo-subtitle">Use the <code>disabled</code> attribute or <code>.n-disabled</code> class to prevent interaction.</p>
+            <p class="demo-subtitle">Use the native <code>disabled</code> attribute on buttons. For custom controls, pair <code>aria-disabled="true"</code> with application logic that blocks keyboard activation.</p>
 
             <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
                 <button class="n-btn n-btn-primary" disabled id="btn-disabled-attr">Disabled (attr)</button>
-                <button class="n-btn n-btn-secondary n-disabled" id="btn-disabled-class">Disabled (class)</button>
+                <button class="n-btn n-btn-secondary n-disabled" disabled id="btn-disabled-class">Disabled (class + attr)</button>
                 <button class="n-btn n-btn-outline-danger" disabled id="btn-disabled-outline">Disabled Outline</button>
             </div>
 
             <div class="demo-code">&lt;button class="n-btn n-btn-primary" disabled&gt;Disabled&lt;/button&gt;
-&lt;button class="n-btn n-btn-secondary n-disabled"&gt;Disabled&lt;/button&gt;</div>
+&lt;button class="n-btn n-btn-secondary n-disabled" disabled&gt;Disabled&lt;/button&gt;</div>
         </div>
 
         <!-- As Links -->
@@ -161,7 +165,7 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <div class="n-flex n-justify-between n-items-center">
             <a href="typography.html" class="n-btn n-btn-ghost">← Typography</a>
@@ -169,7 +173,7 @@
             <a href="cards.html" class="n-btn n-btn-ghost">Cards →</a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

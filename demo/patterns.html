@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layouts & Patterns — Nucleus CSS</title>
+    <title>Layouts &amp; Patterns — Nucleus CSS</title>
     <meta name="description" content="Intrinsic layouts, native components, accessible forms, themes, and polished patterns in Nucleus CSS.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/patterns.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
     <a class="n-skip-link" href="#main-content">Skip to content</a>
 
-    <nav class="n-navbar" id="nav-main" aria-label="Primary navigation">
+    <nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
         <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
         <ul class="n-nav">
             <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -26,10 +29,12 @@
     </nav>
 
     <main class="demo-main" id="main-content">
-        <div class="demo-hero">
+        <div class="demo-doc-hero">
+          <div class="n-container">
             <p class="n-overline n-mb-2">The complete layer</p>
-            <h1 class="n-text-balance">Layouts & Patterns</h1>
+            <h1 class="n-text-balance">Layouts &amp; Patterns</h1>
             <p class="n-lead">Responsive layouts, accessible native components, themes, density modes, and polished states without a build tool.</p>
+          </div>
         </div>
 
         <div class="n-container">
@@ -109,9 +114,9 @@
                     <div class="n-field-row">
                         <span class="n-label">Preferences</span>
                         <label class="n-switch">
-                            <input type="checkbox" checked>
+                            <input type="checkbox" id="patterns-dark-switch">
                             <span class="n-switch-track" aria-hidden="true"></span>
-                            <span>Automatic dark mode</span>
+                            <span>Force dark mode</span>
                         </label>
                     </div>
                     <div class="n-field-row">
@@ -150,11 +155,13 @@
                     <div>
                         <h3 class="n-text-xl n-mb-2">Tabs</h3>
                         <div class="n-tabs" role="tablist" aria-label="Account sections">
-                            <button class="n-tab" role="tab" aria-selected="true">Profile</button>
-                            <button class="n-tab" role="tab" aria-selected="false">Security</button>
-                            <button class="n-tab" role="tab" aria-selected="false">Billing</button>
+                            <button class="n-tab" id="tab-profile" role="tab" aria-selected="true" aria-controls="panel-profile">Profile</button>
+                            <button class="n-tab" id="tab-security" role="tab" aria-selected="false" aria-controls="panel-security" tabindex="-1">Security</button>
+                            <button class="n-tab" id="tab-billing" role="tab" aria-selected="false" aria-controls="panel-billing" tabindex="-1">Billing</button>
                         </div>
-                        <div class="n-tab-panel"><p class="n-text-muted">Nucleus styles the tab states. Application code controls panel switching.</p></div>
+                        <div class="n-tab-panel" id="panel-profile" role="tabpanel" aria-labelledby="tab-profile"><p class="n-text-muted">Profile settings use the same visible focus and selected states as the rest of the framework.</p></div>
+                        <div class="n-tab-panel" id="panel-security" role="tabpanel" aria-labelledby="tab-security" hidden><p class="n-text-muted">Security settings stay keyboard-accessible with arrow-key tab navigation.</p></div>
+                        <div class="n-tab-panel" id="panel-billing" role="tabpanel" aria-labelledby="tab-billing" hidden><p class="n-text-muted">Billing content is connected to its tab with explicit ARIA relationships.</p></div>
                     </div>
                 </div>
 

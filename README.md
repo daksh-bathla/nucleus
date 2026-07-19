@@ -4,7 +4,7 @@ A polished, accessible, **zero-build** CSS framework you can install like Bootst
 — and that AI coding assistants can use accurately, because every class is
 described in machine-readable metadata instead of left to guesswork.
 
-- **580 classes, 71 design tokens** — utilities, intrinsic layouts, components,
+- **580 classes, 76 design tokens** — utilities, intrinsic layouts, components,
   forms, content styles, states, and effects.
 - **Zero runtime, zero dependencies** — one stylesheet, no required JavaScript.
 - **Prefix everything with `n-`** — no collisions with your own classes.
@@ -278,7 +278,7 @@ container queries, `:has()`-free but modern selectors, `text-wrap`, `dvh`, nativ
 ## Backward compatibility
 
 **No public class or token was renamed or removed** in this packaging release. All
-580 classes and 71 tokens keep the same names and behavior, so existing markup
+580 classes and 76 tokens keep the same names and behavior, so existing markup
 continues to work unchanged. The only breaking change is the **package name**
 (`nucleus-css` → `@navital/nucleus-css`); update your install/import path. See
 [CHANGELOG.md](CHANGELOG.md).

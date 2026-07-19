@@ -7,11 +7,15 @@
     <meta name="description" content="Typography utilities: font sizes, weights, alignment, transforms, line-height, and text decorations.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/typography.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -119,14 +123,14 @@
 
             <div class="n-row">
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2">Transforms</h5>
+                    <h3 class="n-mb-2">Transforms</h3>
                     <p class="n-uppercase n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-uppercase</code> — all caps text</p>
                     <p class="n-lowercase n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-lowercase</code> — ALL LOWERCASE NOW</p>
                     <p class="n-capitalize n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-capitalize</code> — capitalize each word</p>
                     <p class="n-normal-case n-bg-muted n-p-2 n-rounded"><code>.n-normal-case</code> — reset transform</p>
                 </div>
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2">Decoration &amp; Style</h5>
+                    <h3 class="n-mb-2">Decoration &amp; Style</h3>
                     <p class="n-italic n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-italic</code> — Italic text style</p>
                     <p class="n-underline n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-underline</code> — Underlined text</p>
                     <p class="n-line-through n-mb-2 n-bg-muted n-p-2 n-rounded"><code>.n-line-through</code> — Strikethrough text</p>
@@ -142,7 +146,7 @@
 
             <div class="n-row">
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2">Line Height</h5>
+                    <h3 class="n-mb-2">Line Height</h3>
                     <div class="n-bg-muted n-p-3 n-rounded n-mb-2">
                         <p class="n-leading-none n-text-sm"><strong>.n-leading-none (1.0)</strong> — The quick brown fox jumps over the lazy dog. This text has no extra line spacing at all.</p>
                     </div>
@@ -157,7 +161,7 @@
                     </div>
                 </div>
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2">Letter Spacing</h5>
+                    <h3 class="n-mb-2">Letter Spacing</h3>
                     <p class="n-tracking-tight n-text-2xl n-mb-3"><code>.n-tracking-tight</code> Tightly tracked</p>
                     <p class="n-tracking-normal n-text-2xl n-mb-3"><code>.n-tracking-normal</code> Default spacing</p>
                     <p class="n-tracking-wide n-text-2xl"><code>.n-tracking-wide</code> Wide tracking</p>
@@ -170,14 +174,14 @@
             <h2 class="demo-title">Special Utilities</h2>
             <p class="demo-subtitle">Truncation and monospace font.</p>
 
-            <h5 class="n-mb-2">Truncate</h5>
+            <h3 class="n-mb-2">Truncate</h3>
             <div class="n-max-w-md n-mb-4">
                 <div class="n-bg-muted n-p-3 n-rounded">
                     <p class="n-truncate">This is an extremely long line of text that should be truncated with an ellipsis when it overflows its container boundary.</p>
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Monospace Font</h5>
+            <h3 class="n-mb-2">Monospace Font</h3>
             <p class="n-font-mono n-bg-muted n-p-3 n-rounded">
                 <code>.n-font-mono</code> — const greeting = "Hello, Nucleus!";
             </p>
@@ -208,7 +212,7 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <div class="n-flex n-justify-between n-items-center">
             <a href="grid.html" class="n-btn n-btn-ghost">← Grid</a>
@@ -216,7 +220,7 @@
             <a href="buttons.html" class="n-btn n-btn-ghost">Buttons →</a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

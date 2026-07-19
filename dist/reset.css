@@ -35,6 +35,11 @@
     --n-surface-sunken: #f1f5f9;
     --n-overlay:     rgba(15, 23, 42, 0.58);
     --n-focus:       rgba(79, 70, 229, 0.22);
+    --n-primary-soft: rgba(79, 70, 229, 0.12);
+    --n-primary-border: rgba(79, 70, 229, 0.3);
+    --n-primary-ink: #3730a3;
+    --n-secondary-soft: rgba(124, 58, 237, 0.12);
+    --n-visited: #6d28d9;
     --n-on-primary:  #ffffff;
     --n-on-secondary:#ffffff;
     --n-on-success:  #ffffff;
@@ -120,7 +125,7 @@ html, body {
 }
 
 ::selection {
-    background: rgba(99, 102, 241, 0.18);
+    background: var(--n-primary-soft);
     color: var(--n-text);
 }
 
@@ -145,6 +150,7 @@ a:hover {
     color: var(--n-primary-h);
     text-decoration: underline;
 }
+a:not([class*="n-btn"]):visited { color: var(--n-visited); }
 
 #root, #__next {
     isolation: isolate;
@@ -204,6 +210,8 @@ a:hover {
 
 @media (forced-colors: active) {
     .n-btn, .n-input, .n-select, .n-textarea, .n-card, .n-dialog { forced-color-adjust: auto; }
+    :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible,
+    .n-btn:focus-visible { outline: 3px solid Highlight; outline-offset: 2px; box-shadow: none; }
     .n-spinner { border-color: CanvasText; border-right-color: transparent; }
 }
 

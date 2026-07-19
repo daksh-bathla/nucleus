@@ -7,11 +7,15 @@
     <meta name="description" content="Form components: inputs, selects, textareas, checkboxes, radios, and validation states.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/forms.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -146,7 +150,7 @@
 
             <div class="n-row">
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2">Checkboxes</h5>
+                    <h3 class="n-mb-2">Checkboxes</h3>
                     <div class="n-form-group">
                         <label class="n-checkbox"><input type="checkbox" id="cb-1" checked> Enable notifications</label>
                     </div>
@@ -158,7 +162,7 @@
                     </div>
                 </div>
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2">Radios</h5>
+                    <h3 class="n-mb-2">Radios</h3>
                     <div class="n-form-group">
                         <label class="n-radio"><input type="radio" name="plan" id="radio-free" checked> Free plan</label>
                     </div>
@@ -256,7 +260,7 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <div class="n-flex n-justify-between n-items-center">
             <a href="cards.html" class="n-btn n-btn-ghost">← Cards</a>
@@ -264,7 +268,7 @@
             <a href="components.html" class="n-btn n-btn-ghost">Components →</a>
         </div>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

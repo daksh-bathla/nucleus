@@ -1,0 +1,7 @@
+.git
+.gstack
+node_modules
+test
+examples
+docs
+*.tgz

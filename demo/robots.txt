@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nucleus-rose.vercel.app/sitemap.xml

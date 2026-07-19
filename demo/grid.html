@@ -7,11 +7,15 @@
     <meta name="description" content="12-column CSS Grid system with responsive breakpoints and fluid containers.">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/grid.html">
+    <script src="site.js" defer></script>
 </head>
 <body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
 
 <!-- Navbar -->
-<nav class="n-navbar" id="nav-main">
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
     <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link active" href="grid.html">Grid</a></li>
@@ -25,7 +29,7 @@
     </ul>
 </nav>
 
-<main class="demo-main">
+<main class="demo-main" id="main-content">
     <div class="n-container">
 
         <!-- Page Header -->
@@ -41,7 +45,7 @@
 
             <div class="n-row n-mb-4">
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2"><code>.n-container</code></h5>
+                    <h3 class="n-mb-2"><code>.n-container</code></h3>
                     <p class="n-text-sm n-text-muted n-mb-2">
                         Fixed-width container that snaps to breakpoints.
                     </p>
@@ -50,7 +54,7 @@
 &lt;/div&gt;</div>
                 </div>
                 <div class="n-col-12 n-col-md-6">
-                    <h5 class="n-mb-2"><code>.n-container-fluid</code></h5>
+                    <h3 class="n-mb-2"><code>.n-container-fluid</code></h3>
                     <p class="n-text-sm n-text-muted n-mb-2">
                         Full-width container that stretches to fill the screen.
                     </p>
@@ -60,7 +64,7 @@
                 </div>
             </div>
 
-            <h5 class="n-mb-2">Breakpoint Table</h5>
+            <h3 class="n-mb-2">Breakpoint Table</h3>
             <div class="n-overflow-x-auto">
                 <table class="n-table n-table-striped" id="table-breakpoints">
                     <thead>
@@ -88,7 +92,7 @@
             <h2 class="demo-title">Equal Columns</h2>
             <p class="demo-subtitle">Divide the row into equal parts using consistent column spans.</p>
 
-            <h5 class="n-mb-2">4 × 3 (Quarter)</h5>
+            <h3 class="n-mb-2">4 × 3 (Quarter)</h3>
             <div class="n-row n-mb-3">
                 <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
                 <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
@@ -96,20 +100,20 @@
                 <div class="n-col-3"><div class="demo-grid-cell">.n-col-3</div></div>
             </div>
 
-            <h5 class="n-mb-2">3 × 4 (Thirds)</h5>
+            <h3 class="n-mb-2">3 × 4 (Thirds)</h3>
             <div class="n-row n-mb-3">
                 <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
                 <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
                 <div class="n-col-4"><div class="demo-grid-cell">.n-col-4</div></div>
             </div>
 
-            <h5 class="n-mb-2">2 × 6 (Halves)</h5>
+            <h3 class="n-mb-2">2 × 6 (Halves)</h3>
             <div class="n-row n-mb-3">
                 <div class="n-col-6"><div class="demo-grid-cell">.n-col-6</div></div>
                 <div class="n-col-6"><div class="demo-grid-cell">.n-col-6</div></div>
             </div>
 
-            <h5 class="n-mb-2">1 × 12 (Full Width)</h5>
+            <h3 class="n-mb-2">1 × 12 (Full Width)</h3>
             <div class="n-row">
                 <div class="n-col-12"><div class="demo-grid-cell">.n-col-12</div></div>
             </div>
@@ -142,7 +146,7 @@
             <h2 class="demo-title">Responsive Columns</h2>
             <p class="demo-subtitle">Stack columns on mobile, show side-by-side on larger screens. Resize your browser to see it!</p>
 
-            <h5 class="n-mb-2">12 → sm:6 → md:4 → lg:3</h5>
+            <h3 class="n-mb-2">12 → sm:6 → md:4 → lg:3</h3>
             <div class="n-row n-mb-4">
                 <div class="n-col-12 n-col-sm-6 n-col-md-4 n-col-lg-3"><div class="demo-grid-cell">Item 1</div></div>
                 <div class="n-col-12 n-col-sm-6 n-col-md-4 n-col-lg-3"><div class="demo-grid-cell">Item 2</div></div>
@@ -150,7 +154,7 @@
                 <div class="n-col-12 n-col-sm-6 n-col-md-12 n-col-lg-3"><div class="demo-grid-cell">Item 4</div></div>
             </div>
 
-            <h5 class="n-mb-2">Sidebar Layout (collapses on mobile)</h5>
+            <h3 class="n-mb-2">Sidebar Layout (collapses on mobile)</h3>
             <div class="n-row">
                 <div class="n-col-12 n-col-md-3"><div class="demo-grid-cell">Sidebar (md:3)</div></div>
                 <div class="n-col-12 n-col-md-9"><div class="demo-grid-cell">Main Content (md:9)</div></div>
@@ -211,11 +215,11 @@
 </main>
 
 <!-- Footer -->
-<div class="demo-footer">
+<footer class="demo-footer">
     <div class="n-container">
         <p>⚛ Nucleus CSS — <a href="index.html">Home</a></p>
     </div>
-</div>
+</footer>
 
 </body>
 </html>

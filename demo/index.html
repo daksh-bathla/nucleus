@@ -1,22 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nucleus CSS — Lightweight CSS Framework</title>
-    <meta name="description"
-        content="A lightweight, mobile-first CSS framework focused on simplicity and speed. Grid, typography, buttons, forms, and more.">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nucleus CSS — Predictable, zero-build CSS for humans and coding assistants</title>
+    <meta name="description" content="A polished, accessible, zero-build CSS framework with 580 documented classes, machine-readable metadata, and no runtime dependencies.">
+    <meta name="theme-color" content="#0f766e">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nucleus CSS">
+    <meta property="og:title" content="Nucleus CSS — Predictable, zero-build CSS">
+    <meta property="og:description" content="580 documented classes, accessible defaults, machine-readable metadata, and zero runtime dependencies.">
+    <meta property="og:url" content="https://nucleus-rose.vercel.app/">
+    <meta property="og:image" content="https://nucleus-rose.vercel.app/assets/nucleus.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nucleus CSS — Predictable, zero-build CSS">
+    <meta name="twitter:description" content="A CSS framework coding assistants can use without inventing classes.">
+    <meta name="twitter:image" content="https://nucleus-rose.vercel.app/assets/nucleus.png">
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
+    <script src="site.js" defer></script>
 </head>
+<body class="demo-page demo-home">
+    <a class="n-skip-link" href="#main-content">Skip to content</a>
 
-<body class="demo-page">
-
-    <!-- Navbar -->
-    <nav class="n-navbar" id="nav-main">
-        <a class="n-navbar-brand" href="index.html">⚛ Nucleus</a>
-        <ul class="n-nav">
+    <nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
+        <a class="n-navbar-brand demo-brand" href="index.html" aria-label="Nucleus CSS home">
+            <span class="demo-mark" aria-hidden="true">N</span>
+            <span>Nucleus</span>
+        </a>
+        <a class="demo-github-link" href="https://github.com/daksh-bathla/nucleus" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        <ul class="n-nav" aria-label="Documentation">
             <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
@@ -28,130 +43,195 @@
         </ul>
     </nav>
 
-    <!-- Hero -->
-    <div class="demo-hero">
-        <h1>⚛ Nucleus CSS</h1>
-        <p class="n-text-lg n-text-muted n-mb-3">
-            A lightweight, mobile-first CSS framework.<br>
-            Think of it as <strong>LEGO blocks for the web</strong> 🧱
-        </p>
-        <div class="n-flex n-justify-center n-gap-2 n-flex-wrap n-mb-4">
-            <span class="n-badge n-badge-primary">580+ reusable classes</span>
-            <span class="n-badge n-badge-success">Zero dependencies</span>
-            <span class="n-badge n-badge-secondary">Dark mode ready</span>
-        </div>
-        <div class="n-flex n-justify-center n-gap-2">
-            <a href="grid.html" class="n-btn n-btn-primary n-btn-lg" id="btn-get-started">Get Started</a>
-            <a href="https://github.com" class="n-btn n-btn-outline-primary n-btn-lg" id="btn-github">GitHub</a>
-        </div>
-    </div>
+    <main id="main-content">
+        <header class="demo-hero">
+            <div class="n-container demo-hero-grid">
+                <div class="demo-hero-copy">
+                    <p class="demo-kicker">CSS for AI-assisted teams</p>
+                    <h1>Build quickly.<br><span>Keep every class predictable.</span></h1>
+                    <p class="demo-lede">Nucleus is a polished, accessible CSS framework with 580 documented classes, zero runtime JavaScript, and machine-readable metadata so coding assistants use it accurately.</p>
+                    <div class="demo-hero-actions">
+                        <a href="#install" class="n-btn n-btn-primary n-btn-lg">Install Nucleus</a>
+                        <a href="patterns.html" class="n-btn n-btn-outline-primary n-btn-lg">Explore the system</a>
+                    </div>
+                    <dl class="demo-metrics" aria-label="Framework statistics">
+                        <div><dt>580</dt><dd>classes</dd></div>
+                        <div><dt>76</dt><dd>tokens</dd></div>
+                        <div><dt>43</dt><dd>components</dd></div>
+                        <div><dt>0 KB</dt><dd>runtime JS</dd></div>
+                    </dl>
+                </div>
 
-    <!-- Feature Cards -->
-    <main class="demo-main">
-        <div class="n-container">
-            <div class="demo-section">
-                <h2 class="n-text-center n-mb-1">Everything You Need</h2>
-                <p class="n-text-center n-text-muted n-mb-4">
-                    Utilities, layouts, components, themes, and accessible defaults in one drop-in stylesheet.
-                </p>
+                <div class="demo-code-window" aria-label="Nucleus code example">
+                    <div class="demo-window-bar" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                        <strong>index.html</strong>
+                    </div>
+                    <pre><code><span>&lt;article</span> class=<b>"n-card n-card-interactive"</b><span>&gt;</span>
+  <span>&lt;div</span> class=<b>"n-card-body n-stack"</b><span>&gt;</span>
+    <span>&lt;p</span> class=<b>"n-overline"</b><span>&gt;</span>New<span>&lt;/p&gt;</span>
+    <span>&lt;h2&gt;</span>Readable by default<span>&lt;/h2&gt;</span>
+    <span>&lt;button</span> class=<b>"n-btn n-btn-primary"</b><span>&gt;</span>
+      Continue
+    <span>&lt;/button&gt;</span>
+  <span>&lt;/div&gt;</span>
+<span>&lt;/article&gt;</span></code></pre>
+                    <div class="demo-code-result">
+                        <article class="n-card">
+                            <div class="n-card-body n-stack">
+                                <p class="n-overline">New</p>
+                                <h2>Readable by default</h2>
+                                <p class="n-text-muted">Meaningful classes. Finished states. No runtime.</p>
+                                <button class="n-btn n-btn-primary" type="button">Continue</button>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-                <div class="n-row">
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="grid.html" class="demo-feature-card" id="feature-grid">
-                            <span class="demo-icon">🧱</span>
-                            <h4>Grid System</h4>
-                            <p>12-column CSS Grid with 5 responsive breakpoints and fluid containers.</p>
-                        </a>
+        <section class="demo-section demo-principles" aria-labelledby="principles-title">
+            <div class="n-container">
+                <div class="demo-section-heading">
+                    <p class="demo-kicker">Why Nucleus</p>
+                    <h2 id="principles-title">A small framework with unusually complete documentation.</h2>
+                </div>
+                <div class="demo-principle-list">
+                    <article>
+                        <span>01</span>
+                        <div><h3>No invented classes</h3><p>The manifest describes every valid class, component, state, and token. The validator catches anything that does not exist.</p></div>
+                    </article>
+                    <article>
+                        <span>02</span>
+                        <div><h3>Drop in one stylesheet</h3><p>Use npm, a CDN, or modular imports. There is no configuration file, runtime package, or required JavaScript.</p></div>
+                    </article>
+                    <article>
+                        <span>03</span>
+                        <div><h3>Accessibility is part of the default</h3><p>Focus states, reduced motion, high contrast, dark mode, native controls, and print behavior ship with the framework.</p></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section" aria-labelledby="playground-title">
+            <div class="n-container">
+                <div class="demo-section-heading demo-heading-row">
+                    <div>
+                        <p class="demo-kicker">Live playground</p>
+                        <h2 id="playground-title">Change the system, not the markup.</h2>
                     </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="typography.html" class="demo-feature-card" id="feature-type">
-                            <span class="demo-icon">✍️</span>
-                            <h4>Typography</h4>
-                            <p>Font sizes, weights, alignment, transforms, and line-height utilities.</p>
-                        </a>
+                    <p>Theme and density tokens cascade through real Nucleus components.</p>
+                </div>
+
+                <div class="demo-playground-shell">
+                    <div class="demo-playground-controls" aria-label="Playground controls">
+                        <label for="playground-theme">Theme
+                            <select id="playground-theme" class="n-select">
+                                <option value="">Default</option>
+                                <option value="ocean">Ocean</option>
+                                <option value="forest">Forest</option>
+                                <option value="rose">Rose</option>
+                                <option value="amber">Amber</option>
+                                <option value="mono">Mono</option>
+                            </select>
+                        </label>
+                        <label for="playground-density">Density
+                            <select id="playground-density" class="n-select">
+                                <option value="">Comfortable</option>
+                                <option value="compact">Compact</option>
+                                <option value="spacious">Spacious</option>
+                            </select>
+                        </label>
+                        <button class="n-btn n-btn-outline-primary" id="playground-dark" type="button" aria-pressed="false">Dark preview</button>
                     </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="buttons.html" class="demo-feature-card" id="feature-buttons">
-                            <span class="demo-icon">🔘</span>
-                            <h4>Buttons</h4>
-                            <p>Solid, outline, ghost variants across 8 colors and 3 sizes.</p>
-                        </a>
-                    </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="cards.html" class="demo-feature-card" id="feature-cards">
-                            <span class="demo-icon">🃏</span>
-                            <h4>Cards</h4>
-                            <p>Flexible card components with header, body, and footer slots.</p>
-                        </a>
-                    </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="forms.html" class="demo-feature-card" id="feature-forms">
-                            <span class="demo-icon">📝</span>
-                            <h4>Forms</h4>
-                            <p>Styled inputs, selects, textareas, checkboxes, and validation states.</p>
-                        </a>
-                    </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="components.html" class="demo-feature-card" id="feature-components">
-                            <span class="demo-icon">🧩</span>
-                            <h4>Components</h4>
-                            <p>Alerts, badges, tables, lists, avatars — everything pre-styled.</p>
-                        </a>
-                    </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="utilities.html" class="demo-feature-card" id="feature-utils">
-                            <span class="demo-icon">⚡</span>
-                            <h4>Utilities</h4>
-                            <p>Spacing, flexbox, display, borders, shadows, opacity, and more.</p>
-                        </a>
-                    </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <div class="demo-feature-card" style="border-style:dashed;opacity:.7;">
-                            <span class="demo-icon">🌙</span>
-                            <h4>Dark Mode</h4>
-                            <p>Automatic dark mode via <code>prefers-color-scheme</code> — no extra work needed.</p>
+
+                    <div class="demo-playground" id="demo-playground">
+                        <div class="demo-preview-copy">
+                            <span class="n-badge n-badge-soft">Live component</span>
+                            <h3>Ship a clear interface.</h3>
+                            <p class="n-text-muted">Tokens update the whole composition without changing a class name.</p>
+                            <div class="n-flex n-gap-2 n-flex-wrap">
+                                <button class="n-btn n-btn-primary" type="button">Primary action</button>
+                                <button class="n-btn n-btn-outline-primary" type="button">Secondary</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
-                        <a href="patterns.html" class="demo-feature-card" id="feature-patterns">
-                            <span class="demo-icon">✨</span>
-                            <h4>Layouts & Patterns</h4>
-                            <p>Intrinsic layouts, native components, themes, density modes, and polished states.</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Quick Start -->
-            <div class="demo-section">
-                <h2 class="n-text-center n-mb-1">Quick Start</h2>
-                <p class="n-text-center n-text-muted n-mb-4">One line. That's it.</p>
-
-                <div class="n-max-w-lg n-mx-auto">
-                    <div class="demo-code">&lt;link rel="stylesheet" href="nucleus.css"&gt;</div>
-
-                    <div class="n-mt-4">
-                        <h5 class="n-mb-2">Then build your layout:</h5>
-                        <div class="demo-code">&lt;div class="n-container"&gt;
-                            &lt;div class="n-row"&gt;
-                            &lt;div class="n-col-4"&gt;Sidebar&lt;/div&gt;
-                            &lt;div class="n-col-8"&gt;Main Content&lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;/div&gt;</div>
+                        <form class="n-card" aria-label="Example project form">
+                            <div class="n-card-body">
+                                <div class="n-form-group">
+                                    <label class="n-label" for="demo-project-name">Project name</label>
+                                    <input class="n-input" id="demo-project-name" value="New interface">
+                                </div>
+                                <div class="n-form-group">
+                                    <label class="n-label" for="demo-status">Status</label>
+                                    <select class="n-select" id="demo-status"><option>Ready to review</option><option>Draft</option></select>
+                                </div>
+                                <div class="n-alert n-alert-success" role="status">All accessibility checks passed.</div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="demo-section demo-docs" aria-labelledby="docs-title">
+            <div class="n-container">
+                <div class="demo-section-heading">
+                    <p class="demo-kicker">Documentation</p>
+                    <h2 id="docs-title">Go from layout to finished interface.</h2>
+                </div>
+                <div class="demo-doc-links">
+                    <a href="grid.html"><span>Layout</span><strong>Grid and intrinsic patterns</strong><small>Responsive columns, containers, stack, cluster, split.</small></a>
+                    <a href="components.html"><span>Components</span><strong>Finished UI building blocks</strong><small>Alerts, tables, navigation, avatars, feedback.</small></a>
+                    <a href="forms.html"><span>Forms</span><strong>Accessible inputs and states</strong><small>Labels, validation, controls, and complete forms.</small></a>
+                    <a href="utilities.html"><span>Utilities</span><strong>Predictable composition helpers</strong><small>Spacing, type, display, color, effects, and state.</small></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-install" id="install" aria-labelledby="install-title">
+            <div class="n-container">
+                <div class="demo-install-heading">
+                    <p class="demo-kicker">Install</p>
+                    <h2 id="install-title">Start with one command or one link.</h2>
+                    <p>Version 2.0.0. Prefix every class with <code>n-</code> and it will not collide with your application CSS.</p>
+                </div>
+                <div class="demo-install-grid">
+                    <div>
+                        <div class="demo-code-label"><span>npm</span><button type="button" data-copy-target="install-npm">Copy</button></div>
+                        <pre class="demo-install-code" id="install-npm"><code>npm install @navital/nucleus-css</code></pre>
+                        <p>Then import <code>@navital/nucleus-css</code> once in your application entry point.</p>
+                    </div>
+                    <div>
+                        <div class="demo-code-label"><span>CDN</span><button type="button" data-copy-target="install-cdn">Copy</button></div>
+                        <pre class="demo-install-code" id="install-cdn"><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@navital/nucleus-css@2.0.0/dist/nucleus.min.css"&gt;</code></pre>
+                        <p>Pin the version in production so future releases cannot change your UI unexpectedly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section demo-reference" aria-labelledby="reference-title">
+            <div class="n-container demo-reference-grid">
+                <div>
+                    <p class="demo-kicker">Machine-readable by design</p>
+                    <h2 id="reference-title">Give coding tools the same source of truth.</h2>
+                    <p>Nucleus publishes concise and full LLM references, a JSON manifest, and a CLI validator alongside the human documentation.</p>
+                </div>
+                <div class="demo-reference-links">
+                    <a href="llms.txt">llms.txt <span>Concise assistant context</span></a>
+                    <a href="llms-full.txt">llms-full.txt <span>Complete class reference</span></a>
+                    <a href="nucleus.manifest.json">JSON manifest <span>Structured framework metadata</span></a>
+                    <a href="CLASS_REFERENCE.md">Class reference <span>All 580 documented classes</span></a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <div class="demo-footer">
-        <div class="n-container">
-            <p>⚛ Nucleus CSS — lightweight, mobile-first, zero-dependency.</p>
-            <p class="n-text-xs n-mt-1">Built using pure CSS.</p>
+    <footer class="demo-footer">
+        <div class="n-container demo-footer-row">
+            <p><strong>Nucleus CSS</strong> <span>Predictable CSS for humans and coding assistants.</span></p>
+            <div><a href="https://www.npmjs.com/package/@navital/nucleus-css">npm</a><a href="https://github.com/daksh-bathla/nucleus">GitHub</a><a href="llms.txt">llms.txt</a></div>
         </div>
-    </div>
-
+    </footer>
 </body>
-
 </html>

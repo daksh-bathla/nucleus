@@ -38,4 +38,9 @@ test("manifest + docs on disk match the generators", async () => {
 
 test("demo bundle matches the full build", async () => {
   assert.equal(await onDisk("demo/nucleus.css"), bundles["nucleus.css"]);
+  assert.equal(await onDisk("demo/nucleus.manifest.json"), JSON.stringify(manifest, null, 2) + "\n");
+  assert.equal(await onDisk("demo/llms.txt"), buildLlmsTxt(manifest));
+  assert.equal(await onDisk("demo/llms-full.txt"), buildLlmsFull(manifest));
+  assert.equal(await onDisk("demo/CLASS_REFERENCE.md"), buildClassReference(manifest));
+  assert.equal(await onDisk("demo/COMPONENT_REFERENCE.md"), buildComponentReference(manifest));
 });
