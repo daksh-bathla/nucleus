@@ -33,27 +33,26 @@ html { scroll-padding-top: 7rem; }
     box-shadow: 0 1px 0 rgba(15, 42, 42, 0.03);
 }
 
-.demo-brand { display: inline-flex; align-items: center; gap: 0.65rem; }
-.demo-mark {
-    display: grid;
-    place-items: center;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.55rem;
-    color: #fff;
-    background: var(--demo-accent);
-    font-size: 0.85rem;
-    font-weight: 800;
-    box-shadow: 0 6px 18px rgba(15, 118, 110, 0.2);
-}
+.demo-brand { display: inline-flex; align-items: center; }
+.demo-logo { display: block; width: auto; height: 2.5rem; border-radius: 0.3rem; }
+
+.demo-navbar .n-nav-link,
+.demo-navbar .n-nav-link:visited { color: var(--demo-accent); }
+.demo-navbar .n-nav-link:hover,
+.demo-navbar .n-nav-link:focus-visible,
+.demo-navbar .n-nav-link.active,
+.demo-navbar .n-nav-link.active:visited { color: var(--demo-accent); }
 
 .demo-github-link {
-    color: var(--demo-ink);
+    color: var(--demo-accent);
     font-size: var(--n-text-sm);
     font-weight: 700;
     text-decoration: none;
 }
 .demo-github-link:hover { color: var(--demo-accent); text-decoration: none; }
+.demo-github-link:visited { color: var(--demo-accent); }
+.demo-github-link:visited:hover,
+.demo-github-link:visited:focus-visible { color: var(--demo-accent); }
 
 .demo-hero {
     overflow: hidden;
@@ -286,7 +285,6 @@ html { scroll-padding-top: 7rem; }
 }
 
 .demo-page.n-dark-mode .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
-.demo-page.n-dark-mode .demo-mark { color: #11110f; background: #ece8df; box-shadow: none; }
 .demo-page.n-dark-mode .demo-hero {
     background:
         linear-gradient(rgba(236, 232, 223, 0.025) 1px, transparent 1px),
@@ -344,7 +342,6 @@ html { scroll-padding-top: 7rem; }
         --n-focus: rgba(213, 164, 79, 0.52);
     }
     .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
-    .demo-mark { color: #11110f; background: #ece8df; box-shadow: none; }
     .demo-hero {
         background:
             linear-gradient(rgba(236, 232, 223, 0.025) 1px, transparent 1px),
