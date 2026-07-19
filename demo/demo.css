@@ -281,6 +281,7 @@ html { scroll-padding-top: 7rem; }
     --n-primary-border: rgba(213, 164, 79, 0.42);
     --n-primary-ink: #e2bc75;
     --n-on-primary: #1a160f;
+    --n-focus: rgba(213, 164, 79, 0.52);
     color-scheme: dark;
 }
 
@@ -296,6 +297,7 @@ html { scroll-padding-top: 7rem; }
 .demo-page.n-dark-mode .demo-code-window { border-color: #444139; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.38); }
 .demo-page.n-dark-mode .demo-code-window pre span { color: #c9b47e; }
 .demo-page.n-dark-mode .demo-code-result { background: #23221e; }
+.demo-page.n-dark-mode .demo-code { color: #e4dfd5; background: #10100e; }
 .demo-page.n-dark-mode main > .demo-section { background: var(--demo-canvas); }
 .demo-page.n-dark-mode main > .demo-principles,
 .demo-page.n-dark-mode main > .demo-docs { background: var(--demo-surface); }
@@ -339,6 +341,7 @@ html { scroll-padding-top: 7rem; }
         --n-primary-border: rgba(213, 164, 79, 0.42);
         --n-primary-ink: #e2bc75;
         --n-on-primary: #1a160f;
+        --n-focus: rgba(213, 164, 79, 0.52);
     }
     .demo-navbar { background: rgba(17, 17, 15, 0.96); backdrop-filter: blur(10px); box-shadow: none; }
     .demo-mark { color: #11110f; background: #ece8df; box-shadow: none; }
@@ -352,6 +355,7 @@ html { scroll-padding-top: 7rem; }
     .demo-code-window { border-color: #444139; box-shadow: 0 24px 64px rgba(0, 0, 0, 0.38); }
     .demo-code-window pre span { color: #c9b47e; }
     .demo-code-result { background: #23221e; }
+    .demo-code { color: #e4dfd5; background: #10100e; }
     main > .demo-section { background: var(--demo-canvas); }
     main > .demo-principles,
     main > .demo-docs { background: var(--demo-surface); }
