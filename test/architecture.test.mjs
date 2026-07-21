@@ -72,4 +72,7 @@ test("themes stay last and new light variants remain token-driven", () => {
   assert.deepEqual(model.sections.find((section) => section.num === 35).layers, ["themes"]);
   assert.match(model.selfCss.get("n-alert-light"), /var\(--n-surface-sunken\)/);
   assert.match(model.selfCss.get("n-badge-light"), /var\(--n-text\)/);
+  assert.match(model.selfCss.get("n-bg-white"), /color: var\(--n-dark\)/);
+  assert.match(model.selfCss.get("n-btn-outline-secondary"), /color: var\(--n-secondary\)/);
+  assert.match(model.source, /\.n-btn-outline-secondary:hover \{ background: var\(--n-secondary\); color: var\(--n-on-secondary\); \}/);
 });

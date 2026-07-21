@@ -459,7 +459,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-bg-info        { background-color: var(--n-info); color: var(--n-on-info); }
 .n-bg-light       { background-color: var(--n-light); color: var(--n-dark); }
 .n-bg-dark        { background-color: var(--n-dark); color: #fff; }
-.n-bg-white       { background-color: #fff; }
+.n-bg-white       { background-color: #fff; color: var(--n-dark); }
 .n-bg-muted       { background-color: var(--n-bg-muted); }
 }
 

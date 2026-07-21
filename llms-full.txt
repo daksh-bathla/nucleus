@@ -1158,7 +1158,7 @@ ALL CLASSES BY CATEGORY
 .n-bg-secondary — Applies background-color: var(--n-secondary); color: var(--n-on-secondary). [role=utility]
 .n-bg-success — Applies background-color: var(--n-success); color: var(--n-on-success). [role=utility]
 .n-bg-warning — Applies background-color: var(--n-warning); color: var(--n-on-warning). [role=utility]
-.n-bg-white — Sets background-color: #fff. [role=utility]
+.n-bg-white — Applies background-color: #fff; color: var(--n-dark). [role=utility]
 .n-border — Sets border: 1px solid var(--n-border-color). [role=utility]
 .n-border-0 — Sets border: none. [role=utility]
 .n-border-b — Sets border-bottom: 1px solid var(--n-border-color). [role=utility]

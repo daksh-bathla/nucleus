@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buttons — Nucleus CSS</title>
     <meta name="description" content="Button components: solid, outline, ghost variants across 8 colors and 3 sizes.">
+    <script>
+        try {
+            const theme = localStorage.getItem("nucleus-demo-theme");
+            if (theme === "light" || theme === "dark") document.documentElement.dataset.demoTheme = theme;
+        } catch {}
+    </script>
+
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,6 +39,7 @@
             <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
         </ul>
     </details>
+    <button class="demo-theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">Dark</button>
 </nav>
 
 <main class="demo-main" id="main-content">
@@ -144,7 +152,7 @@
 
             <div class="n-flex n-mb-4">
                 <button class="n-btn n-btn-primary n-rounded-none" style="border-radius:var(--n-radius) 0 0 var(--n-radius)" id="btn-group-left">Left</button>
-                <button class="n-btn n-btn-primary n-rounded-none" style="border-left:1px solid rgba(255,255,255,.2);border-right:1px solid rgba(255,255,255,.2)" id="btn-group-center">Center</button>
+                <button class="n-btn n-btn-primary n-rounded-none demo-button-group-middle" id="btn-group-center">Center</button>
                 <button class="n-btn n-btn-primary n-rounded-none" style="border-radius:0 var(--n-radius) var(--n-radius) 0" id="btn-group-right">Right</button>
             </div>
 

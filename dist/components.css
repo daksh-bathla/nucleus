@@ -183,13 +183,13 @@
 .n-btn-outline-primary:hover { background: var(--n-primary); color: var(--n-on-primary); }
 
 .n-btn-outline-secondary { background: transparent; color: var(--n-secondary); border-color: var(--n-secondary); }
-.n-btn-outline-secondary:hover { background: var(--n-secondary); color: #fff; }
+.n-btn-outline-secondary:hover { background: var(--n-secondary); color: var(--n-on-secondary); }
 
 .n-btn-outline-success   { background: transparent; color: var(--n-success);   border-color: var(--n-success); }
-.n-btn-outline-success:hover { background: var(--n-success); color: #fff; }
+.n-btn-outline-success:hover { background: var(--n-success); color: var(--n-on-success); }
 
 .n-btn-outline-danger    { background: transparent; color: var(--n-danger);    border-color: var(--n-danger); }
-.n-btn-outline-danger:hover { background: var(--n-danger); color: #fff; }
+.n-btn-outline-danger:hover { background: var(--n-danger); color: var(--n-on-danger); }
 
 .n-btn-outline-warning   { background: transparent; color: var(--n-warning-h); border-color: var(--n-warning); }
 .n-btn-outline-warning:hover { background: var(--n-warning); color: var(--n-on-warning); }

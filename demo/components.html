@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components — Nucleus CSS</title>
     <meta name="description" content="UI components: alerts, badges, tables, lists, avatars, and navbar.">
+    <script>
+        try {
+            const theme = localStorage.getItem("nucleus-demo-theme");
+            if (theme === "light" || theme === "dark") document.documentElement.dataset.demoTheme = theme;
+        } catch {}
+    </script>
+
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,6 +39,7 @@
             <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
         </ul>
     </details>
+    <button class="demo-theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">Dark</button>
 </nav>
 
 <main class="demo-main" id="main-content">
@@ -147,28 +155,28 @@
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-secondary)">BS</div> Bob Smith</div></td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm n-bg-secondary">BS</div> Bob Smith</div></td>
                             <td>bob@example.com</td>
                             <td>Designer</td>
                             <td><span class="n-badge n-badge-success">Active</span></td>
                         </tr>
                         <tr>
                             <td>3</td>
-                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-info)">CD</div> Carol Davis</div></td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm n-bg-info">CD</div> Carol Davis</div></td>
                             <td>carol@example.com</td>
                             <td>Manager</td>
                             <td><span class="n-badge n-badge-warning">Away</span></td>
                         </tr>
                         <tr>
                             <td>4</td>
-                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-danger)">DW</div> Dan Wilson</div></td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm n-bg-danger">DW</div> Dan Wilson</div></td>
                             <td>dan@example.com</td>
                             <td>Intern</td>
                             <td><span class="n-badge n-badge-danger">Offline</span></td>
                         </tr>
                         <tr>
                             <td>5</td>
-                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm" style="background:var(--n-success)">EL</div> Eve Li</div></td>
+                            <td><div class="n-flex n-items-center n-gap-2"><div class="n-avatar n-avatar-sm n-bg-success">EL</div> Eve Li</div></td>
                             <td>eve@example.com</td>
                             <td>Lead</td>
                             <td><span class="n-badge n-badge-success">Active</span></td>
@@ -264,22 +272,22 @@
             </div>
 
             <h3 class="n-mb-2">Color Variations</h3>
-            <div class="n-flex n-items-center n-gap-2 n-mb-4">
+                <div class="n-flex n-items-center n-gap-2 n-mb-4">
                 <div class="n-avatar">AB</div>
-                <div class="n-avatar" style="background:var(--n-secondary)">CD</div>
-                <div class="n-avatar" style="background:var(--n-success)">EF</div>
-                <div class="n-avatar" style="background:var(--n-danger)">GH</div>
-                <div class="n-avatar" style="background:var(--n-warning);color:#000">IJ</div>
-                <div class="n-avatar" style="background:var(--n-info)">KL</div>
-                <div class="n-avatar" style="background:var(--n-dark)">MN</div>
+                <div class="n-avatar n-bg-secondary">CD</div>
+                <div class="n-avatar n-bg-success">EF</div>
+                <div class="n-avatar n-bg-danger">GH</div>
+                <div class="n-avatar n-bg-warning">IJ</div>
+                <div class="n-avatar n-bg-info">KL</div>
+                <div class="n-avatar n-bg-dark">MN</div>
             </div>
 
             <h3 class="n-mb-2">Avatar Stack</h3>
             <div class="n-flex" style="margin-left:0.5rem">
                 <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg)">A</div>
-                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-secondary)">B</div>
-                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-success)">C</div>
-                <div class="n-avatar" style="margin-left:-0.5rem;border:2px solid var(--n-bg);background:var(--n-dark)">+5</div>
+                <div class="n-avatar n-bg-secondary" style="margin-left:-0.5rem;border:2px solid var(--n-bg)">B</div>
+                <div class="n-avatar n-bg-success" style="margin-left:-0.5rem;border:2px solid var(--n-bg)">C</div>
+                <div class="n-avatar n-bg-dark" style="margin-left:-0.5rem;border:2px solid var(--n-bg)">+5</div>
             </div>
         </div>
 

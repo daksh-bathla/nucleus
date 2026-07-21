@@ -393,7 +393,7 @@ Generated from `src/css/nucleus.css`. 697 classes, prefix `n-`. Do not edit by h
 | `.n-bg-secondary` | utility | Canonical | — | Applies background-color: var(--n-secondary); color: var(--n-on-secondary). |
 | `.n-bg-success` | utility | Canonical | — | Applies background-color: var(--n-success); color: var(--n-on-success). |
 | `.n-bg-warning` | utility | Canonical | — | Applies background-color: var(--n-warning); color: var(--n-on-warning). |
-| `.n-bg-white` | utility | Canonical | — | Sets background-color: #fff. |
+| `.n-bg-white` | utility | Canonical | — | Applies background-color: #fff; color: var(--n-dark). |
 | `.n-border` | utility | Canonical | — | Sets border: 1px solid var(--n-border-color). |
 | `.n-border-0` | utility | Canonical | — | Sets border: none. |
 | `.n-border-b` | utility | Canonical | — | Sets border-bottom: 1px solid var(--n-border-color). |

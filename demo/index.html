@@ -18,6 +18,13 @@
     <meta name="twitter:title" content="Nucleus CSS — Predictable, zero-build CSS">
     <meta name="twitter:description" content="A CSS framework coding assistants can use without inventing classes.">
     <meta name="twitter:image" content="https://nucleus-rose.vercel.app/assets/nucleus.png">
+    <script>
+        try {
+            const theme = localStorage.getItem("nucleus-demo-theme");
+            if (theme === "light" || theme === "dark") document.documentElement.dataset.demoTheme = theme;
+        } catch {}
+    </script>
+
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
     <script src="site.js" defer></script>
@@ -44,6 +51,7 @@
                 <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
             </ul>
         </details>
+    <button class="demo-theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">Dark</button>
     </nav>
 
     <main id="main-content">

@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cards — Nucleus CSS</title>
     <meta name="description" content="Flexible card components with header, body, footer, and color variations.">
+    <script>
+        try {
+            const theme = localStorage.getItem("nucleus-demo-theme");
+            if (theme === "light" || theme === "dark") document.documentElement.dataset.demoTheme = theme;
+        } catch {}
+    </script>
+
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -32,6 +39,7 @@
             <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
         </ul>
     </details>
+    <button class="demo-theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">Dark</button>
 </nav>
 
 <main class="demo-main" id="main-content">
@@ -95,7 +103,7 @@
                     <div class="n-card n-bg-primary n-border-0" id="card-primary">
                         <div class="n-card-body">
                             <h3 class="n-mb-1">Primary</h3>
-                            <p class="n-text-sm" style="color:rgba(255,255,255,.8)">Primary colored card with inverted text.</p>
+                            <p class="n-text-sm demo-inverted-muted">Primary colored card with inverted text.</p>
                         </div>
                     </div>
                 </div>
@@ -103,15 +111,15 @@
                     <div class="n-card n-bg-success n-border-0" id="card-success">
                         <div class="n-card-body">
                             <h3 class="n-mb-1">Success</h3>
-                            <p class="n-text-sm" style="color:rgba(255,255,255,.8)">Great for positive feedback messages.</p>
+                            <p class="n-text-sm demo-inverted-muted">Great for positive feedback messages.</p>
                         </div>
                     </div>
                 </div>
                 <div class="n-col-12 n-col-sm-6 n-col-lg-3 n-mb-3">
                     <div class="n-card n-bg-warning n-border-0" id="card-warning">
                         <div class="n-card-body">
-                            <h3 class="n-mb-1" style="color:#000">Warning</h3>
-                            <p class="n-text-sm" style="color:rgba(0,0,0,.7)">Draw attention to important notices.</p>
+                            <h3 class="n-mb-1 demo-warning-ink">Warning</h3>
+                            <p class="n-text-sm demo-warning-muted">Draw attention to important notices.</p>
                         </div>
                     </div>
                 </div>
@@ -119,7 +127,7 @@
                     <div class="n-card n-bg-dark n-border-0" id="card-dark">
                         <div class="n-card-body">
                             <h3 class="n-mb-1">Dark</h3>
-                            <p class="n-text-sm" style="color:rgba(255,255,255,.7)">Sleek dark cards for contrast.</p>
+                            <p class="n-text-sm demo-inverted-subtle">Sleek dark cards for contrast.</p>
                         </div>
                     </div>
                 </div>

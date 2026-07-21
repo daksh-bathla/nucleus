@@ -524,7 +524,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-bg-info        { background-color: var(--n-info); color: var(--n-on-info); }
 .n-bg-light       { background-color: var(--n-light); color: var(--n-dark); }
 .n-bg-dark        { background-color: var(--n-dark); color: #fff; }
-.n-bg-white       { background-color: #fff; }
+.n-bg-white       { background-color: #fff; color: var(--n-dark); }
 .n-bg-muted       { background-color: var(--n-bg-muted); }
 }
 
@@ -608,13 +608,13 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-btn-outline-primary:hover { background: var(--n-primary); color: var(--n-on-primary); }
 
 .n-btn-outline-secondary { background: transparent; color: var(--n-secondary); border-color: var(--n-secondary); }
-.n-btn-outline-secondary:hover { background: var(--n-secondary); color: #fff; }
+.n-btn-outline-secondary:hover { background: var(--n-secondary); color: var(--n-on-secondary); }
 
 .n-btn-outline-success   { background: transparent; color: var(--n-success);   border-color: var(--n-success); }
-.n-btn-outline-success:hover { background: var(--n-success); color: #fff; }
+.n-btn-outline-success:hover { background: var(--n-success); color: var(--n-on-success); }
 
 .n-btn-outline-danger    { background: transparent; color: var(--n-danger);    border-color: var(--n-danger); }
-.n-btn-outline-danger:hover { background: var(--n-danger); color: #fff; }
+.n-btn-outline-danger:hover { background: var(--n-danger); color: var(--n-on-danger); }
 
 .n-btn-outline-warning   { background: transparent; color: var(--n-warning-h); border-color: var(--n-warning); }
 .n-btn-outline-warning:hover { background: var(--n-warning); color: var(--n-on-warning); }

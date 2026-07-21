@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Layouts &amp; Patterns — Nucleus CSS</title>
     <meta name="description" content="Intrinsic layouts, native components, accessible forms, themes, and polished patterns in Nucleus CSS.">
+    <script>
+        try {
+            const theme = localStorage.getItem("nucleus-demo-theme");
+            if (theme === "light" || theme === "dark") document.documentElement.dataset.demoTheme = theme;
+        } catch {}
+    </script>
+
     <link rel="stylesheet" href="nucleus.css">
     <link rel="stylesheet" href="demo.css">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -31,6 +38,7 @@
                 <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
             </ul>
         </details>
+    <button class="demo-theme-toggle" type="button" data-theme-toggle aria-label="Switch color mode">Dark</button>
     </nav>
 
     <main class="demo-main" id="main-content">

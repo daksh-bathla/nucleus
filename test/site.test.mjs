@@ -31,6 +31,7 @@ test("every documentation page has the shared accessible shell", async () => {
     assert.match(html, /<main[^>]+id="main-content"/, `${page} needs a main target`);
     assert.match(html, /<footer class="demo-footer">/, `${page} needs a semantic footer`);
     assert.match(html, /<script src="site\.js" defer><\/script>/, `${page} needs shared behavior`);
+    assert.match(html, /data-theme-toggle/, `${page} needs the shared light/dark theme control`);
   }
 });
 
@@ -57,6 +58,20 @@ test("all demo repository links use the package canonical URL", async () => {
     const html = await read(`demo/${page}`);
     assert.ok(!html.includes("github.com/daksh-bathla/nucleus"), `${page} has a stale repository owner`);
   }
+});
+
+test("demo color examples stay compatible with light and dark modes", async () => {
+  const unsafeInlineColor = /style="[^"]*(?:color|background|border-color|border-left|border-right)\s*:[^"]*(?:#|rgb\()/i;
+
+  for (const page of pages) {
+    const html = await read(`demo/${page}`);
+    assert.doesNotMatch(html, unsafeInlineColor, `${page} has inline colors that bypass theme tokens`);
+  }
+
+  const css = await read("demo/demo.css");
+  assert.match(css, /:root\[data-demo-theme="dark"\]/);
+  assert.match(css, /:root:not\(\[data-demo-theme="light"\]\)/);
+  assert.match(css, /--n-text: var\(--demo-n-text\)/);
 });
 
 test("homepage offers native setup commands for major AI coding assistants", async () => {

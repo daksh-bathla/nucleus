@@ -1,4 +1,48 @@
 (() => {
+  const root = document.documentElement;
+  const themeStorageKey = "nucleus-demo-theme";
+  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
+  const savedTheme = (() => {
+    try {
+      return localStorage.getItem(themeStorageKey);
+    } catch {
+      return null;
+    }
+  })();
+
+  if (savedTheme === "light" || savedTheme === "dark") {
+    root.dataset.demoTheme = savedTheme;
+  }
+
+  const activeTheme = () => root.dataset.demoTheme || (systemDark.matches ? "dark" : "light");
+  const updateThemeToggles = () => {
+    const isDark = activeTheme() === "dark";
+    const next = isDark ? "Light" : "Dark";
+    document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+      button.textContent = next;
+      button.setAttribute("aria-pressed", String(isDark));
+      button.setAttribute("aria-label", `Switch to ${next.toLowerCase()} mode`);
+    });
+  };
+
+  document.querySelectorAll("[data-theme-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const next = activeTheme() === "dark" ? "light" : "dark";
+      root.dataset.demoTheme = next;
+      try {
+        localStorage.setItem(themeStorageKey, next);
+      } catch {
+        // Persistence is optional; the current page can still switch themes.
+      }
+      updateThemeToggles();
+    });
+  });
+
+  systemDark.addEventListener?.("change", () => {
+    if (!root.dataset.demoTheme) updateThemeToggles();
+  });
+  updateThemeToggles();
+
   const path = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll("#nav-main .n-nav-link").forEach((link) => {
     const href = link.getAttribute("href");

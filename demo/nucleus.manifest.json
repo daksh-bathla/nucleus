@@ -2583,10 +2583,12 @@
       "deprecated": false,
       "gotchas": [],
       "responsive": false,
-      "tokenReferences": [],
+      "tokenReferences": [
+        "--n-dark"
+      ],
       "customPropertyReferences": [],
-      "description": "Sets background-color: #fff.",
-      "css": "background-color: #fff;"
+      "description": "Applies background-color: #fff; color: var(--n-dark).",
+      "css": "background-color: #fff; color: var(--n-dark);"
     },
     {
       "class": "n-blockquote",
