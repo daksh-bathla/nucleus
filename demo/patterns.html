@@ -16,7 +16,9 @@
 
     <nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
         <a class="n-navbar-brand demo-brand" href="index.html"><img class="demo-logo" src="assets/nucleus-transparent.png" alt="Nucleus CSS Framework"></a>
-        <ul class="n-nav">
+        <details class="n-navbar-menu">
+            <summary class="n-navbar-toggle"><span class="n-navbar-toggle-icon" aria-hidden="true"></span><span class="n-sr-only">Navigation menu</span></summary>
+            <ul class="n-nav">
             <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
@@ -24,8 +26,11 @@
             <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
-            <li class="n-nav-item"><a class="n-nav-link active" aria-current="page" href="patterns.html">Patterns</a></li>
-        </ul>
+            <li class="n-nav-item"><a class="n-nav-link" aria-current="page" href="patterns.html">Patterns</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="production.html">Production</a></li>
+                <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
+            </ul>
+        </details>
     </nav>
 
     <main class="demo-main" id="main-content">
@@ -192,7 +197,7 @@
                 <p class="n-text-muted n-mb-4">Loading, progress, empty, success, and compact data states.</p>
                 <div class="n-auto-grid n-mb-4" style="--n-grid-min: 13rem;">
                     <div class="n-card"><div class="n-card-body"><div class="n-stat"><span class="n-stat-label">Bundle size</span><strong class="n-stat-value">7.6 KB</strong><span class="n-stat-change n-text-success">Gzipped</span></div></div></div>
-                    <div class="n-card"><div class="n-card-body"><div class="n-stat"><span class="n-stat-label">CSS classes</span><strong class="n-stat-value">580+</strong><span class="n-stat-change n-text-primary">Documented API</span></div></div></div>
+                    <div class="n-card"><div class="n-card-body"><div class="n-stat"><span class="n-stat-label">CSS classes</span><strong class="n-stat-value" data-nucleus-count="classes">697</strong><span class="n-stat-change n-text-primary">Documented API</span></div></div></div>
                     <div class="n-card"><div class="n-card-body n-flow"><span class="n-stat-label">Documentation</span><progress class="n-progress" value="84" max="100">84%</progress><span class="n-caption">84% complete</span></div></div>
                 </div>
                 <div class="n-callout n-callout-success n-mb-4"><div class="n-callout-title">Accessible by default</div><p>Reduced motion, forced colors, keyboard focus, high contrast, and print behavior are included.</p></div>

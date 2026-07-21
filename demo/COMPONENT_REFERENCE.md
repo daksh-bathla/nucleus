@@ -46,6 +46,23 @@ Copy-paste HTML for every component category. All examples use only classes that
 - [Code block (`.n-code-block`)](#n-code-block)
 - [Blockquote (`.n-blockquote`)](#n-blockquote)
 - [Surface (`.n-surface`)](#n-surface)
+- [Icon tile (`.n-icon-tile`)](#n-icon-tile)
+- [Status indicator (`.n-status`)](#n-status)
+- [Meter (`.n-meter`)](#n-meter)
+- [Gauge (`.n-gauge`)](#n-gauge)
+- [Segmented control (`.n-segmented`)](#n-segmented)
+- [Stat grid (`.n-stat-grid`)](#n-stat-grid)
+- [Promo banner (`.n-banner`)](#n-banner)
+- [Action dock (`.n-dock`)](#n-dock)
+- [Consent bar (`.n-cookie-bar`)](#n-cookie-bar)
+- [Combobox (`.n-combobox`)](#n-combobox)
+- [Timeline (`.n-timeline`)](#n-timeline)
+- [Pricing plan (`.n-plan`)](#n-plan)
+- [Checklist (`.n-checklist`)](#n-checklist)
+- [Responsive table (`.n-table-stack`)](#n-table-stack)
+- [Search field (`.n-search-field`)](#n-search-field)
+- [Marketing footer (`.n-footer`)](#n-footer)
+- [Signal list (`.n-signal-list`)](#n-signal-list)
 
 ## Container
 
@@ -160,11 +177,11 @@ Vertical grid stack with a consistent gap between children.
 Base button. Combine with a color variant and optional size.
 
 - **Element:** `<button>`
-- **Variants:** `n-btn-primary`, `n-btn-secondary`, `n-btn-success`, `n-btn-danger`, `n-btn-warning`, `n-btn-info`, `n-btn-dark`, `n-btn-light`, `n-btn-outline-primary`, `n-btn-outline-secondary`, `n-btn-outline-success`, `n-btn-outline-danger`, `n-btn-ghost`
+- **Variants:** `n-btn-primary`, `n-btn-secondary`, `n-btn-success`, `n-btn-danger`, `n-btn-warning`, `n-btn-info`, `n-btn-dark`, `n-btn-light`, `n-btn-outline-primary`, `n-btn-outline-secondary`, `n-btn-outline-success`, `n-btn-outline-danger`, `n-btn-outline-warning`, `n-btn-outline-info`, `n-btn-outline-dark`, `n-btn-outline-light`, `n-btn-ghost`
 - **Sizes:** `n-btn-sm`, `n-btn-lg`
 - **Parts:** `n-button-group`
 - **States:** hover, active, focus-visible, disabled
-- **Accessibility:** Use a native <button> for actions and an <a class="n-btn"> only for navigation. Disable with the [disabled] attribute (or n-disabled for anchors, which cannot be natively disabled).
+- **Accessibility:** Use a native <button> for actions and an <a class="n-btn"> only for navigation. Disable with the [disabled] attribute, or aria-disabled="true" plus n-is-disabled for anchors.
 
 ```html
 <button class="n-btn n-btn-primary">Continue</button>
@@ -338,19 +355,25 @@ Grouped form controls with a legend.
 
 <a id="n-navbar"></a>
 
-Sticky top navigation bar with brand and nav links.
+Sticky top navigation bar with inline links or a CSS-only hamburger menu.
 
 - **Element:** `<nav>`
-- **Parts:** `n-navbar-brand`, `n-nav`, `n-nav-item`, `n-nav-link`
-- **Accessibility:** Mark the active link with the `active` class and aria-current="page".
+- **Parts:** `n-navbar-brand`, `n-navbar-menu`, `n-navbar-toggle`, `n-navbar-toggle-icon`, `n-nav`, `n-nav-item`, `n-nav-link`
+- **Accessibility:** Native details/summary provides keyboard toggling without JavaScript. Add a text label with n-sr-only and mark the active link with aria-current="page".
 
 ```html
 <nav class="n-navbar">
   <a class="n-navbar-brand" href="/">Nucleus</a>
-  <ul class="n-nav">
-    <li class="n-nav-item"><a class="n-nav-link active" href="/">Home</a></li>
-    <li class="n-nav-item"><a class="n-nav-link" href="/docs">Docs</a></li>
-  </ul>
+  <details class="n-navbar-menu">
+    <summary class="n-navbar-toggle">
+      <span class="n-navbar-toggle-icon" aria-hidden="true"></span>
+      <span class="n-sr-only">Navigation menu</span>
+    </summary>
+    <ul class="n-nav">
+      <li class="n-nav-item"><a class="n-nav-link" href="/" aria-current="page">Home</a></li>
+      <li class="n-nav-item"><a class="n-nav-link" href="/docs">Docs</a></li>
+    </ul>
+  </details>
 </nav>
 ```
 
@@ -414,7 +437,7 @@ Horizontal tablist. Toggle aria-selected in JavaScript.
 
 Colored message banner for contextual feedback.
 
-- **Variants:** `n-alert-primary`, `n-alert-success`, `n-alert-danger`, `n-alert-warning`, `n-alert-info`
+- **Variants:** `n-alert-primary`, `n-alert-secondary`, `n-alert-success`, `n-alert-danger`, `n-alert-warning`, `n-alert-info`, `n-alert-light`, `n-alert-dark`
 - **Accessibility:** Add role="alert" for errors and role="status" for non-urgent messages.
 
 ```html
@@ -429,7 +452,7 @@ Colored message banner for contextual feedback.
 
 Small pill for counts, labels, or status.
 
-- **Variants:** `n-badge-primary`, `n-badge-secondary`, `n-badge-success`, `n-badge-danger`, `n-badge-warning`, `n-badge-info`, `n-badge-dark`, `n-badge-soft`
+- **Variants:** `n-badge-primary`, `n-badge-secondary`, `n-badge-success`, `n-badge-danger`, `n-badge-warning`, `n-badge-info`, `n-badge-light`, `n-badge-dark`, `n-badge-soft`
 
 ```html
 <span class="n-badge n-badge-primary">Beta</span>
@@ -729,4 +752,364 @@ Elevated panel with border, radius, and soft shadow.
 
 ```html
 <div class="n-surface n-p-4">Panel content</div>
+```
+
+## Icon tile
+
+<a id="n-icon-tile"></a>
+
+Rounded container for a single icon, color-tinted to context.
+
+- **Variants:** `n-icon-tile-round`, `n-icon-tile-primary`, `n-icon-tile-success`, `n-icon-tile-danger`, `n-icon-tile-warning`, `n-icon-tile-info`, `n-icon-tile-neutral`
+- **Sizes:** `n-icon-tile-sm`, `n-icon-tile-lg`
+- **Accessibility:** Decorative by default — add aria-hidden. If the tile is the only label, give it an aria-label.
+- **Notes:** Origin: seen throughout LeadScrapper Pro and Itiner (stat cards, nav, headers).
+
+```html
+<span class="n-icon-tile n-icon-tile-success" aria-hidden="true">✓</span>
+```
+
+## Status indicator
+
+<a id="n-status"></a>
+
+Small dot plus label signalling live, lifecycle, or health state.
+
+- **Variants:** `n-status-online`, `n-status-idle`, `n-status-offline`, `n-status-error`, `n-status-busy`, `n-status-pulse`
+- **Parts:** `n-status-dot`
+- **Accessibility:** State is carried by the visible text, not colour alone. The pulse respects prefers-reduced-motion.
+- **Notes:** Origin: LeadScrapper Pro ("System connected") and Itiner (trip lifecycle).
+
+```html
+<span class="n-status n-status-online n-status-pulse">
+  <span class="n-status-dot" aria-hidden="true"></span>
+  System connected
+</span>
+```
+
+## Meter
+
+<a id="n-meter"></a>
+
+Labeled usage bar whose fill colour flips at a threshold. Set --n-meter-value.
+
+- **Variants:** `n-meter-success`, `n-meter-warning`, `n-meter-danger`
+- **Sizes:** `n-meter-sm`, `n-meter-lg`
+- **Parts:** `n-meter-header`, `n-meter-label`, `n-meter-value`, `n-meter-track`, `n-meter-fill`
+- **Accessibility:** For an interactive value add role="progressbar" with aria-valuenow/min/max; expose the threshold state in text.
+- **Notes:** Origin: LeadScrapper Pro quota/usage bars.
+
+```html
+<div class="n-meter n-meter-warning">
+  <div class="n-meter-header">
+    <span class="n-meter-label">Searches</span>
+    <span class="n-meter-value">82 / 100</span>
+  </div>
+  <div class="n-meter-track">
+    <div class="n-meter-fill" style="--n-meter-value: 82%"></div>
+  </div>
+</div>
+```
+
+## Gauge
+
+<a id="n-gauge"></a>
+
+Radial score ring driven by the --n-gauge-value custom property (0–100).
+
+- **Variants:** `n-gauge-success`, `n-gauge-warning`, `n-gauge-danger`
+- **Sizes:** `n-gauge-sm`, `n-gauge-lg`
+- **Parts:** `n-gauge-value`, `n-gauge-label`
+- **Accessibility:** Give the gauge role="img" (or role="meter") and an aria-label with the numeric value.
+- **Notes:** Origin: LeadScrapper Pro lead/audit scores.
+
+```html
+<div class="n-gauge n-gauge-success" style="--n-gauge-value: 74" role="img" aria-label="Score 74 of 100">
+  <span class="n-gauge-value">74</span>
+</div>
+```
+
+## Segmented control
+
+<a id="n-segmented"></a>
+
+Single-select pill group for filtering or switching views.
+
+- **Sizes:** `n-segmented-sm`
+- **Parts:** `n-segmented-item`
+- **States:** aria-selected, hover, focus-visible
+- **Accessibility:** Mark the active segment with aria-selected (tablist) or aria-pressed (toggle group); it is not signalled by colour alone.
+- **Notes:** Origin: LeadScrapper Pro lead filters and Itiner trip-status pills.
+
+```html
+<div class="n-segmented" role="tablist">
+  <button class="n-segmented-item" role="tab" aria-selected="true">All</button>
+  <button class="n-segmented-item" role="tab" aria-selected="false">Audited</button>
+  <button class="n-segmented-item" role="tab" aria-selected="false">Contacted</button>
+</div>
+```
+
+## Stat grid
+
+<a id="n-stat-grid"></a>
+
+Responsive auto-fit wrapper for n-stat or metric tiles.
+
+- **Notes:** Origin: dashboard metric rows in both products. Compose with n-icon-tile for an icon.
+
+```html
+<div class="n-stat-grid">
+  <div class="n-stat">
+    <span class="n-stat-label">Leads found</span>
+    <span class="n-stat-value">1,284</span>
+  </div>
+  <div class="n-stat">
+    <span class="n-stat-label">Active scans</span>
+    <span class="n-stat-value">7</span>
+  </div>
+</div>
+```
+
+## Promo banner
+
+<a id="n-banner"></a>
+
+Wide, high-emphasis marketing/upgrade panel with an optional dark surface.
+
+- **Variants:** `n-banner-split`, `n-banner-dark`
+- **Parts:** `n-banner-eyebrow`, `n-banner-title`, `n-banner-text`, `n-banner-actions`, `n-banner-media`
+- **Notes:** Origin: LeadScrapper Pro upgrade banner. Add n-banner-split for a side-by-side layout at ≥768px.
+
+```html
+<section class="n-banner n-banner-split n-banner-dark">
+  <div>
+    <p class="n-banner-eyebrow">Premium</p>
+    <h2 class="n-banner-title">Unlock market insights</h2>
+    <p class="n-banner-text">Daily AI deep-dives into every lead you discover.</p>
+  </div>
+  <div class="n-banner-actions">
+    <button class="n-btn n-btn-primary">Upgrade</button>
+  </div>
+</section>
+```
+
+## Action dock
+
+<a id="n-dock"></a>
+
+Bottom-centered floating bar of actions; the page scrolls behind it.
+
+- **Variants:** `n-dock-bar-dark`
+- **Parts:** `n-dock-bar`, `n-dock-item`, `n-dock-divider`
+- **Accessibility:** Keep discernible names on icon-only items (aria-label). The dock does not trap focus.
+- **Notes:** Origin: Itiner client-portal floating bar.
+
+```html
+<div class="n-dock">
+  <div class="n-dock-bar n-dock-bar-dark">
+    <button class="n-dock-item">Request change</button>
+    <span class="n-dock-divider" aria-hidden="true"></span>
+    <button class="n-dock-item">Ask for help</button>
+  </div>
+</div>
+```
+
+## Consent bar
+
+<a id="n-cookie-bar"></a>
+
+Persistent bottom notice bar with an actions cluster (e.g. cookie consent).
+
+- **Parts:** `n-cookie-bar-text`, `n-cookie-bar-actions`
+- **Accessibility:** Use role="dialog" with a label; make Decline as prominent as Accept; do not trap the whole page.
+- **Notes:** Origin: Itiner and LeadScrapper Pro cookie banners.
+
+```html
+<div class="n-cookie-bar" role="dialog" aria-label="Cookie consent">
+  <p class="n-cookie-bar-text">We use cookies to improve the product.</p>
+  <div class="n-cookie-bar-actions">
+    <button class="n-btn n-btn-light">Decline</button>
+    <button class="n-btn n-btn-primary">Accept</button>
+  </div>
+</div>
+```
+
+## Combobox
+
+<a id="n-combobox"></a>
+
+Typeahead input paired with a results list. Wrap an n-input and a list.
+
+- **Parts:** `n-combobox-list`, `n-combobox-option`, `n-combobox-empty`
+- **States:** aria-selected, hover
+- **Accessibility:** Follow the ARIA combobox pattern (aria-expanded, aria-controls, aria-activedescendant); Enter selects the active option instead of submitting.
+- **Notes:** Origin: Itiner place autocomplete and LeadScrapper Pro niche picker. Requires JS for filtering + keyboard nav.
+
+```html
+<div class="n-combobox">
+  <input class="n-input" type="text" role="combobox" aria-expanded="true" aria-controls="places" placeholder="Search city">
+  <ul class="n-combobox-list" id="places" role="listbox">
+    <li><button class="n-combobox-option" role="option" aria-selected="true">Lisbon, Portugal</button></li>
+    <li><button class="n-combobox-option" role="option" aria-selected="false">Lima, Peru</button></li>
+  </ul>
+</div>
+```
+
+## Timeline
+
+<a id="n-timeline"></a>
+
+Vertical connector list with a numbered or icon marker per item.
+
+- **Parts:** `n-timeline-item`, `n-timeline-marker`, `n-timeline-marker-muted`, `n-timeline-title`, `n-timeline-meta`, `n-timeline-content`
+- **Notes:** Origin: Itiner itinerary day timeline. Reusable for feeds, tracking, and steppers.
+
+```html
+<ol class="n-timeline">
+  <li class="n-timeline-item">
+    <span class="n-timeline-marker">1</span>
+    <p class="n-timeline-title">Arrive in Lisbon</p>
+    <p class="n-timeline-meta">Day 1 · Hotel check-in</p>
+  </li>
+  <li class="n-timeline-item">
+    <span class="n-timeline-marker n-timeline-marker-muted">2</span>
+    <p class="n-timeline-title">Free day</p>
+  </li>
+</ol>
+```
+
+## Pricing plan
+
+<a id="n-plan"></a>
+
+Pricing tier card with price, feature list, and a featured/inverted state.
+
+- **Variants:** `n-plan-featured`, `n-plan-inverted`
+- **Parts:** `n-plan-grid`, `n-plan-ribbon`, `n-plan-name`, `n-plan-price`, `n-plan-period`, `n-plan-desc`, `n-plan-features`, `n-plan-feature`
+- **Notes:** Origin: pricing pages of both products. Use n-plan-inverted for a solid-brand featured tier.
+
+```html
+<div class="n-plan-grid">
+  <div class="n-plan n-plan-featured">
+    <span class="n-plan-ribbon">Popular</span>
+    <p class="n-plan-name">Pro</p>
+    <p class="n-plan-price">$49<span class="n-plan-period">/mo</span></p>
+    <ul class="n-plan-features">
+      <li class="n-plan-feature">500 audits / month</li>
+      <li class="n-plan-feature">CSV export</li>
+    </ul>
+    <button class="n-btn n-btn-primary">Choose Pro</button>
+  </div>
+</div>
+```
+
+## Checklist
+
+<a id="n-checklist"></a>
+
+Onboarding task list; mark finished rows with n-checklist-done.
+
+- **Parts:** `n-checklist-item`, `n-checklist-marker`, `n-checklist-done`
+- **Accessibility:** Do not rely on colour alone for completion — pair the state with an icon or text.
+- **Notes:** Origin: Itiner onboarding checklist.
+
+```html
+<ul class="n-checklist">
+  <li class="n-checklist-item n-checklist-done">
+    <span class="n-checklist-marker" aria-hidden="true">✓</span>
+    <span>Create your first trip</span>
+  </li>
+  <li class="n-checklist-item">
+    <span class="n-checklist-marker" aria-hidden="true">○</span>
+    <span>Invite a team member</span>
+  </li>
+</ul>
+```
+
+## Responsive table
+
+<a id="n-table-stack"></a>
+
+Table modifier that collapses each row into a card below 768px using data-label.
+
+- **Accessibility:** Give every <td> a data-label matching its column header so the stacked card keeps label→value pairing.
+- **Notes:** Origin: LeadScrapper Pro recent-discoveries table. Combine with n-table.
+
+```html
+<table class="n-table n-table-stack">
+  <thead><tr><th>Business</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr>
+      <td data-label="Business">Blue Bottle</td>
+      <td data-label="Status">Enriched</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Search field
+
+<a id="n-search-field"></a>
+
+Input wrapper with a built-in leading search glyph.
+
+- **Parts:** `n-search-input`
+- **Accessibility:** Give the input an associated <label> or aria-label; the glyph is decorative.
+- **Notes:** Origin: search bars in both products (Itiner trip search, LeadScrapper prospect search).
+
+```html
+<div class="n-search-field">
+  <input class="n-input n-search-input" type="search" placeholder="Search leads">
+</div>
+```
+
+## Marketing footer
+
+<a id="n-footer"></a>
+
+Multi-column site footer with a link grid and a bottom bar.
+
+- **Element:** `<footer>`
+- **Parts:** `n-footer-grid`, `n-footer-col`, `n-footer-title`, `n-footer-bottom`
+- **Notes:** Origin: marketing footers in both products.
+
+```html
+<footer class="n-footer">
+  <div class="n-container">
+    <div class="n-footer-grid">
+      <div class="n-footer-col">
+        <p class="n-footer-title">Product</p>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="n-footer-col">
+        <p class="n-footer-title">Legal</p>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="n-footer-bottom">
+      <span>© 2026 Acme</span>
+      <span>Made with Nucleus</span>
+    </div>
+  </div>
+</footer>
+```
+
+## Signal list
+
+<a id="n-signal-list"></a>
+
+Dotted list for pro/con or insight bullets, colour-coded by sentiment.
+
+- **Parts:** `n-signal`, `n-signal-positive`, `n-signal-negative`, `n-signal-neutral`
+- **Accessibility:** Sentiment is dot-colour plus position — keep the text self-describing so it does not rely on colour alone.
+- **Notes:** Origin: LeadScrapper Pro audit "what's working / needs fixing" lists.
+
+```html
+<ul class="n-signal-list">
+  <li class="n-signal n-signal-positive">Fast, secure checkout</li>
+  <li class="n-signal n-signal-negative">No mobile layout</li>
+  <li class="n-signal n-signal-neutral">Blog last updated 2019</li>
+</ul>
 ```

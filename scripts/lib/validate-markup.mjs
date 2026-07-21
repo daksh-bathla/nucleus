@@ -60,31 +60,86 @@ function lineOf(text, index) {
   return line;
 }
 
+function staticClassValues(content) {
+  const values = [];
+  for (const match of content.matchAll(ATTR_RE)) {
+    const value = match[1] ?? match[2] ?? match[3] ?? "";
+    const attrIndex = match.index + match[0].indexOf(value);
+    const tokens = value
+      .split(/\s+/)
+      .map((token) => token.trim())
+      .filter((token) => token && !/[${}()[\]<>?:]/.test(token) && /^(?:n-[a-z0-9]+(?:-[a-z0-9]+)*|active)$/.test(token));
+    values.push({ tokens, line: lineOf(content, attrIndex) });
+  }
+  return values;
+}
+
 /**
  * Scan file content and return findings for unknown Nucleus classes.
  * @returns {Array<{className:string, line:number, suggestion:string|null}>}
  */
 export function validateContent(content, known) {
   const findings = [];
-  for (const match of content.matchAll(ATTR_RE)) {
-    const value = match[1] ?? match[2] ?? match[3] ?? "";
-    // Skip values that are clearly dynamic (interpolation / expressions).
-    const attrIndex = match.index + match[0].indexOf(value);
-    for (const raw of value.split(/\s+/)) {
-      const token = raw.trim();
+  for (const value of staticClassValues(content)) {
+    for (const token of value.tokens) {
       if (!token || !token.startsWith(PREFIX)) continue;
-      // Ignore anything with template/expression syntax.
-      if (/[${}()[\]<>?:]/.test(token)) continue;
       if (!STATIC_TOKEN_RE.test(token)) continue;
       if (known.has(token)) continue;
       findings.push({
         className: token,
-        line: lineOf(content, attrIndex),
+        line: value.line,
         suggestion: suggest(token, known),
       });
     }
   }
   return findings;
+}
+
+/**
+ * Rich validation for the CLI. Unknown classes are errors; deprecated aliases
+ * and component-scoped legacy `.active` usage are warnings.
+ */
+export function validateUsage(content, manifest) {
+  const entries = new Map(manifest.classes.map((entry) => [entry.name, entry]));
+  const known = new Set(entries.keys());
+  const diagnostics = validateContent(content, known).map((finding) => ({
+    ...finding,
+    level: "error",
+    code: "unknown-class",
+    message: `Unknown Nucleus class: ${finding.className}`,
+  }));
+
+  for (const value of staticClassValues(content)) {
+    for (const token of value.tokens) {
+      const entry = entries.get(token);
+      if (!entry?.deprecated) continue;
+      diagnostics.push({
+        className: token,
+        line: value.line,
+        level: "warning",
+        code: "deprecated-class",
+        replacement: entry.replacement || entry.aliasOf || null,
+        message: `Deprecated Nucleus class: ${token}`,
+      });
+    }
+
+    if (value.tokens.includes("active")) {
+      const legacy = manifest.stateConvention?.legacySelectors?.find((item) => item.selector === ".active");
+      const component = legacy?.scope?.find((name) => value.tokens.includes(name));
+      if (component) {
+        diagnostics.push({
+          className: "active",
+          line: value.line,
+          level: "warning",
+          code: "legacy-state-selector",
+          replacement: legacy.replacement,
+          message: `Deprecated state selector: active on ${component}`,
+        });
+      }
+    }
+  }
+
+  return diagnostics;
 }
 
 export function knownFromManifest(manifest) {

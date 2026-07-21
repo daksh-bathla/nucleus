@@ -9,16 +9,20 @@
   <body>
     <nav class="n-navbar">
       <a class="n-navbar-brand" href="#">◎ Nucleus</a>
-      <ul class="n-nav">
-        <li class="n-nav-item"><a class="n-nav-link active" href="#" aria-current="page">Product</a></li>
-        <li class="n-nav-item"><a class="n-nav-link" href="#">Docs</a></li>
-        <li class="n-nav-item"><a class="n-nav-link" href="#">Pricing</a></li>
-        <li class="n-nav-item"><a class="n-nav-link" href="#">Blog</a></li>
-      </ul>
-      <div class="n-cluster">
-        <a class="n-btn n-btn-ghost n-btn-sm" href="#">Sign in</a>
-        <a class="n-btn n-btn-primary n-btn-sm" href="#">Get started</a>
-      </div>
+      <details class="n-navbar-menu">
+        <summary class="n-navbar-toggle">
+          <span class="n-navbar-toggle-icon" aria-hidden="true"></span>
+          <span class="n-sr-only">Navigation menu</span>
+        </summary>
+        <ul class="n-nav">
+          <li class="n-nav-item"><a class="n-nav-link" href="#" aria-current="page">Product</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#">Docs</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#">Pricing</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#">Blog</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#">Sign in</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#">Get started</a></li>
+        </ul>
+      </details>
     </nav>
 
     <main class="n-container n-section">
@@ -30,8 +34,8 @@
         </ol>
       </nav>
       <p class="n-mt-4 n-text-muted">
-        The navbar is sticky, wraps on small screens, and marks the active link with
-        <code class="n-code">.active</code> plus <code class="n-code">aria-current="page"</code>.
+        The navbar is sticky, uses a CSS-only native disclosure menu, and marks the current link with
+        <code class="n-code">aria-current="page"</code>.
       </p>
     </main>
   </body>

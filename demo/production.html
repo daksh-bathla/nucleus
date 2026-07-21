@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Production Components — Nucleus CSS</title>
+    <meta name="description" content="Production components distilled from shipping products: pricing plans, meters, gauges, timelines, combobox, promo banners, and more.">
+    <link rel="stylesheet" href="nucleus.css">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="canonical" href="https://nucleus-rose.vercel.app/production.html">
+    <script src="site.js" defer></script>
+</head>
+<body class="demo-page">
+<a class="n-skip-link" href="#main-content">Skip to content</a>
+
+<!-- Navbar -->
+<nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
+    <a class="n-navbar-brand demo-brand" href="index.html"><img class="demo-logo" src="assets/nucleus-transparent.png" alt="Nucleus CSS Framework"></a>
+    <details class="n-navbar-menu">
+        <summary class="n-navbar-toggle"><span class="n-navbar-toggle-icon" aria-hidden="true"></span><span class="n-sr-only">Navigation menu</span></summary>
+        <ul class="n-nav">
+        <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="patterns.html">Patterns</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="production.html" aria-current="page">Production</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
+        </ul>
+    </details>
+</nav>
+
+<main class="demo-main" id="main-content">
+    <div class="n-container">
+
+        <!-- Page Header -->
+        <div class="demo-section">
+            <h1 class="demo-title">Production Components</h1>
+            <p class="demo-subtitle">Reusable UI distilled from shipping products — pricing plans, usage meters, score gauges, timelines, combobox, promo banners, and more. Every class is token-driven, so all of these adapt to dark mode automatically.</p>
+        </div>
+
+        <!-- Icon tile -->
+        <div class="demo-section" id="icon-tile">
+            <h2 class="demo-title">Icon tile</h2>
+            <p class="demo-subtitle">Rounded container for a single icon, color-tinted to context. Sizes and tint variants.</p>
+            <div style="display:flex; gap:0.75rem; align-items:center; flex-wrap:wrap;">
+                <span class="n-icon-tile n-icon-tile-sm" aria-hidden="true">★</span>
+                <span class="n-icon-tile n-icon-tile-primary" aria-hidden="true">◆</span>
+                <span class="n-icon-tile n-icon-tile-success" aria-hidden="true">✓</span>
+                <span class="n-icon-tile n-icon-tile-danger" aria-hidden="true">!</span>
+                <span class="n-icon-tile n-icon-tile-warning" aria-hidden="true">▲</span>
+                <span class="n-icon-tile n-icon-tile-info" aria-hidden="true">i</span>
+                <span class="n-icon-tile n-icon-tile-neutral n-icon-tile-round" aria-hidden="true">•</span>
+                <span class="n-icon-tile n-icon-tile-lg n-icon-tile-primary" aria-hidden="true">✦</span>
+            </div>
+            <div class="demo-code">&lt;span class="n-icon-tile n-icon-tile-success" aria-hidden="true"&gt;✓&lt;/span&gt;
+&lt;span class="n-icon-tile n-icon-tile-lg n-icon-tile-round n-icon-tile-info"&gt;i&lt;/span&gt;</div>
+        </div>
+
+        <!-- Status indicator -->
+        <div class="demo-section" id="status">
+            <h2 class="demo-title">Status indicator</h2>
+            <p class="demo-subtitle">Dot plus label for live, lifecycle, or health state. Optional pulse.</p>
+            <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
+                <span class="n-status n-status-online n-status-pulse"><span class="n-status-dot" aria-hidden="true"></span> System connected</span>
+                <span class="n-status n-status-idle"><span class="n-status-dot" aria-hidden="true"></span> Pending</span>
+                <span class="n-status n-status-error"><span class="n-status-dot" aria-hidden="true"></span> Failed</span>
+                <span class="n-status n-status-offline"><span class="n-status-dot" aria-hidden="true"></span> Offline</span>
+            </div>
+            <div class="demo-code">&lt;span class="n-status n-status-online n-status-pulse"&gt;
+  &lt;span class="n-status-dot" aria-hidden="true"&gt;&lt;/span&gt; System connected
+&lt;/span&gt;</div>
+        </div>
+
+        <!-- Meter -->
+        <div class="demo-section" id="meter">
+            <h2 class="demo-title">Meter</h2>
+            <p class="demo-subtitle">Labeled usage bar; fill color flips at a threshold. Set the fill with <code class="n-code">--n-meter-value</code>.</p>
+            <div style="display:grid; gap:1rem; max-width:22rem;">
+                <div class="n-meter">
+                    <div class="n-meter-header"><span class="n-meter-label">Searches</span><span class="n-meter-value">42 / 100</span></div>
+                    <div class="n-meter-track"><div class="n-meter-fill" style="--n-meter-value: 42%"></div></div>
+                </div>
+                <div class="n-meter n-meter-warning">
+                    <div class="n-meter-header"><span class="n-meter-label">Audits</span><span class="n-meter-value">82 / 100</span></div>
+                    <div class="n-meter-track"><div class="n-meter-fill" style="--n-meter-value: 82%"></div></div>
+                </div>
+                <div class="n-meter n-meter-danger n-meter-lg">
+                    <div class="n-meter-header"><span class="n-meter-label">Storage</span><span class="n-meter-value">96 / 100</span></div>
+                    <div class="n-meter-track"><div class="n-meter-fill" style="--n-meter-value: 96%"></div></div>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="n-meter n-meter-warning"&gt;
+  &lt;div class="n-meter-header"&gt;
+    &lt;span class="n-meter-label"&gt;Audits&lt;/span&gt;
+    &lt;span class="n-meter-value"&gt;82 / 100&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="n-meter-track"&gt;
+    &lt;div class="n-meter-fill" style="--n-meter-value: 82%"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Gauge -->
+        <div class="demo-section" id="gauge">
+            <h2 class="demo-title">Gauge</h2>
+            <p class="demo-subtitle">Radial score ring driven by <code class="n-code">--n-gauge-value</code> (0–100).</p>
+            <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap;">
+                <div class="n-gauge n-gauge-sm n-gauge-danger" style="--n-gauge-value: 32" role="img" aria-label="Score 32 of 100"><span class="n-gauge-value">32</span></div>
+                <div class="n-gauge n-gauge-warning" style="--n-gauge-value: 61" role="img" aria-label="Score 61 of 100"><span class="n-gauge-value">61</span></div>
+                <div class="n-gauge n-gauge-lg n-gauge-success" style="--n-gauge-value: 88" role="img" aria-label="Score 88 of 100"><span class="n-gauge-value">88</span></div>
+            </div>
+            <div class="demo-code">&lt;div class="n-gauge n-gauge-success" style="--n-gauge-value: 88"
+     role="img" aria-label="Score 88 of 100"&gt;
+  &lt;span class="n-gauge-value"&gt;88&lt;/span&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Segmented control -->
+        <div class="demo-section" id="segmented">
+            <h2 class="demo-title">Segmented control</h2>
+            <p class="demo-subtitle">Single-select pill group for filtering or switching views.</p>
+            <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                <div class="n-segmented" role="tablist">
+                    <button class="n-segmented-item" role="tab" aria-selected="true">All</button>
+                    <button class="n-segmented-item" role="tab" aria-selected="false">Audited</button>
+                    <button class="n-segmented-item" role="tab" aria-selected="false">Contacted</button>
+                </div>
+                <div class="n-segmented n-segmented-sm" role="tablist">
+                    <button class="n-segmented-item" role="tab" aria-selected="true">Day</button>
+                    <button class="n-segmented-item" role="tab" aria-selected="false">Week</button>
+                    <button class="n-segmented-item" role="tab" aria-selected="false">Month</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="n-segmented" role="tablist"&gt;
+  &lt;button class="n-segmented-item" role="tab" aria-selected="true"&gt;All&lt;/button&gt;
+  &lt;button class="n-segmented-item" role="tab" aria-selected="false"&gt;Audited&lt;/button&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Stat grid -->
+        <div class="demo-section" id="stat-grid">
+            <h2 class="demo-title">Stat grid</h2>
+            <p class="demo-subtitle">Responsive auto-fit wrapper for metric tiles. Compose with an icon tile.</p>
+            <div class="n-stat-grid">
+                <article class="n-card"><div class="n-card-body" style="display:flex; gap:0.75rem; align-items:center;">
+                    <span class="n-icon-tile n-icon-tile-primary" aria-hidden="true">◎</span>
+                    <div class="n-stat"><span class="n-stat-label">Leads found</span><span class="n-stat-value">1,284</span></div>
+                </div></article>
+                <article class="n-card"><div class="n-card-body" style="display:flex; gap:0.75rem; align-items:center;">
+                    <span class="n-icon-tile n-icon-tile-warning" aria-hidden="true">⚡</span>
+                    <div class="n-stat"><span class="n-stat-label">Active scans</span><span class="n-stat-value">7</span></div>
+                </div></article>
+                <article class="n-card"><div class="n-card-body" style="display:flex; gap:0.75rem; align-items:center;">
+                    <span class="n-icon-tile n-icon-tile-success" aria-hidden="true">↑</span>
+                    <div class="n-stat"><span class="n-stat-label">New today</span><span class="n-stat-value">36</span><span class="n-stat-change n-text-success">+12%</span></div>
+                </div></article>
+            </div>
+            <div class="demo-code">&lt;div class="n-stat-grid"&gt;
+  &lt;article class="n-card"&gt;&lt;div class="n-card-body"&gt;
+    &lt;span class="n-icon-tile n-icon-tile-primary"&gt;◎&lt;/span&gt;
+    &lt;div class="n-stat"&gt;&lt;span class="n-stat-label"&gt;Leads found&lt;/span&gt;&lt;span class="n-stat-value"&gt;1,284&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/article&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Search field -->
+        <div class="demo-section" id="search-field">
+            <h2 class="demo-title">Search field</h2>
+            <p class="demo-subtitle">Input wrapper with a built-in leading search glyph.</p>
+            <div class="n-search-field" style="max-width:22rem;">
+                <label class="n-sr-only" for="prod-search">Search leads</label>
+                <input class="n-input n-search-input" id="prod-search" type="search" placeholder="Search leads">
+            </div>
+            <div class="demo-code">&lt;div class="n-search-field"&gt;
+  &lt;input class="n-input n-search-input" type="search" placeholder="Search leads"&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Combobox -->
+        <div class="demo-section" id="combobox">
+            <h2 class="demo-title">Combobox</h2>
+            <p class="demo-subtitle">Typeahead input plus a results list (shown open). Requires JS for filtering and keyboard nav.</p>
+            <div class="n-combobox" style="max-width:22rem;">
+                <label class="n-sr-only" for="prod-city">Search city</label>
+                <input class="n-input" id="prod-city" type="text" role="combobox" aria-expanded="true" aria-controls="prod-cities" value="Li">
+                <ul class="n-combobox-list" id="prod-cities" role="listbox" style="position:static; box-shadow:none;">
+                    <li><button class="n-combobox-option" role="option" aria-selected="true">Lisbon, Portugal</button></li>
+                    <li><button class="n-combobox-option" role="option" aria-selected="false">Lima, Peru</button></li>
+                    <li><button class="n-combobox-option" role="option" aria-selected="false">Lille, France</button></li>
+                </ul>
+            </div>
+            <div class="demo-code">&lt;div class="n-combobox"&gt;
+  &lt;input class="n-input" type="text" role="combobox" aria-expanded="true" aria-controls="cities"&gt;
+  &lt;ul class="n-combobox-list" id="cities" role="listbox"&gt;
+    &lt;li&gt;&lt;button class="n-combobox-option" role="option" aria-selected="true"&gt;Lisbon, Portugal&lt;/button&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Signal list -->
+        <div class="demo-section" id="signal-list">
+            <h2 class="demo-title">Signal list</h2>
+            <p class="demo-subtitle">Dotted pro/con or insight bullets, color-coded by sentiment.</p>
+            <ul class="n-signal-list" style="max-width:28rem;">
+                <li class="n-signal n-signal-positive">Fast, secure HTTPS checkout</li>
+                <li class="n-signal n-signal-positive">Clear calls to action</li>
+                <li class="n-signal n-signal-negative">No mobile layout</li>
+                <li class="n-signal n-signal-neutral">Blog last updated 2019</li>
+            </ul>
+            <div class="demo-code">&lt;ul class="n-signal-list"&gt;
+  &lt;li class="n-signal n-signal-positive"&gt;Fast, secure checkout&lt;/li&gt;
+  &lt;li class="n-signal n-signal-negative"&gt;No mobile layout&lt;/li&gt;
+&lt;/ul&gt;</div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="demo-section" id="timeline">
+            <h2 class="demo-title">Timeline</h2>
+            <p class="demo-subtitle">Vertical connector list with a numbered or icon marker per item.</p>
+            <ol class="n-timeline" style="max-width:30rem;">
+                <li class="n-timeline-item">
+                    <span class="n-timeline-marker">1</span>
+                    <p class="n-timeline-title">Arrive in Lisbon</p>
+                    <p class="n-timeline-meta">Day 1 · Hotel check-in, 3:00 PM</p>
+                </li>
+                <li class="n-timeline-item">
+                    <span class="n-timeline-marker">2</span>
+                    <p class="n-timeline-title">Sintra day trip</p>
+                    <p class="n-timeline-meta">Day 2 · Pena Palace &amp; Quinta da Regaleira</p>
+                </li>
+                <li class="n-timeline-item">
+                    <span class="n-timeline-marker n-timeline-marker-muted">3</span>
+                    <p class="n-timeline-title">Free day</p>
+                    <p class="n-timeline-meta">Day 3 · Details being finalised</p>
+                </li>
+            </ol>
+            <div class="demo-code">&lt;ol class="n-timeline"&gt;
+  &lt;li class="n-timeline-item"&gt;
+    &lt;span class="n-timeline-marker"&gt;1&lt;/span&gt;
+    &lt;p class="n-timeline-title"&gt;Arrive in Lisbon&lt;/p&gt;
+    &lt;p class="n-timeline-meta"&gt;Day 1 · Hotel check-in&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</div>
+        </div>
+
+        <!-- Pricing plan -->
+        <div class="demo-section" id="plan">
+            <h2 class="demo-title">Pricing plan</h2>
+            <p class="demo-subtitle">Tier cards with price, features, and a featured or inverted state.</p>
+            <div class="n-plan-grid">
+                <div class="n-plan">
+                    <p class="n-plan-name">Starter</p>
+                    <p class="n-plan-price">$19<span class="n-plan-period">/mo</span></p>
+                    <p class="n-plan-desc">For solo operators getting going.</p>
+                    <ul class="n-plan-features">
+                        <li class="n-plan-feature">100 searches / month</li>
+                        <li class="n-plan-feature">CSV export</li>
+                    </ul>
+                    <button class="n-btn n-btn-outline-primary">Choose Starter</button>
+                </div>
+                <div class="n-plan n-plan-featured">
+                    <span class="n-plan-ribbon">Popular</span>
+                    <p class="n-plan-name">Pro</p>
+                    <p class="n-plan-price">$49<span class="n-plan-period">/mo</span></p>
+                    <p class="n-plan-desc">For teams operating at scale.</p>
+                    <ul class="n-plan-features">
+                        <li class="n-plan-feature">500 audits / month</li>
+                        <li class="n-plan-feature">Priority processing</li>
+                        <li class="n-plan-feature">Bulk export</li>
+                    </ul>
+                    <button class="n-btn n-btn-primary">Choose Pro</button>
+                </div>
+                <div class="n-plan n-plan-inverted">
+                    <span class="n-plan-ribbon">Best value</span>
+                    <p class="n-plan-name">Business</p>
+                    <p class="n-plan-price">$99<span class="n-plan-period">/mo</span></p>
+                    <p class="n-plan-desc">Unlimited usage and API access.</p>
+                    <ul class="n-plan-features">
+                        <li class="n-plan-feature">Unlimited audits</li>
+                        <li class="n-plan-feature">API + webhooks</li>
+                    </ul>
+                    <button class="n-btn n-btn-light">Contact us</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="n-plan n-plan-featured"&gt;
+  &lt;span class="n-plan-ribbon"&gt;Popular&lt;/span&gt;
+  &lt;p class="n-plan-name"&gt;Pro&lt;/p&gt;
+  &lt;p class="n-plan-price"&gt;$49&lt;span class="n-plan-period"&gt;/mo&lt;/span&gt;&lt;/p&gt;
+  &lt;ul class="n-plan-features"&gt;
+    &lt;li class="n-plan-feature"&gt;500 audits / month&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;button class="n-btn n-btn-primary"&gt;Choose Pro&lt;/button&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="demo-section" id="checklist">
+            <h2 class="demo-title">Checklist</h2>
+            <p class="demo-subtitle">Onboarding task list; mark finished rows with <code class="n-code">n-checklist-done</code>.</p>
+            <ul class="n-checklist" style="max-width:28rem;">
+                <li class="n-checklist-item n-checklist-done">
+                    <span class="n-checklist-marker" aria-hidden="true">✓</span>
+                    <span>Create your first trip</span>
+                </li>
+                <li class="n-checklist-item n-checklist-done">
+                    <span class="n-checklist-marker" aria-hidden="true">✓</span>
+                    <span>Generate an itinerary with AI</span>
+                </li>
+                <li class="n-checklist-item">
+                    <span class="n-checklist-marker" aria-hidden="true">○</span>
+                    <span>Share a client portal</span>
+                </li>
+                <li class="n-checklist-item">
+                    <span class="n-checklist-marker" aria-hidden="true">○</span>
+                    <span>Invite a team member</span>
+                </li>
+            </ul>
+            <div class="demo-code">&lt;ul class="n-checklist"&gt;
+  &lt;li class="n-checklist-item n-checklist-done"&gt;
+    &lt;span class="n-checklist-marker" aria-hidden="true"&gt;✓&lt;/span&gt; &lt;span&gt;Create your first trip&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</div>
+        </div>
+
+        <!-- Promo banner -->
+        <div class="demo-section" id="banner">
+            <h2 class="demo-title">Promo banner</h2>
+            <p class="demo-subtitle">Wide, high-emphasis marketing or upgrade panel with an optional dark surface.</p>
+            <section class="n-banner n-banner-split n-banner-dark">
+                <div>
+                    <p class="n-banner-eyebrow">Premium intelligence</p>
+                    <h3 class="n-banner-title">Unlock market insights</h3>
+                    <p class="n-banner-text">Daily AI deep-dives into every lead you discover — the exact angle to pitch.</p>
+                </div>
+                <div class="n-banner-actions">
+                    <button class="n-btn n-btn-primary">Upgrade</button>
+                </div>
+            </section>
+            <div class="demo-code">&lt;section class="n-banner n-banner-split n-banner-dark"&gt;
+  &lt;div&gt;
+    &lt;p class="n-banner-eyebrow"&gt;Premium&lt;/p&gt;
+    &lt;h3 class="n-banner-title"&gt;Unlock market insights&lt;/h3&gt;
+    &lt;p class="n-banner-text"&gt;Daily AI deep-dives into every lead.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="n-banner-actions"&gt;&lt;button class="n-btn n-btn-primary"&gt;Upgrade&lt;/button&gt;&lt;/div&gt;
+&lt;/section&gt;</div>
+        </div>
+
+        <!-- Action dock -->
+        <div class="demo-section" id="dock">
+            <h2 class="demo-title">Action dock</h2>
+            <p class="demo-subtitle">Bottom-centered floating bar of actions. The pill below is shown in flow; the full markup fixes it to the viewport.</p>
+            <div style="display:flex; justify-content:center;">
+                <div class="n-dock-bar n-dock-bar-dark">
+                    <button class="n-dock-item">Request change</button>
+                    <span class="n-dock-divider" aria-hidden="true"></span>
+                    <button class="n-dock-item">Ask for help</button>
+                    <span class="n-dock-divider" aria-hidden="true"></span>
+                    <button class="n-dock-item">Call agent</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="n-dock"&gt;
+  &lt;div class="n-dock-bar n-dock-bar-dark"&gt;
+    &lt;button class="n-dock-item"&gt;Request change&lt;/button&gt;
+    &lt;span class="n-dock-divider" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;button class="n-dock-item"&gt;Ask for help&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Consent bar -->
+        <div class="demo-section" id="cookie-bar">
+            <h2 class="demo-title">Consent bar</h2>
+            <p class="demo-subtitle">Persistent bottom notice with an actions cluster. Shown in flow here; the real component fixes to the bottom of the viewport.</p>
+            <div class="n-cookie-bar" role="dialog" aria-label="Cookie consent" style="position:static; left:auto; right:auto; transform:none; width:auto;">
+                <p class="n-cookie-bar-text">We use necessary cookies for login and optional analytics cookies to improve the product.</p>
+                <div class="n-cookie-bar-actions">
+                    <button class="n-btn n-btn-light">Decline</button>
+                    <button class="n-btn n-btn-primary">Accept</button>
+                </div>
+            </div>
+            <div class="demo-code">&lt;div class="n-cookie-bar" role="dialog" aria-label="Cookie consent"&gt;
+  &lt;p class="n-cookie-bar-text"&gt;We use cookies to improve the product.&lt;/p&gt;
+  &lt;div class="n-cookie-bar-actions"&gt;
+    &lt;button class="n-btn n-btn-light"&gt;Decline&lt;/button&gt;
+    &lt;button class="n-btn n-btn-primary"&gt;Accept&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+        </div>
+
+        <!-- Responsive table -->
+        <div class="demo-section" id="table-stack">
+            <h2 class="demo-title">Responsive table</h2>
+            <p class="demo-subtitle">Collapses each row into a labeled card below 768px. Resize the window to see it stack.</p>
+            <table class="n-table n-table-stack">
+                <thead><tr><th>Business</th><th>Market</th><th>Status</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Business">Blue Bottle</td>
+                        <td data-label="Market">Coffee · SF</td>
+                        <td data-label="Status"><span class="n-status n-status-online"><span class="n-status-dot" aria-hidden="true"></span> Enriched</span></td>
+                    </tr>
+                    <tr>
+                        <td data-label="Business">Ritual Roasters</td>
+                        <td data-label="Market">Coffee · SF</td>
+                        <td data-label="Status"><span class="n-status n-status-idle"><span class="n-status-dot" aria-hidden="true"></span> Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="demo-code">&lt;table class="n-table n-table-stack"&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Business&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td data-label="Business"&gt;Blue Bottle&lt;/td&gt;
+      &lt;td data-label="Status"&gt;Enriched&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</div>
+        </div>
+
+        <!-- Marketing footer -->
+        <div class="demo-section" id="footer">
+            <h2 class="demo-title">Marketing footer</h2>
+            <p class="demo-subtitle">Multi-column site footer with a link grid and a bottom bar.</p>
+            <footer class="n-footer" style="border-radius:var(--n-radius-lg); border:1px solid var(--n-border-color);">
+                <div class="n-container">
+                    <div class="n-footer-grid">
+                        <div class="n-footer-col">
+                            <p class="n-footer-title">Product</p>
+                            <a href="#footer">Features</a>
+                            <a href="#footer">Pricing</a>
+                            <a href="#footer">Demo</a>
+                        </div>
+                        <div class="n-footer-col">
+                            <p class="n-footer-title">Company</p>
+                            <a href="#footer">About</a>
+                            <a href="#footer">Contact</a>
+                        </div>
+                        <div class="n-footer-col">
+                            <p class="n-footer-title">Legal</p>
+                            <a href="#footer">Privacy</a>
+                            <a href="#footer">Terms</a>
+                        </div>
+                    </div>
+                    <div class="n-footer-bottom">
+                        <span>© 2026 Acme, Inc.</span>
+                        <span>Built with Nucleus CSS</span>
+                    </div>
+                </div>
+            </footer>
+            <div class="demo-code">&lt;footer class="n-footer"&gt;
+  &lt;div class="n-container"&gt;
+    &lt;div class="n-footer-grid"&gt;
+      &lt;div class="n-footer-col"&gt;
+        &lt;p class="n-footer-title"&gt;Product&lt;/p&gt;
+        &lt;a href="#"&gt;Features&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="n-footer-bottom"&gt;&lt;span&gt;© 2026 Acme&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="demo-footer">
+    <div class="n-container">
+        <div class="n-flex n-justify-between n-items-center">
+            <a href="patterns.html" class="n-btn n-btn-ghost">← Patterns</a>
+            <p>⚛ Nucleus CSS</p>
+            <a href="index.html" class="n-btn n-btn-ghost">Home →</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

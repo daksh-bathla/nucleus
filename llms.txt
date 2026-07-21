@@ -1,6 +1,6 @@
 # Nucleus CSS
 
-> A polished, accessible, zero-build CSS framework. Prefix: `n-`. 580 classes, 76 tokens. No runtime JS, no build step required.
+> A polished, accessible, zero-build CSS framework. Prefix: `n-`. 697 classes, 76 tokens. No runtime JS, no build step required.
 
 Every class begins with the `n-` prefix. Only classes listed in the
 manifest exist — do NOT invent classes, and do NOT mix in Tailwind or Bootstrap
@@ -23,6 +23,12 @@ import "@navital/nucleus-css";               // full framework
 
 CDN: `https://cdn.jsdelivr.net/npm/@navital/nucleus-css@2.0.0/dist/nucleus.min.css`
 
+## Configure an AI coding assistant
+
+`npx @navital/nucleus-css ai-setup <tool>` writes this context plus the tool's
+native project rule. Supported tools: `claude`, `codex`, `cursor`, and
+`antigravity`.
+
 ## Modular imports
 
 - `@navital/nucleus-css/reset` — tokens, reset, global a11y
@@ -37,6 +43,14 @@ CDN: `https://cdn.jsdelivr.net/npm/@navital/nucleus-css@2.0.0/dist/nucleus.min.c
 - Variant: `n-<name>-<variant>` (e.g. `n-btn-primary`, `n-alert-success`).
 - Size: `n-<name>-sm` / `n-<name>-lg`.
 - Responsive utility: `n-<util>-<bp>-*` where bp ∈ {sm, md, lg, xl, xxl} (e.g. `n-col-md-6`, `n-d-lg-flex`).
+- Prefer canonical classes. Deprecated aliases remain valid but the validator reports their replacement.
+
+## State convention
+
+1. Use native state and accurate ARIA first (`disabled`, `aria-current="page"`, `aria-selected="true"`, `aria-expanded="true"`).
+2. Use `data-state` for framework-specific state when ARIA would be inaccurate.
+3. Use namespaced visual hooks such as `n-is-active`, `n-is-loading`, and `n-is-disabled`.
+Do not add unprefixed `.active` to new markup.
 
 ## Breakpoints (min-width, mobile-first)
 
@@ -60,11 +74,21 @@ CDN: `https://cdn.jsdelivr.net/npm/@navital/nucleus-css@2.0.0/dist/nucleus.min.c
 - color bg: n-bg-{primary,secondary,success,danger,warning,info,light,dark,white,muted}
 - sizing: n-w-full, n-max-w-{sm..2xl}, n-h-screen, n-min-h-screen
 - border/radius: n-border, n-rounded, n-rounded-{sm,lg,xl,full}, n-shadow-{sm..xl}
-- display: n-d-{none,block,flex,grid,...} and responsive n-d-{sm,md,lg}-*
+- display: n-d-{none,block,grid,...} and responsive n-d-{sm,md,lg}-*; use canonical n-flex for flex containers
+
+## Spacing scale (not Tailwind-compatible)
+
+- 0: 0
+- 1: 0.25rem
+- 2: 0.5rem
+- 3: 1rem
+- 4: 1.5rem
+- 5: 3rem
+Never infer Nucleus spacing values from Tailwind. For example, `n-p-4` is 1.5rem.
 
 ## Components
 
-n-container, n-row, n-auto-grid, n-sidebar-layout, n-cluster, n-split, n-stack, n-btn, n-button-group, n-card, n-input, n-select, n-textarea, n-checkbox, n-switch, n-input-group, n-fieldset, n-navbar, n-breadcrumb, n-pagination, n-tabs, n-alert, n-badge, n-callout, n-toast, n-progress, n-spinner, n-skeleton, n-dialog, n-drawer, n-accordion, n-dropdown, n-tooltip, n-table, n-list-group, n-stat, n-avatar, n-chip, n-empty-state, n-prose, n-code-block, n-blockquote, n-surface
+n-container, n-row, n-auto-grid, n-sidebar-layout, n-cluster, n-split, n-stack, n-btn, n-button-group, n-card, n-input, n-select, n-textarea, n-checkbox, n-switch, n-input-group, n-fieldset, n-navbar, n-breadcrumb, n-pagination, n-tabs, n-alert, n-badge, n-callout, n-toast, n-progress, n-spinner, n-skeleton, n-dialog, n-drawer, n-accordion, n-dropdown, n-tooltip, n-table, n-list-group, n-stat, n-avatar, n-chip, n-empty-state, n-prose, n-code-block, n-blockquote, n-surface, n-icon-tile, n-status, n-meter, n-gauge, n-segmented, n-stat-grid, n-banner, n-dock, n-cookie-bar, n-combobox, n-timeline, n-plan, n-checklist, n-table-stack, n-search-field, n-footer, n-signal-list
 
 ## Themes & modes
 
@@ -76,6 +100,7 @@ n-container, n-row, n-auto-grid, n-sidebar-layout, n-cluster, n-split, n-stack, 
 ## Common mistakes to avoid
 
 - Inventing classes not in the manifest (validate with `npx @navital/nucleus-css validate ./src`).
+- Using deprecated aliases when a canonical class is available (the validator warns and suggests a replacement).
 - Using Tailwind/Bootstrap names instead of the `n-` equivalents.
 - Using the `open` attribute on `n-dialog` — open it with `dialog.showModal()`.
 - Forgetting a `<label>` for `n-input`/`n-select`/`n-textarea`.
@@ -87,3 +112,4 @@ n-container, n-row, n-auto-grid, n-sidebar-layout, n-cluster, n-split, n-stack, 
 - llms-full.txt — complete plain-text reference
 - dist/nucleus.manifest.json — machine-readable manifest
 - AI_USAGE.md — how to prompt AI tools to use Nucleus
+- MANIFEST.md — manifest schema and structured CLI commands

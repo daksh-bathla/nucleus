@@ -11,6 +11,7 @@ import {
   buildLlmsFull,
   buildClassReference,
   buildComponentReference,
+  buildManifestReference,
 } from "../scripts/lib/docs.mjs";
 
 const model = await loadModel();
@@ -36,6 +37,8 @@ test("llms-full.txt covers tokens, components, and all classes", () => {
 test("class reference documents every class", () => {
   const md = buildClassReference(manifest);
   for (const c of model.classes) assert.ok(md.includes(`\`.${c}\``), `class ref missing .${c}`);
+  assert.ok(md.includes("Deprecated; use `.n-flex`"));
+  assert.ok(md.includes("1.5rem"));
 });
 
 test("component reference has fenced HTML examples", () => {
@@ -50,8 +53,16 @@ test("generated docs exist on disk after build", () => {
     "llms-full.txt",
     "CLASS_REFERENCE.md",
     "COMPONENT_REFERENCE.md",
+    "MANIFEST.md",
     "AI_USAGE.md",
   ]) {
     assert.ok(existsSync(join(ROOT, f)), `missing ${f}`);
   }
+});
+
+test("manifest reference documents schema and structured queries", () => {
+  const md = buildManifestReference(manifest);
+  assert.ok(md.includes("schemaVersion"));
+  assert.ok(md.includes("search flex"));
+  assert.ok(md.includes("n-d-flex` → `.n-flex"));
 });

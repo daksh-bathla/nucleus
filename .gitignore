@@ -3,3 +3,7 @@ node_modules
 .DS_Store
 *.tgz
 .nucleus
+.gstack/
+
+# Local analysis / scratch artifacts (not framework source)
+PRODUCTION_COMPONENTS_AUDIT.md

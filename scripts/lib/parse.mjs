@@ -13,6 +13,8 @@ const SECTION_RE =
 // nested braces. At-rule wrappers (@media/@container) are skipped naturally.
 const RULE_RE = /([^{}]+)\{([^{}]*)\}/g;
 const TOKEN_RE = /(--n-[A-Za-z0-9_-]+)\s*:\s*([^;]+);/g;
+const LAYER_ORDER_RE = /@layer\s+([a-z-]+(?:\s*,\s*[a-z-]+)+)\s*;/;
+const LAYER_BLOCK_RE = /@layer\s+([a-z-]+)\s*\{/g;
 
 /**
  * Which numbered source section belongs to which distributable module.
@@ -22,7 +24,7 @@ const TOKEN_RE = /(--n-[A-Za-z0-9_-]+)\s*:\s*([^;]+);/g;
 export const MODULE_SECTIONS = {
   reset: [0, 1, 33],
   utilities: [2, 3, 4, 5, 6, 7, 8, 13, 14, 15, 16, 17, 18, 19, 24, 26, 27, 31, 34],
-  components: [9, 10, 11, 12, 20, 21, 22, 23, 25, 28, 29, 30],
+  components: [9, 10, 11, 12, 20, 21, 22, 23, 25, 28, 29, 30, 36, 37, 38, 39],
   themes: [32, 35],
 };
 
@@ -56,13 +58,33 @@ export function parseSource(source) {
   const sections = marks.map((mark, i) => {
     const end = i + 1 < marks.length ? marks[i + 1].start : source.length;
     const text = source.slice(mark.start, end);
-    return { num: mark.num, title: mark.title, text, classes: uniqueClasses(text) };
+    return {
+      num: mark.num,
+      title: mark.title,
+      text,
+      classes: uniqueClasses(text),
+      layers: [...text.matchAll(LAYER_BLOCK_RE)].map((match) => match[1]),
+    };
   });
 
   const prelude = marks.length ? source.slice(0, marks[0].start) : "";
+  // Attribute a class to the section that defines it with a standalone
+  // selector before falling back to its first mention. State classes, for
+  // example, are referenced by component selectors before their generic rule
+  // is defined; using the first mention would incorrectly label them as
+  // component-layer classes in the manifest.
   const sectionOf = new Map();
-  for (const s of sections) {
-    for (const c of s.classes) if (!sectionOf.has(c)) sectionOf.set(c, s);
+  for (const section of sections) {
+    const bareSection = section.text.replace(/\/\*[\s\S]*?\*\//g, "");
+    for (const [, selector] of bareSection.matchAll(RULE_RE)) {
+      for (const part of selector.split(",")) {
+        const exact = /^\.(n-[A-Za-z0-9_-]+)$/.exec(part.trim());
+        if (exact && !sectionOf.has(exact[1])) sectionOf.set(exact[1], section);
+      }
+    }
+  }
+  for (const section of sections) {
+    for (const name of section.classes) if (!sectionOf.has(name)) sectionOf.set(name, section);
   }
 
   // --- Every class + its own declaration block (for auto descriptions) ---
@@ -88,6 +110,11 @@ export function parseSource(source) {
     value: value.trim(),
   }));
 
+  const layerMatch = source.match(LAYER_ORDER_RE);
+  const layers = layerMatch
+    ? layerMatch[1].split(",").map((layer) => layer.trim())
+    : [];
+
   return {
     source,
     sections,
@@ -95,6 +122,8 @@ export function parseSource(source) {
     classes,
     classCount: classes.length,
     tokens,
+    layers,
+    layerStatement: layerMatch?.[0] || "",
     sectionOf,
     selfCss,
   };

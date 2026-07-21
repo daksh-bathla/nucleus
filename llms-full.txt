@@ -2,7 +2,7 @@ Nucleus CSS — Full reference (v2.0.0)
 
 A polished, accessible, zero-build CSS framework.
 Package: @navital/nucleus-css   Prefix: n-
-Classes: 580   Tokens: 76   Components: 43
+Classes: 697   Tokens: 76   Components: 60
 
 Breakpoints (min-width): sm=576px, md=768px, lg=992px, xl=1200px, xxl=1600px
 Themes: ocean, forest, rose, amber, mono
@@ -163,11 +163,11 @@ Example:
 ## n-btn — Button
 Base button. Combine with a color variant and optional size.
 Recommended element: <button>
-Variants: n-btn-primary, n-btn-secondary, n-btn-success, n-btn-danger, n-btn-warning, n-btn-info, n-btn-dark, n-btn-light, n-btn-outline-primary, n-btn-outline-secondary, n-btn-outline-success, n-btn-outline-danger, n-btn-ghost
+Variants: n-btn-primary, n-btn-secondary, n-btn-success, n-btn-danger, n-btn-warning, n-btn-info, n-btn-dark, n-btn-light, n-btn-outline-primary, n-btn-outline-secondary, n-btn-outline-success, n-btn-outline-danger, n-btn-outline-warning, n-btn-outline-info, n-btn-outline-dark, n-btn-outline-light, n-btn-ghost
 Sizes: n-btn-sm, n-btn-lg
 Parts: n-button-group
 States: hover, active, focus-visible, disabled
-Accessibility: Use a native <button> for actions and an <a class="n-btn"> only for navigation. Disable with the [disabled] attribute (or n-disabled for anchors, which cannot be natively disabled).
+Accessibility: Use a native <button> for actions and an <a class="n-btn"> only for navigation. Disable with the [disabled] attribute, or aria-disabled="true" plus n-is-disabled for anchors.
 Example:
 <button class="n-btn n-btn-primary">Continue</button>
 <button class="n-btn n-btn-outline-primary">Learn more</button>
@@ -282,18 +282,24 @@ Example:
 </fieldset>
 
 ## n-navbar — Navbar
-Sticky top navigation bar with brand and nav links.
+Sticky top navigation bar with inline links or a CSS-only hamburger menu.
 Recommended element: <nav>
-Parts: n-navbar-brand, n-nav, n-nav-item, n-nav-link
+Parts: n-navbar-brand, n-navbar-menu, n-navbar-toggle, n-navbar-toggle-icon, n-nav, n-nav-item, n-nav-link
 Responsive: yes
-Accessibility: Mark the active link with the `active` class and aria-current="page".
+Accessibility: Native details/summary provides keyboard toggling without JavaScript. Add a text label with n-sr-only and mark the active link with aria-current="page".
 Example:
 <nav class="n-navbar">
   <a class="n-navbar-brand" href="/">Nucleus</a>
-  <ul class="n-nav">
-    <li class="n-nav-item"><a class="n-nav-link active" href="/">Home</a></li>
-    <li class="n-nav-item"><a class="n-nav-link" href="/docs">Docs</a></li>
-  </ul>
+  <details class="n-navbar-menu">
+    <summary class="n-navbar-toggle">
+      <span class="n-navbar-toggle-icon" aria-hidden="true"></span>
+      <span class="n-sr-only">Navigation menu</span>
+    </summary>
+    <ul class="n-nav">
+      <li class="n-nav-item"><a class="n-nav-link" href="/" aria-current="page">Home</a></li>
+      <li class="n-nav-item"><a class="n-nav-link" href="/docs">Docs</a></li>
+    </ul>
+  </details>
 </nav>
 
 ## n-breadcrumb — Breadcrumb
@@ -334,7 +340,7 @@ Example:
 
 ## n-alert — Alert
 Colored message banner for contextual feedback.
-Variants: n-alert-primary, n-alert-success, n-alert-danger, n-alert-warning, n-alert-info
+Variants: n-alert-primary, n-alert-secondary, n-alert-success, n-alert-danger, n-alert-warning, n-alert-info, n-alert-light, n-alert-dark
 Accessibility: Add role="alert" for errors and role="status" for non-urgent messages.
 Example:
 <div class="n-alert n-alert-success" role="status">
@@ -343,7 +349,7 @@ Example:
 
 ## n-badge — Badge
 Small pill for counts, labels, or status.
-Variants: n-badge-primary, n-badge-secondary, n-badge-success, n-badge-danger, n-badge-warning, n-badge-info, n-badge-dark, n-badge-soft
+Variants: n-badge-primary, n-badge-secondary, n-badge-success, n-badge-danger, n-badge-warning, n-badge-info, n-badge-light, n-badge-dark, n-badge-soft
 Example:
 <span class="n-badge n-badge-primary">Beta</span>
 
@@ -523,602 +529,978 @@ Variants: n-surface-glass, n-surface-raised, n-surface-sunken, n-surface-overlay
 Example:
 <div class="n-surface n-p-4">Panel content</div>
 
+## n-icon-tile — Icon tile
+Rounded container for a single icon, color-tinted to context.
+Variants: n-icon-tile-round, n-icon-tile-primary, n-icon-tile-success, n-icon-tile-danger, n-icon-tile-warning, n-icon-tile-info, n-icon-tile-neutral
+Sizes: n-icon-tile-sm, n-icon-tile-lg
+Accessibility: Decorative by default — add aria-hidden. If the tile is the only label, give it an aria-label.
+Notes: Origin: seen throughout LeadScrapper Pro and Itiner (stat cards, nav, headers).
+Example:
+<span class="n-icon-tile n-icon-tile-success" aria-hidden="true">✓</span>
+
+## n-status — Status indicator
+Small dot plus label signalling live, lifecycle, or health state.
+Variants: n-status-online, n-status-idle, n-status-offline, n-status-error, n-status-busy, n-status-pulse
+Parts: n-status-dot
+Accessibility: State is carried by the visible text, not colour alone. The pulse respects prefers-reduced-motion.
+Notes: Origin: LeadScrapper Pro ("System connected") and Itiner (trip lifecycle).
+Example:
+<span class="n-status n-status-online n-status-pulse">
+  <span class="n-status-dot" aria-hidden="true"></span>
+  System connected
+</span>
+
+## n-meter — Meter
+Labeled usage bar whose fill colour flips at a threshold. Set --n-meter-value.
+Variants: n-meter-success, n-meter-warning, n-meter-danger
+Sizes: n-meter-sm, n-meter-lg
+Parts: n-meter-header, n-meter-label, n-meter-value, n-meter-track, n-meter-fill
+Accessibility: For an interactive value add role="progressbar" with aria-valuenow/min/max; expose the threshold state in text.
+Notes: Origin: LeadScrapper Pro quota/usage bars.
+Example:
+<div class="n-meter n-meter-warning">
+  <div class="n-meter-header">
+    <span class="n-meter-label">Searches</span>
+    <span class="n-meter-value">82 / 100</span>
+  </div>
+  <div class="n-meter-track">
+    <div class="n-meter-fill" style="--n-meter-value: 82%"></div>
+  </div>
+</div>
+
+## n-gauge — Gauge
+Radial score ring driven by the --n-gauge-value custom property (0–100).
+Variants: n-gauge-success, n-gauge-warning, n-gauge-danger
+Sizes: n-gauge-sm, n-gauge-lg
+Parts: n-gauge-value, n-gauge-label
+Accessibility: Give the gauge role="img" (or role="meter") and an aria-label with the numeric value.
+Notes: Origin: LeadScrapper Pro lead/audit scores.
+Example:
+<div class="n-gauge n-gauge-success" style="--n-gauge-value: 74" role="img" aria-label="Score 74 of 100">
+  <span class="n-gauge-value">74</span>
+</div>
+
+## n-segmented — Segmented control
+Single-select pill group for filtering or switching views.
+Sizes: n-segmented-sm
+Parts: n-segmented-item
+States: aria-selected, hover, focus-visible
+Accessibility: Mark the active segment with aria-selected (tablist) or aria-pressed (toggle group); it is not signalled by colour alone.
+Notes: Origin: LeadScrapper Pro lead filters and Itiner trip-status pills.
+Example:
+<div class="n-segmented" role="tablist">
+  <button class="n-segmented-item" role="tab" aria-selected="true">All</button>
+  <button class="n-segmented-item" role="tab" aria-selected="false">Audited</button>
+  <button class="n-segmented-item" role="tab" aria-selected="false">Contacted</button>
+</div>
+
+## n-stat-grid — Stat grid
+Responsive auto-fit wrapper for n-stat or metric tiles.
+Notes: Origin: dashboard metric rows in both products. Compose with n-icon-tile for an icon.
+Example:
+<div class="n-stat-grid">
+  <div class="n-stat">
+    <span class="n-stat-label">Leads found</span>
+    <span class="n-stat-value">1,284</span>
+  </div>
+  <div class="n-stat">
+    <span class="n-stat-label">Active scans</span>
+    <span class="n-stat-value">7</span>
+  </div>
+</div>
+
+## n-banner — Promo banner
+Wide, high-emphasis marketing/upgrade panel with an optional dark surface.
+Variants: n-banner-split, n-banner-dark
+Parts: n-banner-eyebrow, n-banner-title, n-banner-text, n-banner-actions, n-banner-media
+Notes: Origin: LeadScrapper Pro upgrade banner. Add n-banner-split for a side-by-side layout at ≥768px.
+Example:
+<section class="n-banner n-banner-split n-banner-dark">
+  <div>
+    <p class="n-banner-eyebrow">Premium</p>
+    <h2 class="n-banner-title">Unlock market insights</h2>
+    <p class="n-banner-text">Daily AI deep-dives into every lead you discover.</p>
+  </div>
+  <div class="n-banner-actions">
+    <button class="n-btn n-btn-primary">Upgrade</button>
+  </div>
+</section>
+
+## n-dock — Action dock
+Bottom-centered floating bar of actions; the page scrolls behind it.
+Variants: n-dock-bar-dark
+Parts: n-dock-bar, n-dock-item, n-dock-divider
+Accessibility: Keep discernible names on icon-only items (aria-label). The dock does not trap focus.
+Notes: Origin: Itiner client-portal floating bar.
+Example:
+<div class="n-dock">
+  <div class="n-dock-bar n-dock-bar-dark">
+    <button class="n-dock-item">Request change</button>
+    <span class="n-dock-divider" aria-hidden="true"></span>
+    <button class="n-dock-item">Ask for help</button>
+  </div>
+</div>
+
+## n-cookie-bar — Consent bar
+Persistent bottom notice bar with an actions cluster (e.g. cookie consent).
+Parts: n-cookie-bar-text, n-cookie-bar-actions
+Responsive: yes
+Accessibility: Use role="dialog" with a label; make Decline as prominent as Accept; do not trap the whole page.
+Notes: Origin: Itiner and LeadScrapper Pro cookie banners.
+Example:
+<div class="n-cookie-bar" role="dialog" aria-label="Cookie consent">
+  <p class="n-cookie-bar-text">We use cookies to improve the product.</p>
+  <div class="n-cookie-bar-actions">
+    <button class="n-btn n-btn-light">Decline</button>
+    <button class="n-btn n-btn-primary">Accept</button>
+  </div>
+</div>
+
+## n-combobox — Combobox
+Typeahead input paired with a results list. Wrap an n-input and a list.
+Parts: n-combobox-list, n-combobox-option, n-combobox-empty
+States: aria-selected, hover
+Accessibility: Follow the ARIA combobox pattern (aria-expanded, aria-controls, aria-activedescendant); Enter selects the active option instead of submitting.
+Notes: Origin: Itiner place autocomplete and LeadScrapper Pro niche picker. Requires JS for filtering + keyboard nav.
+Example:
+<div class="n-combobox">
+  <input class="n-input" type="text" role="combobox" aria-expanded="true" aria-controls="places" placeholder="Search city">
+  <ul class="n-combobox-list" id="places" role="listbox">
+    <li><button class="n-combobox-option" role="option" aria-selected="true">Lisbon, Portugal</button></li>
+    <li><button class="n-combobox-option" role="option" aria-selected="false">Lima, Peru</button></li>
+  </ul>
+</div>
+
+## n-timeline — Timeline
+Vertical connector list with a numbered or icon marker per item.
+Parts: n-timeline-item, n-timeline-marker, n-timeline-marker-muted, n-timeline-title, n-timeline-meta, n-timeline-content
+Notes: Origin: Itiner itinerary day timeline. Reusable for feeds, tracking, and steppers.
+Example:
+<ol class="n-timeline">
+  <li class="n-timeline-item">
+    <span class="n-timeline-marker">1</span>
+    <p class="n-timeline-title">Arrive in Lisbon</p>
+    <p class="n-timeline-meta">Day 1 · Hotel check-in</p>
+  </li>
+  <li class="n-timeline-item">
+    <span class="n-timeline-marker n-timeline-marker-muted">2</span>
+    <p class="n-timeline-title">Free day</p>
+  </li>
+</ol>
+
+## n-plan — Pricing plan
+Pricing tier card with price, feature list, and a featured/inverted state.
+Variants: n-plan-featured, n-plan-inverted
+Parts: n-plan-grid, n-plan-ribbon, n-plan-name, n-plan-price, n-plan-period, n-plan-desc, n-plan-features, n-plan-feature
+Notes: Origin: pricing pages of both products. Use n-plan-inverted for a solid-brand featured tier.
+Example:
+<div class="n-plan-grid">
+  <div class="n-plan n-plan-featured">
+    <span class="n-plan-ribbon">Popular</span>
+    <p class="n-plan-name">Pro</p>
+    <p class="n-plan-price">$49<span class="n-plan-period">/mo</span></p>
+    <ul class="n-plan-features">
+      <li class="n-plan-feature">500 audits / month</li>
+      <li class="n-plan-feature">CSV export</li>
+    </ul>
+    <button class="n-btn n-btn-primary">Choose Pro</button>
+  </div>
+</div>
+
+## n-checklist — Checklist
+Onboarding task list; mark finished rows with n-checklist-done.
+Parts: n-checklist-item, n-checklist-marker, n-checklist-done
+Accessibility: Do not rely on colour alone for completion — pair the state with an icon or text.
+Notes: Origin: Itiner onboarding checklist.
+Example:
+<ul class="n-checklist">
+  <li class="n-checklist-item n-checklist-done">
+    <span class="n-checklist-marker" aria-hidden="true">✓</span>
+    <span>Create your first trip</span>
+  </li>
+  <li class="n-checklist-item">
+    <span class="n-checklist-marker" aria-hidden="true">○</span>
+    <span>Invite a team member</span>
+  </li>
+</ul>
+
+## n-table-stack — Responsive table
+Table modifier that collapses each row into a card below 768px using data-label.
+Accessibility: Give every <td> a data-label matching its column header so the stacked card keeps label→value pairing.
+Notes: Origin: LeadScrapper Pro recent-discoveries table. Combine with n-table.
+Example:
+<table class="n-table n-table-stack">
+  <thead><tr><th>Business</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr>
+      <td data-label="Business">Blue Bottle</td>
+      <td data-label="Status">Enriched</td>
+    </tr>
+  </tbody>
+</table>
+
+## n-search-field — Search field
+Input wrapper with a built-in leading search glyph.
+Parts: n-search-input
+Accessibility: Give the input an associated <label> or aria-label; the glyph is decorative.
+Notes: Origin: search bars in both products (Itiner trip search, LeadScrapper prospect search).
+Example:
+<div class="n-search-field">
+  <input class="n-input n-search-input" type="search" placeholder="Search leads">
+</div>
+
+## n-footer — Marketing footer
+Multi-column site footer with a link grid and a bottom bar.
+Recommended element: <footer>
+Parts: n-footer-grid, n-footer-col, n-footer-title, n-footer-bottom
+Notes: Origin: marketing footers in both products.
+Example:
+<footer class="n-footer">
+  <div class="n-container">
+    <div class="n-footer-grid">
+      <div class="n-footer-col">
+        <p class="n-footer-title">Product</p>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+      </div>
+      <div class="n-footer-col">
+        <p class="n-footer-title">Legal</p>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="n-footer-bottom">
+      <span>© 2026 Acme</span>
+      <span>Made with Nucleus</span>
+    </div>
+  </div>
+</footer>
+
+## n-signal-list — Signal list
+Dotted list for pro/con or insight bullets, colour-coded by sentiment.
+Parts: n-signal, n-signal-positive, n-signal-negative, n-signal-neutral
+Accessibility: Sentiment is dot-colour plus position — keep the text self-describing so it does not rely on colour alone.
+Notes: Origin: LeadScrapper Pro audit "what's working / needs fixing" lists.
+Example:
+<ul class="n-signal-list">
+  <li class="n-signal n-signal-positive">Fast, secure checkout</li>
+  <li class="n-signal n-signal-negative">No mobile layout</li>
+  <li class="n-signal n-signal-neutral">Blog last updated 2019</li>
+</ul>
+
 ============================================================
 ALL CLASSES BY CATEGORY
 ============================================================
 
 --- Layout (92) ---
-.n-aspect-square — Sets aspect-ratio: 1.
-.n-aspect-video — Sets aspect-ratio: 16 / 9.
-.n-auto-grid — Applies display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 16rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)).
-.n-cluster — Applies display: flex; flex-wrap: wrap; align-items: center; gap: var(--n-cluster-gap, var(--n-space-2)).
-.n-col-1 — Sets grid-column: span 1.
-.n-col-10 — Sets grid-column: span 10.
-.n-col-11 — Sets grid-column: span 11.
-.n-col-12 — Sets grid-column: span 12.
-.n-col-2 — Sets grid-column: span 2.
-.n-col-3 — Sets grid-column: span 3.
-.n-col-4 — Sets grid-column: span 4.
-.n-col-5 — Sets grid-column: span 5.
-.n-col-6 — Sets grid-column: span 6.
-.n-col-7 — Sets grid-column: span 7.
-.n-col-8 — Sets grid-column: span 8.
-.n-col-9 — Sets grid-column: span 9.
-.n-col-lg-1 — Sets grid-column: span 1.
-.n-col-lg-10 — Sets grid-column: span 10.
-.n-col-lg-11 — Sets grid-column: span 11.
-.n-col-lg-12 — Sets grid-column: span 12.
-.n-col-lg-2 — Sets grid-column: span 2.
-.n-col-lg-3 — Sets grid-column: span 3.
-.n-col-lg-4 — Sets grid-column: span 4.
-.n-col-lg-5 — Sets grid-column: span 5.
-.n-col-lg-6 — Sets grid-column: span 6.
-.n-col-lg-7 — Sets grid-column: span 7.
-.n-col-lg-8 — Sets grid-column: span 8.
-.n-col-lg-9 — Sets grid-column: span 9.
-.n-col-md-1 — Sets grid-column: span 1.
-.n-col-md-10 — Sets grid-column: span 10.
-.n-col-md-11 — Sets grid-column: span 11.
-.n-col-md-12 — Sets grid-column: span 12.
-.n-col-md-2 — Sets grid-column: span 2.
-.n-col-md-3 — Sets grid-column: span 3.
-.n-col-md-4 — Sets grid-column: span 4.
-.n-col-md-5 — Sets grid-column: span 5.
-.n-col-md-6 — Sets grid-column: span 6.
-.n-col-md-7 — Sets grid-column: span 7.
-.n-col-md-8 — Sets grid-column: span 8.
-.n-col-md-9 — Sets grid-column: span 9.
-.n-col-sm-1 — Sets grid-column: span 1.
-.n-col-sm-10 — Sets grid-column: span 10.
-.n-col-sm-11 — Sets grid-column: span 11.
-.n-col-sm-12 — Sets grid-column: span 12.
-.n-col-sm-2 — Sets grid-column: span 2.
-.n-col-sm-3 — Sets grid-column: span 3.
-.n-col-sm-4 — Sets grid-column: span 4.
-.n-col-sm-5 — Sets grid-column: span 5.
-.n-col-sm-6 — Sets grid-column: span 6.
-.n-col-sm-7 — Sets grid-column: span 7.
-.n-col-sm-8 — Sets grid-column: span 8.
-.n-col-sm-9 — Sets grid-column: span 9.
-.n-col-xl-1 — Sets grid-column: span 1.
-.n-col-xl-10 — Sets grid-column: span 10.
-.n-col-xl-11 — Sets grid-column: span 11.
-.n-col-xl-12 — Sets grid-column: span 12.
-.n-col-xl-2 — Sets grid-column: span 2.
-.n-col-xl-3 — Sets grid-column: span 3.
-.n-col-xl-4 — Sets grid-column: span 4.
-.n-col-xl-5 — Sets grid-column: span 5.
-.n-col-xl-6 — Sets grid-column: span 6.
-.n-col-xl-7 — Sets grid-column: span 7.
-.n-col-xl-8 — Sets grid-column: span 8.
-.n-col-xl-9 — Sets grid-column: span 9.
-.n-container — Applies width: 100%; margin-inline: auto; padding-inline: var(--n-gutter).
-.n-container-fluid — Applies width: 100%; margin-inline: auto; padding-inline: var(--n-gutter); max-width: none.
-.n-container-query — Sets container-type: inline-size.
-.n-content — Applies width: min(100% - 2rem, 70ch); margin-inline: auto.
-.n-cover — Applies display: flex; min-height: var(--n-cover-height, 100dvh); flex-direction: column; padding: var(--n-space-3).
-.n-cover-center — Nucleus utility class (`.n-cover-center`).
-.n-cq-row — Applies display: flex; align-items: center; gap: var(--n-space-3).
-.n-flow — Nucleus utility class (`.n-flow`).
-.n-frame — Applies overflow: hidden; aspect-ratio: var(--n-frame-ratio, 16 / 9).
-.n-grid-auto-fill — Applies display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)).
-.n-grid-auto-fit — Applies display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)).
-.n-object-contain — Sets object-fit: contain.
-.n-object-cover — Sets object-fit: cover.
-.n-order-1 — Sets order: 1.
-.n-order-2 — Sets order: 2.
-.n-order-3 — Sets order: 3.
-.n-order-4 — Sets order: 4.
-.n-order-5 — Sets order: 5.
-.n-order-first — Sets order: -9999.
-.n-order-last — Sets order: 9999.
-.n-place-center — Sets place-items: center.
-.n-reel — Applies display: flex; gap: var(--n-reel-gap, var(--n-gutter)); overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; padding-block-end: var(--n-space-2).
-.n-row — Applies display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--n-gutter).
-.n-section — Sets padding-block: var(--n-section-space).
-.n-sidebar-layout — Applies display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--n-sidebar-gap, var(--n-space-4)).
-.n-sidebar-right — Nucleus utility class (`.n-sidebar-right`).
-.n-split — Applies display: flex; align-items: center; justify-content: space-between; gap: var(--n-space-3).
-.n-switcher — Applies display: flex; flex-wrap: wrap; gap: var(--n-switcher-gap, var(--n-gutter)).
+.n-aspect-square — Sets aspect-ratio: 1. [role=layout]
+.n-aspect-video — Sets aspect-ratio: 16 / 9. [role=layout]
+.n-auto-grid — Applies display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 16rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)). [role=layout; gotcha=Uses a 16rem default minimum column width. Override --n-grid-min when needed.]
+.n-cluster — Applies display: flex; flex-wrap: wrap; align-items: center; gap: var(--n-cluster-gap, var(--n-space-2)). [role=layout]
+.n-col-1 — Sets grid-column: span 1. [role=component-part]
+.n-col-10 — Sets grid-column: span 10. [role=layout]
+.n-col-11 — Sets grid-column: span 11. [role=layout]
+.n-col-12 — Sets grid-column: span 12. [role=component-part]
+.n-col-2 — Sets grid-column: span 2. [role=layout]
+.n-col-3 — Sets grid-column: span 3. [role=layout]
+.n-col-4 — Sets grid-column: span 4. [role=layout]
+.n-col-5 — Sets grid-column: span 5. [role=layout]
+.n-col-6 — Sets grid-column: span 6. [role=component-part]
+.n-col-7 — Sets grid-column: span 7. [role=layout]
+.n-col-8 — Sets grid-column: span 8. [role=layout]
+.n-col-9 — Sets grid-column: span 9. [role=layout]
+.n-col-lg-1 — Sets grid-column: span 1. [role=layout]
+.n-col-lg-10 — Sets grid-column: span 10. [role=layout]
+.n-col-lg-11 — Sets grid-column: span 11. [role=layout]
+.n-col-lg-12 — Sets grid-column: span 12. [role=layout]
+.n-col-lg-2 — Sets grid-column: span 2. [role=layout]
+.n-col-lg-3 — Sets grid-column: span 3. [role=layout]
+.n-col-lg-4 — Sets grid-column: span 4. [role=component-part]
+.n-col-lg-5 — Sets grid-column: span 5. [role=layout]
+.n-col-lg-6 — Sets grid-column: span 6. [role=layout]
+.n-col-lg-7 — Sets grid-column: span 7. [role=layout]
+.n-col-lg-8 — Sets grid-column: span 8. [role=layout]
+.n-col-lg-9 — Sets grid-column: span 9. [role=layout]
+.n-col-md-1 — Sets grid-column: span 1. [role=layout]
+.n-col-md-10 — Sets grid-column: span 10. [role=layout]
+.n-col-md-11 — Sets grid-column: span 11. [role=layout]
+.n-col-md-12 — Sets grid-column: span 12. [role=layout]
+.n-col-md-2 — Sets grid-column: span 2. [role=layout]
+.n-col-md-3 — Sets grid-column: span 3. [role=layout]
+.n-col-md-4 — Sets grid-column: span 4. [role=layout]
+.n-col-md-5 — Sets grid-column: span 5. [role=layout]
+.n-col-md-6 — Sets grid-column: span 6. [role=component-part]
+.n-col-md-7 — Sets grid-column: span 7. [role=layout]
+.n-col-md-8 — Sets grid-column: span 8. [role=layout]
+.n-col-md-9 — Sets grid-column: span 9. [role=layout]
+.n-col-sm-1 — Sets grid-column: span 1. [role=layout]
+.n-col-sm-10 — Sets grid-column: span 10. [role=layout]
+.n-col-sm-11 — Sets grid-column: span 11. [role=layout]
+.n-col-sm-12 — Sets grid-column: span 12. [role=layout]
+.n-col-sm-2 — Sets grid-column: span 2. [role=layout]
+.n-col-sm-3 — Sets grid-column: span 3. [role=layout]
+.n-col-sm-4 — Sets grid-column: span 4. [role=layout]
+.n-col-sm-5 — Sets grid-column: span 5. [role=layout]
+.n-col-sm-6 — Sets grid-column: span 6. [role=layout]
+.n-col-sm-7 — Sets grid-column: span 7. [role=layout]
+.n-col-sm-8 — Sets grid-column: span 8. [role=layout]
+.n-col-sm-9 — Sets grid-column: span 9. [role=layout]
+.n-col-xl-1 — Sets grid-column: span 1. [role=layout]
+.n-col-xl-10 — Sets grid-column: span 10. [role=layout]
+.n-col-xl-11 — Sets grid-column: span 11. [role=layout]
+.n-col-xl-12 — Sets grid-column: span 12. [role=layout]
+.n-col-xl-2 — Sets grid-column: span 2. [role=layout]
+.n-col-xl-3 — Sets grid-column: span 3. [role=layout]
+.n-col-xl-4 — Sets grid-column: span 4. [role=layout]
+.n-col-xl-5 — Sets grid-column: span 5. [role=layout]
+.n-col-xl-6 — Sets grid-column: span 6. [role=layout]
+.n-col-xl-7 — Sets grid-column: span 7. [role=layout]
+.n-col-xl-8 — Sets grid-column: span 8. [role=layout]
+.n-col-xl-9 — Sets grid-column: span 9. [role=layout]
+.n-container — Applies width: 100%; margin-inline: auto; padding-inline: var(--n-gutter). [role=layout]
+.n-container-fluid — Applies width: 100%; margin-inline: auto; padding-inline: var(--n-gutter); max-width: none. [role=component-part]
+.n-container-query — Sets container-type: inline-size. [role=layout]
+.n-content — Applies width: min(100% - 2rem, 70ch); margin-inline: auto. [role=layout]
+.n-cover — Applies display: flex; min-height: var(--n-cover-height, 100dvh); flex-direction: column; padding: var(--n-space-3). [role=layout]
+.n-cover-center — Nucleus utility class (`.n-cover-center`). [role=layout]
+.n-cq-row — Applies display: flex; align-items: center; gap: var(--n-space-3). [role=layout]
+.n-flow — Nucleus utility class (`.n-flow`). [role=layout]
+.n-frame — Applies overflow: hidden; aspect-ratio: var(--n-frame-ratio, 16 / 9). [role=layout]
+.n-grid-auto-fill — Applies display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)). [role=component-part]
+.n-grid-auto-fit — Applies display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--n-grid-min, 14rem)), 1fr)); gap: var(--n-grid-gap, var(--n-gutter)). [role=component-part; gotcha=Uses a 14rem default minimum column width, so it is not an alias of n-auto-grid.]
+.n-object-contain — Sets object-fit: contain. [role=layout]
+.n-object-cover — Sets object-fit: cover. [role=layout]
+.n-order-1 — Sets order: 1. [role=layout]
+.n-order-2 — Sets order: 2. [role=layout]
+.n-order-3 — Sets order: 3. [role=layout]
+.n-order-4 — Sets order: 4. [role=layout]
+.n-order-5 — Sets order: 5. [role=layout]
+.n-order-first — Sets order: -9999. [role=layout]
+.n-order-last — Sets order: 9999. [role=layout]
+.n-place-center — Sets place-items: center. [role=layout; gotcha=Only sets place-items: center; the element must already be a compatible layout container.]
+.n-reel — Applies display: flex; gap: var(--n-reel-gap, var(--n-gutter)); overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; padding-block-end: var(--n-space-2). [role=layout]
+.n-row — Applies display: grid; grid-template-columns: repeat(12, 1fr); gap: var(--n-gutter). [role=layout]
+.n-section — Sets padding-block: var(--n-section-space). [role=layout]
+.n-sidebar-layout — Applies display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--n-sidebar-gap, var(--n-space-4)). [role=layout]
+.n-sidebar-right — Nucleus utility class (`.n-sidebar-right`). [role=component-part]
+.n-split — Applies display: flex; align-items: center; justify-content: space-between; gap: var(--n-space-3). [role=layout]
+.n-switcher — Applies display: flex; flex-wrap: wrap; gap: var(--n-switcher-gap, var(--n-gutter)). [role=layout]
 
---- Component (155) ---
-.n-accordion — Disclosure group built on native <details>/<summary>.
-.n-accordion-panel — Accordion modifier/part (see .n-accordion).
-.n-alert — Colored message banner for contextual feedback.
-.n-alert-danger — Alert modifier/part (see .n-alert).
-.n-alert-info — Alert modifier/part (see .n-alert).
-.n-alert-primary — Alert modifier/part (see .n-alert).
-.n-alert-success — Alert modifier/part (see .n-alert).
-.n-alert-warning — Alert modifier/part (see .n-alert).
-.n-avatar-group — Avatar modifier/part (see .n-avatar).
-.n-backdrop-blur — Applies backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px).
-.n-badge — Small pill for counts, labels, or status.
-.n-badge-danger — Badge modifier/part (see .n-badge).
-.n-badge-dark — Badge modifier/part (see .n-badge).
-.n-badge-info — Badge modifier/part (see .n-badge).
-.n-badge-primary — Badge modifier/part (see .n-badge).
-.n-badge-secondary — Badge modifier/part (see .n-badge).
-.n-badge-soft — Badge modifier/part (see .n-badge).
-.n-badge-success — Badge modifier/part (see .n-badge).
-.n-badge-warning — Badge modifier/part (see .n-badge).
-.n-blur-sm — Sets filter: blur(4px).
-.n-breadcrumb — Ordered trail of ancestor links.
-.n-btn — Base button. Combine with a color variant and optional size.
-.n-btn-danger — Button modifier/part (see .n-btn).
-.n-btn-dark — Button modifier/part (see .n-btn).
-.n-btn-ghost — Button modifier/part (see .n-btn).
-.n-btn-info — Button modifier/part (see .n-btn).
-.n-btn-lg — Button modifier/part (see .n-btn).
-.n-btn-light — Button modifier/part (see .n-btn).
-.n-btn-outline-danger — Button modifier/part (see .n-btn).
-.n-btn-outline-primary — Button modifier/part (see .n-btn).
-.n-btn-outline-secondary — Button modifier/part (see .n-btn).
-.n-btn-outline-success — Button modifier/part (see .n-btn).
-.n-btn-primary — Button modifier/part (see .n-btn).
-.n-btn-secondary — Button modifier/part (see .n-btn).
-.n-btn-sm — Button modifier/part (see .n-btn).
-.n-btn-success — Button modifier/part (see .n-btn).
-.n-btn-warning — Button modifier/part (see .n-btn).
-.n-button-group — Button modifier/part (see .n-btn).
-.n-callout — Boxed aside for tips and warnings.
-.n-callout-danger — Callout modifier/part (see .n-callout).
-.n-callout-primary — Callout modifier/part (see .n-callout).
-.n-callout-success — Callout modifier/part (see .n-callout).
-.n-callout-title — Callout modifier/part (see .n-callout).
-.n-card — Surface container with optional header, body, and footer regions.
-.n-card-body — Card modifier/part (see .n-card).
-.n-card-elevated — Card modifier/part (see .n-card).
-.n-card-footer — Card modifier/part (see .n-card).
-.n-card-header — Card modifier/part (see .n-card).
-.n-card-img — Card modifier/part (see .n-card).
-.n-card-interactive — Card modifier/part (see .n-card).
-.n-center — Applies display: grid; place-items: center.
-.n-character-count — Applies margin-block-start: 0.25rem; color: var(--n-text-muted); font-size: var(--n-text-xs); text-align: end.
-.n-checkbox — Inline label wrapper for a native checkbox or radio.
-.n-chip — Compact token, optionally removable.
-.n-chip-removable — Chip modifier/part (see .n-chip).
-.n-chip-remove — Chip modifier/part (see .n-chip).
-.n-clamp-2 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.
-.n-clamp-3 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.
-.n-dialog — Native <dialog> modal. Open with dialog.showModal() in JavaScript.
-.n-dialog-body — Dialog modifier/part (see .n-dialog).
-.n-dialog-footer — Dialog modifier/part (see .n-dialog).
-.n-dialog-header — Dialog modifier/part (see .n-dialog).
-.n-disabled — Applies opacity: 0.5; pointer-events: none; cursor: not-allowed.
-.n-divider-gradient — Applies height: 1px; border: 0; background: linear-gradient(90deg, transparent, var(--n-border-color), transparent).
-.n-drawer — Edge-anchored <dialog> panel.
-.n-drawer-left — Drawer modifier/part (see .n-drawer).
-.n-dropdown — Menu surface of n-dropdown-item rows. Best inside a popover.
-.n-dropdown-item — Dropdown menu modifier/part (see .n-dropdown).
-.n-empty-state — Centered placeholder for empty views.
-.n-empty-state-icon — Empty state modifier/part (see .n-empty-state).
-.n-error-text — Text input modifier/part (see .n-input).
-.n-field-row — Fieldset modifier/part (see .n-fieldset).
-.n-fieldset — Grouped form controls with a legend.
-.n-file-input — Applies width: 100%; border: 1px solid var(--n-border-color); border-radius: var(--n-radius); background: var(--n-bg); color: var(--n-text-muted).
-.n-form-grid — Fieldset modifier/part (see .n-fieldset).
-.n-form-group — Text input modifier/part (see .n-input).
-.n-gradient-border — Applies position: relative; border: 1px solid transparent; background: linear-gradient(var(--n-bg), var(--n-bg)) padding-box, linear-gradient(135deg, rgba(99,102,241,.8), rgba(14,165,233,.55)) border-box.
-.n-gradient-mesh — Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(15, 118, 110, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(20, 125, 116, 0.12), transparent 32%).
-.n-gradient-primary — Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); color: #fff.
-.n-gradient-text — Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); -webkit-background-clip: text; background-clip: text; color: transparent.
-.n-grayscale — Sets filter: grayscale(1).
-.n-helper-text — Text input modifier/part (see .n-input).
-.n-hover-lift — Sets transition: transform var(--n-duration) var(--n-ease), box-shadow var(--n-duration) var(--n-ease).
-.n-hover-scale — Sets transition: transform var(--n-duration) var(--n-ease).
-.n-input — Full-width text field. Pair with n-label inside an n-form-group.
-.n-input-error — Text input modifier/part (see .n-input).
-.n-input-group — Joins an input with prefix/suffix add-ons or a button.
-.n-input-lg — Text input modifier/part (see .n-input).
-.n-input-loading — Sets position: relative.
-.n-input-prefix — Input group modifier/part (see .n-input-group).
-.n-input-sm — Text input modifier/part (see .n-input).
-.n-input-success — Text input modifier/part (see .n-input).
-.n-input-suffix — Input group modifier/part (see .n-input-group).
-.n-invalid — Sets border-color: var(--n-danger).
-.n-label — Text input modifier/part (see .n-input).
-.n-list — Applies list-style: none; padding: 0.
-.n-list-group — Bordered vertical list of rows.
-.n-list-group-item — List group modifier/part (see .n-list-group).
-.n-list-inline — Applies list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem.
-.n-list-unstyled — Applies list-style: none; padding-left: 0.
-.n-nav — Navbar modifier/part (see .n-navbar).
-.n-nav-item — Navbar modifier/part (see .n-navbar).
-.n-nav-link — Navbar modifier/part (see .n-navbar).
-.n-navbar — Sticky top navigation bar with brand and nav links.
-.n-navbar-brand — Navbar modifier/part (see .n-navbar).
-.n-noise — Sets background-image: repeating-radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 4px).
-.n-page-atmosphere — Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed.
-.n-pagination — List of page links; mark the current page with aria-current.
-.n-pagination-link — Pagination modifier/part (see .n-pagination).
-.n-popover — Dropdown menu modifier/part (see .n-dropdown).
-.n-press — Nucleus utility class (`.n-press`).
-.n-progress — Native <progress> element styling.
-.n-radio — Checkbox / radio modifier/part (see .n-checkbox).
-.n-range — Applies width: 100%; accent-color: var(--n-primary).
-.n-readonly — Applies background: var(--n-bg-muted); cursor: default.
-.n-required — Nucleus utility class (`.n-required`).
-.n-ring — Sets box-shadow: 0 0 0 1px rgba(99,102,241,.15), 0 0 0 4px rgba(99,102,241,.08).
-.n-ring-danger — Sets box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.18).
-.n-ring-success — Sets box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.18).
-.n-saturate — Sets filter: saturate(1.5).
-.n-search-field — Sets position: relative.
-.n-search-input — Sets padding-inline-start: 2.5rem.
-.n-select — Styled native select with a custom chevron.
-.n-shadow-glow — Sets box-shadow: var(--n-shadow-glow).
-.n-shadow-inner — Sets box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.08).
-.n-skeleton — Shimmering placeholder for loading content.
-.n-skeleton-circle — Skeleton modifier/part (see .n-skeleton).
-.n-skeleton-text — Skeleton modifier/part (see .n-skeleton).
-.n-spinner — Indeterminate loading indicator.
-.n-spinner-lg — Spinner modifier/part (see .n-spinner).
-.n-spinner-sm — Spinner modifier/part (see .n-spinner).
-.n-stack — Vertical grid stack with a consistent gap between children.
-.n-stat — Labeled metric with a large value and optional change indicator.
-.n-stat-change — Stat modifier/part (see .n-stat).
-.n-stat-label — Stat modifier/part (see .n-stat).
-.n-stat-value — Stat modifier/part (see .n-stat).
-.n-surface — Elevated panel with border, radius, and soft shadow.
-.n-surface-glass — Surface modifier/part (see .n-surface).
-.n-surface-overlay — Surface modifier/part (see .n-surface).
-.n-surface-raised — Surface modifier/part (see .n-surface).
-.n-surface-sunken — Surface modifier/part (see .n-surface).
-.n-switch — Accessible toggle built from a visually-hidden checkbox and a track.
-.n-switch-track — Switch modifier/part (see .n-switch).
-.n-tab — Tabs modifier/part (see .n-tabs).
-.n-tab-panel — Tabs modifier/part (see .n-tabs).
-.n-table — Base table styling with striped/hover/bordered variants.
-.n-table-bordered — Table modifier/part (see .n-table).
-.n-table-hover — Table modifier/part (see .n-table).
-.n-table-striped — Table modifier/part (see .n-table).
-.n-tabs — Horizontal tablist. Toggle aria-selected in JavaScript.
-.n-textarea — Vertically resizable multi-line text field.
-.n-toast — Transient notification; stack with n-toast-stack.
-.n-toast-stack — Toast modifier/part (see .n-toast).
-.n-tooltip — CSS-only tooltip driven by the data-tooltip attribute.
-.n-valid — Sets border-color: var(--n-success).
+--- Component (259) ---
+.n-accordion — Disclosure group built on native <details>/<summary>. [role=component]
+.n-accordion-panel — Accordion modifier/part (see .n-accordion). [role=component-part]
+.n-alert — Colored message banner for contextual feedback. [role=component]
+.n-alert-danger — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-dark — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-info — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-light — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-primary — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-secondary — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-success — Alert modifier/part (see .n-alert). [role=variant]
+.n-alert-warning — Alert modifier/part (see .n-alert). [role=variant]
+.n-avatar-group — Avatar modifier/part (see .n-avatar). [role=component-part]
+.n-backdrop-blur — Applies backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px). [role=component-part]
+.n-badge — Small pill for counts, labels, or status. [role=component]
+.n-badge-danger — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-dark — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-info — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-light — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-primary — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-secondary — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-soft — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-success — Badge modifier/part (see .n-badge). [role=variant]
+.n-badge-warning — Badge modifier/part (see .n-badge). [role=variant]
+.n-banner — Wide, high-emphasis marketing/upgrade panel with an optional dark surface. [role=component]
+.n-banner-actions — Promo banner modifier/part (see .n-banner). [role=component-part]
+.n-banner-dark — Promo banner modifier/part (see .n-banner). [role=variant]
+.n-banner-eyebrow — Promo banner modifier/part (see .n-banner). [role=component-part]
+.n-banner-media — Promo banner modifier/part (see .n-banner). [role=component-part]
+.n-banner-split — Promo banner modifier/part (see .n-banner). [role=variant]
+.n-banner-text — Promo banner modifier/part (see .n-banner). [role=component-part]
+.n-banner-title — Promo banner modifier/part (see .n-banner). [role=component-part]
+.n-blur-sm — Sets filter: blur(4px). [role=component-part]
+.n-breadcrumb — Ordered trail of ancestor links. [role=component]
+.n-btn — Base button. Combine with a color variant and optional size. [role=component]
+.n-btn-danger — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-dark — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-ghost — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-info — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-lg — Button modifier/part (see .n-btn). [role=size]
+.n-btn-light — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-danger — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-dark — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-info — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-light — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-primary — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-secondary — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-success — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-outline-warning — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-primary — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-secondary — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-sm — Button modifier/part (see .n-btn). [role=size]
+.n-btn-success — Button modifier/part (see .n-btn). [role=variant]
+.n-btn-warning — Button modifier/part (see .n-btn). [role=variant]
+.n-button-group — Button modifier/part (see .n-btn). [role=component-part]
+.n-callout — Boxed aside for tips and warnings. [role=component]
+.n-callout-danger — Callout modifier/part (see .n-callout). [role=variant]
+.n-callout-primary — Callout modifier/part (see .n-callout). [role=variant]
+.n-callout-success — Callout modifier/part (see .n-callout). [role=variant]
+.n-callout-title — Callout modifier/part (see .n-callout). [role=component-part]
+.n-card — Surface container with optional header, body, and footer regions. [role=component]
+.n-card-body — Card modifier/part (see .n-card). [role=component-part]
+.n-card-elevated — Card modifier/part (see .n-card). [role=variant]
+.n-card-footer — Card modifier/part (see .n-card). [role=component-part]
+.n-card-header — Card modifier/part (see .n-card). [role=component-part]
+.n-card-img — Card modifier/part (see .n-card). [role=component-part]
+.n-card-interactive — Card modifier/part (see .n-card). [role=variant]
+.n-center — Applies display: grid; place-items: center. [role=component-part; gotcha=Creates a grid formatting context and centers its children on both axes.]
+.n-character-count — Applies margin-block-start: 0.25rem; color: var(--n-text-muted); font-size: var(--n-text-xs); text-align: end. [role=component-part]
+.n-checkbox — Inline label wrapper for a native checkbox or radio. [role=component]
+.n-checklist — Onboarding task list; mark finished rows with n-checklist-done. [role=component]
+.n-checklist-done — Checklist modifier/part (see .n-checklist). [role=component-part]
+.n-checklist-item — Checklist modifier/part (see .n-checklist). [role=component-part]
+.n-checklist-marker — Checklist modifier/part (see .n-checklist). [role=component-part]
+.n-chip — Compact token, optionally removable. [role=component]
+.n-chip-removable — Chip modifier/part (see .n-chip). [role=variant]
+.n-chip-remove — Chip modifier/part (see .n-chip). [role=component-part]
+.n-clamp-2 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden. [role=component-part]
+.n-clamp-3 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden. [role=component-part]
+.n-combobox — Typeahead input paired with a results list. Wrap an n-input and a list. [role=component]
+.n-combobox-empty — Combobox modifier/part (see .n-combobox). [role=component-part]
+.n-combobox-list — Combobox modifier/part (see .n-combobox). [role=component-part]
+.n-combobox-option — Combobox modifier/part (see .n-combobox). [role=component-part]
+.n-cookie-bar — Persistent bottom notice bar with an actions cluster (e.g. cookie consent). [role=component]
+.n-cookie-bar-actions — Consent bar modifier/part (see .n-cookie-bar). [role=component-part]
+.n-cookie-bar-text — Consent bar modifier/part (see .n-cookie-bar). [role=component-part]
+.n-dialog — Native <dialog> modal. Open with dialog.showModal() in JavaScript. [role=component]
+.n-dialog-body — Dialog modifier/part (see .n-dialog). [role=component-part]
+.n-dialog-footer — Dialog modifier/part (see .n-dialog). [role=component-part]
+.n-dialog-header — Dialog modifier/part (see .n-dialog). [role=component-part]
+.n-divider-gradient — Applies height: 1px; border: 0; background: linear-gradient(90deg, transparent, var(--n-border-color), transparent). [role=component-part]
+.n-dock — Bottom-centered floating bar of actions; the page scrolls behind it. [role=component]
+.n-dock-bar — Action dock modifier/part (see .n-dock). [role=component-part]
+.n-dock-bar-dark — Action dock modifier/part (see .n-dock). [role=variant]
+.n-dock-divider — Action dock modifier/part (see .n-dock). [role=component-part]
+.n-dock-item — Action dock modifier/part (see .n-dock). [role=component-part]
+.n-drawer — Edge-anchored <dialog> panel. [role=component]
+.n-drawer-left — Drawer modifier/part (see .n-drawer). [role=variant]
+.n-dropdown — Menu surface of n-dropdown-item rows. Best inside a popover. [role=component]
+.n-dropdown-item — Dropdown menu modifier/part (see .n-dropdown). [role=component-part]
+.n-empty-state — Centered placeholder for empty views. [role=component]
+.n-empty-state-icon — Empty state modifier/part (see .n-empty-state). [role=component-part]
+.n-error-text — Text input modifier/part (see .n-input). [role=component-part]
+.n-field-row — Fieldset modifier/part (see .n-fieldset). [role=component-part]
+.n-fieldset — Grouped form controls with a legend. [role=component]
+.n-file-input — Applies width: 100%; border: 1px solid var(--n-border-color); border-radius: var(--n-radius); background: var(--n-bg); color: var(--n-text-muted). [role=component-part]
+.n-footer — Multi-column site footer with a link grid and a bottom bar. [role=component]
+.n-footer-bottom — Marketing footer modifier/part (see .n-footer). [role=component-part]
+.n-footer-col — Marketing footer modifier/part (see .n-footer). [role=component-part]
+.n-footer-grid — Marketing footer modifier/part (see .n-footer). [role=component-part]
+.n-footer-title — Marketing footer modifier/part (see .n-footer). [role=component-part]
+.n-form-grid — Fieldset modifier/part (see .n-fieldset). [role=component-part]
+.n-form-group — Text input modifier/part (see .n-input). [role=component-part]
+.n-gauge — Radial score ring driven by the --n-gauge-value custom property (0–100). [role=component]
+.n-gauge-danger — Gauge modifier/part (see .n-gauge). [role=variant]
+.n-gauge-label — Gauge modifier/part (see .n-gauge). [role=component-part]
+.n-gauge-lg — Gauge modifier/part (see .n-gauge). [role=size]
+.n-gauge-sm — Gauge modifier/part (see .n-gauge). [role=size]
+.n-gauge-success — Gauge modifier/part (see .n-gauge). [role=variant]
+.n-gauge-value — Gauge modifier/part (see .n-gauge). [role=component-part]
+.n-gauge-warning — Gauge modifier/part (see .n-gauge). [role=variant]
+.n-gradient-border — Applies position: relative; border: 1px solid transparent; background: linear-gradient(var(--n-bg), var(--n-bg)) padding-box, linear-gradient(135deg, rgba(99,102,241,.8), rgba(14,165,233,.55)) border-box. [role=component-part]
+.n-gradient-mesh — Applies background-color: var(--n-bg); background-image: radial-gradient(circle at 10% 15%, rgba(15, 118, 110, 0.18), transparent 30%), radial-gradient(circle at 90% 10%, rgba(14, 116, 144, 0.14), transparent 28%), radial-gradient(circle at 70% 90%, rgba(20, 125, 116, 0.12), transparent 32%). [role=component-part]
+.n-gradient-primary — Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); color: #fff. [role=component-part]
+.n-gradient-text — Applies background: linear-gradient(135deg, var(--n-primary), var(--n-secondary)); -webkit-background-clip: text; background-clip: text; color: transparent. [role=component-part]
+.n-grayscale — Sets filter: grayscale(1). [role=component-part]
+.n-helper-text — Text input modifier/part (see .n-input). [role=component-part]
+.n-hover-lift — Sets transition: transform var(--n-duration) var(--n-ease), box-shadow var(--n-duration) var(--n-ease). [role=component-part]
+.n-hover-scale — Sets transition: transform var(--n-duration) var(--n-ease). [role=component-part]
+.n-icon-tile — Rounded container for a single icon, color-tinted to context. [role=component]
+.n-icon-tile-danger — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-icon-tile-info — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-icon-tile-lg — Icon tile modifier/part (see .n-icon-tile). [role=size]
+.n-icon-tile-neutral — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-icon-tile-primary — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-icon-tile-round — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-icon-tile-sm — Icon tile modifier/part (see .n-icon-tile). [role=size]
+.n-icon-tile-success — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-icon-tile-warning — Icon tile modifier/part (see .n-icon-tile). [role=variant]
+.n-input — Full-width text field. Pair with n-label inside an n-form-group. [role=component]
+.n-input-error — Text input modifier/part (see .n-input). [role=variant]
+.n-input-group — Joins an input with prefix/suffix add-ons or a button. [role=component]
+.n-input-lg — Text input modifier/part (see .n-input). [role=size]
+.n-input-loading — Sets position: relative. [role=component-part]
+.n-input-prefix — Input group modifier/part (see .n-input-group). [role=component-part]
+.n-input-sm — Text input modifier/part (see .n-input). [role=size]
+.n-input-success — Text input modifier/part (see .n-input). [role=variant]
+.n-input-suffix — Input group modifier/part (see .n-input-group). [role=component-part]
+.n-invalid — Sets border-color: var(--n-danger). [role=component-part]
+.n-label — Text input modifier/part (see .n-input). [role=component-part]
+.n-list — Applies list-style: none; padding: 0. [role=component-part]
+.n-list-group — Bordered vertical list of rows. [role=component]
+.n-list-group-item — List group modifier/part (see .n-list-group). [role=component-part]
+.n-list-inline — Applies list-style: none; padding-left: 0; display: flex; flex-wrap: wrap; gap: 1rem. [role=component-part]
+.n-list-unstyled — Applies list-style: none; padding-left: 0. [role=component-part]
+.n-meter — Labeled usage bar whose fill colour flips at a threshold. Set --n-meter-value. [role=component]
+.n-meter-danger — Meter modifier/part (see .n-meter). [role=variant]
+.n-meter-fill — Meter modifier/part (see .n-meter). [role=component-part]
+.n-meter-header — Meter modifier/part (see .n-meter). [role=component-part]
+.n-meter-label — Meter modifier/part (see .n-meter). [role=component-part]
+.n-meter-lg — Meter modifier/part (see .n-meter). [role=size]
+.n-meter-sm — Meter modifier/part (see .n-meter). [role=size]
+.n-meter-success — Meter modifier/part (see .n-meter). [role=variant]
+.n-meter-track — Meter modifier/part (see .n-meter). [role=component-part]
+.n-meter-value — Meter modifier/part (see .n-meter). [role=component-part]
+.n-meter-warning — Meter modifier/part (see .n-meter). [role=variant]
+.n-nav — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-nav-item — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-nav-link — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-navbar — Sticky top navigation bar with inline links or a CSS-only hamburger menu. [role=component]
+.n-navbar-brand — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-navbar-menu — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-navbar-toggle — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-navbar-toggle-icon — Navbar modifier/part (see .n-navbar). [role=component-part]
+.n-noise — Sets background-image: repeating-radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 4px). [role=component-part]
+.n-page-atmosphere — Applies background-color: var(--n-bg); background-image: radial-gradient(circle at top left, rgba(15, 118, 110, 0.08), transparent 32%), radial-gradient(circle at top right, rgba(14, 116, 144, 0.06), transparent 28%); background-attachment: fixed. [role=component-part]
+.n-pagination — List of page links; mark the current page with aria-current. [role=component]
+.n-pagination-link — Pagination modifier/part (see .n-pagination). [role=component-part]
+.n-plan — Pricing tier card with price, feature list, and a featured/inverted state. [role=component]
+.n-plan-desc — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-feature — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-featured — Pricing plan modifier/part (see .n-plan). [role=variant]
+.n-plan-features — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-grid — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-inverted — Pricing plan modifier/part (see .n-plan). [role=variant]
+.n-plan-name — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-period — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-price — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-plan-ribbon — Pricing plan modifier/part (see .n-plan). [role=component-part]
+.n-popover — Dropdown menu modifier/part (see .n-dropdown). [role=component-part]
+.n-press — Nucleus utility class (`.n-press`). [role=component-part]
+.n-progress — Native <progress> element styling. [role=component]
+.n-radio — Checkbox / radio modifier/part (see .n-checkbox). [role=component-part]
+.n-range — Applies width: 100%; accent-color: var(--n-primary). [role=component-part]
+.n-readonly — Applies background: var(--n-bg-muted); cursor: default. [role=component-part]
+.n-required — Nucleus utility class (`.n-required`). [role=component-part]
+.n-ring — Sets box-shadow: 0 0 0 1px rgba(99,102,241,.15), 0 0 0 4px rgba(99,102,241,.08). [role=component-part]
+.n-ring-danger — Sets box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.18). [role=component-part]
+.n-ring-success — Sets box-shadow: 0 0 0 3px rgba(21, 128, 61, 0.18). [role=component-part]
+.n-saturate — Sets filter: saturate(1.5). [role=component-part]
+.n-search-field — Input wrapper with a built-in leading search glyph. [role=component]
+.n-search-input — Search field modifier/part (see .n-search-field). [role=component-part]
+.n-segmented — Single-select pill group for filtering or switching views. [role=component]
+.n-segmented-item — Segmented control modifier/part (see .n-segmented). [role=component-part]
+.n-segmented-sm — Segmented control modifier/part (see .n-segmented). [role=size]
+.n-select — Styled native select with a custom chevron. [role=component]
+.n-shadow-glow — Sets box-shadow: var(--n-shadow-glow). [role=component-part]
+.n-shadow-inner — Sets box-shadow: inset 0 2px 4px rgba(15, 23, 42, 0.08). [role=component-part]
+.n-signal — Signal list modifier/part (see .n-signal-list). [role=component-part]
+.n-signal-list — Dotted list for pro/con or insight bullets, colour-coded by sentiment. [role=component]
+.n-signal-negative — Signal list modifier/part (see .n-signal-list). [role=component-part]
+.n-signal-neutral — Signal list modifier/part (see .n-signal-list). [role=component-part]
+.n-signal-positive — Signal list modifier/part (see .n-signal-list). [role=component-part]
+.n-skeleton — Shimmering placeholder for loading content. [role=component]
+.n-skeleton-circle — Skeleton modifier/part (see .n-skeleton). [role=component-part]
+.n-skeleton-text — Skeleton modifier/part (see .n-skeleton). [role=component-part]
+.n-spinner — Indeterminate loading indicator. [role=component]
+.n-spinner-lg — Spinner modifier/part (see .n-spinner). [role=size]
+.n-spinner-sm — Spinner modifier/part (see .n-spinner). [role=size]
+.n-stack — Vertical grid stack with a consistent gap between children. [role=component]
+.n-stat — Labeled metric with a large value and optional change indicator. [role=component]
+.n-stat-change — Stat modifier/part (see .n-stat). [role=component-part]
+.n-stat-grid — Responsive auto-fit wrapper for n-stat or metric tiles. [role=component]
+.n-stat-label — Stat modifier/part (see .n-stat). [role=component-part]
+.n-stat-value — Stat modifier/part (see .n-stat). [role=component-part]
+.n-status — Small dot plus label signalling live, lifecycle, or health state. [role=component]
+.n-status-busy — Status indicator modifier/part (see .n-status). [role=variant]
+.n-status-dot — Status indicator modifier/part (see .n-status). [role=component-part]
+.n-status-error — Status indicator modifier/part (see .n-status). [role=variant]
+.n-status-idle — Status indicator modifier/part (see .n-status). [role=variant]
+.n-status-offline — Status indicator modifier/part (see .n-status). [role=variant]
+.n-status-online — Status indicator modifier/part (see .n-status). [role=variant]
+.n-status-pulse — Status indicator modifier/part (see .n-status). [role=variant]
+.n-surface — Elevated panel with border, radius, and soft shadow. [role=component]
+.n-surface-glass — Surface modifier/part (see .n-surface). [role=variant]
+.n-surface-overlay — Surface modifier/part (see .n-surface). [role=variant]
+.n-surface-raised — Surface modifier/part (see .n-surface). [role=variant]
+.n-surface-sunken — Surface modifier/part (see .n-surface). [role=variant]
+.n-switch — Accessible toggle built from a visually-hidden checkbox and a track. [role=component]
+.n-switch-track — Switch modifier/part (see .n-switch). [role=component-part]
+.n-tab — Tabs modifier/part (see .n-tabs). [role=component-part]
+.n-tab-panel — Tabs modifier/part (see .n-tabs). [role=component-part]
+.n-table — Base table styling with striped/hover/bordered variants. [role=component]
+.n-table-bordered — Table modifier/part (see .n-table). [role=variant]
+.n-table-hover — Table modifier/part (see .n-table). [role=variant]
+.n-table-stack — Table modifier that collapses each row into a card below 768px using data-label. [role=component]
+.n-table-striped — Table modifier/part (see .n-table). [role=variant]
+.n-tabs — Horizontal tablist. Toggle aria-selected in JavaScript. [role=component]
+.n-textarea — Vertically resizable multi-line text field. [role=component]
+.n-timeline — Vertical connector list with a numbered or icon marker per item. [role=component]
+.n-timeline-content — Timeline modifier/part (see .n-timeline). [role=component-part]
+.n-timeline-item — Timeline modifier/part (see .n-timeline). [role=component-part]
+.n-timeline-marker — Timeline modifier/part (see .n-timeline). [role=component-part]
+.n-timeline-marker-muted — Timeline modifier/part (see .n-timeline). [role=component-part]
+.n-timeline-meta — Timeline modifier/part (see .n-timeline). [role=component-part]
+.n-timeline-title — Timeline modifier/part (see .n-timeline). [role=component-part]
+.n-toast — Transient notification; stack with n-toast-stack. [role=component]
+.n-toast-stack — Toast modifier/part (see .n-toast). [role=component-part]
+.n-tooltip — CSS-only tooltip driven by the data-tooltip attribute. [role=component]
+.n-valid — Sets border-color: var(--n-success). [role=component-part]
 
---- Utility (289) ---
-.n-absolute — Sets position: absolute.
-.n-bg-danger — Applies background-color: var(--n-danger); color: var(--n-on-danger).
-.n-bg-dark — Applies background-color: var(--n-dark); color: #fff.
-.n-bg-info — Applies background-color: var(--n-info); color: var(--n-on-info).
-.n-bg-light — Applies background-color: var(--n-light); color: var(--n-dark).
-.n-bg-muted — Sets background-color: var(--n-bg-muted).
-.n-bg-primary — Applies background-color: var(--n-primary); color: var(--n-on-primary).
-.n-bg-secondary — Applies background-color: var(--n-secondary); color: var(--n-on-secondary).
-.n-bg-success — Applies background-color: var(--n-success); color: var(--n-on-success).
-.n-bg-warning — Applies background-color: var(--n-warning); color: var(--n-on-warning).
-.n-bg-white — Sets background-color: #fff.
-.n-border — Sets border: 1px solid var(--n-border-color).
-.n-border-0 — Sets border: none.
-.n-border-b — Sets border-bottom: 1px solid var(--n-border-color).
-.n-border-danger — Sets border-color: var(--n-danger).
-.n-border-l — Sets border-left: 1px solid var(--n-border-color).
-.n-border-primary — Sets border-color: var(--n-primary).
-.n-border-r — Sets border-right: 1px solid var(--n-border-color).
-.n-border-success — Sets border-color: var(--n-success).
-.n-border-t — Sets border-top: 1px solid var(--n-border-color).
-.n-border-warning — Sets border-color: var(--n-warning).
-.n-bottom-0 — Sets bottom: 0.
-.n-break-inside-avoid — Sets break-inside: avoid.
-.n-capitalize — Sets text-transform: capitalize.
-.n-columns-2 — Applies columns: 2; column-gap: var(--n-gutter).
-.n-columns-3 — Applies columns: 3; column-gap: var(--n-gutter).
-.n-d-block — Sets display: block.
-.n-d-flex — Sets display: flex.
-.n-d-grid — Sets display: grid.
-.n-d-inline — Sets display: inline.
-.n-d-inline-block — Sets display: inline-block.
-.n-d-inline-flex — Sets display: inline-flex.
-.n-d-lg-block — Sets display: block.
-.n-d-lg-flex — Sets display: flex.
-.n-d-lg-inline — Sets display: inline.
-.n-d-lg-inline-block — Sets display: inline-block.
-.n-d-lg-none — Sets display: none.
-.n-d-md-block — Sets display: block.
-.n-d-md-flex — Sets display: flex.
-.n-d-md-inline — Sets display: inline.
-.n-d-md-inline-block — Sets display: inline-block.
-.n-d-md-none — Sets display: none.
-.n-d-none — Sets display: none.
-.n-d-sm-block — Sets display: block.
-.n-d-sm-flex — Sets display: flex.
-.n-d-sm-inline — Sets display: inline.
-.n-d-sm-inline-block — Sets display: inline-block.
-.n-d-sm-none — Sets display: none.
-.n-duration-150 — Sets transition-duration: 150ms.
-.n-duration-300 — Sets transition-duration: 300ms.
-.n-duration-500 — Sets transition-duration: 500ms.
-.n-duration-75 — Sets transition-duration: 75ms.
-.n-ease-in — Sets transition-timing-function: cubic-bezier(.4,0,1,1).
-.n-ease-in-out — Sets transition-timing-function: cubic-bezier(.4,0,.2,1).
-.n-ease-linear — Sets transition-timing-function: linear.
-.n-ease-out — Sets transition-timing-function: cubic-bezier(0,0,.2,1).
-.n-fixed — Sets position: fixed.
-.n-flex — Sets display: flex.
-.n-flex-1 — Sets flex: 1 1 0%.
-.n-flex-auto — Sets flex: 1 1 auto.
-.n-flex-col — Sets flex-direction: column.
-.n-flex-col-reverse — Sets flex-direction: column-reverse.
-.n-flex-none — Sets flex: none.
-.n-flex-nowrap — Sets flex-wrap: nowrap.
-.n-flex-row — Sets flex-direction: row.
-.n-flex-row-reverse — Sets flex-direction: row-reverse.
-.n-flex-wrap — Sets flex-wrap: wrap.
-.n-font-bold — Sets font-weight: 700.
-.n-font-light — Sets font-weight: 300.
-.n-font-medium — Sets font-weight: 500.
-.n-font-mono — Sets font-family: var(--n-font-mono).
-.n-font-normal — Sets font-weight: 400.
-.n-font-semibold — Sets font-weight: 600.
-.n-gap-0 — Sets gap: var(--n-space-0).
-.n-gap-1 — Sets gap: var(--n-space-1).
-.n-gap-2 — Sets gap: var(--n-space-2).
-.n-gap-3 — Sets gap: var(--n-space-3).
-.n-gap-4 — Sets gap: var(--n-space-4).
-.n-gap-5 — Sets gap: var(--n-space-5).
-.n-grow — Sets flex-grow: 1.
-.n-h-auto — Sets height: auto.
-.n-h-full — Sets height: 100%.
-.n-h-screen — Sets height: 100vh.
-.n-inset-0 — Sets inset: 0.
-.n-isolate — Sets isolation: isolate.
-.n-italic — Sets font-style: italic.
-.n-items-baseline — Sets align-items: baseline.
-.n-items-center — Sets align-items: center.
-.n-items-end — Sets align-items: flex-end.
-.n-items-start — Sets align-items: flex-start.
-.n-items-stretch — Sets align-items: stretch.
-.n-justify-around — Sets justify-content: space-around.
-.n-justify-between — Sets justify-content: space-between.
-.n-justify-center — Sets justify-content: center.
-.n-justify-end — Sets justify-content: flex-end.
-.n-justify-evenly — Sets justify-content: space-evenly.
-.n-justify-start — Sets justify-content: flex-start.
-.n-leading-none — Sets line-height: 1.
-.n-leading-normal — Sets line-height: 1.5.
-.n-leading-relaxed — Sets line-height: 1.75.
-.n-leading-tight — Sets line-height: 1.25.
-.n-left-0 — Sets left: 0.
-.n-line-through — Sets text-decoration: line-through.
-.n-lowercase — Sets text-transform: lowercase.
-.n-m-0 — Sets margin: var(--n-space-0).
-.n-m-1 — Sets margin: var(--n-space-1).
-.n-m-2 — Sets margin: var(--n-space-2).
-.n-m-3 — Sets margin: var(--n-space-3).
-.n-m-4 — Sets margin: var(--n-space-4).
-.n-m-5 — Sets margin: var(--n-space-5).
-.n-m-auto — Sets margin: auto.
-.n-max-w-2xl — Sets max-width: 42rem.
-.n-max-w-full — Sets max-width: 100%.
-.n-max-w-lg — Sets max-width: 32rem.
-.n-max-w-md — Sets max-width: 28rem.
-.n-max-w-sm — Sets max-width: 24rem.
-.n-max-w-xl — Sets max-width: 36rem.
-.n-mb-0 — Sets margin-bottom: var(--n-space-0).
-.n-mb-1 — Sets margin-bottom: var(--n-space-1).
-.n-mb-2 — Sets margin-bottom: var(--n-space-2).
-.n-mb-3 — Sets margin-bottom: var(--n-space-3).
-.n-mb-4 — Sets margin-bottom: var(--n-space-4).
-.n-mb-5 — Sets margin-bottom: var(--n-space-5).
-.n-min-h-screen — Sets min-height: 100vh.
-.n-min-w-0 — Sets min-width: 0.
-.n-mix-blend-multiply — Sets mix-blend-mode: multiply.
-.n-ml-0 — Sets margin-left: var(--n-space-0).
-.n-ml-1 — Sets margin-left: var(--n-space-1).
-.n-ml-2 — Sets margin-left: var(--n-space-2).
-.n-ml-3 — Sets margin-left: var(--n-space-3).
-.n-ml-4 — Sets margin-left: var(--n-space-4).
-.n-ml-5 — Sets margin-left: var(--n-space-5).
-.n-mr-0 — Sets margin-right: var(--n-space-0).
-.n-mr-1 — Sets margin-right: var(--n-space-1).
-.n-mr-2 — Sets margin-right: var(--n-space-2).
-.n-mr-3 — Sets margin-right: var(--n-space-3).
-.n-mr-4 — Sets margin-right: var(--n-space-4).
-.n-mr-5 — Sets margin-right: var(--n-space-5).
-.n-mt-0 — Sets margin-top: var(--n-space-0).
-.n-mt-1 — Sets margin-top: var(--n-space-1).
-.n-mt-2 — Sets margin-top: var(--n-space-2).
-.n-mt-3 — Sets margin-top: var(--n-space-3).
-.n-mt-4 — Sets margin-top: var(--n-space-4).
-.n-mt-5 — Sets margin-top: var(--n-space-5).
-.n-mx-0 — Sets margin-inline: var(--n-space-0).
-.n-mx-1 — Sets margin-inline: var(--n-space-1).
-.n-mx-2 — Sets margin-inline: var(--n-space-2).
-.n-mx-3 — Sets margin-inline: var(--n-space-3).
-.n-mx-4 — Sets margin-inline: var(--n-space-4).
-.n-mx-5 — Sets margin-inline: var(--n-space-5).
-.n-mx-auto — Sets margin-inline: auto.
-.n-my-0 — Sets margin-block: var(--n-space-0).
-.n-my-1 — Sets margin-block: var(--n-space-1).
-.n-my-2 — Sets margin-block: var(--n-space-2).
-.n-my-3 — Sets margin-block: var(--n-space-3).
-.n-my-4 — Sets margin-block: var(--n-space-4).
-.n-my-5 — Sets margin-block: var(--n-space-5).
-.n-no-underline — Sets text-decoration: none.
-.n-normal-case — Sets text-transform: none.
-.n-not-italic — Sets font-style: normal.
-.n-opacity-0 — Sets opacity: 0.
-.n-opacity-100 — Sets opacity: 1.
-.n-opacity-25 — Sets opacity: 0.25.
-.n-opacity-50 — Sets opacity: 0.5.
-.n-opacity-75 — Sets opacity: 0.75.
-.n-overflow-auto — Sets overflow: auto.
-.n-overflow-hidden — Sets overflow: hidden.
-.n-overflow-scroll — Sets overflow: scroll.
-.n-overflow-visible — Sets overflow: visible.
-.n-overflow-x-auto — Sets overflow-x: auto.
-.n-overflow-y-auto — Sets overflow-y: auto.
-.n-overscroll-contain — Sets overscroll-behavior: contain.
-.n-p-0 — Sets padding: var(--n-space-0).
-.n-p-1 — Sets padding: var(--n-space-1).
-.n-p-2 — Sets padding: var(--n-space-2).
-.n-p-3 — Sets padding: var(--n-space-3).
-.n-p-4 — Sets padding: var(--n-space-4).
-.n-p-5 — Sets padding: var(--n-space-5).
-.n-pb-0 — Sets padding-bottom: var(--n-space-0).
-.n-pb-1 — Sets padding-bottom: var(--n-space-1).
-.n-pb-2 — Sets padding-bottom: var(--n-space-2).
-.n-pb-3 — Sets padding-bottom: var(--n-space-3).
-.n-pb-4 — Sets padding-bottom: var(--n-space-4).
-.n-pb-5 — Sets padding-bottom: var(--n-space-5).
-.n-pl-0 — Sets padding-left: var(--n-space-0).
-.n-pl-1 — Sets padding-left: var(--n-space-1).
-.n-pl-2 — Sets padding-left: var(--n-space-2).
-.n-pl-3 — Sets padding-left: var(--n-space-3).
-.n-pl-4 — Sets padding-left: var(--n-space-4).
-.n-pl-5 — Sets padding-left: var(--n-space-5).
-.n-pr-0 — Sets padding-right: var(--n-space-0).
-.n-pr-1 — Sets padding-right: var(--n-space-1).
-.n-pr-2 — Sets padding-right: var(--n-space-2).
-.n-pr-3 — Sets padding-right: var(--n-space-3).
-.n-pr-4 — Sets padding-right: var(--n-space-4).
-.n-pr-5 — Sets padding-right: var(--n-space-5).
-.n-pt-0 — Sets padding-top: var(--n-space-0).
-.n-pt-1 — Sets padding-top: var(--n-space-1).
-.n-pt-2 — Sets padding-top: var(--n-space-2).
-.n-pt-3 — Sets padding-top: var(--n-space-3).
-.n-pt-4 — Sets padding-top: var(--n-space-4).
-.n-pt-5 — Sets padding-top: var(--n-space-5).
-.n-px-0 — Sets padding-inline: var(--n-space-0).
-.n-px-1 — Sets padding-inline: var(--n-space-1).
-.n-px-2 — Sets padding-inline: var(--n-space-2).
-.n-px-3 — Sets padding-inline: var(--n-space-3).
-.n-px-4 — Sets padding-inline: var(--n-space-4).
-.n-px-5 — Sets padding-inline: var(--n-space-5).
-.n-py-0 — Sets padding-block: var(--n-space-0).
-.n-py-1 — Sets padding-block: var(--n-space-1).
-.n-py-2 — Sets padding-block: var(--n-space-2).
-.n-py-3 — Sets padding-block: var(--n-space-3).
-.n-py-4 — Sets padding-block: var(--n-space-4).
-.n-py-5 — Sets padding-block: var(--n-space-5).
-.n-relative — Sets position: relative.
-.n-resize — Sets resize: both.
-.n-resize-none — Sets resize: none.
-.n-right-0 — Sets right: 0.
-.n-rotate-180 — Sets transform: rotate(180deg).
-.n-rotate-90 — Sets transform: rotate(90deg).
-.n-rounded — Sets border-radius: var(--n-radius).
-.n-rounded-full — Sets border-radius: var(--n-radius-full).
-.n-rounded-lg — Sets border-radius: var(--n-radius-lg).
-.n-rounded-none — Sets border-radius: 0.
-.n-rounded-sm — Sets border-radius: var(--n-radius-sm).
-.n-rounded-xl — Sets border-radius: var(--n-radius-xl).
-.n-scale-100 — Sets transform: scale(1).
-.n-scale-105 — Sets transform: scale(1.05).
-.n-scale-95 — Sets transform: scale(0.95).
-.n-scroll-smooth — Sets scroll-behavior: smooth.
-.n-self-center — Sets align-self: center.
-.n-self-end — Sets align-self: flex-end.
-.n-self-start — Sets align-self: flex-start.
-.n-self-stretch — Sets align-self: stretch.
-.n-shadow — Sets box-shadow: var(--n-shadow).
-.n-shadow-lg — Sets box-shadow: var(--n-shadow-lg).
-.n-shadow-md — Sets box-shadow: var(--n-shadow-md).
-.n-shadow-none — Sets box-shadow: none.
-.n-shadow-sm — Sets box-shadow: var(--n-shadow-sm).
-.n-shadow-xl — Sets box-shadow: var(--n-shadow-xl).
-.n-shrink-0 — Sets flex-shrink: 0.
-.n-snap-start — Sets scroll-snap-align: start.
-.n-snap-x — Sets scroll-snap-type: x mandatory.
-.n-static — Sets position: static.
-.n-sticky — Sets position: sticky.
-.n-text-2xl — Sets font-size: var(--n-text-2xl).
-.n-text-3xl — Sets font-size: var(--n-text-3xl).
-.n-text-4xl — Sets font-size: var(--n-text-4xl).
-.n-text-base — Sets font-size: var(--n-text-base).
-.n-text-center — Sets text-align: center.
-.n-text-danger — Sets color: var(--n-danger).
-.n-text-dark — Sets color: var(--n-dark).
-.n-text-info — Sets color: var(--n-info).
-.n-text-justify — Sets text-align: justify.
-.n-text-left — Sets text-align: left.
-.n-text-lg — Sets font-size: var(--n-text-lg).
-.n-text-muted — Sets color: var(--n-text-muted).
-.n-text-primary — Sets color: var(--n-primary).
-.n-text-right — Sets text-align: right.
-.n-text-secondary — Sets color: var(--n-secondary).
-.n-text-sm — Sets font-size: var(--n-text-sm).
-.n-text-success — Sets color: var(--n-success).
-.n-text-warning — Sets color: var(--n-warning).
-.n-text-white — Sets color: #ffffff.
-.n-text-xl — Sets font-size: var(--n-text-xl).
-.n-text-xs — Sets font-size: var(--n-text-xs).
-.n-top-0 — Sets top: 0.
-.n-tracking-normal — Sets letter-spacing: 0.
-.n-tracking-tight — Sets letter-spacing: -0.025em.
-.n-tracking-wide — Sets letter-spacing: 0.05em.
-.n-transition — Sets transition: all var(--n-duration) var(--n-ease).
-.n-transition-colors — Sets transition: color var(--n-duration) var(--n-ease), background-color var(--n-duration) var(--n-ease), border-color var(--n-duration) var(--n-ease).
-.n-transition-none — Sets transition: none.
-.n-transition-shadow — Sets transition: box-shadow var(--n-duration) var(--n-ease).
-.n-transition-transform — Sets transition: transform var(--n-duration) var(--n-ease).
-.n-translate-y-1 — Sets transform: translateY(-0.25rem).
-.n-truncate — Applies overflow: hidden; text-overflow: ellipsis; white-space: nowrap.
-.n-underline — Sets text-decoration: underline.
-.n-uppercase — Sets text-transform: uppercase.
-.n-w-auto — Sets width: auto.
-.n-w-full — Sets width: 100%.
-.n-w-half — Sets width: 50%.
-.n-w-screen — Sets width: 100vw.
-.n-will-change-transform — Sets will-change: transform.
-.n-z-0 — Sets z-index: 0.
-.n-z-10 — Sets z-index: 10.
-.n-z-100 — Sets z-index: 100.
-.n-z-20 — Sets z-index: 20.
-.n-z-50 — Sets z-index: 50.
+--- Utility (294) ---
+.n-absolute — Sets position: absolute. [role=utility]
+.n-bg-danger — Applies background-color: var(--n-danger); color: var(--n-on-danger). [role=utility]
+.n-bg-dark — Applies background-color: var(--n-dark); color: #fff. [role=utility]
+.n-bg-info — Applies background-color: var(--n-info); color: var(--n-on-info). [role=utility]
+.n-bg-light — Applies background-color: var(--n-light); color: var(--n-dark). [role=utility]
+.n-bg-muted — Sets background-color: var(--n-bg-muted). [role=utility]
+.n-bg-primary — Applies background-color: var(--n-primary); color: var(--n-on-primary). [role=utility]
+.n-bg-secondary — Applies background-color: var(--n-secondary); color: var(--n-on-secondary). [role=utility]
+.n-bg-success — Applies background-color: var(--n-success); color: var(--n-on-success). [role=utility]
+.n-bg-warning — Applies background-color: var(--n-warning); color: var(--n-on-warning). [role=utility]
+.n-bg-white — Sets background-color: #fff. [role=utility]
+.n-border — Sets border: 1px solid var(--n-border-color). [role=utility]
+.n-border-0 — Sets border: none. [role=utility]
+.n-border-b — Sets border-bottom: 1px solid var(--n-border-color). [role=utility]
+.n-border-danger — Sets border-color: var(--n-danger). [role=utility]
+.n-border-dark — Sets border-color: var(--n-dark). [role=utility]
+.n-border-info — Sets border-color: var(--n-info). [role=utility]
+.n-border-l — Sets border-left: 1px solid var(--n-border-color). [role=utility]
+.n-border-light — Sets border-color: var(--n-light). [role=utility]
+.n-border-primary — Sets border-color: var(--n-primary). [role=utility]
+.n-border-r — Sets border-right: 1px solid var(--n-border-color). [role=utility]
+.n-border-secondary — Sets border-color: var(--n-secondary). [role=utility]
+.n-border-success — Sets border-color: var(--n-success). [role=utility]
+.n-border-t — Sets border-top: 1px solid var(--n-border-color). [role=utility]
+.n-border-warning — Sets border-color: var(--n-warning). [role=utility]
+.n-bottom-0 — Sets bottom: 0. [role=utility]
+.n-break-inside-avoid — Sets break-inside: avoid. [role=utility]
+.n-capitalize — Sets text-transform: capitalize. [role=utility]
+.n-columns-2 — Applies columns: 2; column-gap: var(--n-gutter). [role=utility]
+.n-columns-3 — Applies columns: 3; column-gap: var(--n-gutter). [role=utility]
+.n-d-block — Sets display: block. [role=utility]
+.n-d-flex — Sets display: flex. [role=utility; DEPRECATED → .n-flex; gotcha=Backward-compatible display-family alias. Prefer n-flex in new markup.]
+.n-d-grid — Sets display: grid. [role=utility]
+.n-d-inline — Sets display: inline. [role=utility]
+.n-d-inline-block — Sets display: inline-block. [role=utility]
+.n-d-inline-flex — Sets display: inline-flex. [role=utility]
+.n-d-lg-block — Sets display: block. [role=utility]
+.n-d-lg-flex — Sets display: flex. [role=utility]
+.n-d-lg-inline — Sets display: inline. [role=utility]
+.n-d-lg-inline-block — Sets display: inline-block. [role=utility]
+.n-d-lg-none — Sets display: none. [role=utility]
+.n-d-md-block — Sets display: block. [role=utility]
+.n-d-md-flex — Sets display: flex. [role=utility]
+.n-d-md-inline — Sets display: inline. [role=utility]
+.n-d-md-inline-block — Sets display: inline-block. [role=utility]
+.n-d-md-none — Sets display: none. [role=utility]
+.n-d-none — Sets display: none. [role=utility; gotcha=Uses normal cascade priority. It is intentionally not an alias of forceful n-hidden.]
+.n-d-sm-block — Sets display: block. [role=utility]
+.n-d-sm-flex — Sets display: flex. [role=utility]
+.n-d-sm-inline — Sets display: inline. [role=utility]
+.n-d-sm-inline-block — Sets display: inline-block. [role=utility]
+.n-d-sm-none — Sets display: none. [role=utility]
+.n-duration-150 — Sets transition-duration: 150ms. [role=utility]
+.n-duration-300 — Sets transition-duration: 300ms. [role=utility]
+.n-duration-500 — Sets transition-duration: 500ms. [role=utility]
+.n-duration-75 — Sets transition-duration: 75ms. [role=utility]
+.n-ease-in — Sets transition-timing-function: cubic-bezier(.4,0,1,1). [role=utility]
+.n-ease-in-out — Sets transition-timing-function: cubic-bezier(.4,0,.2,1). [role=utility]
+.n-ease-linear — Sets transition-timing-function: linear. [role=utility]
+.n-ease-out — Sets transition-timing-function: cubic-bezier(0,0,.2,1). [role=utility]
+.n-fixed — Sets position: fixed. [role=utility]
+.n-flex — Sets display: flex. [role=utility]
+.n-flex-1 — Sets flex: 1 1 0%. [role=utility]
+.n-flex-auto — Sets flex: 1 1 auto. [role=utility]
+.n-flex-col — Sets flex-direction: column. [role=utility]
+.n-flex-col-reverse — Sets flex-direction: column-reverse. [role=utility]
+.n-flex-none — Sets flex: none. [role=utility]
+.n-flex-nowrap — Sets flex-wrap: nowrap. [role=utility]
+.n-flex-row — Sets flex-direction: row. [role=utility]
+.n-flex-row-reverse — Sets flex-direction: row-reverse. [role=utility]
+.n-flex-wrap — Sets flex-wrap: wrap. [role=utility]
+.n-font-bold — Sets font-weight: 700. [role=utility]
+.n-font-light — Sets font-weight: 300. [role=utility]
+.n-font-medium — Sets font-weight: 500. [role=utility]
+.n-font-mono — Sets font-family: var(--n-font-mono). [role=utility]
+.n-font-normal — Sets font-weight: 400. [role=utility]
+.n-font-semibold — Sets font-weight: 600. [role=utility]
+.n-gap-0 — Sets gap: var(--n-space-0). [role=utility; scale=0]
+.n-gap-1 — Sets gap: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-gap-2 — Sets gap: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-gap-3 — Sets gap: var(--n-space-3). [role=utility; scale=1rem]
+.n-gap-4 — Sets gap: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-gap-5 — Sets gap: var(--n-space-5). [role=utility; scale=3rem]
+.n-grow — Sets flex-grow: 1. [role=utility]
+.n-h-auto — Sets height: auto. [role=utility]
+.n-h-full — Sets height: 100%. [role=utility]
+.n-h-screen — Sets height: 100vh. [role=utility]
+.n-inset-0 — Sets inset: 0. [role=utility]
+.n-isolate — Sets isolation: isolate. [role=utility]
+.n-italic — Sets font-style: italic. [role=utility]
+.n-items-baseline — Sets align-items: baseline. [role=utility]
+.n-items-center — Sets align-items: center. [role=utility]
+.n-items-end — Sets align-items: flex-end. [role=utility]
+.n-items-start — Sets align-items: flex-start. [role=utility]
+.n-items-stretch — Sets align-items: stretch. [role=utility]
+.n-justify-around — Sets justify-content: space-around. [role=utility]
+.n-justify-between — Sets justify-content: space-between. [role=utility]
+.n-justify-center — Sets justify-content: center. [role=utility]
+.n-justify-end — Sets justify-content: flex-end. [role=utility]
+.n-justify-evenly — Sets justify-content: space-evenly. [role=utility]
+.n-justify-start — Sets justify-content: flex-start. [role=utility]
+.n-leading-none — Sets line-height: 1. [role=utility]
+.n-leading-normal — Sets line-height: 1.5. [role=utility]
+.n-leading-relaxed — Sets line-height: 1.75. [role=utility]
+.n-leading-tight — Sets line-height: 1.25. [role=utility]
+.n-left-0 — Sets left: 0. [role=utility]
+.n-line-through — Sets text-decoration: line-through. [role=utility]
+.n-lowercase — Sets text-transform: lowercase. [role=utility]
+.n-m-0 — Sets margin: var(--n-space-0). [role=utility; scale=0]
+.n-m-1 — Sets margin: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-m-2 — Sets margin: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-m-3 — Sets margin: var(--n-space-3). [role=utility; scale=1rem]
+.n-m-4 — Sets margin: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-m-5 — Sets margin: var(--n-space-5). [role=utility; scale=3rem]
+.n-m-auto — Sets margin: auto. [role=utility]
+.n-max-w-2xl — Sets max-width: 42rem. [role=utility]
+.n-max-w-full — Sets max-width: 100%. [role=utility]
+.n-max-w-lg — Sets max-width: 32rem. [role=utility]
+.n-max-w-md — Sets max-width: 28rem. [role=utility]
+.n-max-w-sm — Sets max-width: 24rem. [role=utility]
+.n-max-w-xl — Sets max-width: 36rem. [role=utility]
+.n-mb-0 — Sets margin-bottom: var(--n-space-0). [role=utility; scale=0]
+.n-mb-1 — Sets margin-bottom: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-mb-2 — Sets margin-bottom: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-mb-3 — Sets margin-bottom: var(--n-space-3). [role=utility; scale=1rem]
+.n-mb-4 — Sets margin-bottom: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-mb-5 — Sets margin-bottom: var(--n-space-5). [role=utility; scale=3rem]
+.n-min-h-screen — Sets min-height: 100vh. [role=utility]
+.n-min-w-0 — Sets min-width: 0. [role=utility]
+.n-mix-blend-multiply — Sets mix-blend-mode: multiply. [role=utility]
+.n-ml-0 — Sets margin-left: var(--n-space-0). [role=utility; scale=0]
+.n-ml-1 — Sets margin-left: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-ml-2 — Sets margin-left: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-ml-3 — Sets margin-left: var(--n-space-3). [role=utility; scale=1rem]
+.n-ml-4 — Sets margin-left: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-ml-5 — Sets margin-left: var(--n-space-5). [role=utility; scale=3rem]
+.n-mr-0 — Sets margin-right: var(--n-space-0). [role=utility; scale=0]
+.n-mr-1 — Sets margin-right: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-mr-2 — Sets margin-right: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-mr-3 — Sets margin-right: var(--n-space-3). [role=utility; scale=1rem]
+.n-mr-4 — Sets margin-right: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-mr-5 — Sets margin-right: var(--n-space-5). [role=utility; scale=3rem]
+.n-mt-0 — Sets margin-top: var(--n-space-0). [role=utility; scale=0]
+.n-mt-1 — Sets margin-top: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-mt-2 — Sets margin-top: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-mt-3 — Sets margin-top: var(--n-space-3). [role=utility; scale=1rem]
+.n-mt-4 — Sets margin-top: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-mt-5 — Sets margin-top: var(--n-space-5). [role=utility; scale=3rem]
+.n-mx-0 — Sets margin-inline: var(--n-space-0). [role=utility; scale=0]
+.n-mx-1 — Sets margin-inline: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-mx-2 — Sets margin-inline: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-mx-3 — Sets margin-inline: var(--n-space-3). [role=utility; scale=1rem]
+.n-mx-4 — Sets margin-inline: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-mx-5 — Sets margin-inline: var(--n-space-5). [role=utility; scale=3rem]
+.n-mx-auto — Sets margin-inline: auto. [role=utility]
+.n-my-0 — Sets margin-block: var(--n-space-0). [role=utility; scale=0]
+.n-my-1 — Sets margin-block: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-my-2 — Sets margin-block: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-my-3 — Sets margin-block: var(--n-space-3). [role=utility; scale=1rem]
+.n-my-4 — Sets margin-block: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-my-5 — Sets margin-block: var(--n-space-5). [role=utility; scale=3rem]
+.n-no-underline — Sets text-decoration: none. [role=utility]
+.n-normal-case — Sets text-transform: none. [role=utility]
+.n-not-italic — Sets font-style: normal. [role=utility]
+.n-opacity-0 — Sets opacity: 0. [role=utility]
+.n-opacity-100 — Sets opacity: 1. [role=utility]
+.n-opacity-25 — Sets opacity: 0.25. [role=utility]
+.n-opacity-50 — Sets opacity: 0.5. [role=utility]
+.n-opacity-75 — Sets opacity: 0.75. [role=utility]
+.n-overflow-auto — Sets overflow: auto. [role=utility]
+.n-overflow-hidden — Sets overflow: hidden. [role=utility]
+.n-overflow-scroll — Sets overflow: scroll. [role=utility]
+.n-overflow-visible — Sets overflow: visible. [role=utility]
+.n-overflow-x-auto — Sets overflow-x: auto. [role=utility]
+.n-overflow-y-auto — Sets overflow-y: auto. [role=utility]
+.n-overscroll-contain — Sets overscroll-behavior: contain. [role=utility]
+.n-p-0 — Sets padding: var(--n-space-0). [role=utility; scale=0]
+.n-p-1 — Sets padding: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-p-2 — Sets padding: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-p-3 — Sets padding: var(--n-space-3). [role=utility; scale=1rem]
+.n-p-4 — Sets padding: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-p-5 — Sets padding: var(--n-space-5). [role=utility; scale=3rem]
+.n-pb-0 — Sets padding-bottom: var(--n-space-0). [role=utility; scale=0]
+.n-pb-1 — Sets padding-bottom: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-pb-2 — Sets padding-bottom: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-pb-3 — Sets padding-bottom: var(--n-space-3). [role=utility; scale=1rem]
+.n-pb-4 — Sets padding-bottom: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-pb-5 — Sets padding-bottom: var(--n-space-5). [role=utility; scale=3rem]
+.n-pl-0 — Sets padding-left: var(--n-space-0). [role=utility; scale=0]
+.n-pl-1 — Sets padding-left: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-pl-2 — Sets padding-left: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-pl-3 — Sets padding-left: var(--n-space-3). [role=utility; scale=1rem]
+.n-pl-4 — Sets padding-left: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-pl-5 — Sets padding-left: var(--n-space-5). [role=utility; scale=3rem]
+.n-pr-0 — Sets padding-right: var(--n-space-0). [role=utility; scale=0]
+.n-pr-1 — Sets padding-right: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-pr-2 — Sets padding-right: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-pr-3 — Sets padding-right: var(--n-space-3). [role=utility; scale=1rem]
+.n-pr-4 — Sets padding-right: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-pr-5 — Sets padding-right: var(--n-space-5). [role=utility; scale=3rem]
+.n-pt-0 — Sets padding-top: var(--n-space-0). [role=utility; scale=0]
+.n-pt-1 — Sets padding-top: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-pt-2 — Sets padding-top: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-pt-3 — Sets padding-top: var(--n-space-3). [role=utility; scale=1rem]
+.n-pt-4 — Sets padding-top: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-pt-5 — Sets padding-top: var(--n-space-5). [role=utility; scale=3rem]
+.n-px-0 — Sets padding-inline: var(--n-space-0). [role=utility; scale=0]
+.n-px-1 — Sets padding-inline: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-px-2 — Sets padding-inline: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-px-3 — Sets padding-inline: var(--n-space-3). [role=utility; scale=1rem]
+.n-px-4 — Sets padding-inline: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-px-5 — Sets padding-inline: var(--n-space-5). [role=utility; scale=3rem]
+.n-py-0 — Sets padding-block: var(--n-space-0). [role=utility; scale=0]
+.n-py-1 — Sets padding-block: var(--n-space-1). [role=utility; scale=0.25rem]
+.n-py-2 — Sets padding-block: var(--n-space-2). [role=utility; scale=0.5rem]
+.n-py-3 — Sets padding-block: var(--n-space-3). [role=utility; scale=1rem]
+.n-py-4 — Sets padding-block: var(--n-space-4). [role=utility; scale=1.5rem]
+.n-py-5 — Sets padding-block: var(--n-space-5). [role=utility; scale=3rem]
+.n-relative — Sets position: relative. [role=utility]
+.n-resize — Sets resize: both. [role=utility]
+.n-resize-none — Sets resize: none. [role=utility]
+.n-right-0 — Sets right: 0. [role=utility]
+.n-rotate-180 — Sets transform: rotate(180deg). [role=utility]
+.n-rotate-90 — Sets transform: rotate(90deg). [role=utility]
+.n-rounded — Sets border-radius: var(--n-radius). [role=utility]
+.n-rounded-full — Sets border-radius: var(--n-radius-full). [role=utility]
+.n-rounded-lg — Sets border-radius: var(--n-radius-lg). [role=utility]
+.n-rounded-none — Sets border-radius: 0. [role=utility]
+.n-rounded-sm — Sets border-radius: var(--n-radius-sm). [role=utility]
+.n-rounded-xl — Sets border-radius: var(--n-radius-xl). [role=utility]
+.n-scale-100 — Sets transform: scale(1). [role=utility]
+.n-scale-105 — Sets transform: scale(1.05). [role=utility]
+.n-scale-95 — Sets transform: scale(0.95). [role=utility]
+.n-scroll-smooth — Sets scroll-behavior: smooth. [role=utility]
+.n-self-center — Sets align-self: center. [role=utility]
+.n-self-end — Sets align-self: flex-end. [role=utility]
+.n-self-start — Sets align-self: flex-start. [role=utility]
+.n-self-stretch — Sets align-self: stretch. [role=utility]
+.n-shadow — Sets box-shadow: var(--n-shadow). [role=utility]
+.n-shadow-lg — Sets box-shadow: var(--n-shadow-lg). [role=utility]
+.n-shadow-md — Sets box-shadow: var(--n-shadow-md). [role=utility]
+.n-shadow-none — Sets box-shadow: none. [role=utility]
+.n-shadow-sm — Sets box-shadow: var(--n-shadow-sm). [role=utility]
+.n-shadow-xl — Sets box-shadow: var(--n-shadow-xl). [role=utility]
+.n-shrink-0 — Sets flex-shrink: 0. [role=utility]
+.n-snap-start — Sets scroll-snap-align: start. [role=utility]
+.n-snap-x — Sets scroll-snap-type: x mandatory. [role=utility]
+.n-static — Sets position: static. [role=utility]
+.n-sticky — Sets position: sticky. [role=utility]
+.n-text-2xl — Sets font-size: var(--n-text-2xl). [role=utility]
+.n-text-3xl — Sets font-size: var(--n-text-3xl). [role=utility]
+.n-text-4xl — Sets font-size: var(--n-text-4xl). [role=utility]
+.n-text-base — Sets font-size: var(--n-text-base). [role=utility]
+.n-text-center — Sets text-align: center. [role=utility]
+.n-text-danger — Sets color: var(--n-danger). [role=utility]
+.n-text-dark — Sets color: var(--n-dark). [role=utility]
+.n-text-info — Sets color: var(--n-info). [role=utility]
+.n-text-justify — Sets text-align: justify. [role=utility]
+.n-text-left — Sets text-align: left. [role=utility]
+.n-text-lg — Sets font-size: var(--n-text-lg). [role=utility]
+.n-text-light — Sets color: var(--n-light). [role=utility]
+.n-text-muted — Sets color: var(--n-text-muted). [role=utility]
+.n-text-primary — Sets color: var(--n-primary). [role=utility]
+.n-text-right — Sets text-align: right. [role=utility]
+.n-text-secondary — Sets color: var(--n-secondary). [role=utility]
+.n-text-sm — Sets font-size: var(--n-text-sm). [role=utility]
+.n-text-success — Sets color: var(--n-success). [role=utility]
+.n-text-warning — Sets color: var(--n-warning). [role=utility]
+.n-text-white — Sets color: #ffffff. [role=utility]
+.n-text-xl — Sets font-size: var(--n-text-xl). [role=utility]
+.n-text-xs — Sets font-size: var(--n-text-xs). [role=utility]
+.n-top-0 — Sets top: 0. [role=utility]
+.n-tracking-normal — Sets letter-spacing: 0. [role=utility]
+.n-tracking-tight — Sets letter-spacing: -0.025em. [role=utility]
+.n-tracking-wide — Sets letter-spacing: 0.05em. [role=utility]
+.n-transition — Sets transition: all var(--n-duration) var(--n-ease). [role=utility]
+.n-transition-colors — Sets transition: color var(--n-duration) var(--n-ease), background-color var(--n-duration) var(--n-ease), border-color var(--n-duration) var(--n-ease). [role=utility]
+.n-transition-none — Sets transition: none. [role=utility]
+.n-transition-shadow — Sets transition: box-shadow var(--n-duration) var(--n-ease). [role=utility]
+.n-transition-transform — Sets transition: transform var(--n-duration) var(--n-ease). [role=utility]
+.n-translate-y-1 — Sets transform: translateY(-0.25rem). [role=utility]
+.n-truncate — Applies overflow: hidden; text-overflow: ellipsis; white-space: nowrap. [role=utility]
+.n-underline — Sets text-decoration: underline. [role=utility]
+.n-uppercase — Sets text-transform: uppercase. [role=utility]
+.n-w-auto — Sets width: auto. [role=utility]
+.n-w-full — Sets width: 100%. [role=utility]
+.n-w-half — Sets width: 50%. [role=utility]
+.n-w-screen — Sets width: 100vw. [role=utility]
+.n-will-change-transform — Sets will-change: transform. [role=utility]
+.n-z-0 — Sets z-index: 0. [role=utility]
+.n-z-10 — Sets z-index: 10. [role=utility]
+.n-z-100 — Sets z-index: 100. [role=utility]
+.n-z-20 — Sets z-index: 20. [role=utility]
+.n-z-50 — Sets z-index: 50. [role=utility]
 
 --- Content & typography (16) ---
-.n-blockquote — Applies padding-inline-start: 1.25rem; border-inline-start: 4px solid var(--n-primary); color: var(--n-text-muted); font-size: var(--n-text-lg); font-style: italic.
-.n-caption — Applies font-size: var(--n-text-xs); line-height: 1.5; color: var(--n-text-muted).
-.n-clamp-1 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.
-.n-clamp-4 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.
-.n-clamp-5 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.
-.n-clamp-6 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden.
-.n-code — Sets font-family: var(--n-font-mono).
-.n-code-block — Sets font-family: var(--n-font-mono).
-.n-kbd — Sets font-family: var(--n-font-mono).
-.n-lead — Applies font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); line-height: 1.65; color: var(--n-text-muted).
-.n-mark — Applies padding-inline: 0.15em; border-radius: 0.15em; background: #fef08a; color: #422006.
-.n-overline — Applies font-size: var(--n-text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--n-primary).
-.n-prose — Applies max-width: 70ch; color: var(--n-text); line-height: 1.75.
-.n-text-balance — Sets text-wrap: balance.
-.n-text-fluid-xl — Applies font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.05.
-.n-text-pretty — Sets text-wrap: pretty.
+.n-blockquote — Applies padding-inline-start: 1.25rem; border-inline-start: 4px solid var(--n-primary); color: var(--n-text-muted); font-size: var(--n-text-lg); font-style: italic. [role=component]
+.n-caption — Applies font-size: var(--n-text-xs); line-height: 1.5; color: var(--n-text-muted). [role=utility]
+.n-clamp-1 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden. [role=utility]
+.n-clamp-4 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden. [role=utility]
+.n-clamp-5 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden. [role=utility]
+.n-clamp-6 — Applies display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden. [role=utility]
+.n-code — Sets font-family: var(--n-font-mono). [role=component-part]
+.n-code-block — Sets font-family: var(--n-font-mono). [role=component]
+.n-kbd — Sets font-family: var(--n-font-mono). [role=component-part]
+.n-lead — Applies font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem); line-height: 1.65; color: var(--n-text-muted). [role=utility]
+.n-mark — Applies padding-inline: 0.15em; border-radius: 0.15em; background: #fef08a; color: #422006. [role=utility]
+.n-overline — Applies font-size: var(--n-text-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--n-primary). [role=utility]
+.n-prose — Applies max-width: 70ch; color: var(--n-text); line-height: 1.75. [role=component]
+.n-text-balance — Sets text-wrap: balance. [role=utility]
+.n-text-fluid-xl — Applies font-size: clamp(2rem, 5vw, 4.5rem); line-height: 1.05. [role=utility]
+.n-text-pretty — Sets text-wrap: pretty. [role=utility]
 
---- State (10) ---
-.n-active — Sets color: var(--n-primary).
-.n-dragging — Applies opacity: 0.72; box-shadow: var(--n-shadow-lg); transform: rotate(1deg); cursor: grabbing.
-.n-expandable — Nucleus utility class (`.n-expandable`).
-.n-expanded — Sets background: var(--n-bg-muted).
-.n-focus-ring — Nucleus utility class (`.n-focus-ring`).
-.n-hidden — Sets display: none !important.
-.n-invisible — Sets visibility: hidden.
-.n-loading — Sets cursor: progress.
-.n-selected — Applies border-color: var(--n-primary); background: var(--n-primary-soft).
-.n-visible — Sets visibility: visible.
+--- State (18) ---
+.n-active — Sets color: var(--n-primary). [role=state; DEPRECATED → .n-is-active]
+.n-disabled — Applies opacity: 0.5; pointer-events: none; cursor: not-allowed. [role=state; DEPRECATED → .n-is-disabled; gotcha=Prefer native disabled or aria-disabled=true when those semantics are accurate.]
+.n-dragging — Applies opacity: 0.72; box-shadow: var(--n-shadow-lg); transform: rotate(1deg); cursor: grabbing. [role=state; DEPRECATED → .n-is-dragging]
+.n-expandable — Nucleus utility class (`.n-expandable`). [role=state]
+.n-expanded — Sets background: var(--n-bg-muted). [role=state; DEPRECATED → .n-is-expanded]
+.n-focus-ring — Nucleus utility class (`.n-focus-ring`). [role=state]
+.n-hidden — Sets display: none !important. [role=state; gotcha=Force-hides with !important. Use n-d-none when normal cascade behavior is preferable.]
+.n-invisible — Sets visibility: hidden. [role=state]
+.n-is-active — Sets color: var(--n-primary). [role=state]
+.n-is-disabled — Applies opacity: 0.5; pointer-events: none; cursor: not-allowed. [role=state; gotcha=Prefer native disabled or aria-disabled=true when those semantics are accurate.]
+.n-is-dragging — Applies opacity: 0.72; box-shadow: var(--n-shadow-lg); transform: rotate(1deg); cursor: grabbing. [role=state]
+.n-is-expanded — Sets background: var(--n-bg-muted). [role=state]
+.n-is-loading — Sets cursor: progress. [role=state]
+.n-is-open — Sets --n-state-open: 1. [role=state; gotcha=A state hook only; it does not force a universal display value because open behavior is component-specific.]
+.n-is-selected — Applies border-color: var(--n-primary); background: var(--n-primary-soft). [role=state]
+.n-loading — Sets cursor: progress. [role=state; DEPRECATED → .n-is-loading]
+.n-selected — Applies border-color: var(--n-primary); background: var(--n-primary-soft). [role=state; DEPRECATED → .n-is-selected]
+.n-visible — Sets visibility: visible. [role=state]
 
 --- Helper (11) ---
-.n-avatar — Applies display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--n-radius-full); background: var(--n-primary); color: #fff; font-weight: 600; font-size: var(--n-text-sm); overflow: hidden.
-.n-avatar-lg — Applies width: 3.5rem; height: 3.5rem; font-size: var(--n-text-lg).
-.n-avatar-sm — Applies width: 2rem; height: 2rem; font-size: var(--n-text-xs).
-.n-clearfix — Nucleus utility class (`.n-clearfix`).
-.n-divider — Applies border: none; border-top: 1px solid var(--n-border-color); margin: 1.5rem 0.
-.n-img-cover — Applies object-fit: cover; width: 100%; height: 100%.
-.n-img-fluid — Applies max-width: 100%; height: auto.
-.n-pointer — Sets cursor: pointer.
-.n-select-all — Sets user-select: all.
-.n-select-none — Sets user-select: none.
-.n-sr-only — Applies position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0.
+.n-avatar — Applies display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: var(--n-radius-full); background: var(--n-primary); color: #fff; font-weight: 600; font-size: var(--n-text-sm); overflow: hidden. [role=component]
+.n-avatar-lg — Applies width: 3.5rem; height: 3.5rem; font-size: var(--n-text-lg). [role=size]
+.n-avatar-sm — Applies width: 2rem; height: 2rem; font-size: var(--n-text-xs). [role=size]
+.n-clearfix — Nucleus utility class (`.n-clearfix`). [role=utility]
+.n-divider — Applies border: none; border-top: 1px solid var(--n-border-color); margin: 1.5rem 0. [role=utility]
+.n-img-cover — Applies object-fit: cover; width: 100%; height: 100%. [role=utility]
+.n-img-fluid — Applies max-width: 100%; height: auto. [role=utility]
+.n-pointer — Sets cursor: pointer. [role=utility]
+.n-select-all — Sets user-select: all. [role=utility]
+.n-select-none — Sets user-select: none. [role=utility]
+.n-sr-only — Applies position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0. [role=utility]
 
 --- Accessibility (6) ---
-.n-no-print — Sets display: none !important.
-.n-pointer-events-auto — Sets pointer-events: auto.
-.n-pointer-events-none — Sets pointer-events: none.
-.n-skip-link — Applies position: fixed; z-index: 9999; inset-block-start: 0.75rem; inset-inline-start: 0.75rem; padding: 0.625rem 0.875rem; border-radius: var(--n-radius); background: var(--n-primary); color: var(--n-on-primary); box-shadow: var(--n-shadow-lg); transform: translateY(-200%).
-.n-sr-only-focusable — Nucleus utility class (`.n-sr-only-focusable`).
-.n-touch-target — Applies min-width: 2.75rem; min-height: 2.75rem.
+.n-no-print — Sets display: none !important. [role=accessibility]
+.n-pointer-events-auto — Sets pointer-events: auto. [role=accessibility]
+.n-pointer-events-none — Sets pointer-events: none. [role=accessibility]
+.n-skip-link — Applies position: fixed; z-index: 9999; inset-block-start: 0.75rem; inset-inline-start: 0.75rem; padding: 0.625rem 0.875rem; border-radius: var(--n-radius); background: var(--n-primary); color: var(--n-on-primary); box-shadow: var(--n-shadow-lg); transform: translateY(-200%). [role=accessibility]
+.n-sr-only-focusable — Nucleus utility class (`.n-sr-only-focusable`). [role=accessibility]
+.n-touch-target — Applies min-width: 2.75rem; min-height: 2.75rem. [role=accessibility]
 
 --- Theme & dark mode (1) ---
-.n-dark-mode — Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); --n-primary: #d5a44f; --n-primary-h: #e2bc75; --n-secondary: #c28b31; --n-secondary-h: #d5a44f; --n-focus: rgba(213, 164, 79, 0.42); --n-primary-soft: rgba(213, 164, 79, 0.13); --n-primary-border: rgba(213, 164, 79, 0.42); --n-primary-ink: #f0d395; --n-secondary-soft: rgba(194, 139, 49, 0.14); --n-visited: #d5a44f; --n-on-primary: #1a160f; --n-on-secondary: #1a160f; color-scheme: dark.
+.n-dark-mode — Applies --n-text: #e2e8f0; --n-text-muted: #94a3b8; --n-bg: #0f172a; --n-bg-muted: #1e293b; --n-border-color: #334155; --n-surface: #0f172a; --n-surface-raised: #172033; --n-surface-sunken: #0b1220; --n-overlay: rgba(2, 6, 23, 0.76); --n-primary: #d5a44f; --n-primary-h: #e2bc75; --n-secondary: #c28b31; --n-secondary-h: #d5a44f; --n-focus: rgba(213, 164, 79, 0.42); --n-primary-soft: rgba(213, 164, 79, 0.13); --n-primary-border: rgba(213, 164, 79, 0.42); --n-primary-ink: #f0d395; --n-secondary-soft: rgba(194, 139, 49, 0.14); --n-visited: #d5a44f; --n-on-primary: #1a160f; --n-on-secondary: #1a160f; color-scheme: dark. [role=theme]

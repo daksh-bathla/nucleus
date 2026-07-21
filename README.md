@@ -4,7 +4,7 @@ A polished, accessible, **zero-build** CSS framework you can install like Bootst
 — and that AI coding assistants can use accurately, because every class is
 described in machine-readable metadata instead of left to guesswork.
 
-- **580 classes, 76 design tokens** — utilities, intrinsic layouts, components,
+- **697 classes, 76 design tokens** — utilities, intrinsic layouts, components,
   forms, content styles, states, and effects.
 - **Zero runtime, zero dependencies** — one stylesheet, no required JavaScript.
 - **Prefix everything with `n-`** — no collisions with your own classes.
@@ -19,6 +19,7 @@ described in machine-readable metadata instead of left to guesswork.
 - [Examples](#examples) · [Utilities](#utilities) · [Customization](#customization)
 - [Dark mode & themes](#dark-mode--themes) · [Accessibility](#accessibility)
 - [AI-assisted development](#ai-assisted-development)
+- [Architecture & naming](#architecture--naming) · [Migration guides](#migration-guides)
 - [Browser support](#browser-support) · [Backward compatibility](#backward-compatibility)
 - [Contributing & releases](#contributing--releases)
 
@@ -248,10 +249,18 @@ in JavaScript. CSS alone cannot guarantee accessibility.
 
 Nucleus is built so AI tools generate **real** class names. See
 **[AI_USAGE.md](AI_USAGE.md)** for per-tool setup (Claude Code, Codex, Cursor,
-Copilot, ChatGPT).
+Google Antigravity, Copilot, ChatGPT).
 
 ```bash
-# Print the compact AI context (or write it with --out)
+# Generate the context plus the native project rule for your assistant
+npx @navital/nucleus-css ai-setup claude
+npx @navital/nucleus-css ai-setup codex
+npx @navital/nucleus-css ai-setup cursor
+npx @navital/nucleus-css ai-setup antigravity
+```
+
+```bash
+# Or only print/write the compact AI context
 npx @navital/nucleus-css ai-context --out .nucleus/ai-context.md
 
 # Fail on any hallucinated class (scans html/jsx/tsx/vue/svelte)
@@ -269,6 +278,33 @@ Machine-readable metadata lives in
 [`dist/nucleus.manifest.json`](dist/nucleus.manifest.json) and the plain-text
 [`llms.txt`](llms.txt) / [`llms-full.txt`](llms-full.txt).
 
+Structured queries return JSON:
+
+```bash
+npx @navital/nucleus-css search flex
+npx @navital/nucleus-css component n-navbar
+npx @navital/nucleus-css token --n-space-4
+npx @navital/nucleus-css deprecated
+```
+
+## Architecture & naming
+
+Nucleus is a component-first hybrid framework. Named cascade layers make utilities
+override component defaults deliberately, while states and themes have explicit
+priority. See [ARCHITECTURE.md](ARCHITECTURE.md), [NAMING.md](NAMING.md), and the
+generated [MANIFEST.md](MANIFEST.md).
+
+The canonical flex-container class is `n-flex`; `n-d-flex` remains a deprecated
+alias. Other visually similar utilities can have meaningful behavioral differences,
+which are recorded as manifest gotchas rather than mislabeled as aliases.
+
+## Migration guides
+
+- [Compatibility and migration](MIGRATION.md)
+- [Coming from Tailwind](COMING_FROM_TAILWIND.md)
+- [Coming from Bootstrap](COMING_FROM_BOOTSTRAP.md)
+- [Spacing-scale decision](docs/adr/0001-spacing-scale.md)
+
 ## Browser support
 
 Core utilities and components use broadly supported CSS. Progressive features —
@@ -278,8 +314,8 @@ container queries, `:has()`-free but modern selectors, `text-wrap`, `dvh`, nativ
 ## Backward compatibility
 
 **No public class or token was renamed or removed** in this packaging release. All
-580 classes and 76 tokens keep the same names and behavior, so existing markup
-continues to work unchanged. The only breaking change is the **package name**
+697 generated classes and 76 tokens keep their compatibility contract, so existing
+markup continues to work unchanged. The only breaking change is the **package name**
 (`nucleus-css` → `@navital/nucleus-css`); update your install/import path. See
 [CHANGELOG.md](CHANGELOG.md).
 
@@ -288,8 +324,9 @@ continues to work unchanged. The only breaking change is the **package name**
 ```
 src/css/nucleus.css   Source of truth (edit here).
 dist/                 Generated: full + min + reset/utilities/components/themes + manifest.
-bin/nucleus.mjs       CLI (validate / ai-context / init / manifest).
+bin/nucleus.mjs       CLI (validation, AI setup, and structured metadata queries).
 scripts/              Zero-dependency build + generators.
+docs/                 Architecture decision records.
 demo/                 Documentation site (deployed).
 examples/             Framework starters.
 ```

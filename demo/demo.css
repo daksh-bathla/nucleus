@@ -45,19 +45,8 @@ html { scroll-padding-top: 7rem; }
 .demo-navbar .n-nav-link:visited { color: var(--demo-accent); }
 .demo-navbar .n-nav-link:hover,
 .demo-navbar .n-nav-link:focus-visible,
-.demo-navbar .n-nav-link.active,
-.demo-navbar .n-nav-link.active:visited { color: var(--demo-accent); }
-
-.demo-github-link {
-    color: var(--demo-accent);
-    font-size: var(--n-text-sm);
-    font-weight: 700;
-    text-decoration: none;
-}
-.demo-github-link:hover { color: var(--demo-accent); text-decoration: none; }
-.demo-github-link:visited { color: var(--demo-accent); }
-.demo-github-link:visited:hover,
-.demo-github-link:visited:focus-visible { color: var(--demo-accent); }
+.demo-navbar .n-nav-link[aria-current="page"],
+.demo-navbar .n-nav-link[aria-current="page"]:visited { color: var(--demo-accent); }
 
 .demo-hero {
     overflow: hidden;

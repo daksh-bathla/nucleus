@@ -18,6 +18,9 @@ export function assembleModule(model, moduleName, version) {
   const parts = [];
   // The file prelude (title banner) rides with reset.
   if (moduleName === "reset" && model.prelude.trim()) parts.push(model.prelude.trimEnd());
+  // Repeat the named-layer order in every standalone module. This makes the
+  // cascade deterministic even when consumers import modules separately.
+  if (moduleName !== "reset" && model.layerStatement) parts.push(model.layerStatement);
   // Reset owns the tokens (section 0). Make the other modules self-sufficient by
   // prepending the same token block, so `import ".../utilities"` on its own still
   // resolves every var(--n-*). (Combining modules just redeclares identical

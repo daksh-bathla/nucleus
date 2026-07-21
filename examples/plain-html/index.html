@@ -16,11 +16,17 @@
 
     <nav class="n-navbar">
       <a class="n-navbar-brand" href="#">Nucleus</a>
-      <ul class="n-nav">
-        <li class="n-nav-item"><a class="n-nav-link active" href="#">Home</a></li>
-        <li class="n-nav-item"><a class="n-nav-link" href="#features">Features</a></li>
-        <li class="n-nav-item"><a class="n-nav-link" href="#pricing">Pricing</a></li>
-      </ul>
+      <details class="n-navbar-menu">
+        <summary class="n-navbar-toggle">
+          <span class="n-navbar-toggle-icon" aria-hidden="true"></span>
+          <span class="n-sr-only">Navigation menu</span>
+        </summary>
+        <ul class="n-nav">
+          <li class="n-nav-item"><a class="n-nav-link" href="#" aria-current="page">Home</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#features">Features</a></li>
+          <li class="n-nav-item"><a class="n-nav-link" href="#pricing">Pricing</a></li>
+        </ul>
+      </details>
     </nav>
 
     <main id="main" class="n-container n-section">

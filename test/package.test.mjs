@@ -24,6 +24,15 @@ test("package identity", () => {
   assert.ok(pkg.style?.endsWith(".css"));
 });
 
+test("Nucleus stays standalone and framework-independent", async () => {
+  assert.deepEqual(pkg.dependencies ?? {}, {}, "runtime dependencies are not allowed");
+  assert.deepEqual(pkg.peerDependencies ?? {}, {}, "peer framework dependencies are not allowed");
+
+  const source = await readFile(join(ROOT, "src/css/nucleus.css"), "utf8");
+  assert.ok(!/@import\s+(?:url\()?['\"]?https?:/i.test(source), "source CSS must not import remote stylesheets");
+  assert.ok(!/tailwind|bootstrap|bulma|foundation/i.test(source), "source CSS must not depend on another framework");
+});
+
 test("every exports target resolves to a real file", () => {
   for (const t of targets(pkg.exports)) {
     assert.ok(existsSync(join(ROOT, t.replace(/^\.\//, ""))), `missing export target ${t}`);

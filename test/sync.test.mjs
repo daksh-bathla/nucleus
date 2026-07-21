@@ -11,6 +11,7 @@ import {
   buildLlmsFull,
   buildClassReference,
   buildComponentReference,
+  buildManifestReference,
 } from "../scripts/lib/docs.mjs";
 
 const pkg = JSON.parse(await readFile(join(ROOT, "package.json"), "utf8"));
@@ -34,6 +35,7 @@ test("manifest + docs on disk match the generators", async () => {
   assert.equal(await onDisk("llms-full.txt"), buildLlmsFull(manifest));
   assert.equal(await onDisk("CLASS_REFERENCE.md"), buildClassReference(manifest));
   assert.equal(await onDisk("COMPONENT_REFERENCE.md"), buildComponentReference(manifest));
+  assert.equal(await onDisk("MANIFEST.md"), buildManifestReference(manifest));
 });
 
 test("demo bundle matches the full build", async () => {
@@ -43,4 +45,5 @@ test("demo bundle matches the full build", async () => {
   assert.equal(await onDisk("demo/llms-full.txt"), buildLlmsFull(manifest));
   assert.equal(await onDisk("demo/CLASS_REFERENCE.md"), buildClassReference(manifest));
   assert.equal(await onDisk("demo/COMPONENT_REFERENCE.md"), buildComponentReference(manifest));
+  assert.equal(await onDisk("demo/MANIFEST.md"), buildManifestReference(manifest));
 });

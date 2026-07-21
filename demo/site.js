@@ -3,7 +3,6 @@
   document.querySelectorAll("#nav-main .n-nav-link").forEach((link) => {
     const href = link.getAttribute("href");
     if (href === path) {
-      link.classList.add("active");
       link.setAttribute("aria-current", "page");
     }
   });

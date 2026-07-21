@@ -17,16 +17,21 @@
 <!-- Navbar -->
 <nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand demo-brand" href="index.html"><img class="demo-logo" src="assets/nucleus-transparent.png" alt="Nucleus CSS Framework"></a>
-    <ul class="n-nav">
+    <details class="n-navbar-menu">
+        <summary class="n-navbar-toggle"><span class="n-navbar-toggle-icon" aria-hidden="true"></span><span class="n-sr-only">Navigation menu</span></summary>
+        <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
-        <li class="n-nav-item"><a class="n-nav-link active" href="buttons.html">Buttons</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="buttons.html" aria-current="page">Buttons</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="patterns.html">Patterns</a></li>
-    </ul>
+        <li class="n-nav-item"><a class="n-nav-link" href="production.html">Production</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
+        </ul>
+    </details>
 </nav>
 
 <main class="demo-main" id="main-content">
@@ -110,12 +115,12 @@
 
             <div class="n-flex n-flex-wrap n-gap-2 n-mb-4">
                 <button class="n-btn n-btn-primary" disabled id="btn-disabled-attr">Disabled (attr)</button>
-                <button class="n-btn n-btn-secondary n-disabled" disabled id="btn-disabled-class">Disabled (class + attr)</button>
+                <a class="n-btn n-btn-secondary n-is-disabled" aria-disabled="true" id="btn-disabled-class">Unavailable link</a>
                 <button class="n-btn n-btn-outline-danger" disabled id="btn-disabled-outline">Disabled Outline</button>
             </div>
 
             <div class="demo-code">&lt;button class="n-btn n-btn-primary" disabled&gt;Disabled&lt;/button&gt;
-&lt;button class="n-btn n-btn-secondary n-disabled" disabled&gt;Disabled&lt;/button&gt;</div>
+&lt;a class="n-btn n-btn-secondary n-is-disabled" aria-disabled="true"&gt;Unavailable&lt;/a&gt;</div>
         </div>
 
         <!-- As Links -->

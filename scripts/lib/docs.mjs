@@ -33,7 +33,7 @@ export function buildLlmsTxt(manifest) {
     "color bg: n-bg-{primary,secondary,success,danger,warning,info,light,dark,white,muted}",
     "sizing: n-w-full, n-max-w-{sm..2xl}, n-h-screen, n-min-h-screen",
     "border/radius: n-border, n-rounded, n-rounded-{sm,lg,xl,full}, n-shadow-{sm..xl}",
-    "display: n-d-{none,block,flex,grid,...} and responsive n-d-{sm,md,lg}-*",
+    "display: n-d-{none,block,grid,...} and responsive n-d-{sm,md,lg}-*; use canonical n-flex for flex containers",
   ];
 
   return `# ${manifest.name}
@@ -61,6 +61,12 @@ import "${manifest.package}";               // full framework
 
 CDN: \`${manifest.cdn}\`
 
+## Configure an AI coding assistant
+
+\`npx ${manifest.package} ai-setup <tool>\` writes this context plus the tool's
+native project rule. Supported tools: \`claude\`, \`codex\`, \`cursor\`, and
+\`antigravity\`.
+
 ## Modular imports
 
 - \`${manifest.imports.reset}\` — tokens, reset, global a11y
@@ -75,6 +81,14 @@ CDN: \`${manifest.cdn}\`
 - Variant: \`n-<name>-<variant>\` (e.g. \`n-btn-primary\`, \`n-alert-success\`).
 - Size: \`n-<name>-sm\` / \`n-<name>-lg\`.
 - Responsive utility: \`n-<util>-<bp>-*\` where bp ∈ {${manifest.breakpoints.map((b) => b.name).join(", ")}} (e.g. \`n-col-md-6\`, \`n-d-lg-flex\`).
+- Prefer canonical classes. Deprecated aliases remain valid but the validator reports their replacement.
+
+## State convention
+
+1. Use native state and accurate ARIA first (\`disabled\`, \`aria-current="page"\`, \`aria-selected="true"\`, \`aria-expanded="true"\`).
+2. Use \`data-state\` for framework-specific state when ARIA would be inaccurate.
+3. Use namespaced visual hooks such as \`n-is-active\`, \`n-is-loading\`, and \`n-is-disabled\`.
+Do not add unprefixed \`.active\` to new markup.
 
 ## Breakpoints (min-width, mobile-first)
 
@@ -90,6 +104,11 @@ ${manifest.breakpoints.map((b) => `- ${b.name}: ${b.min}`).join("\n")}
 
 ${utilityFamilies.map((f) => `- ${f}`).join("\n")}
 
+## Spacing scale (not Tailwind-compatible)
+
+${Object.entries(manifest.spacingScale.values).map(([key, value]) => `- ${key}: ${value}`).join("\n")}
+Never infer Nucleus spacing values from Tailwind. For example, \`n-p-4\` is ${manifest.spacingScale.values[4]}.
+
 ## Components
 
 ${componentNames}
@@ -104,6 +123,7 @@ ${componentNames}
 ## Common mistakes to avoid
 
 - Inventing classes not in the manifest (validate with \`npx ${manifest.package} validate ./src\`).
+- Using deprecated aliases when a canonical class is available (the validator warns and suggests a replacement).
 - Using Tailwind/Bootstrap names instead of the \`n-\` equivalents.
 - Using the \`open\` attribute on \`n-dialog\` — open it with \`dialog.showModal()\`.
 - Forgetting a \`<label>\` for \`n-input\`/\`n-select\`/\`n-textarea\`.
@@ -115,6 +135,7 @@ ${componentNames}
 - llms-full.txt — complete plain-text reference
 - dist/nucleus.manifest.json — machine-readable manifest
 - AI_USAGE.md — how to prompt AI tools to use Nucleus
+- MANIFEST.md — manifest schema and structured CLI commands
 `;
 }
 
@@ -165,7 +186,11 @@ export function buildLlmsFull(manifest) {
     lines.push("");
     lines.push(`--- ${CATEGORY_LABELS[category] || category} (${classes.length}) ---`);
     for (const cls of classes) {
-      lines.push(`.${cls.name} — ${cls.description}`);
+      const details = [`role=${cls.role}`];
+      if (cls.deprecated) details.push(`DEPRECATED → .${cls.replacement}`);
+      if (cls.scaleValue) details.push(`scale=${cls.scaleValue}`);
+      if (cls.gotchas.length) details.push(`gotcha=${cls.gotchas.join(" ")}`);
+      lines.push(`.${cls.name} — ${cls.description} [${details.join("; ")}]`);
     }
   }
   lines.push("");
@@ -191,11 +216,12 @@ export function buildClassReference(manifest) {
     lines.push("");
     lines.push(`<a id="${category}"></a>`);
     lines.push("");
-    lines.push("| Class | Description |");
-    lines.push("| --- | --- |");
+    lines.push("| Class | Role | Status | Scale | Description / gotchas |");
+    lines.push("| --- | --- | --- | --- | --- |");
     for (const cls of classes) {
-      const desc = cls.description.replace(/\|/g, "\\|");
-      lines.push(`| \`.${cls.name}\` | ${desc} |`);
+      const notes = [cls.description, ...cls.gotchas].join(" ").replace(/\|/g, "\\|");
+      const status = cls.deprecated ? `Deprecated; use \`.${cls.replacement}\`` : "Canonical";
+      lines.push(`| \`.${cls.name}\` | ${cls.role} | ${status} | ${cls.scaleValue || "—"} | ${notes} |`);
     }
   }
   lines.push("");
@@ -237,4 +263,45 @@ export function buildComponentReference(manifest) {
   }
   lines.push("");
   return lines.join("\n");
+}
+
+/** Generated documentation for the JSON manifest contract. */
+export function buildManifestReference(manifest) {
+  const deprecated = manifest.classes.filter((entry) => entry.deprecated);
+  return `# ${manifest.name} — Manifest schema
+
+Generated from \`src/css/nucleus.css\` and the validated metadata annotations. Do not edit the JSON manifest by hand.
+
+## Top-level contract
+
+- \`schemaVersion\`: manifest contract version (${manifest.schemaVersion})
+- \`version\`: package version
+- \`architecture\`: framework model and ordered cascade layers
+- \`stateConvention\`: canonical state hierarchy and legacy compatibility selectors
+- \`spacingScale\`: exact v2 numeric mapping and migration policy
+- \`counts\`: generated class, token, component, and deprecation counts
+- \`tokens[]\`, \`components[]\`, \`classes[]\`: CSS-backed public API records
+
+## Class record
+
+Every \`classes[]\` record includes \`class\`/\`name\`, \`category\`, \`role\`, \`layer\`, \`deprecated\`, \`gotchas\`, \`responsive\`, \`tokenReferences\`, \`customPropertyReferences\`, and \`description\`. Relevant records also include \`aliasOf\`, \`replacement\`, \`since\`, \`variantOf\`, \`states\`, \`scaleValue\`, or \`examples\`.
+
+Allowed roles currently emitted: \`utility\`, \`component\`, \`component-part\`, \`variant\`, \`size\`, \`layout\`, \`state\`, \`theme\`, and \`accessibility\`.
+
+## Deprecations
+
+${deprecated.map((entry) => `- \`.${entry.name}\` → \`.${entry.replacement}\``).join("\n") || "No deprecated classes."}
+
+## Structured CLI queries
+
+\`npx ${manifest.package} search flex\`
+
+\`npx ${manifest.package} component n-navbar\`
+
+\`npx ${manifest.package} token --n-space-4\`
+
+\`npx ${manifest.package} deprecated\`
+
+All four commands return JSON suitable for developer tools and coding assistants.
+`;
 }

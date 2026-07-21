@@ -1,9 +1,12 @@
 /*! Nucleus CSS 2.0.0 · utilities module · @navital/nucleus-css · MIT · https://github.com/dakshbathla/nucleus */
 
+@layer reset, tokens, base, layout, components, utilities, states, themes;
+
 /* Design tokens (shared with the reset module; included so this module is usable standalone) */
 /* ----------------------------- */
 /* 0 · CSS Custom Properties     */
 /* ----------------------------- */
+@layer tokens {
 :root {
     /* ── Colors ── */
     --n-primary:     #0f766e;
@@ -99,10 +102,12 @@
     --n-component-gap: var(--n-space-3);
     --n-section-space: clamp(3rem, 7vw, 6rem);
 }
+}
 
 /* ----------------------------- */
 /* 2 · Container System          */
 /* ----------------------------- */
+@layer layout {
 .n-container {
     width: 100%;
     margin-inline: auto;
@@ -121,10 +126,12 @@
     padding-inline: var(--n-gutter);
     max-width: none;
 }
+}
 
 /* ----------------------------- */
 /* 3 · Grid System               */
 /* ----------------------------- */
+@layer layout {
 .n-row {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -208,10 +215,12 @@
     .n-col-xl-11 { grid-column: span 11; }
     .n-col-xl-12 { grid-column: span 12; }
 }
+}
 
 /* ----------------------------- */
 /* 4 · Display Utilities         */
 /* ----------------------------- */
+@layer utilities {
 .n-d-none          { display: none; }
 .n-d-block         { display: block; }
 .n-d-inline        { display: inline; }
@@ -241,10 +250,12 @@
     .n-d-lg-inline       { display: inline; }
     .n-d-lg-inline-block { display: inline-block; }
 }
+}
 
 /* ----------------------------- */
 /* 5 · Flexbox Utilities         */
 /* ----------------------------- */
+@layer utilities {
 .n-flex            { display: flex; }
 .n-flex-wrap       { flex-wrap: wrap; }
 .n-flex-nowrap     { flex-wrap: nowrap; }
@@ -285,10 +296,12 @@
 .n-gap-3           { gap: var(--n-space-3); }
 .n-gap-4           { gap: var(--n-space-4); }
 .n-gap-5           { gap: var(--n-space-5); }
+}
 
 /* ----------------------------- */
 /* 6 · Spacing Utilities         */
 /* ----------------------------- */
+@layer utilities {
 
 /* -- Margin -- */
 .n-m-0  { margin: var(--n-space-0); }
@@ -355,10 +368,12 @@
 .n-py-0 { padding-block: var(--n-space-0); }  .n-py-1 { padding-block: var(--n-space-1); }
 .n-py-2 { padding-block: var(--n-space-2); }  .n-py-3 { padding-block: var(--n-space-3); }
 .n-py-4 { padding-block: var(--n-space-4); }  .n-py-5 { padding-block: var(--n-space-5); }
+}
 
 /* ----------------------------- */
 /* 7 · Typography                */
 /* ----------------------------- */
+@layer utilities {
 .n-text-xs    { font-size: var(--n-text-xs); }
 .n-text-sm    { font-size: var(--n-text-sm); }
 .n-text-base  { font-size: var(--n-text-base); }
@@ -406,18 +421,22 @@
 }
 
 .n-font-mono { font-family: var(--n-font-mono); }
+}
 
 /* Heading defaults */
+@layer base {
 h1 { font-size: var(--n-text-4xl); font-weight: 700; line-height: 1.2; }
 h2 { font-size: var(--n-text-3xl); font-weight: 700; line-height: 1.25; }
 h3 { font-size: var(--n-text-2xl); font-weight: 600; line-height: 1.3; }
 h4 { font-size: var(--n-text-xl);  font-weight: 600; line-height: 1.35; }
 h5 { font-size: var(--n-text-lg);  font-weight: 500; line-height: 1.4; }
 h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
+}
 
 /* ----------------------------- */
 /* 8 · Color Utilities           */
 /* ----------------------------- */
+@layer utilities {
 
 /* Text colors */
 .n-text-primary   { color: var(--n-primary); }
@@ -427,6 +446,7 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-text-warning   { color: var(--n-warning); }
 .n-text-info      { color: var(--n-info); }
 .n-text-muted     { color: var(--n-text-muted); }
+.n-text-light     { color: var(--n-light); }
 .n-text-dark      { color: var(--n-dark); }
 .n-text-white     { color: #ffffff; }
 
@@ -441,10 +461,12 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-bg-dark        { background-color: var(--n-dark); color: #fff; }
 .n-bg-white       { background-color: #fff; }
 .n-bg-muted       { background-color: var(--n-bg-muted); }
+}
 
 /* ----------------------------- */
 /* 13 · Borders & Radius         */
 /* ----------------------------- */
+@layer utilities {
 .n-border        { border: 1px solid var(--n-border-color); }
 .n-border-t      { border-top: 1px solid var(--n-border-color); }
 .n-border-b      { border-bottom: 1px solid var(--n-border-color); }
@@ -453,9 +475,13 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-border-0      { border: none; }
 
 .n-border-primary   { border-color: var(--n-primary); }
+.n-border-secondary { border-color: var(--n-secondary); }
 .n-border-success   { border-color: var(--n-success); }
 .n-border-danger    { border-color: var(--n-danger); }
 .n-border-warning   { border-color: var(--n-warning); }
+.n-border-info      { border-color: var(--n-info); }
+.n-border-light     { border-color: var(--n-light); }
+.n-border-dark      { border-color: var(--n-dark); }
 
 .n-rounded-none  { border-radius: 0; }
 .n-rounded-sm    { border-radius: var(--n-radius-sm); }
@@ -463,20 +489,24 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-rounded-lg    { border-radius: var(--n-radius-lg); }
 .n-rounded-xl    { border-radius: var(--n-radius-xl); }
 .n-rounded-full  { border-radius: var(--n-radius-full); }
+}
 
 /* ----------------------------- */
 /* 14 · Shadows                  */
 /* ----------------------------- */
+@layer utilities {
 .n-shadow-none   { box-shadow: none; }
 .n-shadow-sm     { box-shadow: var(--n-shadow-sm); }
 .n-shadow        { box-shadow: var(--n-shadow); }
 .n-shadow-md     { box-shadow: var(--n-shadow-md); }
 .n-shadow-lg     { box-shadow: var(--n-shadow-lg); }
 .n-shadow-xl     { box-shadow: var(--n-shadow-xl); }
+}
 
 /* ----------------------------- */
 /* 15 · Width & Height           */
 /* ----------------------------- */
+@layer utilities {
 .n-w-full     { width: 100%; }
 .n-w-auto     { width: auto; }
 .n-w-half     { width: 50%; }
@@ -493,10 +523,12 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-h-auto     { height: auto; }
 .n-h-screen   { height: 100vh; }
 .n-min-h-screen { min-height: 100vh; }
+}
 
 /* ----------------------------- */
 /* 16 · Position                 */
 /* ----------------------------- */
+@layer utilities {
 .n-relative  { position: relative; }
 .n-absolute  { position: absolute; }
 .n-fixed     { position: fixed; }
@@ -514,29 +546,35 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-z-20      { z-index: 20; }
 .n-z-50      { z-index: 50; }
 .n-z-100     { z-index: 100; }
+}
 
 /* ----------------------------- */
 /* 17 · Overflow                 */
 /* ----------------------------- */
+@layer utilities {
 .n-overflow-hidden  { overflow: hidden; }
 .n-overflow-auto    { overflow: auto; }
 .n-overflow-scroll  { overflow: scroll; }
 .n-overflow-visible { overflow: visible; }
 .n-overflow-x-auto  { overflow-x: auto; }
 .n-overflow-y-auto  { overflow-y: auto; }
+}
 
 /* ----------------------------- */
 /* 18 · Opacity                  */
 /* ----------------------------- */
+@layer utilities {
 .n-opacity-0   { opacity: 0; }
 .n-opacity-25  { opacity: 0.25; }
 .n-opacity-50  { opacity: 0.5; }
 .n-opacity-75  { opacity: 0.75; }
 .n-opacity-100 { opacity: 1; }
+}
 
 /* ----------------------------- */
 /* 19 · Transitions              */
 /* ----------------------------- */
+@layer utilities {
 .n-transition     { transition: all var(--n-duration) var(--n-ease); }
 .n-transition-colors {
     transition: color var(--n-duration) var(--n-ease),
@@ -568,10 +606,12 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-rotate-90    { transform: rotate(90deg); }
 .n-rotate-180   { transform: rotate(180deg); }
 .n-translate-y-1 { transform: translateY(-0.25rem); }
+}
 
 /* ----------------------------- */
 /* 24 · Miscellaneous Helpers    */
 /* ----------------------------- */
+@layer utilities {
 .n-sr-only {
     position: absolute;
     width: 1px;
@@ -631,10 +671,12 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 }
 .n-avatar-sm { width: 2rem; height: 2rem; font-size: var(--n-text-xs); }
 .n-avatar-lg { width: 3.5rem; height: 3.5rem; font-size: var(--n-text-lg); }
+}
 
 /* ----------------------------- */
 /* 26 · Intrinsic Layouts        */
 /* ----------------------------- */
+@layer layout {
 .n-section {
     padding-block: var(--n-section-space);
 }
@@ -764,10 +806,12 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
         gap: var(--n-space-3);
     }
 }
+}
 
 /* ----------------------------- */
 /* 27 · Content & Prose          */
 /* ----------------------------- */
+@layer components {
 .n-lead {
     font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
     line-height: 1.65;
@@ -875,31 +919,44 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
 .n-clamp-4 { -webkit-line-clamp: 4; }
 .n-clamp-5 { -webkit-line-clamp: 5; }
 .n-clamp-6 { -webkit-line-clamp: 6; }
+}
 
 /* ----------------------------- */
 /* 31 · State Utilities          */
 /* ----------------------------- */
+@layer states {
 .n-focus-ring:focus-visible { outline: 3px solid var(--n-focus); outline-offset: 2px; }
+.n-is-selected,
 .n-selected,
 [data-state="selected"] { border-color: var(--n-primary); background: var(--n-primary-soft); }
+.n-is-active,
 .n-active,
 [data-state="active"] { color: var(--n-primary); }
+.n-is-expanded,
 .n-expanded,
 [aria-expanded="true"].n-expandable { background: var(--n-bg-muted); }
+.n-is-dragging,
 .n-dragging,
 [data-state="dragging"] { opacity: 0.72; box-shadow: var(--n-shadow-lg); transform: rotate(1deg); cursor: grabbing; }
+.n-is-loading,
 .n-loading,
 [data-state="loading"] { cursor: progress; }
+.n-is-loading > :not(.n-spinner),
 .n-loading > :not(.n-spinner) { opacity: 0.62; }
+.n-is-disabled,
 .n-disabled,
 [aria-disabled="true"] { opacity: 0.5; pointer-events: none; cursor: not-allowed; }
+.n-is-open,
+[data-state="open"] { --n-state-open: 1; }
 .n-hidden { display: none !important; }
 .n-invisible { visibility: hidden; }
 .n-visible { visibility: visible; }
+}
 
 /* ----------------------------- */
 /* 34 · Modern Utilities         */
 /* ----------------------------- */
+@layer utilities {
 .n-columns-2 { columns: 2; column-gap: var(--n-gutter); }
 .n-columns-3 { columns: 3; column-gap: var(--n-gutter); }
 .n-break-inside-avoid { break-inside: avoid; }
@@ -930,4 +987,5 @@ h6 { font-size: var(--n-text-base);font-weight: 500; line-height: 1.5; }
     }
     .n-tooltip:hover::after,
     .n-tooltip:focus-visible::after { transform: translate(0, 0); }
+}
 }

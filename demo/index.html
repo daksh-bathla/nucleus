@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Nucleus CSS — Predictable, zero-build CSS for humans and coding assistants</title>
-    <meta name="description" content="A polished, accessible, zero-build CSS framework with 580 documented classes, machine-readable metadata, and no runtime dependencies.">
+    <meta name="description" content="A polished, accessible, zero-build CSS framework with 697 documented classes, machine-readable metadata, and no runtime dependencies.">
     <meta name="theme-color" content="#0f766e">
     <link rel="canonical" href="https://nucleus-rose.vercel.app/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nucleus CSS">
     <meta property="og:title" content="Nucleus CSS — Predictable, zero-build CSS">
-    <meta property="og:description" content="580 documented classes, accessible defaults, machine-readable metadata, and zero runtime dependencies.">
+    <meta property="og:description" content="697 documented classes, accessible defaults, machine-readable metadata, and zero runtime dependencies.">
     <meta property="og:url" content="https://nucleus-rose.vercel.app/">
     <meta property="og:image" content="https://nucleus-rose.vercel.app/assets/nucleus.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -29,8 +29,9 @@
         <a class="n-navbar-brand demo-brand" href="index.html" aria-label="Nucleus CSS home">
             <img class="demo-logo" src="assets/nucleus-transparent.png" alt="Nucleus CSS Framework">
         </a>
-        <a class="demo-github-link" href="https://github.com/daksh-bathla/nucleus" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-        <ul class="n-nav" aria-label="Documentation">
+        <details class="n-navbar-menu">
+            <summary class="n-navbar-toggle"><span class="n-navbar-toggle-icon" aria-hidden="true"></span><span class="n-sr-only">Navigation menu</span></summary>
+            <ul class="n-nav" aria-label="Documentation">
             <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
@@ -39,7 +40,10 @@
             <li class="n-nav-item"><a class="n-nav-link" href="components.html">Components</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
             <li class="n-nav-item"><a class="n-nav-link" href="patterns.html">Patterns</a></li>
-        </ul>
+        <li class="n-nav-item"><a class="n-nav-link" href="production.html">Production</a></li>
+                <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
+            </ul>
+        </details>
     </nav>
 
     <main id="main-content">
@@ -48,15 +52,15 @@
                 <div class="demo-hero-copy">
                     <p class="demo-kicker">CSS for AI-assisted teams</p>
                     <h1>Build quickly.<br><span>Keep every class predictable.</span></h1>
-                    <p class="demo-lede">Nucleus is a polished, accessible CSS framework with 580 documented classes, zero runtime JavaScript, and machine-readable metadata so coding assistants use it accurately.</p>
+                    <p class="demo-lede">Nucleus is a polished, accessible CSS framework with 697 documented classes, zero runtime JavaScript, and machine-readable metadata so coding assistants use it accurately.</p>
                     <div class="demo-hero-actions">
                         <a href="#install" class="n-btn n-btn-primary n-btn-lg">Install Nucleus</a>
                         <a href="patterns.html" class="n-btn n-btn-outline-primary n-btn-lg">Explore the system</a>
                     </div>
                     <dl class="demo-metrics" aria-label="Framework statistics">
-                        <div><dt>580</dt><dd>classes</dd></div>
+                        <div><dt>697</dt><dd>classes</dd></div>
                         <div><dt>76</dt><dd>tokens</dd></div>
-                        <div><dt>43</dt><dd>components</dd></div>
+                        <div><dt>60</dt><dd>components</dd></div>
                         <div><dt>0 KB</dt><dd>runtime JS</dd></div>
                     </dl>
                 </div>
@@ -209,6 +213,50 @@
             </div>
         </section>
 
+        <section class="demo-section" aria-labelledby="ai-tools-title">
+            <div class="n-container">
+                <div class="demo-section-heading">
+                    <p class="demo-kicker">AI setup</p>
+                    <h2 id="ai-tools-title">Give each coding assistant the right Nucleus rules.</h2>
+                    <p class="demo-subtitle">One command writes the shared class context and the native project rule for your tool.</p>
+                </div>
+                <div class="n-auto-grid" style="--n-grid-min: 17rem;">
+                    <article class="n-card n-card-interactive">
+                        <div class="n-card-body n-stack">
+                            <div class="n-split"><span class="n-badge n-badge-soft">Claude Code</span><button class="n-btn n-btn-ghost n-btn-sm" type="button" data-copy-target="ai-claude">Copy</button></div>
+                            <p class="n-text-sm n-text-muted">Creates a scoped rule in <code class="n-code">.claude/rules</code>.</p>
+                            <pre class="n-code-block" id="ai-claude"><code>npx @navital/nucleus-css \
+  ai-setup claude</code></pre>
+                        </div>
+                    </article>
+                    <article class="n-card n-card-interactive">
+                        <div class="n-card-body n-stack">
+                            <div class="n-split"><span class="n-badge n-badge-soft">Codex</span><button class="n-btn n-btn-ghost n-btn-sm" type="button" data-copy-target="ai-codex">Copy</button></div>
+                            <p class="n-text-sm n-text-muted">Adds an idempotent Nucleus block to <code class="n-code">AGENTS.md</code>.</p>
+                            <pre class="n-code-block" id="ai-codex"><code>npx @navital/nucleus-css \
+  ai-setup codex</code></pre>
+                        </div>
+                    </article>
+                    <article class="n-card n-card-interactive">
+                        <div class="n-card-body n-stack">
+                            <div class="n-split"><span class="n-badge n-badge-soft">Cursor</span><button class="n-btn n-btn-ghost n-btn-sm" type="button" data-copy-target="ai-cursor">Copy</button></div>
+                            <p class="n-text-sm n-text-muted">Creates an always-applied rule in <code class="n-code">.cursor/rules</code>.</p>
+                            <pre class="n-code-block" id="ai-cursor"><code>npx @navital/nucleus-css \
+  ai-setup cursor</code></pre>
+                        </div>
+                    </article>
+                    <article class="n-card n-card-interactive">
+                        <div class="n-card-body n-stack">
+                            <div class="n-split"><span class="n-badge n-badge-soft">Antigravity</span><button class="n-btn n-btn-ghost n-btn-sm" type="button" data-copy-target="ai-antigravity">Copy</button></div>
+                            <p class="n-text-sm n-text-muted">Creates a workspace rule in <code class="n-code">.agents/rules</code>.</p>
+                            <pre class="n-code-block" id="ai-antigravity"><code>npx @navital/nucleus-css \
+  ai-setup antigravity</code></pre>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <section class="demo-section demo-reference" aria-labelledby="reference-title">
             <div class="n-container demo-reference-grid">
                 <div>
@@ -220,7 +268,8 @@
                     <a href="llms.txt">llms.txt <span>Concise assistant context</span></a>
                     <a href="llms-full.txt">llms-full.txt <span>Complete class reference</span></a>
                     <a href="nucleus.manifest.json">JSON manifest <span>Structured framework metadata</span></a>
-                    <a href="CLASS_REFERENCE.md">Class reference <span>All 580 documented classes</span></a>
+                    <a href="MANIFEST.md">Manifest schema <span>Roles, aliases, and structured queries</span></a>
+                    <a href="CLASS_REFERENCE.md">Class reference <span>All 697 documented classes</span></a>
                 </div>
             </div>
         </section>
@@ -229,7 +278,7 @@
     <footer class="demo-footer">
         <div class="n-container demo-footer-row">
             <p><strong>Nucleus CSS</strong> <span>Predictable CSS for humans and coding assistants.</span></p>
-            <div><a href="https://www.npmjs.com/package/@navital/nucleus-css">npm</a><a href="https://github.com/daksh-bathla/nucleus">GitHub</a><a href="llms.txt">llms.txt</a></div>
+            <div><a href="https://www.npmjs.com/package/@navital/nucleus-css">npm</a><a href="https://github.com/dakshbathla/nucleus">GitHub</a><a href="llms.txt">llms.txt</a></div>
         </div>
     </footer>
 </body>

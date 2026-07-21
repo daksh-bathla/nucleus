@@ -3,11 +3,23 @@ import assert from "node:assert/strict";
 
 import {
   validateContent,
+  validateUsage,
   suggest,
   levenshtein,
 } from "../scripts/lib/validate-markup.mjs";
 
 const known = new Set(["n-btn", "n-btn-primary", "n-card", "n-flex", "n-container"]);
+const manifest = {
+  classes: [
+    { name: "n-btn", deprecated: false },
+    { name: "n-flex", deprecated: false },
+    { name: "n-d-flex", deprecated: true, replacement: "n-flex" },
+    { name: "n-nav-link", deprecated: false },
+  ],
+  stateConvention: {
+    legacySelectors: [{ selector: ".active", scope: ["n-nav-link"], replacement: "Use aria-current=page." }],
+  },
+};
 
 test("levenshtein basics", () => {
   assert.equal(levenshtein("n-btn", "n-btn"), 0);
@@ -49,4 +61,22 @@ test("reports accurate line numbers", () => {
 test("accepts valid Vue :class object string tokens", () => {
   const vue = `<div :class="'n-btn n-btn-primary'"></div>`;
   assert.deepEqual(validateContent(vue, known), []);
+});
+
+test("rich validation warns for deprecated aliases without rejecting them", () => {
+  const found = validateUsage(`<div class="n-d-flex"></div>`, manifest);
+  assert.deepEqual(found.map(({ level, code, replacement }) => ({ level, code, replacement })), [
+    { level: "warning", code: "deprecated-class", replacement: "n-flex" },
+  ]);
+});
+
+test("rich validation warns for component-scoped legacy active state", () => {
+  const found = validateUsage(`<a class="n-nav-link active"></a>`, manifest);
+  assert.equal(found.length, 1);
+  assert.equal(found[0].code, "legacy-state-selector");
+  assert.equal(found[0].level, "warning");
+});
+
+test("rich validation leaves unrelated active classes alone", () => {
+  assert.deepEqual(validateUsage(`<div class="sidebar active"></div>`, manifest), []);
 });

@@ -17,16 +17,21 @@
 <!-- Navbar -->
 <nav class="n-navbar demo-navbar" id="nav-main" aria-label="Primary navigation">
     <a class="n-navbar-brand demo-brand" href="index.html"><img class="demo-logo" src="assets/nucleus-transparent.png" alt="Nucleus CSS Framework"></a>
-    <ul class="n-nav">
+    <details class="n-navbar-menu">
+        <summary class="n-navbar-toggle"><span class="n-navbar-toggle-icon" aria-hidden="true"></span><span class="n-sr-only">Navigation menu</span></summary>
+        <ul class="n-nav">
         <li class="n-nav-item"><a class="n-nav-link" href="grid.html">Grid</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="typography.html">Typography</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="buttons.html">Buttons</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="cards.html">Cards</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="forms.html">Forms</a></li>
-        <li class="n-nav-item"><a class="n-nav-link active" href="components.html">Components</a></li>
+        <li class="n-nav-item"><a class="n-nav-link" href="components.html" aria-current="page">Components</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="utilities.html">Utilities</a></li>
         <li class="n-nav-item"><a class="n-nav-link" href="patterns.html">Patterns</a></li>
-    </ul>
+        <li class="n-nav-item"><a class="n-nav-link" href="production.html">Production</a></li>
+            <li class="n-nav-item"><a class="n-nav-link" href="https://github.com/dakshbathla/nucleus">GitHub <span aria-hidden="true">↗</span></a></li>
+        </ul>
+    </details>
 </nav>
 
 <main class="demo-main" id="main-content">
@@ -281,30 +286,42 @@
         <!-- Navbar -->
         <div class="demo-section" id="navbar">
             <h2 class="demo-title">Navbar</h2>
-            <p class="demo-subtitle">Sticky navigation bar with brand and link components.</p>
+            <p class="demo-subtitle">Sticky navigation bar with a brand and a responsive, JavaScript-free menu.</p>
 
             <div class="n-card n-overflow-hidden n-mb-4">
                 <nav class="n-navbar" style="position:relative;border-bottom:none">
                     <a class="n-navbar-brand" href="#">⚛ MyApp</a>
-                    <ul class="n-nav">
-                        <li class="n-nav-item"><a class="n-nav-link active" href="#">Home</a></li>
-                        <li class="n-nav-item"><a class="n-nav-link" href="#">Features</a></li>
-                        <li class="n-nav-item"><a class="n-nav-link" href="#">Pricing</a></li>
-                        <li class="n-nav-item"><a class="n-nav-link" href="#">Contact</a></li>
-                    </ul>
+                    <details class="n-navbar-menu">
+                        <summary class="n-navbar-toggle">
+                            <span class="n-navbar-toggle-icon" aria-hidden="true"></span>
+                            <span class="n-sr-only">Navigation menu</span>
+                        </summary>
+                        <ul class="n-nav">
+                            <li class="n-nav-item"><a class="n-nav-link" href="#" aria-current="page">Home</a></li>
+                            <li class="n-nav-item"><a class="n-nav-link" href="#">Features</a></li>
+                            <li class="n-nav-item"><a class="n-nav-link" href="#">Pricing</a></li>
+                            <li class="n-nav-item"><a class="n-nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </details>
                 </nav>
             </div>
 
             <div class="demo-code">&lt;nav class="n-navbar"&gt;
   &lt;a class="n-navbar-brand" href="#"&gt;⚛ MyApp&lt;/a&gt;
-  &lt;ul class="n-nav"&gt;
-    &lt;li class="n-nav-item"&gt;
-      &lt;a class="n-nav-link active" href="#"&gt;Home&lt;/a&gt;
-    &lt;/li&gt;
-    &lt;li class="n-nav-item"&gt;
-      &lt;a class="n-nav-link" href="#"&gt;Features&lt;/a&gt;
-    &lt;/li&gt;
-  &lt;/ul&gt;
+  &lt;details class="n-navbar-menu"&gt;
+    &lt;summary class="n-navbar-toggle"&gt;
+      &lt;span class="n-navbar-toggle-icon" aria-hidden="true"&gt;&lt;/span&gt;
+      &lt;span class="n-sr-only"&gt;Navigation menu&lt;/span&gt;
+    &lt;/summary&gt;
+    &lt;ul class="n-nav"&gt;
+      &lt;li class="n-nav-item"&gt;
+        &lt;a class="n-nav-link" href="#" aria-current="page"&gt;Home&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="n-nav-item"&gt;
+        &lt;a class="n-nav-link" href="#"&gt;Features&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/details&gt;
 &lt;/nav&gt;</div>
         </div>
 

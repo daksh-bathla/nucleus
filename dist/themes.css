@@ -1,9 +1,12 @@
 /*! Nucleus CSS 2.0.0 · themes module · @navital/nucleus-css · MIT · https://github.com/dakshbathla/nucleus */
 
+@layer reset, tokens, base, layout, components, utilities, states, themes;
+
 /* Design tokens (shared with the reset module; included so this module is usable standalone) */
 /* ----------------------------- */
 /* 0 · CSS Custom Properties     */
 /* ----------------------------- */
+@layer tokens {
 :root {
     /* ── Colors ── */
     --n-primary:     #0f766e;
@@ -99,10 +102,12 @@
     --n-component-gap: var(--n-space-3);
     --n-section-space: clamp(3rem, 7vw, 6rem);
 }
+}
 
 /* ----------------------------- */
 /* 32 · Themes & Density         */
 /* ----------------------------- */
+@layer themes {
 [data-theme="ocean"] {
     --n-primary: #0369a1;
     --n-primary-h: #075985;
@@ -179,10 +184,12 @@
     --n-control-padding-x: 1.125rem;
     --n-component-gap: var(--n-space-4);
 }
+}
 
 /* ----------------------------- */
 /* 35 · Dark Mode                */
 /* ----------------------------- */
+@layer themes {
 @media (prefers-color-scheme: dark) {
     :root {
         --n-text:        #e2e8f0;
@@ -293,3 +300,4 @@
 .n-dark-mode .n-callout-danger { background: #450a0a; color: #fecaca; }
 .n-dark-mode .n-mark { background: #713f12; color: #fef3c7; }
 .n-dark-mode .n-tooltip::after { background: #f8fafc; color: #0f172a; }
+}

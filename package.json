@@ -36,10 +36,17 @@
     "llms.txt",
     "llms-full.txt",
     "AI_USAGE.md",
+    "ARCHITECTURE.md",
+    "NAMING.md",
+    "MIGRATION.md",
+    "COMING_FROM_TAILWIND.md",
+    "COMING_FROM_BOOTSTRAP.md",
+    "MANIFEST.md",
     "CLASS_REFERENCE.md",
     "COMPONENT_REFERENCE.md",
     "CHANGELOG.md",
     "README.md",
+    "docs/adr",
     "LICENSE"
   ],
   "scripts": {

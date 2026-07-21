@@ -10,6 +10,7 @@ import {
   buildLlmsFull,
   buildClassReference,
   buildComponentReference,
+  buildManifestReference,
 } from "./lib/docs.mjs";
 import { validateContent } from "./lib/validate-markup.mjs";
 
@@ -30,6 +31,7 @@ const REQUIRED_SECTIONS = [
   "Accessibility & Print",
   "Dark Mode",
 ];
+const REQUIRED_LAYERS = ["reset", "tokens", "base", "layout", "components", "utilities", "states", "themes"];
 
 async function walk(dir, exts) {
   const out = [];
@@ -57,6 +59,15 @@ async function main() {
   }
   if (model.classes.length < 580) fail(`Expected ≥580 classes, found ${model.classes.length}`);
   if (model.tokens.length < 76) fail(`Expected ≥76 tokens, found ${model.tokens.length}`);
+  if (JSON.stringify(model.layers) !== JSON.stringify(REQUIRED_LAYERS)) {
+    fail(`Cascade layer order must be: ${REQUIRED_LAYERS.join(", ")}`);
+  }
+  for (const section of model.sections) {
+    if (section.layers.length === 0) fail(`CSS section ${section.num} (${section.title}) is not assigned to a cascade layer`);
+  }
+  if (model.layers.indexOf("utilities") < model.layers.indexOf("components")) {
+    fail("Utilities must have higher cascade priority than components");
+  }
 
   // --- Manifest (also validates curated classes exist) ---
   const { manifest, errors } = buildManifest(model, version);
@@ -82,6 +93,7 @@ async function main() {
   const llmsFull = buildLlmsFull(manifest);
   const classReference = buildClassReference(manifest);
   const componentReference = buildComponentReference(manifest);
+  const manifestReference = buildManifestReference(manifest);
 
   outputs.set("dist/nucleus.manifest.json", manifestJson);
   outputs.set("demo/nucleus.css", bundles["nucleus.css"]);
@@ -89,11 +101,13 @@ async function main() {
   outputs.set("llms-full.txt", llmsFull);
   outputs.set("CLASS_REFERENCE.md", classReference);
   outputs.set("COMPONENT_REFERENCE.md", componentReference);
+  outputs.set("MANIFEST.md", manifestReference);
   outputs.set("demo/nucleus.manifest.json", manifestJson);
   outputs.set("demo/llms.txt", llmsTxt);
   outputs.set("demo/llms-full.txt", llmsFull);
   outputs.set("demo/CLASS_REFERENCE.md", classReference);
   outputs.set("demo/COMPONENT_REFERENCE.md", componentReference);
+  outputs.set("demo/MANIFEST.md", manifestReference);
 
   // --- Modules must partition the source (no class lost or duplicated) ---
   const moduleClassUnion = new Set();
@@ -104,6 +118,60 @@ async function main() {
   for (const cls of model.classes) {
     if (!moduleClassUnion.has(cls)) fail(`Class .${cls} is not in any module bundle`);
   }
+
+  // --- Handwritten claims and repository identity must not drift ---
+  const canonicalRepository = manifest.repository;
+  const packageRepository = String(pkg.repository?.url || "")
+    .replace(/^git\+/, "")
+    .replace(/\.git$/, "");
+  if (packageRepository !== canonicalRepository) {
+    fail(`package.json repository must be ${canonicalRepository}`);
+  }
+  if (pkg.homepage !== `${canonicalRepository}#readme`) fail(`package.json homepage must be ${canonicalRepository}#readme`);
+  if (pkg.bugs?.url !== `${canonicalRepository}/issues`) fail(`package.json bugs URL must be ${canonicalRepository}/issues`);
+
+  const publicClaimFiles = [
+    "README.md",
+    "AI_USAGE.md",
+    "CHANGELOG.md",
+    "RELEASE.md",
+    "CONTRIBUTING.md",
+    "ARCHITECTURE.md",
+    "NAMING.md",
+    "MIGRATION.md",
+    "COMING_FROM_TAILWIND.md",
+    "COMING_FROM_BOOTSTRAP.md",
+    "docs/adr/0001-spacing-scale.md",
+    ...(await walk(join(ROOT, "demo"), [".html", ".md"])).map((file) => relative(ROOT, file)),
+    ...(await walk(join(ROOT, "examples"), [".html", ".md", ".jsx", ".tsx"])).map((file) => relative(ROOT, file)),
+  ];
+  for (const rel of publicClaimFiles) {
+    const file = join(ROOT, rel);
+    if (!existsSync(file)) continue;
+    const text = await readFile(file, "utf8");
+    const repositoryMatches = [...text.matchAll(/https:\/\/github\.com\/[A-Za-z0-9_-]+\/nucleus(?:#readme)?/g)];
+    for (const match of repositoryMatches) {
+      if (!match[0].startsWith(canonicalRepository)) fail(`${rel} uses noncanonical repository URL ${match[0]}`);
+    }
+  }
+
+  const readClaim = async (rel) => readFile(join(ROOT, rel), "utf8");
+  const readme = await readClaim("README.md");
+  for (const match of readme.matchAll(/\b(\d+)(?: generated| documented)? classes\b/g)) {
+    if (Number(match[1]) !== manifest.counts.classes) fail(`README.md class count is ${match[1]}, expected ${manifest.counts.classes}`);
+  }
+  for (const match of readme.matchAll(/\b(\d+) (?:design )?tokens\b/g)) {
+    if (Number(match[1]) !== manifest.counts.tokens) fail(`README.md token count is ${match[1]}, expected ${manifest.counts.tokens}`);
+  }
+  const homepage = await readClaim("demo/index.html");
+  if (!homepage.includes(`${manifest.counts.classes} documented classes`)) fail("demo/index.html class claim is stale");
+  if (!homepage.includes(`<dt>${manifest.counts.classes}</dt><dd>classes</dd>`)) fail("demo/index.html class metric is stale");
+  if (!homepage.includes(`<dt>${manifest.counts.tokens}</dt><dd>tokens</dd>`)) fail("demo/index.html token metric is stale");
+  if (!homepage.includes(`<dt>${manifest.counts.components}</dt><dd>components</dd>`)) fail("demo/index.html component metric is stale");
+  if (!homepage.includes(`Version ${version}.`)) fail("demo/index.html package version is stale");
+  if (!homepage.includes(`${manifest.package}@${version}/dist/nucleus.min.css`)) fail("demo/index.html pinned CDN version is stale");
+  const patterns = await readClaim("demo/patterns.html");
+  if (!patterns.includes(`data-nucleus-count="classes">${manifest.counts.classes}<`)) fail("demo/patterns.html class metric is stale");
 
   // --- Demo/example markup checks (undefined classes + broken local links) ---
   const htmlFiles = [
@@ -157,7 +225,7 @@ async function main() {
     `✓ nucleus.css ${(Buffer.byteLength(full) / 1024).toFixed(1)} KB → nucleus.min.css ${(Buffer.byteLength(min) / 1024).toFixed(1)} KB`,
   );
   console.log("✓ modules: reset, utilities, components, themes (+ .min)");
-  console.log("✓ manifest + llms.txt + llms-full.txt + CLASS_REFERENCE.md + COMPONENT_REFERENCE.md");
+  console.log("✓ manifest + llms.txt + llms-full.txt + class/component/schema references");
   console.log(checkOnly ? "✓ All generated files are in sync" : "✓ Build complete");
 }
 

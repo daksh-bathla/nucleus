@@ -4,9 +4,13 @@
    NUCLEUS CSS — Lightweight, Mobile-First Framework
    ================================================ */
 
+/* Public cascade contract. Later layers deliberately outrank earlier ones. */
+@layer reset, tokens, base, layout, components, utilities, states, themes;
+
 /* ----------------------------- */
 /* 0 · CSS Custom Properties     */
 /* ----------------------------- */
+@layer tokens {
 :root {
     /* ── Colors ── */
     --n-primary:     #0f766e;
@@ -102,10 +106,12 @@
     --n-component-gap: var(--n-space-3);
     --n-section-space: clamp(3rem, 7vw, 6rem);
 }
+}
 
 /* ----------------------------- */
 /* 1 · Reset Layer               */
 /* ----------------------------- */
+@layer reset {
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -155,10 +161,12 @@ a:not([class*="n-btn"]):visited { color: var(--n-visited); }
 #root, #__next {
     isolation: isolate;
 }
+}
 
 /* ----------------------------- */
 /* 33 · Accessibility & Print    */
 /* ----------------------------- */
+@layer base {
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
     outline: 3px solid var(--n-focus);
     outline-offset: 2px;
@@ -223,4 +231,5 @@ a:not([class*="n-btn"]):visited { color: var(--n-visited); }
     a[href]::after { content: " (" attr(href) ")"; font-size: 0.85em; }
     a[href^="#"]::after, a[href^="javascript:"]::after { content: ""; }
     .n-card, .n-prose pre, .n-table { break-inside: avoid; }
+}
 }
